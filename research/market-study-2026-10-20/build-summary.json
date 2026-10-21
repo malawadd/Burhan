@@ -1,0 +1,25 @@
+{
+  "pdf": "C:\\Users\\IAM\\Documents\\hackathon\\opencv\\project1\\output\\pdf\\global-market-study-opencv-hackathon.pdf",
+  "pages": 13,
+  "bytes": 124054,
+  "main_words": 5156,
+  "evidence_sources": 102,
+  "page_words": [
+    360,
+    370,
+    353,
+    436,
+    410,
+    428,
+    456,
+    263,
+    300,
+    381,
+    327,
+    394,
+    414
+  ],
+  "sparse_pages": [],
+  "html": "C:\\Users\\IAM\\Documents\\hackathon\\opencv\\project1\\research\\market-study-2026-10-20\\market-study.html",
+  "notebook": "C:\\Users\\IAM\\Documents\\hackathon\\opencv\\project1\\research\\market-study-2026-10-20\\evidence-notebook.html"
+}

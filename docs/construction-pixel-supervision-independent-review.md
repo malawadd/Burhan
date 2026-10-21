@@ -1,0 +1,45 @@
+# Crack pixel-supervision preparation/probe: independent static review
+
+Scope: [preparation](C:/Users/IAM/Documents/hackathon/opencv/project1/scripts/prepare_construction_pixel_supervision.py), [protected proposal and bounded probe](C:/Users/IAM/Documents/hackathon/opencv/project1/scripts/probe_construction_pixel_supervision.py), existing LiteCrackSeg source/export/serving adapter, shared camera exposure, and prepared-manifest metadata. **No model forward, gradient, test, image/mask decode, reserved-102 download, or large data reads were performed by this review.**
+
+No material blocker was found to the authorized bounded CPU probe. This does not authorize a 300-step fit or establish model accuracy/capacity.
+
+## Data and loss contract
+
+The prepared manifest records 141 distinct original source images: 41 accepted LCSD positives,40 DACL crack positives,60 DACL crack negatives. Its reported SHA-256 is `45bde41e6d8a11762e29396895009503c111a2d0ac70e30b24633fd99c820219`. Prepared tensors and their source image/annotation hashes are recorded per input; consumed NPZ files are rehashed before probe use.
+
+- LCSD foreground is exactly code2; code0 is background and any255 is excluded from both losses. Current accepted41 metadata records zero ignore pixels. LCSD does not provide a spall channel. Original author VAL/TEST use is explicitly transferred to OUR TRAIN; no claim of LCSD heldout performance follows.
+- DACL targets rasterize the union of **Crack and ACrack (alligator crack)** from complete original filled polygons, checked for equality against pinned publisher metadata. Overlapping crack types remain one binary foreground, without duplicate weighting. Source images are full native photos, not prior detection crops or filled bounding boxes.
+- The additional spall-cohort photos can be crack-negative under their complete publisher crack annotations. Their target zero does not mean the image is healthy or that spalling is absent. Other conditions and substrates remain outside this specialist's interpretation.
+- DACL sources must be official TRAIN; original project diagnostic/CAL/heldout selections are excluded. The prepared code does not read ev-CIVIL evaluation images or turn its box labels into semantic masks. Proposed102 LCSD well-lit reserved images are neither fetched nor opened by this code.
+- Positive targets that disappear during nearest-neighbor serving-size projection cause rejection rather than being relabeled normal. The loss uses main **raw logits** with valid-pixel BCEWithLogits positive weight2 plus .5 positive-image soft Dice; masked pixels contribute to neither numerator nor denominator. Dice is intentionally omitted on empty-target examples; their false foreground is penalized by BCE.
+
+## Preprocessing, model state, and source semantics
+
+Preparation applies the shared full-native-frame `low_light_gain` once, then linear resizing to384×384. Target/valid masks use nearest resizing. Probe tensors are already gained and the probe makes no second exposure call. BGR uint8 becomes **RGB float0..255**, without `/255` or ImageNet normalization, matching the existing reviewed Export/serving path. The proposed serving adapter applies gain once to raw input before the same resize; that future export must preserve this contract.
+
+`reviewed_model()` verifies the original checkpoint hash, uses `weights_only=True`, and strictly loads every tensor. No head reset or channel remapping is present. Model output is a six-element tuple; index0 is the main raw-logit tensor. Export takes its sigmoid; training does not feed probabilities into BCEWithLogits. The first real TRAIN batch is explicitly checked against the existing Export wrapper before updates.
+
+The author's local `trainer.py` computes/logs auxiliary losses but sets `total_loss=output_loss`. Thus main-only optimization is supported by inspected author code, rather than an assumed need to sum all six outputs. The proposed BCE/Dice objective deliberately differs from the author's Tversky objective and is documented as a local continuation recipe.
+
+The whole model stays in eval mode while autograd is enabled. Encoder parameters are excluded from gradients/optimizer; running BN statistics and dropout/DropPath stay fixed, while eligible decoder BN affine parameters can still update. This matches the reviewed helper's eval-identity DropPath replacement. Each batch1/2 probe reloads the original source and resets seeds; it performs three gradient steps and discards weights/optimizer. There is no full-fit CLI mode and no GPU path. RSS sampling and stage guards report/stop at the declared6GiB process limit; these are observational guards, not a guarantee against every transient allocation.
+
+## Provenance and future selection
+
+Before protocol recording, I recommended asserting that the prepared manifest's `preparation_source_sha256` and `shared_preprocessing_sha256` equal the current code identities, in addition to separately pinning the manifest/current implementations. This closes a stale-preparation provenance gap without changing current pixels, labels or loss. The owner was notified before the bounded probe.
+
+The owner subsequently applied these provenance guards plus coordinator-requested full-state checks, preserved the initial dry draft before any NN, and recorded the final protected protocol SHA-256 `1f893e2bdcf025dbb5513a680a72b052729ea66405880900549f76afd24e32e4` before the bounded probe. This is an owner-reported execution receipt; the independent reviewer did not run the probe or additional CPU tests.
+
+The proposed300-step continuation, checkpoints100/200/300, threshold grid, crack precision≥.8, verified-negative image FPR≤.1, and fixed per-checkpoint/global ranking are recorded declarations. The current probe does **not** implement the future trainer, exporter, all-three calibrator or winner freezer. Those require separate authorization and review; all three actual fixed CAL evaluations and exact original122 source identities must be enforced before selection. No passing threshold may be invented if the fixed grid fails, and ev-CIVIL box IoU cannot be presented as pixel accuracy.
+
+The whole-model license remains undeclared; DACL noncommercial and LCSD source-lineage caveats are retained. Successful gradients would establish only that this bounded local optimization path works, not field detection, physical crack width, structural safety, code compliance, or real-time video performance.
+
+## Subsequent300-step implementation review: code only
+
+The owner reported the bounded probe passed all six finite gradient updates, exact source-sigmoid parity, unchanged encoder/BN state and1.15GiB peak RSS (receipt `416a65b137830f73ae058f06694dee0aa4ad2b26071ce05d23533b87f15206e8`). I subsequently inspected the separately prepared [fixed trainer/exporter](C:/Users/IAM/Documents/hackathon/opencv/project1/scripts/train_construction_pixel_supervision.py) and [all-three calibrator/freezer](C:/Users/IAM/Documents/hackathon/opencv/project1/scripts/evaluate_construction_pixel_supervision.py) during the coordinator's timing hold, using source text only.
+
+The implementation preserves the immutable proposal and records a separate source-pinned execution receipt before optimizer launch. It uses exactly300 steps/batch1/CPU1, resets from the original TUT checkpoint, freezes and checks encoder/BN state, and exports100/200/300 to distinct assets. Fixed TRAIN and zero Torch references precede actual GPU probability parity; no CAL access is permitted before that guard passes. Cached selected masks/boxes/scores must exactly match actual serving inference on all122 CAL observations. The strict cutoff/area4/native resize/component decoder, crack-only publisher-box IoU.5 scope, precision≥.8/negativeFPR≤.1 guards and fixed threshold/ranking rules are preserved. The freezer requires finished300-step training and every100/200/300 CAL report; no eligible threshold yields an explicit rejected outcome.
+
+**A material provenance gap was found and fixed before execution:** image hashes alone did not bind publisher GT. The additive receipt now pins the original `exposures.json` and `background-import.json` against preexisting receipts, plus canonical ordered source/path/frame index/negative flag/full expected annotation IDs and boxes. It requires122 images,112 positive exposures,10 verified negatives,125 crack and38 spall boxes. Actual sampled CAL rows must match this canonical identity, and the freezer rechecks all three against the protected metadata. The immutable proposal, GT and data are not rewritten.
+
+Two further guards now preserve failed/partial CAL artifacts before any retry and require exactly the protected ordered threshold grid once each. These were verified by reading the changed code. No remaining material blocker was found to the fixed implementation; authorization and actual fit/export/parity/CAL outcomes remain coordinator decisions. No tests, file hashes, pixel reads, model runs or optimizer work were performed by this review during the timing hold.

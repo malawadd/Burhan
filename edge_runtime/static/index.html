@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>InspectFlow · Edge workspace</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="/" aria-label="InspectFlow home"><span class="brand-mark">i<span></span></span><span>InspectFlow<small>EDGE WORKSPACE</small></span></a>
+    <div class="nav-label">INSPECTION PROFILES</div>
+    <nav class="profile-nav" aria-label="Inspection profile">
+      <button class="profile-button selected" data-profile="factory" aria-pressed="true"><span class="nav-icon">F</span><span>Factory<small>Visual product faults</small></span><span class="nav-arrow">↗</span></button>
+      <button class="profile-button" data-profile="freight" aria-pressed="false"><span class="nav-icon">D</span><span>Freight<small>Document readiness</small></span><span class="nav-arrow">↗</span></button>
+      <button class="profile-button" data-profile="roads" aria-pressed="false"><span class="nav-icon">R</span><span>Roads<small>Candidate review</small></span><span class="nav-arrow">↗</span></button>
+      <button class="profile-button" data-profile="construction" aria-pressed="false"><span class="nav-icon">C</span><span>Construction<small>Site video review</small></span><span class="nav-arrow">↗</span></button>
+    </nav>
+    <div class="sidebar-note"><span class="tiny-dot"></span> Processing at the edge<p>One local runtime.<br>Four inspection workflows.</p></div>
+    <div class="sidebar-bottom"><span id="cloud-label">Cloud sync off</span><small>No external services required</small><span class="version">PROTOTYPE / 0.1</span></div>
+  </aside>
+
+  <main>
+    <header class="topbar"><span class="breadcrumb">Workspace <span>/</span> <b id="breadcrumb-profile">Factory</b></span><div class="connection"><span id="connection-dot" class="tiny-dot muted"></span><span id="connection-label">Connecting to edge runtime</span></div></header>
+    <section class="page-heading"><div><div class="eyebrow">LOCAL VISION · ACTIONABLE EVIDENCE</div><h1 id="page-title">Factory inspection</h1><p id="page-description">Compare a fixed-view product against an approved visual reference.</p></div><a class="button secondary export-button" id="export-button" href="/api/export" download="inspectflow-export.json">Export inspection data <span>↗</span></a></section>
+
+    <section class="setup-panel" aria-label="Inspection setup">
+      <div class="setup-fields">
+        <label class="field source-field">Input source<select id="source"><option value="demo">Synthetic demo</option><option value="camera:0">Laptop camera · device 0</option><option value="file">Local video file</option><option value="image">Local image</option><option value="images">Local image folder</option><option value="pdf">Local PDF</option></select></label>
+        <label class="field file-field hidden" id="file-field">Absolute path on edge host<input id="file-path" type="text" spellcheck="false" placeholder="C:\data\inspection.jpg"></label>
+        <label class="field compact-field">Input FPS<input id="input-fps" type="number" value="8" min="1" max="30" step="1"></label>
+        <label class="field compact-field">Deadline <span class="label-unit">ms</span><input id="deadline" type="number" value="350" min="20" max="5000" step="10"></label>
+        <div class="setup-actions"><button id="start-button" class="button primary"><span class="play-icon">▶</span> Start inspection</button><button id="stop-button" class="button secondary" disabled>Stop</button></div>
+      </div>
+      <div class="setup-footer"><label class="switch-label"><input id="save-evidence" type="checkbox"><span class="switch"></span><span>Save event images <b id="recording-label">OFF</b></span></label><span class="muted-text">Images stay on the edge host. Continuous video is not recorded.</span><label class="trigger-label" id="trigger-setting"><input id="triggered" type="checkbox"> Manual unit triggers <span title="Factory mode: inspect units only when you click Inspect next unit.">ⓘ</span></label></div>
+      <p id="setup-notice" class="setup-notice hidden"></p>
+      <label class="field public-presets">Public-data example<select id="sample-preset"><option value="">Choose a downloaded example…</option></select></label>
+      <p id="preset-evidence-note" class="preset-evidence-note hidden"></p>
+      <div id="construction-settings" class="construction-settings hidden"><label class="field">Construction model<select id="construction-mode"><option value="ppe">Site PPE observations</option><option value="crack">Surface crack candidates</option><option value="damage" id="construction-damage-mode-option" disabled>Visible surface damage models</option></select></label><label class="field hidden" id="construction-damage-settings">Damage model<select id="construction-damage-variant"><option value="">Choose an installed damage model…</option></select></label><label class="field hidden" id="construction-damage-check-settings">Condition to inspect<select id="construction-damage-check"><option value="">All supported visible conditions</option></select><span class="task-scope-note">Only the selected condition is assessed. A task filter does not improve model accuracy.</span></label><label class="field">Construction stage<select id="construction-stage"><option value="all">All researched stages</option></select></label><p>Each model assesses its named visual task. Building-code checks remain unassessed.</p></div>
+      <details class="model-settings"><summary>Local model settings</summary><label class="field">Profile options (JSON)<textarea id="profile-options" rows="3" spellcheck="false" placeholder='{}'>{}</textarea></label><label class="field">Seconds per folder image / PDF page<input id="source-hold" type="number" min="1" max="300" value="30"></label><label class="field">Preview FPS (0 disables preview only)<input id="preview-fps" type="number" min="0" max="15" value="6"></label><p>Defaults use installed local models for real sources. See module documentation for model paths, thresholds and ROI. Changes apply on Start. Construction mode, stage, damage model and condition follow the selectors above. Preview sampling does not skip inspection frames.</p></details>
+    </section>
+
+    <label id="video-mode-setting" class="field public-presets">Video playback<select id="video-mode"><option value="realtime">Real time · report skipped source frames</option><option value="every_frame">Sequential source · no source skipping</option></select><span class="muted-text">Decoded frames can still be dropped by the inspection queue; review the coverage counters.</span></label>
+    <div id="video-timeline" class="video-timeline hidden"><span id="video-time">Video time unavailable</span><progress id="video-progress" max="1" value="0" aria-label="Video playback progress"></progress><span id="video-skips">Source frames skipped: 0</span></div>
+    <div id="error-banner" class="error-banner hidden" role="alert"></div>
+
+    <section class="workspace-grid">
+      <div class="preview-panel panel">
+        <div class="panel-header"><div><span class="live-dot" id="stream-dot"></span><h2>Inspection view</h2><span class="badge" id="source-badge">SYNTHETIC DEMO</span></div><span class="mono" id="resolution-label">960 × 540</span></div>
+        <div class="preview-container"><img id="preview" alt="Annotated inspection frame from the local edge runtime" class="hidden"><div id="preview-placeholder" class="preview-placeholder"><div class="viewfinder"><span></span></div><strong id="preview-placeholder-title">Ready when you are</strong><p id="preview-placeholder-copy">Choose a profile and source, then start inspection. Camera access begins only when you select it and press Start.</p></div><div class="preview-caption"><span id="preview-state">NO ACTIVE STREAM</span><span id="preview-scope">Fixed view · visible differences only</span></div></div>
+        <div class="profile-tools"><span id="tools-hint">Camera input needs an approved reference.</span><div><button class="button small secondary" id="calibrate-button" disabled>Approve current reference</button><button class="button small secondary hidden" id="capture-button" disabled>Capture page</button><button class="button small primary hidden" id="trigger-button" disabled>Inspect next unit</button><button class="button small subtle" id="reset-button" disabled>Reset profile</button></div></div>
+      </div>
+
+      <aside class="result-panel panel"><div class="panel-header"><h2>Current inspection</h2><span class="status-tag neutral" id="result-status">IDLE</span></div><div class="result-body"><div class="eyebrow">OBSERVATION</div><h3 id="result-title">No inspection yet</h3><p id="result-guidance">Start a source to see findings and the next suggested action.</p><div id="checklist" class="checklist hidden"></div><details id="document-detail" class="hidden"><summary>Extracted document text and fields</summary><pre id="document-text"></pre></details><div class="next-action"><span>NEXT ACTION</span><strong id="result-action">Choose a source</strong></div><div class="finding-heading"><h4>Findings</h4><span id="finding-count">0</span></div><div id="findings" class="findings"><p class="empty-copy">Findings appear here when a frame is processed.</p></div></div><div class="result-footnote" id="profile-limitation">Measurements are method-specific; scores are not universal confidence.</div></aside>
+    </section>
+
+    <section class="metrics-strip" aria-label="Live runtime metrics">
+      <div class="metric"><span>HOST-TO-DECISION P95</span><strong id="metric-p95">—<small>ms</small></strong><p id="latency-note">Awaiting processed frames</p></div>
+      <div class="metric"><span>PROCESSING RATE</span><strong id="metric-fps">—<small>fps</small></strong><p id="capture-rate">Capture rate — fps</p></div>
+      <div class="metric"><span>PROCESSED FRAMES</span><strong id="metric-processed">—</strong><p id="captured-count">Captured —</p></div>
+      <div class="metric"><span>DROPPED / LATE</span><strong id="metric-drops">— / —</strong><p id="queue-note">Bounded FIFO · overflow reported</p></div>
+      <div class="metric"><span>EVIDENCE WRITER</span><strong id="metric-storage">—</strong><p id="storage-note">Pending — · lost —</p></div>
+    </section>
+
+    <section id="construction-recordings" class="panel construction-coverage hidden">
+      <div class="panel-header"><h2>Damage cases and inspection evidence</h2><span class="badge">Real recorded inputs</span></div>
+      <div class="construction-recording-body">
+        <p>Choose footage with publisher-annotated damage. The result explains what the model located, what it missed and what needs inspection.</p>
+        <label class="recording-archive-option"><input id="construction-show-diagnostics" type="checkbox"> Include failure diagnostics and context footage</label>
+        <label class="field">Inspection case<select id="construction-recording"><option value="">Choose an inspection case...</option></select></label>
+        <p id="construction-recording-availability"></p>
+        <button id="construction-recording-play" class="button secondary" disabled>Play recording</button>
+        <button id="construction-load-source" class="button secondary" disabled>Load this source for local inspection</button>
+        <video id="construction-recording-player" controls preload="none" playsinline aria-label="Annotated real construction footage"></video>
+        <div id="construction-case-evidence" class="hidden" aria-live="polite">
+          <h3 id="construction-case-title"></h3><p id="construction-case-issue"></p><p id="construction-case-why"></p>
+          <div id="construction-case-summary" class="case-summary"></div>
+          <p id="construction-case-scope"></p><p id="construction-case-next"></p>
+          <h4>Evidence at this video time</h4><div id="construction-current-evidence"></div>
+          <div id="construction-evidence-moments" class="evidence-moments"></div>
+        </div>
+        <p id="construction-recording-note">Object boxes alone do not establish damage or a construction mistake. Diagnostic footage is available separately.</p>
+        <p id="construction-recording-credit"></p>
+      </div>
+    </section>
+
+    <section id="construction-capabilities" class="panel construction-coverage hidden"><div class="panel-header"><h2>Visible damage categories</h2><span id="construction-capability-summary" class="badge">Loading evidence</span></div><p class="construction-scope">Each category shows its installed model, measured evidence and next inspection. Categories researched for future training remain labelled separately.</p><div id="construction-capability-list" class="construction-capability-list"></div></section>
+
+    <section id="construction-coverage" class="panel construction-coverage hidden"><div class="panel-header"><h2>Saudi construction inspection plan</h2><span id="construction-summary" class="badge">Not assessed</span></div><p class="construction-scope">Low-rise residential and commercial applicability are marked separately. Video observations cover selected visible conditions. Measurements, tests, design checks and authority approvals remain separate evidence requirements. No code-compliance result is issued.</p><div id="construction-topics"></div></section>
+
+    <section class="lower-grid"><div class="panel event-panel"><div class="panel-header"><div><h2>Recent events</h2><span class="badge muted-badge">LOCAL HISTORY</span></div><span class="muted-text">Latest 20</span></div><div class="event-table-wrap"><table><thead><tr><th>TIME</th><th>PROFILE</th><th>EVENT</th><th>EVIDENCE</th></tr></thead><tbody id="events-body"><tr><td colspan="4" class="table-empty">No events loaded yet.</td></tr></tbody></table></div></div><div class="panel health-panel"><div class="panel-header"><h2>Runtime health</h2><span id="health-tag" class="status-tag neutral">IDLE</span></div><dl><div><dt>Queue depth</dt><dd id="health-queue">—</dd></div><div><dt>Frame age</dt><dd id="health-age">—</dd></div><div><dt>Inspection errors</dt><dd id="health-errors">—</dd></div><div><dt>Missed units</dt><dd id="health-missed">—</dd></div><div><dt>Coverage gaps</dt><dd id="health-gaps">—</dd></div><div><dt>Uptime</dt><dd id="health-uptime">—</dd></div><div><dt>Session</dt><dd id="health-session" class="mono">—</dd></div></dl><p id="health-note">This prototype exposes processing delays and missed deadlines. It does not guarantee every-item coverage.</p></div></section>
+    <footer class="page-footer"><span>InspectFlow / Local inspection workspace</span><span>Public-road and factory outputs require human review. <b>No field validation claimed.</b></span></footer>
+  </main>
+  <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+</body>
+</html>
+
+

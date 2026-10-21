@@ -1,0 +1,1328 @@
+{
+  "schema_version": 1,
+  "updated_date": "2026-10-20",
+  "scope": "Visible-condition candidate review; data availability and model support are separate. No code-compliance or physical severity determination.",
+  "categories": [
+    {
+      "id": "surface_crack",
+      "label": "Visible surface crack",
+      "condition": "A visible linear or branching surface discontinuity.",
+      "why_it_matters": "May indicate movement or deterioration; appearance does not establish structural severity.",
+      "next_check": "Inspect close up, distinguish joints/stains, measure width with a scale and assess cause.",
+      "data_source_url": "https://doi.org/10.11583/DTU.25924228",
+      "license": "ev-CIVIL footage/annotations CC BY 4.0; model source/license recorded by construction model manifest.",
+      "model_status": "supported_experimental",
+      "model_ref": "crack:joint_aware_candidate",
+      "validation_scope": "Installed experimental crack model. Two reused ev-CIVIL public diagnostic clips:136/170 publisher boxes matched at IoU0.50; thin-crack case0/8. Unknown training overlap; no independent Saudi or all-stage validation.",
+      "video_evidence": [
+        {
+          "case_id": "evcivil-crack_10",
+          "scope": "Known branching crack: hits and misses"
+        },
+        {
+          "case_id": "evcivil-crack_89",
+          "scope": "Known thin crack: all publisher instances missed"
+        }
+      ],
+      "metrics": {
+        "localized_matches": 136,
+        "annotated_instances": 170,
+        "recall": 0.8,
+        "precision": 0.5862068965517241,
+        "matching_iou_threshold": 0.5,
+        "scope": "Reused two-clip diagnostic, correlated frames; unknown model-training overlap"
+      },
+      "diagnostic_models": [
+        {
+          "positive_images": 15,
+          "negative_images": 40,
+          "pixel_tp": 397628,
+          "pixel_fp": 1181636,
+          "pixel_fn": 380791,
+          "pixel_precision": 0.25178057626843897,
+          "pixel_recall": 0.5108148696267691,
+          "pixel_iou": 0.2028657359104719,
+          "derived_region_tp_iou_0_5": 2,
+          "derived_region_fp_iou_0_5": 107,
+          "derived_region_fn_iou_0_5": 25,
+          "localized_positive_images_any_pixel": 11,
+          "positive_images_10pct_coverage": 9,
+          "positive_images_50pct_coverage": 6,
+          "negative_images_flagged": 15,
+          "model_ref": "damage:dacl_segformer_b1",
+          "input_size": 512,
+          "matching_iou_threshold": 0.5,
+          "scope": "55 fixed public-validation photos; checkpoint training/selection overlap unknown; not video or blind test"
+        }
+      ],
+      "evidence_summary": "Separate DACL broad-model diagnostic, not credited to this category's video-model identity. DACL512 photo diagnostic: pixel precision 25.2%, recall 51.1%, IoU 20.3%; derived-region matches 2/27 at IoU0.50, 107 unmatched model regions; class-absent photo flags 15/40. 55 fixed public-validation stills; checkpoint overlap unknown. No category-specific video validation.",
+      "photo_evidence": [
+        {
+          "case_id": "dacl-first-crack",
+          "preset_label": "Construction PHOTO · Visible surface crack · first labelled case (mask IoU 0.00)",
+          "media_type": "still_photo",
+          "model_ref": "damage:dacl_segformer_b1",
+          "comparison_image": "output/evaluation/construction-dacl19-round3/512/crack-raw-annotation-model.jpg"
+        }
+      ]
+    },
+    {
+      "id": "surface_spalling",
+      "label": "Spalling / surface material loss",
+      "condition": "Visible chipped, detached or missing surface material; substrate is unconfirmed by the model.",
+      "why_it_matters": "Loose surface material needs review. A concrete-cover assessment additionally requires confirmation that the damaged material is concrete.",
+      "next_check": "Confirm the material and substrate, then review loose edges, depth and repair need. For confirmed concrete, also assess cover and reinforcement exposure.",
+      "data_source_url": "https://github.com/phiyodr/dacl10k-toolkit",
+      "license": "DACL photos CC BY-NC 4.0; author checkpoint whole-model redistribution license unresolved, research prototype. Separate ev-CIVIL real footage/boxes CC BY 4.0; local YOLO video candidate remains a distinct experiment.",
+      "model_status": "measured_weak",
+      "model_ref": "damage:dacl_segformer_b1",
+      "validation_scope": "Installed DACL512 photo diagnostic only: 36 positive and19 class-absent public photos; checkpoint training/selection overlap unknown. Pixel precision69.9%, recall34.5%, IoU.30033;12/101 derived regions matched at IoU.50;7/19 class-absent photos flagged. Weak photo localization does not establish spalling video detection. The old installed crack-only video baseline is unsupported for spalling; the new video fit is separate.",
+      "video_evidence": [
+        {
+          "case_id": "evcivil-spalling_35",
+          "scope": "Known spalling, currently unsupported by crack-only model"
+        }
+      ],
+      "additional_data_sources": [
+        {
+          "url": "https://github.com/phiyodr/dacl10k-toolkit",
+          "purpose": "Complete-polygon positive/negative photo diagnostic; separate class-negative photos used by the video training experiment",
+          "license": "CC BY-NC 4.0"
+        },
+        {
+          "url": "https://doi.org/10.11583/DTU.25924228",
+          "purpose": "Publisher-labelled actual video, separate video-model experiments and preserved unsupported crack-only baseline",
+          "license": "CC BY 4.0"
+        }
+      ],
+      "diagnostic_models": [
+        {
+          "positive_images": 36,
+          "negative_images": 19,
+          "pixel_tp": 3269447,
+          "pixel_fp": 1405980,
+          "pixel_fn": 6210674,
+          "pixel_precision": 0.6992830815238907,
+          "pixel_recall": 0.34487397365497763,
+          "pixel_iou": 0.3003322309796685,
+          "derived_region_tp_iou_0_5": 12,
+          "derived_region_fp_iou_0_5": 71,
+          "derived_region_fn_iou_0_5": 89,
+          "localized_positive_images_any_pixel": 24,
+          "positive_images_10pct_coverage": 22,
+          "positive_images_50pct_coverage": 12,
+          "negative_images_flagged": 7,
+          "model_ref": "damage:dacl_segformer_b1",
+          "input_size": 512,
+          "matching_iou_threshold": 0.5,
+          "scope": "55 fixed public-validation photos; checkpoint training/selection overlap unknown; not video or blind test"
+        }
+      ],
+      "evidence_summary": "The registered DACL model has weak measured photo localization: pixel precision 69.9%, recall 34.5%, IoU 30.0%; 12/101 derived regions matched at IoU 0.50, 71 unmatched model regions and 7/19 class-absent photo flags. The 55 public-validation stills have unknown checkpoint overlap. Separate video models failed camera calibration and remain explicit research diagnostics; these photo results do not validate spalling video inspection.",
+      "photo_evidence": [
+        {
+          "case_id": "dacl-first-spalling",
+          "preset_label": "Construction PHOTO · Spalling / surface material loss · first labelled case (mask IoU 0.18)",
+          "media_type": "still_photo",
+          "model_ref": "damage:dacl_segformer_b1",
+          "comparison_image": "output/evaluation/construction-dacl19-round3/512/spalling-raw-annotation-model.jpg"
+        }
+      ]
+    },
+    {
+      "id": "surface_rust",
+      "label": "Rust / corrosion staining",
+      "condition": "Visible rust-colored deposits or corrosion appearance.",
+      "why_it_matters": "Can be associated with deterioration; stain appearance alone does not identify rebar loss.",
+      "next_check": "Locate the source and inspect metal/reinforcement condition; measure section loss separately.",
+      "data_source_url": "https://github.com/phiyodr/dacl10k-toolkit",
+      "license": "Dataset CC BY-NC 4.0 (author terms); author demo weights have no separately declared license; commercial clearance unresolved.",
+      "model_status": "measured_weak",
+      "model_ref": "damage:dacl_segformer_b1",
+      "validation_scope": "DACL512 photo diagnostic: pixel precision 69.2%, recall 21.0%, IoU 19.2%; derived-region matches 26/119 at IoU0.50, 66 unmatched model regions; class-absent photo flags 5/25. 55 fixed public-validation stills; checkpoint overlap unknown. No category-specific video validation.",
+      "diagnostic_models": [
+        {
+          "positive_images": 30,
+          "negative_images": 25,
+          "pixel_tp": 930518,
+          "pixel_fp": 414626,
+          "pixel_fn": 3497968,
+          "pixel_precision": 0.6917608821063024,
+          "pixel_recall": 0.2101210210442124,
+          "pixel_iou": 0.19213224885156485,
+          "derived_region_tp_iou_0_5": 26,
+          "derived_region_fp_iou_0_5": 66,
+          "derived_region_fn_iou_0_5": 93,
+          "localized_positive_images_any_pixel": 25,
+          "positive_images_10pct_coverage": 24,
+          "positive_images_50pct_coverage": 17,
+          "negative_images_flagged": 5,
+          "model_ref": "damage:dacl_segformer_b1",
+          "input_size": 512,
+          "matching_iou_threshold": 0.5,
+          "scope": "55 fixed public-validation photos; checkpoint training/selection overlap unknown; not video or blind test"
+        }
+      ],
+      "metrics": {
+        "positive_images": 30,
+        "negative_images": 25,
+        "pixel_tp": 930518,
+        "pixel_fp": 414626,
+        "pixel_fn": 3497968,
+        "pixel_precision": 0.6917608821063024,
+        "pixel_recall": 0.2101210210442124,
+        "pixel_iou": 0.19213224885156485,
+        "derived_region_tp_iou_0_5": 26,
+        "derived_region_fp_iou_0_5": 66,
+        "derived_region_fn_iou_0_5": 93,
+        "localized_positive_images_any_pixel": 25,
+        "positive_images_10pct_coverage": 24,
+        "positive_images_50pct_coverage": 17,
+        "negative_images_flagged": 5,
+        "model_ref": "damage:dacl_segformer_b1",
+        "input_size": 512,
+        "matching_iou_threshold": 0.5,
+        "scope": "55 fixed public-validation photos; checkpoint training/selection overlap unknown; not video or blind test"
+      },
+      "evidence_summary": "DACL512 photo diagnostic: pixel precision 69.2%, recall 21.0%, IoU 19.2%; derived-region matches 26/119 at IoU0.50, 66 unmatched model regions; class-absent photo flags 5/25. 55 fixed public-validation stills; checkpoint overlap unknown. No category-specific video validation. Weak localization: available for human-reviewed experiments, not dependable inspection.",
+      "photo_evidence": [
+        {
+          "case_id": "dacl-first-rust",
+          "preset_label": "Construction PHOTO · Rust / corrosion staining · first labelled case (mask IoU 0.55)",
+          "media_type": "still_photo",
+          "model_ref": "damage:dacl_segformer_b1",
+          "comparison_image": "output/evaluation/construction-dacl19-round3/512/rust-raw-annotation-model.jpg"
+        }
+      ]
+    },
+    {
+      "id": "surface_exposed_rebar",
+      "label": "Exposed reinforcement",
+      "condition": "Visible reinforcement not covered by the expected concrete surface.",
+      "why_it_matters": "Exposure can reduce cover protection; construction-stage context matters.",
+      "next_check": "Verify work stage, cover requirements, bar condition and repair/detail acceptance.",
+      "data_source_url": "https://github.com/phiyodr/dacl10k-toolkit",
+      "license": "Dataset CC BY-NC 4.0 (author terms); author demo weights have no separately declared license; commercial clearance unresolved.",
+      "model_status": "measured_weak",
+      "model_ref": "damage:dacl_segformer_b1",
+      "validation_scope": "DACL512 photo diagnostic: pixel precision 60.9%, recall 15.9%, IoU 14.4%; derived-region matches 4/17 at IoU0.50, 19 unmatched model regions; class-absent photo flags 4/46. 55 fixed public-validation stills; checkpoint overlap unknown. No category-specific video validation.",
+      "diagnostic_models": [
+        {
+          "positive_images": 9,
+          "negative_images": 46,
+          "pixel_tp": 85395,
+          "pixel_fp": 54861,
+          "pixel_fn": 451124,
+          "pixel_precision": 0.6088509582477755,
+          "pixel_recall": 0.1591649130785676,
+          "pixel_iou": 0.14439954005884542,
+          "derived_region_tp_iou_0_5": 4,
+          "derived_region_fp_iou_0_5": 19,
+          "derived_region_fn_iou_0_5": 13,
+          "localized_positive_images_any_pixel": 7,
+          "positive_images_10pct_coverage": 7,
+          "positive_images_50pct_coverage": 6,
+          "negative_images_flagged": 4,
+          "model_ref": "damage:dacl_segformer_b1",
+          "input_size": 512,
+          "matching_iou_threshold": 0.5,
+          "scope": "55 fixed public-validation photos; checkpoint training/selection overlap unknown; not video or blind test"
+        }
+      ],
+      "metrics": {
+        "positive_images": 9,
+        "negative_images": 46,
+        "pixel_tp": 85395,
+        "pixel_fp": 54861,
+        "pixel_fn": 451124,
+        "pixel_precision": 0.6088509582477755,
+        "pixel_recall": 0.1591649130785676,
+        "pixel_iou": 0.14439954005884542,
+        "derived_region_tp_iou_0_5": 4,
+        "derived_region_fp_iou_0_5": 19,
+        "derived_region_fn_iou_0_5": 13,
+        "localized_positive_images_any_pixel": 7,
+        "positive_images_10pct_coverage": 7,
+        "positive_images_50pct_coverage": 6,
+        "negative_images_flagged": 4,
+        "model_ref": "damage:dacl_segformer_b1",
+        "input_size": 512,
+        "matching_iou_threshold": 0.5,
+        "scope": "55 fixed public-validation photos; checkpoint training/selection overlap unknown; not video or blind test"
+      },
+      "evidence_summary": "DACL512 photo diagnostic: pixel precision 60.9%, recall 15.9%, IoU 14.4%; derived-region matches 4/17 at IoU0.50, 19 unmatched model regions; class-absent photo flags 4/46. 55 fixed public-validation stills; checkpoint overlap unknown. No category-specific video validation. Weak localization: available for human-reviewed experiments, not dependable inspection.",
+      "photo_evidence": [
+        {
+          "case_id": "dacl-first-exposed_rebar",
+          "preset_label": "Construction PHOTO · Exposed reinforcement · first labelled case (mask IoU 0.61)",
+          "media_type": "still_photo",
+          "model_ref": "damage:dacl_segformer_b1",
+          "comparison_image": "output/evaluation/construction-dacl19-round3/512/exposed_rebar-raw-annotation-model.jpg"
+        }
+      ]
+    },
+    {
+      "id": "surface_wetspot",
+      "label": "Visible wet spot",
+      "condition": "Visibly damp or water-stained surface region.",
+      "why_it_matters": "May identify a moisture path; a visual spot does not prove an active leak or waterproofing failure.",
+      "next_check": "Check moisture with an instrument, rainfall/plumbing context and the actual water source.",
+      "data_source_url": "https://github.com/phiyodr/dacl10k-toolkit",
+      "license": "Dataset CC BY-NC 4.0 (author terms); author demo weights have no separately declared license; commercial clearance unresolved.",
+      "model_status": "measured_weak",
+      "model_ref": "damage:dacl_segformer_b1",
+      "validation_scope": "DACL512 photo diagnostic: pixel precision 18.4%, recall 57.8%, IoU 16.2%; derived-region matches 4/10 at IoU0.50, 45 unmatched model regions; class-absent photo flags 17/46. 55 fixed public-validation stills; checkpoint overlap unknown. No category-specific video validation.",
+      "diagnostic_models": [
+        {
+          "positive_images": 9,
+          "negative_images": 46,
+          "pixel_tp": 853232,
+          "pixel_fp": 3794057,
+          "pixel_fn": 623857,
+          "pixel_precision": 0.18359779217518,
+          "pixel_recall": 0.5776442719429906,
+          "pixel_iou": 0.16186840584571172,
+          "derived_region_tp_iou_0_5": 4,
+          "derived_region_fp_iou_0_5": 45,
+          "derived_region_fn_iou_0_5": 6,
+          "localized_positive_images_any_pixel": 8,
+          "positive_images_10pct_coverage": 7,
+          "positive_images_50pct_coverage": 4,
+          "negative_images_flagged": 17,
+          "model_ref": "damage:dacl_segformer_b1",
+          "input_size": 512,
+          "matching_iou_threshold": 0.5,
+          "scope": "55 fixed public-validation photos; checkpoint training/selection overlap unknown; not video or blind test"
+        }
+      ],
+      "metrics": {
+        "positive_images": 9,
+        "negative_images": 46,
+        "pixel_tp": 853232,
+        "pixel_fp": 3794057,
+        "pixel_fn": 623857,
+        "pixel_precision": 0.18359779217518,
+        "pixel_recall": 0.5776442719429906,
+        "pixel_iou": 0.16186840584571172,
+        "derived_region_tp_iou_0_5": 4,
+        "derived_region_fp_iou_0_5": 45,
+        "derived_region_fn_iou_0_5": 6,
+        "localized_positive_images_any_pixel": 8,
+        "positive_images_10pct_coverage": 7,
+        "positive_images_50pct_coverage": 4,
+        "negative_images_flagged": 17,
+        "model_ref": "damage:dacl_segformer_b1",
+        "input_size": 512,
+        "matching_iou_threshold": 0.5,
+        "scope": "55 fixed public-validation photos; checkpoint training/selection overlap unknown; not video or blind test"
+      },
+      "evidence_summary": "DACL512 photo diagnostic: pixel precision 18.4%, recall 57.8%, IoU 16.2%; derived-region matches 4/10 at IoU0.50, 45 unmatched model regions; class-absent photo flags 17/46. 55 fixed public-validation stills; checkpoint overlap unknown. No category-specific video validation. Weak localization: available for human-reviewed experiments, not dependable inspection.",
+      "photo_evidence": [
+        {
+          "case_id": "dacl-first-wetspot",
+          "preset_label": "Construction PHOTO · Visible wet spot · first labelled case (mask IoU 0.27)",
+          "media_type": "still_photo",
+          "model_ref": "damage:dacl_segformer_b1",
+          "comparison_image": "output/evaluation/construction-dacl19-round3/512/wetspot-raw-annotation-model.jpg"
+        }
+      ]
+    },
+    {
+      "id": "surface_efflorescence",
+      "label": "Efflorescence",
+      "condition": "Visible pale salt-like surface deposits.",
+      "why_it_matters": "Can indicate dissolved salts and moisture transport; visual similarity to paint/dust remains a risk.",
+      "next_check": "Confirm deposit type and investigate moisture movement before specifying treatment.",
+      "data_source_url": "https://github.com/phiyodr/dacl10k-toolkit",
+      "license": "Dataset CC BY-NC 4.0 (author terms); author demo weights have no separately declared license; commercial clearance unresolved.",
+      "model_status": "measured_weak",
+      "model_ref": "damage:dacl_segformer_b1",
+      "validation_scope": "DACL512 photo diagnostic: pixel precision 67.6%, recall 43.3%, IoU 35.9%; derived-region matches 6/49 at IoU0.50, 40 unmatched model regions; class-absent photo flags 8/43. 55 fixed public-validation stills; checkpoint overlap unknown. No category-specific video validation.",
+      "diagnostic_models": [
+        {
+          "positive_images": 12,
+          "negative_images": 43,
+          "pixel_tp": 2597618,
+          "pixel_fp": 1242237,
+          "pixel_fn": 3404219,
+          "pixel_precision": 0.6764885653234302,
+          "pixel_recall": 0.4328038232294546,
+          "pixel_iou": 0.35858523808564075,
+          "derived_region_tp_iou_0_5": 6,
+          "derived_region_fp_iou_0_5": 40,
+          "derived_region_fn_iou_0_5": 43,
+          "localized_positive_images_any_pixel": 10,
+          "positive_images_10pct_coverage": 8,
+          "positive_images_50pct_coverage": 5,
+          "negative_images_flagged": 8,
+          "model_ref": "damage:dacl_segformer_b1",
+          "input_size": 512,
+          "matching_iou_threshold": 0.5,
+          "scope": "55 fixed public-validation photos; checkpoint training/selection overlap unknown; not video or blind test"
+        }
+      ],
+      "metrics": {
+        "positive_images": 12,
+        "negative_images": 43,
+        "pixel_tp": 2597618,
+        "pixel_fp": 1242237,
+        "pixel_fn": 3404219,
+        "pixel_precision": 0.6764885653234302,
+        "pixel_recall": 0.4328038232294546,
+        "pixel_iou": 0.35858523808564075,
+        "derived_region_tp_iou_0_5": 6,
+        "derived_region_fp_iou_0_5": 40,
+        "derived_region_fn_iou_0_5": 43,
+        "localized_positive_images_any_pixel": 10,
+        "positive_images_10pct_coverage": 8,
+        "positive_images_50pct_coverage": 5,
+        "negative_images_flagged": 8,
+        "model_ref": "damage:dacl_segformer_b1",
+        "input_size": 512,
+        "matching_iou_threshold": 0.5,
+        "scope": "55 fixed public-validation photos; checkpoint training/selection overlap unknown; not video or blind test"
+      },
+      "evidence_summary": "DACL512 photo diagnostic: pixel precision 67.6%, recall 43.3%, IoU 35.9%; derived-region matches 6/49 at IoU0.50, 40 unmatched model regions; class-absent photo flags 8/43. 55 fixed public-validation stills; checkpoint overlap unknown. No category-specific video validation. Weak localization: available for human-reviewed experiments, not dependable inspection.",
+      "photo_evidence": [
+        {
+          "case_id": "dacl-first-efflorescence",
+          "preset_label": "Construction PHOTO · Efflorescence · first labelled case (mask IoU 0.18)",
+          "media_type": "still_photo",
+          "model_ref": "damage:dacl_segformer_b1",
+          "comparison_image": "output/evaluation/construction-dacl19-round3/512/efflorescence-raw-annotation-model.jpg"
+        }
+      ]
+    },
+    {
+      "id": "surface_rockpocket",
+      "label": "Rockpocket / honeycomb appearance",
+      "condition": "Visible coarse aggregate exposure or pocketed poorly consolidated concrete.",
+      "why_it_matters": "May reduce durability or conceal deeper voids; a surface view cannot determine internal extent.",
+      "next_check": "Inspect depth and extent, review placement/compaction records and request appropriate tests.",
+      "data_source_url": "https://github.com/phiyodr/dacl10k-toolkit",
+      "license": "Dataset CC BY-NC 4.0 (author terms); author demo weights have no separately declared license; commercial clearance unresolved.",
+      "model_status": "measured_weak",
+      "model_ref": "damage:dacl_segformer_b1",
+      "validation_scope": "DACL512 photo diagnostic: pixel precision 33.4%, recall 73.2%, IoU 29.8%; derived-region matches 4/10 at IoU0.50, 32 unmatched model regions; class-absent photo flags 12/47. 55 fixed public-validation stills; checkpoint overlap unknown. No category-specific video validation.",
+      "diagnostic_models": [
+        {
+          "positive_images": 8,
+          "negative_images": 47,
+          "pixel_tp": 429611,
+          "pixel_fp": 855394,
+          "pixel_fn": 157045,
+          "pixel_precision": 0.3343263255784997,
+          "pixel_recall": 0.7323047919053074,
+          "pixel_iou": 0.2979168544780001,
+          "derived_region_tp_iou_0_5": 4,
+          "derived_region_fp_iou_0_5": 32,
+          "derived_region_fn_iou_0_5": 6,
+          "localized_positive_images_any_pixel": 5,
+          "positive_images_10pct_coverage": 4,
+          "positive_images_50pct_coverage": 4,
+          "negative_images_flagged": 12,
+          "model_ref": "damage:dacl_segformer_b1",
+          "input_size": 512,
+          "matching_iou_threshold": 0.5,
+          "scope": "55 fixed public-validation photos; checkpoint training/selection overlap unknown; not video or blind test"
+        }
+      ],
+      "metrics": {
+        "positive_images": 8,
+        "negative_images": 47,
+        "pixel_tp": 429611,
+        "pixel_fp": 855394,
+        "pixel_fn": 157045,
+        "pixel_precision": 0.3343263255784997,
+        "pixel_recall": 0.7323047919053074,
+        "pixel_iou": 0.2979168544780001,
+        "derived_region_tp_iou_0_5": 4,
+        "derived_region_fp_iou_0_5": 32,
+        "derived_region_fn_iou_0_5": 6,
+        "localized_positive_images_any_pixel": 5,
+        "positive_images_10pct_coverage": 4,
+        "positive_images_50pct_coverage": 4,
+        "negative_images_flagged": 12,
+        "model_ref": "damage:dacl_segformer_b1",
+        "input_size": 512,
+        "matching_iou_threshold": 0.5,
+        "scope": "55 fixed public-validation photos; checkpoint training/selection overlap unknown; not video or blind test"
+      },
+      "evidence_summary": "DACL512 photo diagnostic: pixel precision 33.4%, recall 73.2%, IoU 29.8%; derived-region matches 4/10 at IoU0.50, 32 unmatched model regions; class-absent photo flags 12/47. 55 fixed public-validation stills; checkpoint overlap unknown. No category-specific video validation. Weak localization: available for human-reviewed experiments, not dependable inspection.",
+      "photo_evidence": [
+        {
+          "case_id": "dacl-first-rockpocket",
+          "preset_label": "Construction PHOTO · Rockpocket / honeycomb appearance · first labelled case (mask IoU 0.21)",
+          "media_type": "still_photo",
+          "model_ref": "damage:dacl_segformer_b1",
+          "comparison_image": "output/evaluation/construction-dacl19-round3/512/rockpocket-raw-annotation-model.jpg"
+        }
+      ]
+    },
+    {
+      "id": "surface_cavity",
+      "label": "Visible cavity",
+      "condition": "Visible open void or missing-material pocket.",
+      "why_it_matters": "May affect cover, durability or local integrity depending on context.",
+      "next_check": "Measure depth and geometry, inspect loose material and obtain an engineering assessment.",
+      "data_source_url": "https://github.com/phiyodr/dacl10k-toolkit",
+      "license": "Dataset CC BY-NC 4.0 (author terms); author demo weights have no separately declared license; commercial clearance unresolved.",
+      "model_status": "measured_weak",
+      "model_ref": "damage:dacl_segformer_b1",
+      "validation_scope": "DACL512 photo diagnostic: pixel precision 14.7%, recall 70.6%, IoU 13.8%; derived-region matches 3/63 at IoU0.50, 130 unmatched model regions; class-absent photo flags 22/43. 55 fixed public-validation stills; checkpoint overlap unknown. No category-specific video validation.",
+      "diagnostic_models": [
+        {
+          "positive_images": 12,
+          "negative_images": 43,
+          "pixel_tp": 1447640,
+          "pixel_fp": 8413943,
+          "pixel_fn": 603628,
+          "pixel_precision": 0.14679590487652946,
+          "pixel_recall": 0.7057293342459395,
+          "pixel_iou": 0.13832879241517443,
+          "derived_region_tp_iou_0_5": 3,
+          "derived_region_fp_iou_0_5": 130,
+          "derived_region_fn_iou_0_5": 60,
+          "localized_positive_images_any_pixel": 7,
+          "positive_images_10pct_coverage": 6,
+          "positive_images_50pct_coverage": 3,
+          "negative_images_flagged": 22,
+          "model_ref": "damage:dacl_segformer_b1",
+          "input_size": 512,
+          "matching_iou_threshold": 0.5,
+          "scope": "55 fixed public-validation photos; checkpoint training/selection overlap unknown; not video or blind test"
+        }
+      ],
+      "metrics": {
+        "positive_images": 12,
+        "negative_images": 43,
+        "pixel_tp": 1447640,
+        "pixel_fp": 8413943,
+        "pixel_fn": 603628,
+        "pixel_precision": 0.14679590487652946,
+        "pixel_recall": 0.7057293342459395,
+        "pixel_iou": 0.13832879241517443,
+        "derived_region_tp_iou_0_5": 3,
+        "derived_region_fp_iou_0_5": 130,
+        "derived_region_fn_iou_0_5": 60,
+        "localized_positive_images_any_pixel": 7,
+        "positive_images_10pct_coverage": 6,
+        "positive_images_50pct_coverage": 3,
+        "negative_images_flagged": 22,
+        "model_ref": "damage:dacl_segformer_b1",
+        "input_size": 512,
+        "matching_iou_threshold": 0.5,
+        "scope": "55 fixed public-validation photos; checkpoint training/selection overlap unknown; not video or blind test"
+      },
+      "evidence_summary": "DACL512 photo diagnostic: pixel precision 14.7%, recall 70.6%, IoU 13.8%; derived-region matches 3/63 at IoU0.50, 130 unmatched model regions; class-absent photo flags 22/43. 55 fixed public-validation stills; checkpoint overlap unknown. No category-specific video validation. Weak localization: available for human-reviewed experiments, not dependable inspection.",
+      "photo_evidence": [
+        {
+          "case_id": "dacl-first-cavity",
+          "preset_label": "Construction PHOTO · Visible cavity · first labelled case (mask IoU 0.03)",
+          "media_type": "still_photo",
+          "model_ref": "damage:dacl_segformer_b1",
+          "comparison_image": "output/evaluation/construction-dacl19-round3/512/cavity-raw-annotation-model.jpg"
+        }
+      ]
+    },
+    {
+      "id": "surface_hollowareas",
+      "label": "Inspector-marked hollow-area boundary (chalk)",
+      "condition": "The dataset labels visible closed chalk/crayon boundaries made after hands-on sounding; it does not visually observe internal hollowness.",
+      "why_it_matters": "A model can recognize an inspector marking, not establish hidden delamination. The physical condition needs the original sounding or nondestructive test record.",
+      "next_check": "Verify the inspection marking and sounding report; perform appropriate hands-on or nondestructive assessment. Never accept an RGB prediction as proof of an internal void.",
+      "data_source_url": "https://github.com/phiyodr/dacl10k-toolkit",
+      "license": "Dataset CC BY-NC 4.0 (author terms); author demo weights have no separately declared license; commercial clearance unresolved.",
+      "model_status": "supported_experimental",
+      "model_ref": "damage:dacl_segformer_b1",
+      "validation_scope": "DACL512 photo diagnostic: pixel precision 77.1%, recall 77.2%, IoU 62.8%; derived-region matches 12/22 at IoU0.50, 20 unmatched model regions; class-absent photo flags 5/38. 55 fixed public-validation stills; checkpoint overlap unknown. No category-specific video validation.",
+      "diagnostic_models": [
+        {
+          "positive_images": 17,
+          "negative_images": 38,
+          "pixel_tp": 3051999,
+          "pixel_fp": 905203,
+          "pixel_fn": 902731,
+          "pixel_precision": 0.7712517581867188,
+          "pixel_recall": 0.7717338478227338,
+          "pixel_iou": 0.6279919908360877,
+          "derived_region_tp_iou_0_5": 12,
+          "derived_region_fp_iou_0_5": 20,
+          "derived_region_fn_iou_0_5": 10,
+          "localized_positive_images_any_pixel": 16,
+          "positive_images_10pct_coverage": 15,
+          "positive_images_50pct_coverage": 13,
+          "negative_images_flagged": 5,
+          "model_ref": "damage:dacl_segformer_b1",
+          "input_size": 512,
+          "matching_iou_threshold": 0.5,
+          "scope": "55 fixed public-validation photos; checkpoint training/selection overlap unknown; not video or blind test"
+        }
+      ],
+      "metrics": {
+        "positive_images": 17,
+        "negative_images": 38,
+        "pixel_tp": 3051999,
+        "pixel_fp": 905203,
+        "pixel_fn": 902731,
+        "pixel_precision": 0.7712517581867188,
+        "pixel_recall": 0.7717338478227338,
+        "pixel_iou": 0.6279919908360877,
+        "derived_region_tp_iou_0_5": 12,
+        "derived_region_fp_iou_0_5": 20,
+        "derived_region_fn_iou_0_5": 10,
+        "localized_positive_images_any_pixel": 16,
+        "positive_images_10pct_coverage": 15,
+        "positive_images_50pct_coverage": 13,
+        "negative_images_flagged": 5,
+        "model_ref": "damage:dacl_segformer_b1",
+        "input_size": 512,
+        "matching_iou_threshold": 0.5,
+        "scope": "55 fixed public-validation photos; checkpoint training/selection overlap unknown; not video or blind test"
+      },
+      "evidence_summary": "DACL512 photo diagnostic: pixel precision 77.1%, recall 77.2%, IoU 62.8%; derived-region matches 12/22 at IoU0.50, 20 unmatched model regions; class-absent photo flags 5/38. 55 fixed public-validation stills; checkpoint overlap unknown. No category-specific video validation. Detects inspector chalk boundaries after sounding, not hidden hollow concrete.",
+      "photo_evidence": [
+        {
+          "case_id": "dacl-first-hollowareas",
+          "preset_label": "Construction PHOTO · Inspector-marked hollow-area boundary (chalk) · first labelled case (mask IoU 0.44)",
+          "media_type": "still_photo",
+          "model_ref": "damage:dacl_segformer_b1",
+          "comparison_image": "output/evaluation/construction-dacl19-round3/512/hollowareas-raw-annotation-model.jpg"
+        }
+      ]
+    },
+    {
+      "id": "surface_weathering",
+      "label": "Surface weathering",
+      "condition": "Visible weathered or deteriorated surface texture.",
+      "why_it_matters": "Can indicate exposure-related deterioration; cause and material performance require inspection.",
+      "next_check": "Identify material, exposure, loose surface and progression with repeat observations.",
+      "data_source_url": "https://github.com/phiyodr/dacl10k-toolkit",
+      "license": "Dataset CC BY-NC 4.0 (author terms); author demo weights have no separately declared license; commercial clearance unresolved.",
+      "model_status": "measured_weak",
+      "model_ref": "damage:dacl_segformer_b1",
+      "validation_scope": "DACL512 photo diagnostic: pixel precision 27.4%, recall 32.1%, IoU 17.3%; derived-region matches 7/47 at IoU0.50, 101 unmatched model regions; class-absent photo flags 10/27. 55 fixed public-validation stills; checkpoint overlap unknown. No category-specific video validation.",
+      "diagnostic_models": [
+        {
+          "positive_images": 28,
+          "negative_images": 27,
+          "pixel_tp": 6187090,
+          "pixel_fp": 16413021,
+          "pixel_fn": 13061278,
+          "pixel_precision": 0.2737636996561654,
+          "pixel_recall": 0.3214345236957232,
+          "pixel_iou": 0.17349548555161437,
+          "derived_region_tp_iou_0_5": 7,
+          "derived_region_fp_iou_0_5": 101,
+          "derived_region_fn_iou_0_5": 40,
+          "localized_positive_images_any_pixel": 26,
+          "positive_images_10pct_coverage": 20,
+          "positive_images_50pct_coverage": 15,
+          "negative_images_flagged": 10,
+          "model_ref": "damage:dacl_segformer_b1",
+          "input_size": 512,
+          "matching_iou_threshold": 0.5,
+          "scope": "55 fixed public-validation photos; checkpoint training/selection overlap unknown; not video or blind test"
+        }
+      ],
+      "metrics": {
+        "positive_images": 28,
+        "negative_images": 27,
+        "pixel_tp": 6187090,
+        "pixel_fp": 16413021,
+        "pixel_fn": 13061278,
+        "pixel_precision": 0.2737636996561654,
+        "pixel_recall": 0.3214345236957232,
+        "pixel_iou": 0.17349548555161437,
+        "derived_region_tp_iou_0_5": 7,
+        "derived_region_fp_iou_0_5": 101,
+        "derived_region_fn_iou_0_5": 40,
+        "localized_positive_images_any_pixel": 26,
+        "positive_images_10pct_coverage": 20,
+        "positive_images_50pct_coverage": 15,
+        "negative_images_flagged": 10,
+        "model_ref": "damage:dacl_segformer_b1",
+        "input_size": 512,
+        "matching_iou_threshold": 0.5,
+        "scope": "55 fixed public-validation photos; checkpoint training/selection overlap unknown; not video or blind test"
+      },
+      "evidence_summary": "DACL512 photo diagnostic: pixel precision 27.4%, recall 32.1%, IoU 17.3%; derived-region matches 7/47 at IoU0.50, 101 unmatched model regions; class-absent photo flags 10/27. 55 fixed public-validation stills; checkpoint overlap unknown. No category-specific video validation. Weak localization: available for human-reviewed experiments, not dependable inspection.",
+      "photo_evidence": [
+        {
+          "case_id": "dacl-first-weathering",
+          "preset_label": "Construction PHOTO · Surface weathering · first labelled case (mask IoU 0.02)",
+          "media_type": "still_photo",
+          "model_ref": "damage:dacl_segformer_b1",
+          "comparison_image": "output/evaluation/construction-dacl19-round3/512/weathering-raw-annotation-model.jpg"
+        }
+      ]
+    },
+    {
+      "id": "surface_residual_formwork",
+      "label": "Residual formwork",
+      "condition": "Formwork material visibly remaining on concrete.",
+      "why_it_matters": "May impede inspection or finishing; whether removal is required depends on design and stage.",
+      "next_check": "Confirm construction stage, intended permanent formwork and applicable removal requirements.",
+      "data_source_url": "https://github.com/phiyodr/dacl10k-toolkit",
+      "license": "Dataset CC BY-NC 4.0 (author terms); author demo weights have no separately declared license; commercial clearance unresolved.",
+      "model_status": "measured_weak",
+      "model_ref": "damage:dacl_segformer_b1",
+      "validation_scope": "DACL512 photo diagnostic: pixel precision 31.2%, recall 62.3%, IoU 26.3%; derived-region matches 3/11 at IoU0.50, 37 unmatched model regions; class-absent photo flags 11/47. 55 fixed public-validation stills; checkpoint overlap unknown. No category-specific video validation.",
+      "diagnostic_models": [
+        {
+          "positive_images": 8,
+          "negative_images": 47,
+          "pixel_tp": 235175,
+          "pixel_fp": 518545,
+          "pixel_fn": 142117,
+          "pixel_precision": 0.3120190521679138,
+          "pixel_recall": 0.6233235796147281,
+          "pixel_iou": 0.2625198557326835,
+          "derived_region_tp_iou_0_5": 3,
+          "derived_region_fp_iou_0_5": 37,
+          "derived_region_fn_iou_0_5": 8,
+          "localized_positive_images_any_pixel": 6,
+          "positive_images_10pct_coverage": 5,
+          "positive_images_50pct_coverage": 5,
+          "negative_images_flagged": 11,
+          "model_ref": "damage:dacl_segformer_b1",
+          "input_size": 512,
+          "matching_iou_threshold": 0.5,
+          "scope": "55 fixed public-validation photos; checkpoint training/selection overlap unknown; not video or blind test"
+        }
+      ],
+      "metrics": {
+        "positive_images": 8,
+        "negative_images": 47,
+        "pixel_tp": 235175,
+        "pixel_fp": 518545,
+        "pixel_fn": 142117,
+        "pixel_precision": 0.3120190521679138,
+        "pixel_recall": 0.6233235796147281,
+        "pixel_iou": 0.2625198557326835,
+        "derived_region_tp_iou_0_5": 3,
+        "derived_region_fp_iou_0_5": 37,
+        "derived_region_fn_iou_0_5": 8,
+        "localized_positive_images_any_pixel": 6,
+        "positive_images_10pct_coverage": 5,
+        "positive_images_50pct_coverage": 5,
+        "negative_images_flagged": 11,
+        "model_ref": "damage:dacl_segformer_b1",
+        "input_size": 512,
+        "matching_iou_threshold": 0.5,
+        "scope": "55 fixed public-validation photos; checkpoint training/selection overlap unknown; not video or blind test"
+      },
+      "evidence_summary": "DACL512 photo diagnostic: pixel precision 31.2%, recall 62.3%, IoU 26.3%; derived-region matches 3/11 at IoU0.50, 37 unmatched model regions; class-absent photo flags 11/47. 55 fixed public-validation stills; checkpoint overlap unknown. No category-specific video validation. Weak localization: available for human-reviewed experiments, not dependable inspection.",
+      "photo_evidence": [
+        {
+          "case_id": "dacl-first-residual_formwork",
+          "preset_label": "Construction PHOTO · Residual formwork · first labelled case (mask IoU 0.36)",
+          "media_type": "still_photo",
+          "model_ref": "damage:dacl_segformer_b1",
+          "comparison_image": "output/evaluation/construction-dacl19-round3/512/residual_formwork-raw-annotation-model.jpg"
+        }
+      ]
+    },
+    {
+      "id": "surface_alligator_crack",
+      "label": "Alligator cracking pattern",
+      "condition": "A network of connected surface cracks.",
+      "why_it_matters": "Pattern may indicate surface or substrate deterioration; cause cannot be assigned from pixels.",
+      "next_check": "Record area and crack widths, identify substrate and investigate the mechanism.",
+      "data_source_url": "https://github.com/phiyodr/dacl10k-toolkit",
+      "license": "Dataset CC BY-NC 4.0 (author terms); author demo weights have no separately declared license; commercial clearance unresolved.",
+      "model_status": "measured_weak",
+      "model_ref": "damage:dacl_segformer_b1",
+      "validation_scope": "DACL512 photo diagnostic: pixel precision 37.3%, recall 45.5%, IoU 25.8%; derived-region matches 2/9 at IoU0.50, 55 unmatched model regions; class-absent photo flags 7/47. 55 fixed public-validation stills; checkpoint overlap unknown. No category-specific video validation.",
+      "diagnostic_models": [
+        {
+          "positive_images": 8,
+          "negative_images": 47,
+          "pixel_tp": 2304977,
+          "pixel_fp": 3878797,
+          "pixel_fn": 2764165,
+          "pixel_precision": 0.3727459962152562,
+          "pixel_recall": 0.45470752249591745,
+          "pixel_iou": 0.25759864925319675,
+          "derived_region_tp_iou_0_5": 2,
+          "derived_region_fp_iou_0_5": 55,
+          "derived_region_fn_iou_0_5": 7,
+          "localized_positive_images_any_pixel": 8,
+          "positive_images_10pct_coverage": 7,
+          "positive_images_50pct_coverage": 3,
+          "negative_images_flagged": 7,
+          "model_ref": "damage:dacl_segformer_b1",
+          "input_size": 512,
+          "matching_iou_threshold": 0.5,
+          "scope": "55 fixed public-validation photos; checkpoint training/selection overlap unknown; not video or blind test"
+        }
+      ],
+      "metrics": {
+        "positive_images": 8,
+        "negative_images": 47,
+        "pixel_tp": 2304977,
+        "pixel_fp": 3878797,
+        "pixel_fn": 2764165,
+        "pixel_precision": 0.3727459962152562,
+        "pixel_recall": 0.45470752249591745,
+        "pixel_iou": 0.25759864925319675,
+        "derived_region_tp_iou_0_5": 2,
+        "derived_region_fp_iou_0_5": 55,
+        "derived_region_fn_iou_0_5": 7,
+        "localized_positive_images_any_pixel": 8,
+        "positive_images_10pct_coverage": 7,
+        "positive_images_50pct_coverage": 3,
+        "negative_images_flagged": 7,
+        "model_ref": "damage:dacl_segformer_b1",
+        "input_size": 512,
+        "matching_iou_threshold": 0.5,
+        "scope": "55 fixed public-validation photos; checkpoint training/selection overlap unknown; not video or blind test"
+      },
+      "evidence_summary": "DACL512 photo diagnostic: pixel precision 37.3%, recall 45.5%, IoU 25.8%; derived-region matches 2/9 at IoU0.50, 55 unmatched model regions; class-absent photo flags 7/47. 55 fixed public-validation stills; checkpoint overlap unknown. No category-specific video validation. Weak localization: available for human-reviewed experiments, not dependable inspection.",
+      "photo_evidence": [
+        {
+          "case_id": "dacl-first-alligator_crack",
+          "preset_label": "Construction PHOTO · Alligator cracking pattern · first labelled case (mask IoU 0.44)",
+          "media_type": "still_photo",
+          "model_ref": "damage:dacl_segformer_b1",
+          "comparison_image": "output/evaluation/construction-dacl19-round3/512/alligator_crack-raw-annotation-model.jpg"
+        }
+      ]
+    },
+    {
+      "id": "surface_graffiti",
+      "label": "Graffiti / surface markings",
+      "condition": "Visible applied marks or graffiti.",
+      "why_it_matters": "May obscure surface inspection; not automatically a structural defect.",
+      "next_check": "Distinguish intentional identification marks and assess cleaning compatibility.",
+      "data_source_url": "https://github.com/phiyodr/dacl10k-toolkit",
+      "license": "Dataset CC BY-NC 4.0 (author terms); author demo weights have no separately declared license; commercial clearance unresolved.",
+      "model_status": "measured_weak",
+      "model_ref": "damage:dacl_segformer_b1",
+      "validation_scope": "DACL512 photo diagnostic: pixel precision 71.2%, recall 44.9%, IoU 38.0%; derived-region matches 4/27 at IoU0.50, 16 unmatched model regions; class-absent photo flags 4/44. 55 fixed public-validation stills; checkpoint overlap unknown. No category-specific video validation.",
+      "diagnostic_models": [
+        {
+          "positive_images": 11,
+          "negative_images": 44,
+          "pixel_tp": 966558,
+          "pixel_fp": 390354,
+          "pixel_fn": 1185565,
+          "pixel_precision": 0.7123218012664049,
+          "pixel_recall": 0.44911838217425304,
+          "pixel_iou": 0.3801639110206307,
+          "derived_region_tp_iou_0_5": 4,
+          "derived_region_fp_iou_0_5": 16,
+          "derived_region_fn_iou_0_5": 23,
+          "localized_positive_images_any_pixel": 7,
+          "positive_images_10pct_coverage": 7,
+          "positive_images_50pct_coverage": 5,
+          "negative_images_flagged": 4,
+          "model_ref": "damage:dacl_segformer_b1",
+          "input_size": 512,
+          "matching_iou_threshold": 0.5,
+          "scope": "55 fixed public-validation photos; checkpoint training/selection overlap unknown; not video or blind test"
+        }
+      ],
+      "metrics": {
+        "positive_images": 11,
+        "negative_images": 44,
+        "pixel_tp": 966558,
+        "pixel_fp": 390354,
+        "pixel_fn": 1185565,
+        "pixel_precision": 0.7123218012664049,
+        "pixel_recall": 0.44911838217425304,
+        "pixel_iou": 0.3801639110206307,
+        "derived_region_tp_iou_0_5": 4,
+        "derived_region_fp_iou_0_5": 16,
+        "derived_region_fn_iou_0_5": 23,
+        "localized_positive_images_any_pixel": 7,
+        "positive_images_10pct_coverage": 7,
+        "positive_images_50pct_coverage": 5,
+        "negative_images_flagged": 4,
+        "model_ref": "damage:dacl_segformer_b1",
+        "input_size": 512,
+        "matching_iou_threshold": 0.5,
+        "scope": "55 fixed public-validation photos; checkpoint training/selection overlap unknown; not video or blind test"
+      },
+      "evidence_summary": "DACL512 photo diagnostic: pixel precision 71.2%, recall 44.9%, IoU 38.0%; derived-region matches 4/27 at IoU0.50, 16 unmatched model regions; class-absent photo flags 4/44. 55 fixed public-validation stills; checkpoint overlap unknown. No category-specific video validation. Weak localization: available for human-reviewed experiments, not dependable inspection.",
+      "photo_evidence": [
+        {
+          "case_id": "dacl-first-graffiti",
+          "preset_label": "Construction PHOTO · Graffiti / surface markings · first labelled case (mask IoU 0.33)",
+          "media_type": "still_photo",
+          "model_ref": "damage:dacl_segformer_b1",
+          "comparison_image": "output/evaluation/construction-dacl19-round3/512/graffiti-raw-annotation-model.jpg"
+        }
+      ]
+    },
+    {
+      "id": "surface_washout",
+      "label": "Concrete surface loss / erosion appearance",
+      "condition": "DACL combined Washouts/Concrete corrosion label (WConccor), including visually similar planar erosion, abrasion and concrete surface corrosion. The detector cannot separate the mechanisms.",
+      "why_it_matters": "The visible material-loss pattern can have different causes and assessments; the class alone does not establish water erosion, chemical attack or freeze-thaw damage.",
+      "next_check": "Inspect extent and depth and establish the actual exposure/cause with competent assessment; do not diagnose a mechanism from this combined image label.",
+      "data_source_url": "https://github.com/phiyodr/dacl10k-toolkit",
+      "license": "Dataset CC BY-NC 4.0 (author terms); author demo weights have no separately declared license; commercial clearance unresolved.",
+      "model_status": "measured_weak",
+      "model_ref": "damage:dacl_segformer_b1",
+      "validation_scope": "DACL512 photo diagnostic: pixel precision 12.8%, recall 7.4%, IoU 4.9%; derived-region matches 2/12 at IoU0.50, 44 unmatched model regions; class-absent photo flags 19/47. 55 fixed public-validation stills; checkpoint overlap unknown. No category-specific video validation.",
+      "diagnostic_models": [
+        {
+          "positive_images": 8,
+          "negative_images": 47,
+          "pixel_tp": 219930,
+          "pixel_fp": 1499109,
+          "pixel_fn": 2744934,
+          "pixel_precision": 0.12793776057436743,
+          "pixel_recall": 0.0741787818935371,
+          "pixel_iou": 0.049267771108830634,
+          "derived_region_tp_iou_0_5": 2,
+          "derived_region_fp_iou_0_5": 44,
+          "derived_region_fn_iou_0_5": 10,
+          "localized_positive_images_any_pixel": 4,
+          "positive_images_10pct_coverage": 3,
+          "positive_images_50pct_coverage": 1,
+          "negative_images_flagged": 19,
+          "model_ref": "damage:dacl_segformer_b1",
+          "input_size": 512,
+          "matching_iou_threshold": 0.5,
+          "scope": "55 fixed public-validation photos; checkpoint training/selection overlap unknown; not video or blind test"
+        }
+      ],
+      "metrics": {
+        "positive_images": 8,
+        "negative_images": 47,
+        "pixel_tp": 219930,
+        "pixel_fp": 1499109,
+        "pixel_fn": 2744934,
+        "pixel_precision": 0.12793776057436743,
+        "pixel_recall": 0.0741787818935371,
+        "pixel_iou": 0.049267771108830634,
+        "derived_region_tp_iou_0_5": 2,
+        "derived_region_fp_iou_0_5": 44,
+        "derived_region_fn_iou_0_5": 10,
+        "localized_positive_images_any_pixel": 4,
+        "positive_images_10pct_coverage": 3,
+        "positive_images_50pct_coverage": 1,
+        "negative_images_flagged": 19,
+        "model_ref": "damage:dacl_segformer_b1",
+        "input_size": 512,
+        "matching_iou_threshold": 0.5,
+        "scope": "55 fixed public-validation photos; checkpoint training/selection overlap unknown; not video or blind test"
+      },
+      "evidence_summary": "DACL512 photo diagnostic: pixel precision 12.8%, recall 7.4%, IoU 4.9%; derived-region matches 2/12 at IoU0.50, 44 unmatched model regions; class-absent photo flags 19/47. 55 fixed public-validation stills; checkpoint overlap unknown. No category-specific video validation. Weak localization: available for human-reviewed experiments, not dependable inspection.",
+      "photo_evidence": [
+        {
+          "case_id": "dacl-first-washout",
+          "preset_label": "Construction PHOTO · Concrete surface loss / erosion appearance · first labelled case (mask IoU 0.26)",
+          "media_type": "still_photo",
+          "model_ref": "damage:dacl_segformer_b1",
+          "comparison_image": "output/evaluation/construction-dacl19-round3/512/washout-raw-annotation-model.jpg"
+        }
+      ]
+    },
+    {
+      "id": "concrete_strength",
+      "label": "Concrete strength",
+      "condition": "Strength or load-bearing capacity.",
+      "why_it_matters": "Requires evidence beyond an ordinary visible-surface video.",
+      "next_check": "Review approved tests/design and perform required physical measurements.",
+      "data_source_url": "https://sbc.gov.sa/en/BC/Pages/BuildingCode/BC.aspx?year=2024",
+      "license": "Official code applicability and project-specific acceptance apply.",
+      "model_status": "unsupported",
+      "validation_scope": "No visual model detection or automatic code acceptance is claimed."
+    },
+    {
+      "id": "reinforcement_cover",
+      "label": "Reinforcement cover",
+      "condition": "Distance from hidden reinforcement to concrete surface.",
+      "why_it_matters": "Requires evidence beyond an ordinary visible-surface video.",
+      "next_check": "Use calibrated cover measurement or approved inspection before concealment.",
+      "data_source_url": "https://sbc.gov.sa/en/BC/Pages/BuildingCode/BC.aspx?year=2024",
+      "license": "Official code applicability and project-specific acceptance apply.",
+      "model_status": "unsupported",
+      "validation_scope": "No visual model detection or automatic code acceptance is claimed."
+    },
+    {
+      "id": "waterproofing_performance",
+      "label": "Waterproofing performance",
+      "condition": "Watertightness of a completed system.",
+      "why_it_matters": "Requires evidence beyond an ordinary visible-surface video.",
+      "next_check": "Use the specified flood, pressure or leak test and inspect details.",
+      "data_source_url": "https://sbc.gov.sa/en/BC/Pages/BuildingCode/BC.aspx?year=2024",
+      "license": "Official code applicability and project-specific acceptance apply.",
+      "model_status": "unsupported",
+      "validation_scope": "No visual model detection or automatic code acceptance is claimed."
+    },
+    {
+      "id": "tile_surface_anomaly",
+      "label": "Visible tile surface texture anomaly",
+      "model_status": "measured_weak",
+      "model_ref": "damage:tile_surface_anomaly_research",
+      "condition": "An unusual surface pattern compared with normal manufacturing tiles; the defect subtype is unclassified.",
+      "why_it_matters": "The candidate area needs close inspection to distinguish damage, contamination and normal texture.",
+      "next_check": "Confirm the tile material and actual defect. This model cannot check grid alignment, lippage, adhesion or installation cause.",
+      "validation_scope": "Research on 117 real manufacturing tile photos, with 48 normal fit and 10 normal calibration photos. Crack pixel precision 31.14%, recall 59.71%, IoU 25.73%; 0/17 derived crack regions matched at IoU 0.50. Normal photos: 3/33 flagged. These results also hold after the actual serving component filter for crack and normal cases. No installed-floor or video validation.",
+      "metrics": {
+        "crack": {
+          "photos": 17,
+          "flagged_photos": 16,
+          "pixel_tp": 158514,
+          "pixel_fp": 350502,
+          "pixel_fn": 106957,
+          "pixel_precision": 0.31141260785515584,
+          "pixel_recall": 0.5971047685057879,
+          "pixel_iou": 0.25733920155591233,
+          "derived_region_tp_iou_0_5": 0,
+          "derived_gt_regions": 17,
+          "derived_pred_regions": 32
+        },
+        "glue_strip": {
+          "photos": 18,
+          "flagged_photos": 9,
+          "pixel_tp": 57676,
+          "pixel_fp": 6111,
+          "pixel_fn": 1352105,
+          "pixel_precision": 0.9041967799081317,
+          "pixel_recall": 0.04091131885023277,
+          "pixel_iou": 0.0407347453054329,
+          "derived_region_tp_iou_0_5": 0,
+          "derived_gt_regions": 18,
+          "derived_pred_regions": 15
+        },
+        "good": {
+          "photos": 33,
+          "flagged_photos": 3,
+          "pixel_tp": 0,
+          "pixel_fp": 4538,
+          "pixel_fn": 0,
+          "pixel_precision": 0.0,
+          "pixel_recall": null,
+          "pixel_iou": 0.0,
+          "derived_region_tp_iou_0_5": 0,
+          "derived_gt_regions": 0,
+          "derived_pred_regions": 5
+        },
+        "gray_stroke": {
+          "photos": 16,
+          "flagged_photos": 14,
+          "pixel_tp": 140950,
+          "pixel_fp": 8722,
+          "pixel_fn": 334816,
+          "pixel_precision": 0.9417259073173339,
+          "pixel_recall": 0.29625908534867984,
+          "pixel_iou": 0.29092567824177273,
+          "derived_region_tp_iou_0_5": 1,
+          "derived_gt_regions": 16,
+          "derived_pred_regions": 22
+        },
+        "oil": {
+          "photos": 18,
+          "flagged_photos": 18,
+          "pixel_tp": 1725377,
+          "pixel_fp": 33974,
+          "pixel_fn": 271008,
+          "pixel_precision": 0.9806894701512092,
+          "pixel_recall": 0.8642506330191821,
+          "pixel_iou": 0.8497891259624529,
+          "derived_region_tp_iou_0_5": 18,
+          "derived_gt_regions": 18,
+          "derived_pred_regions": 19
+        },
+        "rough": {
+          "photos": 15,
+          "flagged_photos": 12,
+          "pixel_tp": 685184,
+          "pixel_fp": 11624,
+          "pixel_fn": 977259,
+          "pixel_precision": 0.9833182167828154,
+          "pixel_recall": 0.41215488290425595,
+          "pixel_iou": 0.4092930569684487,
+          "derived_region_tp_iou_0_5": 7,
+          "derived_gt_regions": 17,
+          "derived_pred_regions": 21
+        }
+      },
+      "image_auroc": 0.9451659451659452,
+      "video_evidence": [],
+      "photo_evidence": [
+        {
+          "case_id": "tile-photo-first-crack",
+          "comparison_image": "output/evaluation/construction-finishes-tile/crack-raw-gt-model.jpg",
+          "preset_label": "Tile PHOTO research · crack · first fixed source case"
+        },
+        {
+          "case_id": "tile-photo-first-glue_strip",
+          "comparison_image": "output/evaluation/construction-finishes-tile/glue_strip-raw-gt-model.jpg",
+          "preset_label": "Tile PHOTO research · glue_strip · first fixed source case"
+        },
+        {
+          "case_id": "tile-photo-first-good",
+          "comparison_image": "output/evaluation/construction-finishes-tile/good-raw-gt-model.jpg",
+          "preset_label": "Tile PHOTO research · good · first fixed source case"
+        },
+        {
+          "case_id": "tile-photo-first-gray_stroke",
+          "comparison_image": "output/evaluation/construction-finishes-tile/gray_stroke-raw-gt-model.jpg",
+          "preset_label": "Tile PHOTO research · gray_stroke · first fixed source case"
+        },
+        {
+          "case_id": "tile-photo-first-oil",
+          "comparison_image": "output/evaluation/construction-finishes-tile/oil-raw-gt-model.jpg",
+          "preset_label": "Tile PHOTO research · oil · first fixed source case"
+        },
+        {
+          "case_id": "tile-photo-first-rough",
+          "comparison_image": "output/evaluation/construction-finishes-tile/rough-raw-gt-model.jpg",
+          "preset_label": "Tile PHOTO research · rough · first fixed source case"
+        }
+      ]
+    },
+    {
+      "id": "finish_wall_moisture_content",
+      "label": "Wall material moisture content",
+      "model_status": "unsupported",
+      "condition": "Water content within a wall material, expressed in calibrated instrument units.",
+      "validation_scope": "Requires a calibrated instrument appropriate to the material. A visible wet spot does not measure water content or establish a hidden leak.",
+      "next_check": "Measure at recorded locations with a suitable moisture instrument and investigate the water source.",
+      "video_evidence": []
+    },
+    {
+      "id": "finish_room_relative_humidity",
+      "label": "Room relative humidity",
+      "model_status": "unsupported",
+      "condition": "Relative humidity of the air, distinct from moisture within wall materials.",
+      "validation_scope": "Requires a temperature/RH sensor with calibration, units, time and location. It cannot be inferred from wall color.",
+      "next_check": "Record temperature and relative humidity using a calibrated sensor.",
+      "video_evidence": []
+    },
+    {
+      "id": "finish_paint_peeling",
+      "label": "Peeling or flaking wall paint",
+      "model_status": "unsupported",
+      "condition": "Visible lifting, flaking or detached paint coating.",
+      "validation_scope": "Existing generic material-loss detections do not identify paint. Related wall data are acquired; no paint-specific local detector is validated.",
+      "next_check": "Confirm the coating and substrate, document the detached area and inspect adhesion and moisture cause.",
+      "video_evidence": []
+    },
+    {
+      "id": "finish_paint_bubbles",
+      "label": "Paint blister or bubble appearance",
+      "model_status": "unsupported",
+      "condition": "Visible raised blisters or bubbles in a confirmed paint coating.",
+      "validation_scope": "Requires paint-specific supervision. A generic publisher bulge label is not a material-verified paint blister.",
+      "next_check": "Confirm the coating, inspect the raised area and investigate adhesion, moisture and application conditions.",
+      "video_evidence": []
+    },
+    {
+      "id": "finish_paint_coverage",
+      "label": "Paint coverage/run/color mismatch",
+      "model_status": "unsupported",
+      "condition": "Visible runs, missed coverage or a mismatch against an approved finish reference.",
+      "validation_scope": "Requires an approved reference and controlled illumination. No trained detector or suitable evaluation dataset is verified.",
+      "next_check": "Compare with the approved sample under specified lighting and measure relevant finish properties.",
+      "video_evidence": []
+    },
+    {
+      "id": "finish_ceramic_crack",
+      "label": "Cracked installed ceramic",
+      "model_status": "unsupported",
+      "condition": "A visible fracture in installed ceramic rather than a grout joint or decorative vein.",
+      "validation_scope": "The tile anomaly specialist is related manufacturing research only: 0/17 derived crack regions matched at IoU 0.50. Installed tiles, decorative veins and grout are not validated.",
+      "next_check": "Inspect the original surface close up, distinguish joints and veins, and record the actual fracture extent.",
+      "video_evidence": []
+    },
+    {
+      "id": "finish_joint_alignment",
+      "label": "Tile joint gap, skew or shift",
+      "model_status": "unsupported",
+      "condition": "A joint gap, skew or shift relative to an approved installation grid.",
+      "validation_scope": "Requires calibrated same-plane geometry and the approved grid or nominal gap. No installed-video ground truth or model is validated.",
+      "next_check": "Measure the grid, joint width and deviation against the approved layout and applicable tolerance.",
+      "video_evidence": []
+    },
+    {
+      "id": "finish_surface_flatness",
+      "label": "Surface flatness or tile lippage",
+      "model_status": "unsupported",
+      "condition": "Out-of-plane surface deviation or a height step between neighboring tiles.",
+      "validation_scope": "Requires depth, a straightedge or a scan reference. A 2D image homography does not measure height.",
+      "next_check": "Measure with an appropriate depth or straightedge method and compare with the specified tolerance.",
+      "video_evidence": []
+    },
+    {
+      "id": "finish_installation_fault",
+      "label": "Fastener/anchorage and other installation defects",
+      "model_status": "unsupported",
+      "condition": "Owner-reported incorrect fastening or another installation detail that differs from the required design.",
+      "validation_scope": "No installed model verifies screw engagement, torque, anchor embedment, required fastening arrangement or capacity. Object/crack detections do not establish fastening adequacy.",
+      "next_check": "Compare the visible detail with approved drawings, product instructions and required measurements before concealment.",
+      "video_evidence": [
+        {
+          "case_id": "owner-round4-vid-20261020-wa0001",
+          "scope": "Owner-reported fastening issue; three existing damage models only, unscored. Enable failure diagnostics to view."
+        }
+      ]
+    },
+    {
+      "id": "surface_leakage_appearance",
+      "label": "Wall damp/stain appearance",
+      "model_status": "research_only",
+      "model_ref": "damage:mbdd_wall_total16_failed",
+      "condition": "Visible dark, damp or water-stained wall appearance.",
+      "next_check": "Use a suitable moisture instrument and inspect plumbing, rain exposure and the actual water source.",
+      "why_it_matters": "A model appearance candidate needs direct inspection; it does not establish the cause or severity.",
+      "validation_scope": "FAILED photo research:48 CAL, 3/22 box matches and12 unmatched predictions;18 previously exposed photos, 4/17 matches and6 unmatched. IoU>=.50; all class minimum guards fail. No certified healthy negatives, independent site or video qualification.",
+      "metrics": {
+        "calibration": {
+          "tp": 3,
+          "fp": 12,
+          "fn": 19,
+          "annotations": 22,
+          "precision": 0.2,
+          "recall": 0.13636363636363635,
+          "class_absent_images": 37,
+          "class_absent_images_flagged": 4
+        },
+        "exposed18": {
+          "tp": 4,
+          "fp": 6,
+          "fn": 13,
+          "annotations": 17,
+          "precision": 0.4,
+          "recall": 0.23529411764705882,
+          "class_absent_images": 14,
+          "class_absent_images_flagged": 0
+        }
+      },
+      "video_evidence": [],
+      "photo_evidence": [
+        {
+          "case_id": "Wall PHOTO research - Wall damp/stain appearance - first acquired source",
+          "comparison_image": "output\\evaluation\\construction-wall-five-class-v3\\Hefei2882-raw-publisher-model.jpg",
+          "preset_label": "Wall PHOTO research - Wall damp/stain appearance - first acquired source"
+        }
+      ]
+    },
+    {
+      "id": "surface_detachment",
+      "label": "Detached surface material",
+      "model_status": "research_only",
+      "model_ref": "damage:mbdd_wall_total16_failed",
+      "condition": "Visible detached or missing surface material; paint, plaster and concrete are not distinguished.",
+      "next_check": "Confirm the actual coating/substrate and inspect loose edges and adhesion before choosing repair.",
+      "why_it_matters": "A model appearance candidate needs direct inspection; it does not establish the cause or severity.",
+      "validation_scope": "FAILED photo research:48 CAL, 8/60 box matches and1 unmatched predictions;18 previously exposed photos, 0/16 matches and1 unmatched. IoU>=.50; all class minimum guards fail. No certified healthy negatives, independent site or video qualification.",
+      "metrics": {
+        "calibration": {
+          "tp": 8,
+          "fp": 1,
+          "fn": 52,
+          "annotations": 60,
+          "precision": 0.8888888888888888,
+          "recall": 0.13333333333333333,
+          "class_absent_images": 27,
+          "class_absent_images_flagged": 0
+        },
+        "exposed18": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 16,
+          "annotations": 16,
+          "precision": 0.0,
+          "recall": 0.0,
+          "class_absent_images": 13,
+          "class_absent_images_flagged": 1
+        }
+      },
+      "video_evidence": [],
+      "photo_evidence": [
+        {
+          "case_id": "Wall PHOTO research - Detached surface material - first acquired source",
+          "comparison_image": "output\\evaluation\\construction-wall-five-class-v3\\Hefei7615-raw-publisher-model.jpg",
+          "preset_label": "Wall PHOTO research - Detached surface material - first acquired source"
+        }
+      ]
+    },
+    {
+      "id": "surface_corrosion_appearance",
+      "label": "Wall corrosion appearance",
+      "model_status": "research_only",
+      "model_ref": "damage:mbdd_wall_total16_failed",
+      "condition": "Visible corrosion-like appearance; the material and mechanism remain unconfirmed.",
+      "next_check": "Identify the affected material, inspect the source and measure actual section loss separately.",
+      "why_it_matters": "A model appearance candidate needs direct inspection; it does not establish the cause or severity.",
+      "validation_scope": "FAILED photo research:48 CAL, 1/23 box matches and2 unmatched predictions;18 previously exposed photos, 0/15 matches and0 unmatched. IoU>=.50; all class minimum guards fail. No certified healthy negatives, independent site or video qualification.",
+      "metrics": {
+        "calibration": {
+          "tp": 1,
+          "fp": 2,
+          "fn": 22,
+          "annotations": 23,
+          "precision": 0.3333333333333333,
+          "recall": 0.043478260869565216,
+          "class_absent_images": 38,
+          "class_absent_images_flagged": 1
+        },
+        "exposed18": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 15,
+          "annotations": 15,
+          "precision": null,
+          "recall": 0.0,
+          "class_absent_images": 14,
+          "class_absent_images_flagged": 0
+        }
+      },
+      "video_evidence": [],
+      "photo_evidence": [
+        {
+          "case_id": "Wall PHOTO research - Wall corrosion appearance - first acquired source",
+          "comparison_image": "output\\evaluation\\construction-wall-five-class-v3\\Hefei1183-raw-publisher-model.jpg",
+          "preset_label": "Wall PHOTO research - Wall corrosion appearance - first acquired source"
+        }
+      ]
+    },
+    {
+      "id": "surface_bulge_appearance",
+      "label": "Wall bulge appearance",
+      "model_status": "research_only",
+      "model_ref": "damage:mbdd_wall_total16_failed",
+      "condition": "Visible bulge-like surface appearance; no depth or flatness measurement.",
+      "next_check": "Inspect the actual surface and measure geometry with a straightedge or appropriate depth instrument.",
+      "why_it_matters": "A model appearance candidate needs direct inspection; it does not establish the cause or severity.",
+      "validation_scope": "FAILED photo research:48 CAL, 1/10 box matches and0 unmatched predictions;18 previously exposed photos, 2/9 matches and2 unmatched. IoU>=.50; all class minimum guards fail. No certified healthy negatives, independent site or video qualification.",
+      "metrics": {
+        "calibration": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 9,
+          "annotations": 10,
+          "precision": 1.0,
+          "recall": 0.1,
+          "class_absent_images": 38,
+          "class_absent_images_flagged": 0
+        },
+        "exposed18": {
+          "tp": 2,
+          "fp": 2,
+          "fn": 7,
+          "annotations": 9,
+          "precision": 0.5,
+          "recall": 0.2222222222222222,
+          "class_absent_images": 14,
+          "class_absent_images_flagged": 0
+        }
+      },
+      "video_evidence": [],
+      "photo_evidence": [
+        {
+          "case_id": "Wall PHOTO research - Wall bulge appearance - first acquired source",
+          "comparison_image": "output\\evaluation\\construction-wall-five-class-v3\\Hefei13263-raw-publisher-model.jpg",
+          "preset_label": "Wall PHOTO research - Wall bulge appearance - first acquired source"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1501 @@
+{
+  "stages": [
+    {
+      "id": "preconstruction",
+      "label": "Design, approvals and preconstruction",
+      "order": 1
+    },
+    {
+      "id": "site_safety",
+      "label": "Site establishment and safety throughout construction",
+      "order": 2
+    },
+    {
+      "id": "earthworks",
+      "label": "Excavation, ground treatment and earthworks",
+      "order": 3
+    },
+    {
+      "id": "foundations",
+      "label": "Foundations and below-ground work",
+      "order": 4
+    },
+    {
+      "id": "reinforcement",
+      "label": "Reinforcement and embedded items before concealment",
+      "order": 5
+    },
+    {
+      "id": "formwork",
+      "label": "Formwork, falsework and temporary support",
+      "order": 6
+    },
+    {
+      "id": "concreting",
+      "label": "Concrete production, placement and curing",
+      "order": 7
+    },
+    {
+      "id": "structure",
+      "label": "Structural frame, masonry, steel and precast",
+      "order": 8
+    },
+    {
+      "id": "envelope",
+      "label": "Envelope, roof, insulation and waterproofing",
+      "order": 9
+    },
+    {
+      "id": "mep_roughin",
+      "label": "Electrical, mechanical, plumbing, gas and telecom rough-in",
+      "order": 10
+    },
+    {
+      "id": "fire_life_safety",
+      "label": "Fire, smoke and means of escape",
+      "order": 11
+    },
+    {
+      "id": "accessibility",
+      "label": "Accessibility and external access",
+      "order": 12
+    },
+    {
+      "id": "finishes",
+      "label": "Partitions, finishes and fit-out",
+      "order": 13
+    },
+    {
+      "id": "testing_commissioning",
+      "label": "Testing, commissioning and integrated verification",
+      "order": 14
+    },
+    {
+      "id": "handover",
+      "label": "Completion, occupancy and handover",
+      "order": 15
+    },
+    {
+      "id": "operation_changes",
+      "label": "Operation, maintenance and later alterations",
+      "order": 16
+    }
+  ],
+  "tasks": [
+    {
+      "id": "visual-ppe",
+      "title": "PPE and site observations",
+      "stage": "site_safety",
+      "mode": "ppe",
+      "capabilityId": "ppe_hardhat",
+      "automatic": true,
+      "requiredEvidence": [
+        "Original camera evidence",
+        "Inspector review and notes"
+      ]
+    },
+    {
+      "id": "visual-surfaces",
+      "title": "Concrete and visible surface conditions",
+      "stage": "structure",
+      "mode": "surface",
+      "capabilityId": null,
+      "automatic": true,
+      "requiredEvidence": [
+        "Original camera evidence",
+        "Inspector review and notes"
+      ]
+    },
+    {
+      "id": "visual-cracks",
+      "title": "Visible cracks / joints",
+      "stage": "structure",
+      "mode": "crack",
+      "capabilityId": "surface_crack",
+      "automatic": true,
+      "requiredEvidence": [
+        "Original camera evidence",
+        "Inspector review and notes"
+      ]
+    },
+    {
+      "id": "permit-design",
+      "title": "Permit, approved design and occupancy classification",
+      "stage": "preconstruction",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Authority-approved permit",
+        "signed coordinated drawings",
+        "project occupancy and construction classification"
+      ]
+    },
+    {
+      "id": "survey-boundaries",
+      "title": "Plot boundaries, levels and setbacks",
+      "stage": "preconstruction",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Licensed survey and benchmarks",
+        "approved site plan",
+        "calibrated site measurements"
+      ]
+    },
+    {
+      "id": "geotechnical-design",
+      "title": "Ground investigation, bearing conditions and foundation design",
+      "stage": "preconstruction",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Borehole and laboratory reports",
+        "geotechnical interpretation",
+        "signed foundation design"
+      ]
+    },
+    {
+      "id": "inspection-plan",
+      "title": "Inspection and test plan, competent parties and hold points",
+      "stage": "preconstruction",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Approved inspection and test plan",
+        "authority interpretation of stage approvals",
+        "qualifications and responsibilities"
+      ]
+    },
+    {
+      "id": "material-submittals",
+      "title": "Materials, product approvals and supplier traceability",
+      "stage": "preconstruction",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Approved submittals",
+        "product certificates",
+        "batch traceability",
+        "required material tests"
+      ]
+    },
+    {
+      "id": "energy-fire-access-design",
+      "title": "Coordinated energy, fire and accessibility design",
+      "stage": "preconstruction",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Signed discipline designs",
+        "energy calculations",
+        "fire strategy",
+        "accessibility assessment"
+      ]
+    },
+    {
+      "id": "ppe-head-body",
+      "title": "Visible helmet and high-visibility garment observations",
+      "stage": "site_safety",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Dated site video with visible workers",
+        "competent safety review",
+        "PPE specification and site risk assessment"
+      ]
+    },
+    {
+      "id": "ppe-other",
+      "title": "Foot, eye, hand and respiratory protection suitability",
+      "stage": "site_safety",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Close inspection of equipment condition and specification",
+        "task risk assessment",
+        "fit testing where applicable"
+      ]
+    },
+    {
+      "id": "site-boundary-barriers",
+      "title": "Site fencing, warning signs and public separation",
+      "stage": "site_safety",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Surveyed site boundary",
+        "multi-view site video",
+        "pedestrian and traffic management plan"
+      ]
+    },
+    {
+      "id": "height-openings",
+      "title": "Open edges, floor openings and fall-protection arrangements",
+      "stage": "site_safety",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Close video before concealment",
+        "guardrail and anchorage measurements",
+        "competent temporary-works inspection"
+      ]
+    },
+    {
+      "id": "scaffolds-access",
+      "title": "Scaffolds, ladders, access platforms and lifting arrangements",
+      "stage": "site_safety",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Competent inspection",
+        "load and anchorage design",
+        "equipment certifications",
+        "access-route video"
+      ]
+    },
+    {
+      "id": "housekeeping-traffic",
+      "title": "Housekeeping, material storage and equipment/pedestrian separation",
+      "stage": "site_safety",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Timestamped site walkthrough",
+        "traffic layout",
+        "qualified review of hazard observations"
+      ]
+    },
+    {
+      "id": "temporary-services",
+      "title": "Temporary electrical supply, water and worker welfare",
+      "stage": "site_safety",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Temporary installation inspection",
+        "protection and grounding tests",
+        "welfare and utility plan"
+      ]
+    },
+    {
+      "id": "construction-fire",
+      "title": "Construction-phase fire prevention and emergency access",
+      "stage": "site_safety",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Site fire plan",
+        "actual equipment inspection",
+        "clear emergency routes",
+        "authority conditions"
+      ]
+    },
+    {
+      "id": "excavation-condition",
+      "title": "Excavation geometry, support and adjacent-property protection",
+      "stage": "earthworks",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Surveyed excavation profile",
+        "shoring design",
+        "competent inspection",
+        "adjacent-building condition records"
+      ]
+    },
+    {
+      "id": "founding-level",
+      "title": "Founding level and exposed bearing stratum",
+      "stage": "earthworks",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Geotechnical acceptance of exposed stratum",
+        "calibrated levels",
+        "approved foundation drawings"
+      ]
+    },
+    {
+      "id": "groundwater",
+      "title": "Groundwater, drainage and dewatering performance",
+      "stage": "earthworks",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Water-level monitoring",
+        "approved dewatering design",
+        "discharge records",
+        "inspection of surrounding movement"
+      ]
+    },
+    {
+      "id": "fill-compaction",
+      "title": "Fill material, layer thickness and compaction",
+      "stage": "earthworks",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Approved fill source",
+        "layer measurements",
+        "field density and moisture tests",
+        "geotechnical acceptance"
+      ]
+    },
+    {
+      "id": "special-ground",
+      "title": "Expansive, collapsible or sabkha ground treatment where present",
+      "stage": "earthworks",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Site-specific soil classification",
+        "treatment design",
+        "field and laboratory verification"
+      ]
+    },
+    {
+      "id": "buried-services",
+      "title": "Buried services, protection and backfill before covering",
+      "stage": "earthworks",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Before-cover walkthrough",
+        "surveyed routes and levels",
+        "pressure or drainage tests",
+        "approved utility drawings"
+      ]
+    },
+    {
+      "id": "footing-prepour",
+      "title": "Footing and foundation inspection before concrete placement",
+      "stage": "foundations",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Pre-pour inspection signed by competent engineer",
+        "approved dimensions",
+        "reinforcement and bearing checks"
+      ]
+    },
+    {
+      "id": "piles-deep",
+      "title": "Deep foundations and pile integrity where used",
+      "stage": "foundations",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Installation logs",
+        "specified integrity and load tests",
+        "geotechnical and structural acceptance"
+      ]
+    },
+    {
+      "id": "foundation-moisture",
+      "title": "Below-ground damp-proofing, waterproofing and drainage",
+      "stage": "foundations",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Before-cover membrane video",
+        "material records",
+        "measured laps and terminations",
+        "specified leak or integrity tests"
+      ]
+    },
+    {
+      "id": "slab-underfloor",
+      "title": "Slab and underfloor reinforcement, service penetrations and layers",
+      "stage": "foundations",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Pre-cover inspection",
+        "approved slab and service drawings",
+        "layer thickness and level measurements"
+      ]
+    },
+    {
+      "id": "anchors-embedments",
+      "title": "Foundation anchors, starter bars and embedded fixtures",
+      "stage": "foundations",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Approved anchor details",
+        "calibrated positions and projection measurements",
+        "material and test certificates"
+      ]
+    },
+    {
+      "id": "rebar-grade",
+      "title": "Reinforcement grade, diameter and batch identification",
+      "stage": "reinforcement",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Mill certificates and bar marks",
+        "diameter measurements",
+        "material tests as specified"
+      ]
+    },
+    {
+      "id": "rebar-layout",
+      "title": "Reinforcement count, spacing and arrangement",
+      "stage": "reinforcement",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Calibrated pre-pour measurements",
+        "signed bar schedule",
+        "multi-view evidence with scale"
+      ]
+    },
+    {
+      "id": "rebar-cover",
+      "title": "Concrete cover, spacers and chairs",
+      "stage": "reinforcement",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Measured cover before placement",
+        "approved cover design",
+        "spacer suitability",
+        "cover-meter checks where specified"
+      ]
+    },
+    {
+      "id": "rebar-laps",
+      "title": "Splices, development, couplers and anchorage",
+      "stage": "reinforcement",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Measured lap and anchorage details",
+        "approved drawings",
+        "coupler certificates and tests"
+      ]
+    },
+    {
+      "id": "rebar-condition",
+      "title": "Visible reinforcement contamination, damage and corrosion indications",
+      "stage": "reinforcement",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Close pre-pour images or video",
+        "engineer assessment of section loss and acceptable cleaning",
+        "material records"
+      ]
+    },
+    {
+      "id": "posttension",
+      "title": "Prestressing tendons, anchorages and grouting where used",
+      "stage": "reinforcement",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Specialist installation records",
+        "calibrated stressing logs",
+        "grout tests",
+        "approved tendon geometry"
+      ]
+    },
+    {
+      "id": "formwork-geometry",
+      "title": "Form dimensions, alignment, levels and openings",
+      "stage": "formwork",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Surveyed formwork geometry",
+        "approved drawings",
+        "signed pre-pour inspection"
+      ]
+    },
+    {
+      "id": "formwork-support",
+      "title": "Shoring, bracing and temporary support stability",
+      "stage": "formwork",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Temporary-works design",
+        "competent support inspection",
+        "load and ground-bearing checks"
+      ]
+    },
+    {
+      "id": "formwork-cleanliness",
+      "title": "Form cleanliness, joints and visible preparation",
+      "stage": "formwork",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Close pre-pour walkthrough",
+        "approved release-agent details",
+        "engineer approval"
+      ]
+    },
+    {
+      "id": "striking-reshoring",
+      "title": "Form striking and reshoring readiness",
+      "stage": "formwork",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Required in-place strength evidence",
+        "approved striking sequence",
+        "engineer release"
+      ]
+    },
+    {
+      "id": "concrete-delivery",
+      "title": "Concrete mix, delivery identification and placement records",
+      "stage": "concreting",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Approved mix",
+        "batch and delivery tickets",
+        "placement location and time traceability"
+      ]
+    },
+    {
+      "id": "fresh-concrete",
+      "title": "Fresh-concrete consistency, temperature and air tests as specified",
+      "stage": "concreting",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Calibrated fresh-concrete tests",
+        "sampling records",
+        "project acceptance limits"
+      ]
+    },
+    {
+      "id": "placement-compaction",
+      "title": "Placement sequence and visible vibration/segregation indications",
+      "stage": "concreting",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Timestamped actual placement video",
+        "engineer review",
+        "approved method and workability tests"
+      ]
+    },
+    {
+      "id": "curing-environment",
+      "title": "Curing coverage, duration and environmental protection",
+      "stage": "concreting",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Curing logs",
+        "time and temperature measurements",
+        "material specifications",
+        "site observations"
+      ]
+    },
+    {
+      "id": "concrete-strength",
+      "title": "Concrete hardened strength and acceptance",
+      "stage": "concreting",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Traceable specimens",
+        "accredited strength tests",
+        "approved acceptance review",
+        "further testing if directed"
+      ]
+    },
+    {
+      "id": "surface-defects",
+      "title": "Visible concrete cracks, honeycombing, spalling and exposed steel indications",
+      "stage": "concreting",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Close video with lighting and scale",
+        "mapped defect locations",
+        "calibrated crack width and depth investigations",
+        "engineer assessment"
+      ]
+    },
+    {
+      "id": "frame-geometry",
+      "title": "Frame plumb, levels, dimensions and floor-by-floor continuity",
+      "stage": "structure",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Calibrated as-built survey",
+        "approved structural drawings",
+        "engineer inspection for each relevant floor"
+      ]
+    },
+    {
+      "id": "steel-connections",
+      "title": "Structural steel connections, bolt installation and welds",
+      "stage": "structure",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Fabricator traceability",
+        "connection drawings",
+        "bolt checks",
+        "required weld inspection and nondestructive tests"
+      ]
+    },
+    {
+      "id": "masonry-work",
+      "title": "Masonry units, mortar, ties, reinforcement and grout",
+      "stage": "structure",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Approved SBC 305 design",
+        "material tests",
+        "measured tie and reinforcement layout",
+        "grout records"
+      ]
+    },
+    {
+      "id": "precast-installation",
+      "title": "Precast component bearing, lifting, connections and grouting",
+      "stage": "structure",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "SBC 312 project details",
+        "component certificates",
+        "surveyed bearings",
+        "connection and grout inspection"
+      ]
+    },
+    {
+      "id": "movement-damage",
+      "title": "Visible structural movement, impact damage and deformation indications",
+      "stage": "structure",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Dated multi-view record",
+        "measured movement",
+        "structural engineer investigation",
+        "repair approval"
+      ]
+    },
+    {
+      "id": "roof-membrane",
+      "title": "Roof waterproofing, terminations and penetrations",
+      "stage": "envelope",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Before-cover close video",
+        "approved membrane system",
+        "measured details",
+        "specified water or integrity test"
+      ]
+    },
+    {
+      "id": "wetarea-waterproof",
+      "title": "Wet-area membrane continuity and leak resistance",
+      "stage": "envelope",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Before-cover inspection",
+        "approved waterproofing detail",
+        "measured falls",
+        "witnessed flood or leak test"
+      ]
+    },
+    {
+      "id": "facade-anchors",
+      "title": "Facade and cladding anchors, fixings and support",
+      "stage": "envelope",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Approved facade design",
+        "product certificates",
+        "anchor installation checks and specified tests"
+      ]
+    },
+    {
+      "id": "glazing-openings",
+      "title": "Windows, glazing, doors and visible sealing details",
+      "stage": "envelope",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Safety-glazing identification",
+        "approved opening schedule",
+        "measured installation",
+        "specified water/air tests"
+      ]
+    },
+    {
+      "id": "thermal-insulation",
+      "title": "Insulation continuity and thermal performance",
+      "stage": "envelope",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Before-cover video",
+        "certified thermal properties",
+        "thickness measurements",
+        "SBC 601 or 602 energy design and checks"
+      ]
+    },
+    {
+      "id": "roof-drainage",
+      "title": "Roof falls, primary drains and overflow paths",
+      "stage": "envelope",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Calibrated falls and outlet measurements",
+        "drainage design",
+        "witnessed flow testing"
+      ]
+    },
+    {
+      "id": "electrical-routing",
+      "title": "Electrical cable routing, protection, supports and enclosures",
+      "stage": "mep_roughin",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Approved electrical design",
+        "before-cover walkthrough",
+        "measured clearances",
+        "circuit and product records"
+      ]
+    },
+    {
+      "id": "earthing-bonding",
+      "title": "Earthing and protective bonding continuity",
+      "stage": "mep_roughin",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Calibrated continuity and earth tests",
+        "approved earthing design",
+        "accessible joint inspection"
+      ]
+    },
+    {
+      "id": "plumbing-distribution",
+      "title": "Water distribution materials, supports, joints and protection",
+      "stage": "mep_roughin",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Approved plumbing design",
+        "before-cover inspection",
+        "product records",
+        "pressure test"
+      ]
+    },
+    {
+      "id": "drainage-vents",
+      "title": "Drainage, traps, gradients, vents and cleanout access",
+      "stage": "mep_roughin",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Calibrated slope and size checks",
+        "approved layout",
+        "witnessed leakage or flow tests"
+      ]
+    },
+    {
+      "id": "potable-backflow",
+      "title": "Potable water separation and backflow prevention",
+      "stage": "mep_roughin",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Approved backflow device records",
+        "installation and functional tests",
+        "disinfection and water-quality records"
+      ]
+    },
+    {
+      "id": "hvac-ductwork",
+      "title": "Ductwork, supports, insulation and access",
+      "stage": "mep_roughin",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Approved mechanical design",
+        "before-cover survey",
+        "product records",
+        "leakage tests where specified"
+      ]
+    },
+    {
+      "id": "hvac-plant",
+      "title": "HVAC equipment, condensate and refrigerant installation",
+      "stage": "mep_roughin",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Approved schedules",
+        "clearance measurements",
+        "leak and condensate tests",
+        "manufacturer startup records"
+      ]
+    },
+    {
+      "id": "fuel-gas",
+      "title": "Fuel gas routing, valves, ventilation and leak resistance where installed",
+      "stage": "mep_roughin",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Applicable SBC 1201 design",
+        "licensed specialist inspection",
+        "calibrated pressure and leak tests"
+      ]
+    },
+    {
+      "id": "telecom-infrastructure",
+      "title": "Telecom pathways, spaces, cabling and interfaces",
+      "stage": "mep_roughin",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Applicable official telecom guide",
+        "coordinated drawings",
+        "pathway inspections",
+        "cable test records"
+      ]
+    },
+    {
+      "id": "firestop-penetrations",
+      "title": "Fire and smoke barrier penetrations and joints before covering",
+      "stage": "fire_life_safety",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Before-cover close video",
+        "listed tested system matching actual substrate and services",
+        "measured installation",
+        "qualified signoff"
+      ]
+    },
+    {
+      "id": "fire-doors",
+      "title": "Fire doors, dampers and rated opening protection",
+      "stage": "fire_life_safety",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Product labels and listings",
+        "installation measurements",
+        "actual operation tests",
+        "approved fire strategy"
+      ]
+    },
+    {
+      "id": "egress-routes",
+      "title": "Exit routes, stairs, exit doors and obstruction indications",
+      "stage": "fire_life_safety",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Complete route survey",
+        "measured widths and travel distances",
+        "occupancy calculations",
+        "door operation tests"
+      ]
+    },
+    {
+      "id": "suppression-installation",
+      "title": "Sprinklers, standpipes, pumps and suppression equipment",
+      "stage": "fire_life_safety",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Approved hydraulic design",
+        "coverage and clearance measurements",
+        "witnessed pressure and flow tests"
+      ]
+    },
+    {
+      "id": "alarm-emergency-light",
+      "title": "Alarm devices, emergency lighting and exit signage",
+      "stage": "fire_life_safety",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Approved cause-and-effect schedule",
+        "detector tests",
+        "audibility/visibility and emergency-duration measurements"
+      ]
+    },
+    {
+      "id": "smoke-compartment",
+      "title": "Smoke control, compartmentation and smoke-management performance",
+      "stage": "fire_life_safety",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Approved fire strategy",
+        "pressure and airflow measurements",
+        "witnessed integrated smoke-control testing"
+      ]
+    },
+    {
+      "id": "accessible-route",
+      "title": "Accessible paths, ramps, curb transitions and landings",
+      "stage": "accessibility",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Complete calibrated route survey",
+        "measured slopes and clear widths",
+        "applicable approved accessibility design"
+      ]
+    },
+    {
+      "id": "accessible-parking",
+      "title": "Accessible parking layout and connection to entrances",
+      "stage": "accessibility",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Surveyed dimensions and gradients",
+        "approved parking plan",
+        "signage and route inspection"
+      ]
+    },
+    {
+      "id": "accessible-doors",
+      "title": "Accessible door clearances, hardware and operating forces",
+      "stage": "accessibility",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Calibrated opening and force measurements",
+        "approved door schedule",
+        "functional inspection"
+      ]
+    },
+    {
+      "id": "accessible-sanitary",
+      "title": "Accessible sanitary fixtures and maneuvering spaces",
+      "stage": "accessibility",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Calibrated fixture and space survey",
+        "approved layout",
+        "physical operation review"
+      ]
+    },
+    {
+      "id": "gypsum-rated",
+      "title": "Gypsum/lath installation in rated or shear assemblies before finishing",
+      "stage": "finishes",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Before-finish close evidence",
+        "approved assembly",
+        "measured fastening and joint details",
+        "product records"
+      ]
+    },
+    {
+      "id": "finish-surface",
+      "title": "Visible finish cracks, damaged tiles, uneven or incomplete surfaces",
+      "stage": "finishes",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Actual walkthrough with scale and lighting",
+        "approved finish specification",
+        "calibrated flatness checks",
+        "reviewer classification"
+      ]
+    },
+    {
+      "id": "finish-material",
+      "title": "Interior finish fire performance and material identity",
+      "stage": "finishes",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Traceable finish product certificates",
+        "applicable fire classification",
+        "approved room finish schedule"
+      ]
+    },
+    {
+      "id": "stairs-guards",
+      "title": "Stairs, handrails, guards and glazing at occupied spaces",
+      "stage": "finishes",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Calibrated heights and openings",
+        "approved geometry",
+        "anchorage and loading evidence where specified"
+      ]
+    },
+    {
+      "id": "electrical-verification",
+      "title": "Electrical initial verification and protection operation",
+      "stage": "testing_commissioning",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Calibrated electrical test results",
+        "protection-operation tests",
+        "signed initial-verification report"
+      ]
+    },
+    {
+      "id": "plumbing-verification",
+      "title": "Water and drainage pressure, leakage and sanitary verification",
+      "stage": "testing_commissioning",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Witnessed calibrated pressure and leakage records",
+        "drainage tests",
+        "approved test procedures"
+      ]
+    },
+    {
+      "id": "ventilation-balancing",
+      "title": "Airflow, ventilation and system balancing",
+      "stage": "testing_commissioning",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Calibrated air and water balancing reports",
+        "approved design duties",
+        "actual operating measurements"
+      ]
+    },
+    {
+      "id": "energy-controls",
+      "title": "Energy controls, metering and equipment performance",
+      "stage": "testing_commissioning",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Applicable SBC 601 or 602 commissioning requirements",
+        "controls sequences",
+        "witnessed functional records"
+      ]
+    },
+    {
+      "id": "fire-integrated",
+      "title": "Integrated fire alarm, suppression, smoke and shutdown tests",
+      "stage": "testing_commissioning",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Approved cause-and-effect test script",
+        "witnessed integrated tests",
+        "competent fire reviewer and authority records"
+      ]
+    },
+    {
+      "id": "elevators",
+      "title": "Elevators and vertical transport acceptance where installed",
+      "stage": "testing_commissioning",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Specialist inspection and applicable certification",
+        "load, emergency and safety-function tests"
+      ]
+    },
+    {
+      "id": "special-inspections",
+      "title": "Project-specific special inspections and structural observations",
+      "stage": "testing_commissioning",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Approved special-inspection statement",
+        "required site and laboratory reports",
+        "closure of discrepancies"
+      ]
+    },
+    {
+      "id": "final-inspection",
+      "title": "Final inspection and closure of outstanding findings",
+      "stage": "handover",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Final inspections",
+        "documented corrective work",
+        "authorized engineering report",
+        "authority acceptance"
+      ]
+    },
+    {
+      "id": "asbuilt-records",
+      "title": "As-built drawings, warranties, operation and maintenance records",
+      "stage": "handover",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Signed as-built drawings",
+        "accepted tests",
+        "product and maintenance documentation",
+        "training records"
+      ]
+    },
+    {
+      "id": "external-final",
+      "title": "Final site drainage, public interfaces, parking and entrances",
+      "stage": "handover",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Surveyed completed site",
+        "actual final walkthrough",
+        "approved site plan",
+        "accessibility and drainage evidence"
+      ]
+    },
+    {
+      "id": "occupancy-approval",
+      "title": "Municipal occupancy certificate and required discipline approvals",
+      "stage": "handover",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Issued authority certificate",
+        "final inspection and test acceptance",
+        "actual permit and approval records"
+      ]
+    },
+    {
+      "id": "maintenance-monitoring",
+      "title": "Periodic inspection, maintenance and defect follow-up",
+      "stage": "operation_changes",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Applicable periodic inspection plan",
+        "maintenance logs",
+        "measured defect changes",
+        "competent review"
+      ]
+    },
+    {
+      "id": "alteration-rehabilitation",
+      "title": "Alteration, repair, change of use and existing-building assessment",
+      "stage": "operation_changes",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Applicable SBC 901 or 310 scope",
+        "structural and fire assessment",
+        "authority-approved alteration documents"
+      ]
+    },
+    {
+      "id": "special-occupancies",
+      "title": "Project-specific systems and occupancy conditions",
+      "stage": "operation_changes",
+      "mode": "manual",
+      "capabilityId": null,
+      "automatic": false,
+      "requiredEvidence": [
+        "Applicability review for pools SBC 1401, private sewage SBC 702, heritage SBC 902, green SBC 1001 and special occupancies",
+        "approved specialist test and inspection plan"
+      ]
+    }
+  ],
+  "categories": [
+    {
+      "id": "surface_crack",
+      "label": "Visible surface crack",
+      "status": "supported_experimental",
+      "scope": "Installed experimental crack model. Two reused ev-CIVIL public diagnostic clips:136/170 publisher boxes matched at IoU0.50; thin-crack case0/8. Unknown training overlap; no independent Saudi or all-stage validation."
+    },
+    {
+      "id": "surface_spalling",
+      "label": "Spalling / surface material loss",
+      "status": "measured_weak",
+      "scope": "Installed DACL512 photo diagnostic only: 36 positive and19 class-absent public photos; checkpoint training/selection overlap unknown. Pixel precision69.9%, recall34.5%, IoU.30033;12/101 derived regions matched at IoU.50;7/19 class-absent photos flagged. Weak photo localization does not establish spalling video detection. The old installed crack-only video baseline is unsupported for spalling; the new video fit is separate."
+    },
+    {
+      "id": "surface_rust",
+      "label": "Rust / corrosion staining",
+      "status": "measured_weak",
+      "scope": "DACL512 photo diagnostic: pixel precision 69.2%, recall 21.0%, IoU 19.2%; derived-region matches 26/119 at IoU0.50, 66 unmatched model regions; class-absent photo flags 5/25. 55 fixed public-validation stills; checkpoint overlap unknown. No category-specific video validation."
+    },
+    {
+      "id": "surface_exposed_rebar",
+      "label": "Exposed reinforcement",
+      "status": "measured_weak",
+      "scope": "DACL512 photo diagnostic: pixel precision 60.9%, recall 15.9%, IoU 14.4%; derived-region matches 4/17 at IoU0.50, 19 unmatched model regions; class-absent photo flags 4/46. 55 fixed public-validation stills; checkpoint overlap unknown. No category-specific video validation."
+    },
+    {
+      "id": "surface_wetspot",
+      "label": "Visible wet spot",
+      "status": "measured_weak",
+      "scope": "DACL512 photo diagnostic: pixel precision 18.4%, recall 57.8%, IoU 16.2%; derived-region matches 4/10 at IoU0.50, 45 unmatched model regions; class-absent photo flags 17/46. 55 fixed public-validation stills; checkpoint overlap unknown. No category-specific video validation."
+    },
+    {
+      "id": "surface_efflorescence",
+      "label": "Efflorescence",
+      "status": "measured_weak",
+      "scope": "DACL512 photo diagnostic: pixel precision 67.6%, recall 43.3%, IoU 35.9%; derived-region matches 6/49 at IoU0.50, 40 unmatched model regions; class-absent photo flags 8/43. 55 fixed public-validation stills; checkpoint overlap unknown. No category-specific video validation."
+    },
+    {
+      "id": "surface_rockpocket",
+      "label": "Rockpocket / honeycomb appearance",
+      "status": "measured_weak",
+      "scope": "DACL512 photo diagnostic: pixel precision 33.4%, recall 73.2%, IoU 29.8%; derived-region matches 4/10 at IoU0.50, 32 unmatched model regions; class-absent photo flags 12/47. 55 fixed public-validation stills; checkpoint overlap unknown. No category-specific video validation."
+    },
+    {
+      "id": "surface_cavity",
+      "label": "Visible cavity",
+      "status": "measured_weak",
+      "scope": "DACL512 photo diagnostic: pixel precision 14.7%, recall 70.6%, IoU 13.8%; derived-region matches 3/63 at IoU0.50, 130 unmatched model regions; class-absent photo flags 22/43. 55 fixed public-validation stills; checkpoint overlap unknown. No category-specific video validation."
+    },
+    {
+      "id": "surface_hollowareas",
+      "label": "Inspector-marked hollow-area boundary (chalk)",
+      "status": "supported_experimental",
+      "scope": "DACL512 photo diagnostic: pixel precision 77.1%, recall 77.2%, IoU 62.8%; derived-region matches 12/22 at IoU0.50, 20 unmatched model regions; class-absent photo flags 5/38. 55 fixed public-validation stills; checkpoint overlap unknown. No category-specific video validation."
+    },
+    {
+      "id": "surface_weathering",
+      "label": "Surface weathering",
+      "status": "measured_weak",
+      "scope": "DACL512 photo diagnostic: pixel precision 27.4%, recall 32.1%, IoU 17.3%; derived-region matches 7/47 at IoU0.50, 101 unmatched model regions; class-absent photo flags 10/27. 55 fixed public-validation stills; checkpoint overlap unknown. No category-specific video validation."
+    },
+    {
+      "id": "surface_residual_formwork",
+      "label": "Residual formwork",
+      "status": "measured_weak",
+      "scope": "DACL512 photo diagnostic: pixel precision 31.2%, recall 62.3%, IoU 26.3%; derived-region matches 3/11 at IoU0.50, 37 unmatched model regions; class-absent photo flags 11/47. 55 fixed public-validation stills; checkpoint overlap unknown. No category-specific video validation."
+    },
+    {
+      "id": "surface_alligator_crack",
+      "label": "Alligator cracking pattern",
+      "status": "measured_weak",
+      "scope": "DACL512 photo diagnostic: pixel precision 37.3%, recall 45.5%, IoU 25.8%; derived-region matches 2/9 at IoU0.50, 55 unmatched model regions; class-absent photo flags 7/47. 55 fixed public-validation stills; checkpoint overlap unknown. No category-specific video validation."
+    },
+    {
+      "id": "surface_graffiti",
+      "label": "Graffiti / surface markings",
+      "status": "measured_weak",
+      "scope": "DACL512 photo diagnostic: pixel precision 71.2%, recall 44.9%, IoU 38.0%; derived-region matches 4/27 at IoU0.50, 16 unmatched model regions; class-absent photo flags 4/44. 55 fixed public-validation stills; checkpoint overlap unknown. No category-specific video validation."
+    },
+    {
+      "id": "surface_washout",
+      "label": "Concrete surface loss / erosion appearance",
+      "status": "measured_weak",
+      "scope": "DACL512 photo diagnostic: pixel precision 12.8%, recall 7.4%, IoU 4.9%; derived-region matches 2/12 at IoU0.50, 44 unmatched model regions; class-absent photo flags 19/47. 55 fixed public-validation stills; checkpoint overlap unknown. No category-specific video validation."
+    },
+    {
+      "id": "concrete_strength",
+      "label": "Concrete strength",
+      "status": "unsupported",
+      "scope": "No visual model detection or automatic code acceptance is claimed."
+    },
+    {
+      "id": "reinforcement_cover",
+      "label": "Reinforcement cover",
+      "status": "unsupported",
+      "scope": "No visual model detection or automatic code acceptance is claimed."
+    },
+    {
+      "id": "waterproofing_performance",
+      "label": "Waterproofing performance",
+      "status": "unsupported",
+      "scope": "No visual model detection or automatic code acceptance is claimed."
+    },
+    {
+      "id": "tile_surface_anomaly",
+      "label": "Visible tile surface texture anomaly",
+      "status": "research_only",
+      "scope": "Research on 117 real manufacturing tile photos, with 48 normal fit and 10 normal calibration photos. Crack pixel precision 31.14%, recall 59.71%, IoU 25.73%; 0/17 derived crack regions matched at IoU 0.50. Normal photos: 3/33 flagged. These results also hold after the actual serving component filter for crack and normal cases. No installed-floor or video validation."
+    },
+    {
+      "id": "finish_wall_moisture_content",
+      "label": "Wall material moisture content",
+      "status": "unsupported",
+      "scope": "Requires a calibrated instrument appropriate to the material. A visible wet spot does not measure water content or establish a hidden leak."
+    },
+    {
+      "id": "finish_room_relative_humidity",
+      "label": "Room relative humidity",
+      "status": "unsupported",
+      "scope": "Requires a temperature/RH sensor with calibration, units, time and location. It cannot be inferred from wall color."
+    },
+    {
+      "id": "finish_paint_peeling",
+      "label": "Peeling or flaking wall paint",
+      "status": "unsupported",
+      "scope": "Existing generic material-loss detections do not identify paint. Related wall data are acquired; no paint-specific local detector is validated."
+    },
+    {
+      "id": "finish_paint_bubbles",
+      "label": "Paint blister or bubble appearance",
+      "status": "unsupported",
+      "scope": "Requires paint-specific supervision. A generic publisher bulge label is not a material-verified paint blister."
+    },
+    {
+      "id": "finish_paint_coverage",
+      "label": "Paint coverage/run/color mismatch",
+      "status": "unsupported",
+      "scope": "Requires an approved reference and controlled illumination. No trained detector or suitable evaluation dataset is verified."
+    },
+    {
+      "id": "finish_ceramic_crack",
+      "label": "Cracked installed ceramic",
+      "status": "unsupported",
+      "scope": "The tile anomaly specialist is related manufacturing research only: 0/17 derived crack regions matched at IoU 0.50. Installed tiles, decorative veins and grout are not validated."
+    },
+    {
+      "id": "finish_joint_alignment",
+      "label": "Tile joint gap, skew or shift",
+      "status": "unsupported",
+      "scope": "Requires calibrated same-plane geometry and the approved grid or nominal gap. No installed-video ground truth or model is validated."
+    },
+    {
+      "id": "finish_surface_flatness",
+      "label": "Surface flatness or tile lippage",
+      "status": "unsupported",
+      "scope": "Requires depth, a straightedge or a scan reference. A 2D image homography does not measure height."
+    },
+    {
+      "id": "finish_installation_fault",
+      "label": "Fastener/anchorage and other installation defects",
+      "status": "unsupported",
+      "scope": "No installed model verifies screw engagement, torque, anchor embedment, required fastening arrangement or capacity. Object/crack detections do not establish fastening adequacy."
+    },
+    {
+      "id": "surface_leakage_appearance",
+      "label": "Wall damp/stain appearance",
+      "status": "research_only",
+      "scope": "FAILED photo research:48 CAL, 3/22 box matches and12 unmatched predictions;18 previously exposed photos, 4/17 matches and6 unmatched. IoU>=.50; all class minimum guards fail. No certified healthy negatives, independent site or video qualification."
+    },
+    {
+      "id": "surface_detachment",
+      "label": "Detached surface material",
+      "status": "research_only",
+      "scope": "FAILED photo research:48 CAL, 8/60 box matches and1 unmatched predictions;18 previously exposed photos, 0/16 matches and1 unmatched. IoU>=.50; all class minimum guards fail. No certified healthy negatives, independent site or video qualification."
+    },
+    {
+      "id": "surface_corrosion_appearance",
+      "label": "Wall corrosion appearance",
+      "status": "research_only",
+      "scope": "FAILED photo research:48 CAL, 1/23 box matches and2 unmatched predictions;18 previously exposed photos, 0/15 matches and0 unmatched. IoU>=.50; all class minimum guards fail. No certified healthy negatives, independent site or video qualification."
+    },
+    {
+      "id": "surface_bulge_appearance",
+      "label": "Wall bulge appearance",
+      "status": "research_only",
+      "scope": "FAILED photo research:48 CAL, 1/10 box matches and0 unmatched predictions;18 previously exposed photos, 2/9 matches and2 unmatched. IoU>=.50; all class minimum guards fail. No certified healthy negatives, independent site or video qualification."
+    }
+  ]
+}

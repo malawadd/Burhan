@@ -1,0 +1,15 @@
+# Post-choice55-photo pixel audit review
+
+**Static review PASS**, after two pre-NN binding guards were added to `scripts/audit_construction_round4_pixels.py`. No model, image, polygon file, CAL/private video or NN was opened by this reviewer. No audit protocol has been frozen and no55-photo inference result exists at this review stage.
+
+The source scope is the immutable, previously exposed55 DACL validation photographs in pre-choice plan SHA `184e5f534e37975fadd853cb4a41d96553c093069e0f619868defd90343f5e59`. They provide a descriptive after-choice pixel diagnostic, not model/checkpoint/threshold selection or independent production validation. No training photo, private video or new heldout source is substituted.
+
+Freezing requires all900 updates and the completed global choice from exactly the three unique300/600/900 calibration outcomes. The selected asset is the already chosen winner; if no candidate passed, only exact900 is used and explicitly labeled **FAILED diagnostic; no winner**. Original author weights and fixed.25/.45 policy are pinned. Before model creation, execution rebinds its derived model/step/role/rows/classes/mapping/policy/scope and preplan/choice hashes to those source artifacts. Merely listing unchanged files beside an edited execution body is insufficient; that gap is now closed.
+
+GT uses native normalized author polygons, rounded/scaled to the actual image and filled as polygons. `Crack` and `ACrack` union into the crack channel; `Spalling` forms the other. Parts are unioned within a class and class overlap is allowed. Source boxes are not filled and GT never enters model input or a GT-selected crop. Prediction channels union actual native boolean prototype masks at the frozen policy, including empty masks; they are not fabricated from boxes. Native geometry is checked before pixel scoring.
+
+Per-class TP/FP/FN produce precision, recall and IoU without background true-negative inflation. A GT-absent class has recall=None. Empty GT plus empty prediction gives IoU=None; a predicted mask on absent GT gives IoU0 and a class-absent flag. Those flags mean **native predicted-mask presence on annotation-absent photos**, distinct from detector-box alarms or physical defect verification. Global micro counts include false foreground on absent-class photographs. DACL semantic annotation granularity/coarseness and source-checkpoint overlap remain limitations; no physical crack width or field safety conclusion follows.
+
+Both model roles use the same55 native sources, shared low-light preprocessing and actual queried GPU float32 hint/one stream. Per-photo native GT/prediction masks, pixel records, gain and hashes are saved; progress advances after each completed model/photo. First execution markers and exclusive role folders prevent silent overwrite; an exception retains a failed state/trace and completed work. Timing is accuracy-only under disclosed host/project contention, not an FPS result.
+
+Actual after-choice execution, its source pins and all failures still require root's separately coordinated GPU release. This review approves the source method, not an eventual result or model adoption.

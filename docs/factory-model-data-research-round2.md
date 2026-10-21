@@ -1,0 +1,75 @@
+# Factory model and dataset research, second round
+
+Date: 20 October 2026. Hardware target: this laptop's i7-8550U / Intel UHD 620 / 24 GB RAM, local inference at least 15 processed observations/s. The current target is **actual visible-defect localization**, not an unrelated box anywhere in a defective image. This document records independent research and evaluation safeguards; measured new-model results belong in the accompanying training report and raw JSON outputs.
+
+The previous experiments' best localized recall remains 8/11 (72.7%) on 80 exposed development views. The earlier 9/11 flagged-image score does not represent a recovered defect. Repeated tuning on the same small comparison does not create a fresh blind result. Improving a different, easier dataset also cannot be presented as an improvement on this comparison.
+
+## Dataset decisions
+
+| Dataset | Real observations and annotation | Acquisition / license | Decision for this round |
+|---|---|---|---|
+| Original KolektorSDD | Existing 399 grayscale surface images with masks and physical-item folder IDs | Already pinned locally; CC BY-NC-SA 4.0 | Preserve 30 training / 10 calibration / 10 comparison physical-item split. The exposed 80 comparison views remain development data. |
+| KolektorSDD2 | Author reports 3,335 controlled industrial images: 246 defective + 2,085 normal training; 110 defective + 894 normal test. Approximately 230 × 630, several visible defect types | Direct author ZIP: 853,126,555 bytes; CC BY-NC-SA 4.0; commercial permission from the author required | Acquire original release. Train-only extraction is the default. Official test image and mask contents remain unopened in the archive until an explicit frozen-protocol evaluation. Potential industrial pretraining and a separate-domain benchmark, not a replacement headline. |
+| MVTec AD | More than 5,000 high-resolution images over 15 object/texture categories; normal-only training, test normal/defective images, pixel anomaly masks | Official current page presents a download form; CC BY-NC-SA 4.0 | Useful for a future category-specific anomaly study. Do not import category-specific pretrained scores as commutator recall. No acquisition or local result claimed in this round. |
+| Real-IAD | Authors report 151,050 images of 30 objects, five camera views and segmentation annotations | Official project and code provide per-object archive / JSON organization. Code license must not be assumed to license dataset images | Useful for multi-view item coverage and grouped validation. A large multi-view training setup is not established on this laptop; not acquired or benchmarked here. |
+| DAGM2007 | Generated texture benchmark rather than the requested genuine production observations | Historical benchmark; not acquired | Excluded from evidence of real manufacturing defects. |
+
+KolektorSDD2 information and license come from the [dataset authors](https://www.vicos.si/resources/kolektorsdd2/), which override contradictory mirror summaries. Its released train/test split does **not** supply verified physical-item or production-batch identities. Do not call that split item-disjoint or estimate line-level recall from it. The data supplies still images, not synchronized moving production footage. The direct author archive is [KolektorSDD2.zip](https://data.vicos.si/datasets/KSDD/KolektorSDD2.zip).
+
+MVTec details and terms are from the [official MVTec AD page](https://www.mvtec.com/research-teaching/datasets/mvtec-ad). Real-IAD facts are from the [authors' CVPR 2024 paper](https://openaccess.thecvf.com/content/CVPR2024/papers/Wang_Real-IAD_A_Real-World_Multi-View_Dataset_for_Benchmarking_Versatile_Industrial_Anomaly_CVPR_2024_paper.pdf), [project](https://realiad4ad.github.io/Real-IAD/) and [official experiment repository](https://github.com/Tencent/AnomalyDetection_Real-IAD). These are separate domains, not evidence that more download volume automatically improves the existing detector.
+
+## Architecture decisions
+
+| Candidate | What changes materially | Suitability and limits |
+|---|---|---|
+| End-to-end lightweight spatial segmentation | Fine-tune a pretrained small encoder and add a depthwise spatial decoder with skip connections; retain high-resolution early features | Selected for the immediate experiment. The prior model froze shallow features and fit a pointwise head; learned spatial context and domain adaptation are different capabilities. Export one logit map locally; avoid transferring all intermediate features to CPU. Actual speed and calibration false alarms must pass before comparison evaluation. |
+| Segmentation-Decision Network / mixed SegDecNet | Supervised segmentation plus classification, balanced losses, gradient control and sampling of normal images | Strong task-specific reference. The authors provide code for the same dataset family. Historical paper detection results are classification/cross-validation results under their own protocol, not our mask recall or laptop speed. No verified official ready-to-deploy checkpoint with a clean training overlap history was found in the reviewed README. Do not download an arbitrary trained-on-all-SDD1 checkpoint and claim a held-out improvement. |
+| EfficientAD-S | Compact teacher–student discrepancy maps, optional global autoencoder, normal-only training | Strong future normal-only contender. Published millisecond latency uses modern NVIDIA hardware; UHD 620 latency is unknown until measured. A generic ImageNet teacher alone is not a trained commutator anomaly detector. A model needs training and calibration on this product's normal views. |
+| PatchCore | Frozen patch embeddings and nearest-neighbor memory bank | Genuinely different normal-only baseline; training can be simpler, but search/memory and a large backbone are laptop runtime risks. The authors' standard example uses WideResNet50 and FAISS GPU. A compact MobileNet/coreset adaptation must be identified as an adaptation and independently evaluated. No speed or recall gain is claimed without a local run. |
+
+The [official mixed SegDecNet implementation](https://github.com/vicoslab/mixed-segdec-net-comind2021) publishes CC BY-NC-SA 4.0 terms and its training settings. Its [2020 paper](https://arxiv.org/abs/2007.07676) describes balancing segmentation/classification gradients, frequency-based negative sampling and distance-weighted supervision. Its [2021 paper](https://arxiv.org/abs/2104.06064) introduces mixed supervision and KolektorSDD2. These findings support trying a spatial supervised learner rather than additional forest-threshold variants. The older official TensorFlow repository is [segdec-net-jim2019](https://github.com/skokec/segdec-net-jim2019), not the frequently mistyped `iim2019` URL; its legacy environment is not installed into the runtime.
+
+The [EfficientAD authors' paper](https://arxiv.org/html/2303.14535v3) explicitly separates anomaly maps from image-level scores and discusses test-time tuning and test-informed cropping as invalid evaluation shortcuts. Its latency measurements cannot be transferred to this laptop. The [official PatchCore repository](https://github.com/amazon-science/patchcore-inspection) is Apache-2.0 code and specifies a memory-bank method and a comparatively large default backbone. Dataset restrictions remain separate from code licensing. Unofficial reproductions are not presented as author-issued pretrained models.
+
+## Independent localization audit
+
+`scripts/factory_localization_audit.py` measures frozen actual runtime policies against original-resolution masks. This script performs no fitting, model selection or threshold selection. It captures the score map returned by the real profile, applies the same model-grid component area threshold and stable largest-20 cap, and projects the binary mask with nearest-neighbor sampling to original image geometry. Quality abstentions produce empty predictions and remain in the all-view denominator.
+
+Reported measures are intentionally complementary:
+
+1. Any-pixel localized defective-view recall, retained for comparison with the corrected historical result. One true pixel is a permissive hit, not good segmentation.
+2. Defective-view recall requiring at least 10% and at least 50% of annotated defect pixels covered. These expose almost-empty hits; they are diagnostic criteria declared before the next candidate's results.
+3. Foreground pixel precision, foreground recall, micro IoU and macro defective-view IoU. Background true negatives are excluded. A whole-frame prediction gets high recall but poor precision and IoU.
+4. One-to-one component precision/recall at IoU thresholds 0.10, 0.25 and 0.50. Matches are greedily ordered by descending IoU; each prediction and true region can match once.
+5. False alarms on all normal views, false-location flags in defective views, and explicit abstention counts.
+
+The 10%/50% checks supplement, not silently replace, historical any-pixel recall. These coverage checks alone are also insufficient: a whole-frame mask covers every defect, which is why precision, IoU and normal false alarms are mandatory. A per-view success metric is not a per-physical-item, per-production-cycle or per-sequence metric.
+
+Five small geometry fixtures verify wrong-location rejection, a one-pixel touch, oversized whole-frame prediction, area filtering before original-resolution projection and one-to-one matching when a prediction merges two defects. They passed: **5 tests, 0.63 seconds**. These generated arrays are unit tests only; they are not factory model training/evaluation examples or demonstration footage.
+
+## Training and selection protocol recommendations
+
+Keep the original physical-item boundaries for every SDD1 experiment. Write training budget, architecture, checkpoint selection rule, sampling seed, score/area grid and maximum normal-view false-alarm budget before calibration. Train neither the encoder nor the decoder on comparison masks. Use calibration masks to choose the operating point; report both its success and item-jackknife sensitivity. Freeze model bytes plus metadata hash before opening comparison scores. The original comparison stays exposed development data even after these precautions.
+
+For the immediate spatial model, balanced positive/normal training patches and a combination of weighted BCE and soft Dice are reasonable predeclared starting choices. Positive patch centers should jitter around annotated training pixels; normal patches must cover different physical training items and genuine difficult normal texture. Any augmentation is training-only and must transform masks identically. If dilated supervision is used to help thin targets, final accuracy still uses untouched original annotations. These are engineering proposals, not claims of an already measured winning configuration.
+
+SDD2 can supply industrial training data without touching its official test. Either train a separately identified SDD2 model using an inner split of its official training partition, or use its training partition as pretraining before SDD1 training. Freeze and record which strategy was used. Do not use the official test to select epochs, crops, thresholds or a favorable subset. Without item IDs, random image separation cannot establish independent physical-item generalization.
+
+Report encoder/model-only throughput separately from full profile and actual shared-runtime throughput. Run timing jobs without competing local model jobs. The runtime gate includes preprocessing, quality checks, score postprocessing, JPEG/event work, queue drops and deadline misses. A 15 FPS replay of 80 stills measures local execution capacity; it supplies no new independent defects and no moving-line blur/exposure validation. Until genuine manufacturing video with item-level labels is available, that video limitation remains open.
+
+## Acquisition and reproduction
+
+```powershell
+.venv\Scripts\python.exe -X utf8 scripts/fetch_factory_sdd2.py
+.venv\Scripts\python.exe -X utf8 -m pytest tests/test_factory_localization_audit.py -q
+# Run accuracy-only audits once candidate bytes/policy are frozen and timing window is free.
+.venv\Scripts\python.exe -X utf8 scripts/factory_localization_audit.py --model models/factory/kolektor_surface_rf.joblib --output output/optimization/factory-round2/baseline-localization-audit.json
+```
+
+The fetch script validates source archive length, records SHA-256 after acquisition, rejects unsafe archive paths, verifies decompressed member CRCs through Python's ZIP reader and extracts **training only** by default. The complete compressed archive still contains sealed test data. File names/counts and sizes are inventoried without opening test image/mask contents. `--extract-test` is a deliberate unsealing operation and should follow a recorded frozen protocol; it is not needed for pretraining. No external inference service or paid API is used.
+
+Acquisition **completed** in 196.40 seconds, including download and training extraction. The unchanged author ZIP is **853,126,555 bytes**, SHA-256 **`edcdb486809b24f1d17b785e30c52fafc5999554dd5fe18ddf77b61ceb6f36a8`**. This hash is now pinned in the reproduction script. The archive inventory has 4,664 training files / 595,778,292 decompressed bytes and 2,008 test files / 256,734,075 bytes. Training images and masks are under `datasets/factory/KolektorSDD2/train`. The extra two training files are **byte-identical copies** `10301 (copy).png` / `10301_GT (copy).png`, not extra observations. Independent SHA-256 checks verified both copies against their canonical numeric filenames; canonical filtering gives the published 2,331 training pairs. The copies are excluded from training splits. `source-manifest.json` records acquisition, source license, official counts and unopened test status. No test image/mask contents were decoded, viewed or fitted by the acquisition script. Nothing in this research table constitutes a new measured factory accuracy or FPS claim.
+
+`scripts/make_factory_sdd2_split.py` preregisters a deterministic inner split of **official training only**, using seed 20261020 and 20% calibration separately within each class. Canonical numeric filenames are grouped by image SHA-256 before splitting, so exact repeated images cannot cross fit/calibration boundaries. Any conflicting labels for an identical image abort the script. It writes `train-inner-split-before-fit.json` with per-image paths, image/mask hashes, classes, group protocol and explicit lack of physical-item identity. The frozen split is never silently overwritten by a changed protocol.
+
+The completed split contains **1,865 fitting images (197 defective / 1,668 normal)** and **466 inner-calibration images (49 defective / 417 normal)**. Its SHA-256 is **`ecee83db4becdac3133a2d4c0950ef383c511d143b5509aa8c1fdf61d445a47c`**. Counts were checked using the actual original training masks, not filename guesses. The spatial-model training agent received this frozen manifest before SDD2 fitting. None of the original 1,004 official test observations were unsealed by these operations.

@@ -1,0 +1,3432 @@
+{
+  "schema_version": 1,
+  "researched_on": "2026-10-20",
+  "scope": "Saudi building lifecycle research checklist for BOTH low-rise residential and commercial buildings, with per-topic differences marked. Broad stage coverage is not exhaustive clause coverage or automatic detection. Every item starts unassessed; no model observation establishes code compliance. Project applicability, edition and acceptance criteria require a competent Saudi reviewer and relevant authority.",
+  "building_scopes": {
+    "low_rise_residential": "First confirm eligibility for SBC1101-1102: the verified official description covers qualifying one-/two-family dwellings no more than three stories. Low-rise apartments, other residential occupancies and mixed use do not automatically qualify. Apply the confirmed residential/discipline route and project authority instructions.",
+    "commercial": "Use the actual commercial occupancy, height, construction and systems to select SBC201 and applicable discipline families. Commercial is not one uniform occupancy. Mixed-use residential portions need separate scope review.",
+    "interpretation_status": "Engineering evidence-planning interpretation of verified official scope/topic descriptions; full project applicability clauses and numerical acceptance criteria are not verified.",
+    "source_ids": [
+      "sbc-residential-scope",
+      "sbc-2024-index",
+      "sbc201-2024"
+    ]
+  },
+  "stages": [
+    {
+      "id": "preconstruction",
+      "label": "Design, approvals and preconstruction",
+      "order": 1
+    },
+    {
+      "id": "site_safety",
+      "label": "Site establishment and safety throughout construction",
+      "order": 2
+    },
+    {
+      "id": "earthworks",
+      "label": "Excavation, ground treatment and earthworks",
+      "order": 3
+    },
+    {
+      "id": "foundations",
+      "label": "Foundations and below-ground work",
+      "order": 4
+    },
+    {
+      "id": "reinforcement",
+      "label": "Reinforcement and embedded items before concealment",
+      "order": 5
+    },
+    {
+      "id": "formwork",
+      "label": "Formwork, falsework and temporary support",
+      "order": 6
+    },
+    {
+      "id": "concreting",
+      "label": "Concrete production, placement and curing",
+      "order": 7
+    },
+    {
+      "id": "structure",
+      "label": "Structural frame, masonry, steel and precast",
+      "order": 8
+    },
+    {
+      "id": "envelope",
+      "label": "Envelope, roof, insulation and waterproofing",
+      "order": 9
+    },
+    {
+      "id": "mep_roughin",
+      "label": "Electrical, mechanical, plumbing, gas and telecom rough-in",
+      "order": 10
+    },
+    {
+      "id": "fire_life_safety",
+      "label": "Fire, smoke and means of escape",
+      "order": 11
+    },
+    {
+      "id": "accessibility",
+      "label": "Accessibility and external access",
+      "order": 12
+    },
+    {
+      "id": "finishes",
+      "label": "Partitions, finishes and fit-out",
+      "order": 13
+    },
+    {
+      "id": "testing_commissioning",
+      "label": "Testing, commissioning and integrated verification",
+      "order": 14
+    },
+    {
+      "id": "handover",
+      "label": "Completion, occupancy and handover",
+      "order": 15
+    },
+    {
+      "id": "operation_changes",
+      "label": "Operation, maintenance and later alterations",
+      "order": 16
+    }
+  ],
+  "inspections": [
+    {
+      "id": "permit-design",
+      "stage": "preconstruction",
+      "title": "Permit, approved design and occupancy classification",
+      "code_references": [
+        {
+          "source_id": "implementing-regulations",
+          "title": "Official Gazette: implementing regulations for applying the Saudi Building Code",
+          "url": "https://www.uqn.gov.sa/details?p=18175",
+          "section": "Articles 13-14",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        },
+        {
+          "source_id": "sbc201-2024",
+          "title": "SBC 201-AR-2024",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20201/SBC201_AR2024.pdf",
+          "section": "105; 107",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Confirm whether this one-/two-family dwelling qualifies for SBC1101-1102; low-rise apartments or mixed use must not be assigned that route automatically. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Confirm the actual commercial/mixed occupancy and SBC201 discipline route; the dwelling-only scope description does not cover a building merely because it is low-rise. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "occupancy_height_or_scope_dependent",
+      "evidence_type": "design_review",
+      "capability_id": null,
+      "required_evidence": [
+        "Authority-approved permit",
+        "signed coordinated drawings",
+        "project occupancy and construction classification"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "survey-boundaries",
+      "stage": "preconstruction",
+      "title": "Plot boundaries, levels and setbacks",
+      "code_references": [
+        {
+          "source_id": "inspector-guide-2019",
+          "title": "MOMAH technical building inspector guide (2019; 2018-code context)",
+          "url": "https://momah.gov.sa/sites/default/files/2020-03/%D8%AF%D9%84%D9%8A%D9%84%20%D8%A7%D9%84%D9%85%D9%81%D8%AA%D8%B4%20%D8%A7%D9%84%D9%81%D9%86%D9%8A%20%D9%84%D9%84%D9%85%D8%A8%D8%A7%D9%86%D9%8A.pdf",
+          "section": "5.1",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        },
+        {
+          "source_id": "sbc201-2024",
+          "title": "SBC 201-AR-2024",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20201/SBC201_AR2024.pdf",
+          "section": "110.2",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Common preconstruction review; establish the dwelling category and applicable residential/discipline route. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Common preconstruction review; establish the actual commercial occupancy, use and applicable discipline route. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "common_lifecycle",
+      "evidence_type": "survey",
+      "capability_id": null,
+      "required_evidence": [
+        "Licensed survey and benchmarks",
+        "approved site plan",
+        "calibrated site measurements"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "geotechnical-design",
+      "stage": "preconstruction",
+      "title": "Ground investigation, bearing conditions and foundation design",
+      "code_references": [
+        {
+          "source_id": "sbc303-2024-toc",
+          "title": "SBC 303-CR-2024 official contents",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20303/SBC303_CR_241224-FA.pdf",
+          "section": null,
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Common preconstruction review; establish the dwelling category and applicable residential/discipline route. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Common preconstruction review; establish the actual commercial occupancy, use and applicable discipline route. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "common_lifecycle",
+      "evidence_type": "lab_test",
+      "capability_id": null,
+      "required_evidence": [
+        "Borehole and laboratory reports",
+        "geotechnical interpretation",
+        "signed foundation design"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "inspection-plan",
+      "stage": "preconstruction",
+      "title": "Inspection and test plan, competent parties and hold points",
+      "code_references": [
+        {
+          "source_id": "sbc201-2024",
+          "title": "SBC 201-AR-2024",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20201/SBC201_AR2024.pdf",
+          "section": "110; Chapter 17",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        },
+        {
+          "source_id": "implementing-regulations",
+          "title": "Official Gazette: implementing regulations for applying the Saudi Building Code",
+          "url": "https://www.uqn.gov.sa/details?p=18175",
+          "section": "Articles 21-22",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Determine this dwelling's required inspection/test scope with its authority; qualifying residential scope is not permission to omit before-cover evidence. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Determine inspection/test and any special-inspection scope for the commercial occupancy, structural system and authority directions. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "occupancy_height_or_scope_dependent",
+      "evidence_type": "document_review",
+      "capability_id": null,
+      "required_evidence": [
+        "Approved inspection and test plan",
+        "authority interpretation of stage approvals",
+        "qualifications and responsibilities"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "material-submittals",
+      "stage": "preconstruction",
+      "title": "Materials, product approvals and supplier traceability",
+      "code_references": [
+        {
+          "source_id": "inspector-guide-2019",
+          "title": "MOMAH technical building inspector guide (2019; 2018-code context)",
+          "url": "https://momah.gov.sa/sites/default/files/2020-03/%D8%AF%D9%84%D9%8A%D9%84%20%D8%A7%D9%84%D9%85%D9%81%D8%AA%D8%B4%20%D8%A7%D9%84%D9%81%D9%86%D9%8A%20%D9%84%D9%84%D9%85%D8%A8%D8%A7%D9%86%D9%8A.pdf",
+          "section": "Annex 1",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        },
+        {
+          "source_id": "sbc201-2024",
+          "title": "SBC 201-AR-2024",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20201/SBC201_AR2024.pdf",
+          "section": "Chapter 17",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Common preconstruction review; establish the dwelling category and applicable residential/discipline route. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Common preconstruction review; establish the actual commercial occupancy, use and applicable discipline route. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "common_lifecycle",
+      "evidence_type": "document_review",
+      "capability_id": null,
+      "required_evidence": [
+        "Approved submittals",
+        "product certificates",
+        "batch traceability",
+        "required material tests"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "energy-fire-access-design",
+      "stage": "preconstruction",
+      "title": "Coordinated energy, fire and accessibility design",
+      "code_references": [
+        {
+          "source_id": "sbc201-2024",
+          "title": "SBC 201-AR-2024",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20201/SBC201_AR2024.pdf",
+          "section": "Chapters 7-11; 13",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        },
+        {
+          "source_id": "sbc-2024-index",
+          "title": "Official Saudi Building Code 2024 suite",
+          "url": "https://sbc.gov.sa/en/BC/Pages/BuildingCode/BC.aspx?year=2024",
+          "section": null,
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Review the applicable residential energy route (SBC602 and/or integrated SBC1101-1102 provisions as confirmed), plus dwelling-specific fire/accessibility scope. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Review SBC601 for applicable nonresidential portions and the actual fire/accessibility strategy; mixed-use/residential portions require their own applicability review. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "occupancy_height_or_scope_dependent",
+      "evidence_type": "design_review",
+      "capability_id": null,
+      "required_evidence": [
+        "Signed discipline designs",
+        "energy calculations",
+        "fire strategy",
+        "accessibility assessment"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "ppe-head-body",
+      "stage": "site_safety",
+      "title": "Visible helmet and high-visibility garment observations",
+      "code_references": [
+        {
+          "source_id": "inspector-guide-2019",
+          "title": "MOMAH technical building inspector guide (2019; 2018-code context)",
+          "url": "https://momah.gov.sa/sites/default/files/2020-03/%D8%AF%D9%84%D9%8A%D9%84%20%D8%A7%D9%84%D9%85%D9%81%D8%AA%D8%B4%20%D8%A7%D9%84%D9%81%D9%86%D9%8A%20%D9%84%D9%84%D9%85%D8%A8%D8%A7%D9%86%D9%8A.pdf",
+          "section": "5.2; inspection visit form",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        },
+        {
+          "source_id": "sbc201-2024",
+          "title": "SBC 201-AR-2024",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20201/SBC201_AR2024.pdf",
+          "section": "Chapter 33",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Common site-safety task; a small residential site is not assumed free of the stated work hazard. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Common site-safety task; assess actual workforce, plant, neighboring uses and public interfaces. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "common_lifecycle",
+      "evidence_type": "video_visual",
+      "capability_id": null,
+      "required_evidence": [
+        "Dated site video with visible workers",
+        "competent safety review",
+        "PPE specification and site risk assessment"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [
+        "ppe_hardhat",
+        "ppe_vest"
+      ],
+      "video_observability": "candidate_visual_observation_only",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "ppe-other",
+      "stage": "site_safety",
+      "title": "Foot, eye, hand and respiratory protection suitability",
+      "code_references": [
+        {
+          "source_id": "inspector-guide-2019",
+          "title": "MOMAH technical building inspector guide (2019; 2018-code context)",
+          "url": "https://momah.gov.sa/sites/default/files/2020-03/%D8%AF%D9%84%D9%8A%D9%84%20%D8%A7%D9%84%D9%85%D9%81%D8%AA%D8%B4%20%D8%A7%D9%84%D9%81%D9%86%D9%8A%20%D9%84%D9%84%D9%85%D8%A8%D8%A7%D9%86%D9%8A.pdf",
+          "section": "5.2",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        },
+        {
+          "source_id": "sbc201-2024",
+          "title": "SBC 201-AR-2024",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20201/SBC201_AR2024.pdf",
+          "section": "Chapter 33",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Common site-safety task; a small residential site is not assumed free of the stated work hazard. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Common site-safety task; assess actual workforce, plant, neighboring uses and public interfaces. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "common_lifecycle",
+      "evidence_type": "manual_inspection",
+      "capability_id": null,
+      "required_evidence": [
+        "Close inspection of equipment condition and specification",
+        "task risk assessment",
+        "fit testing where applicable"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "site-boundary-barriers",
+      "stage": "site_safety",
+      "title": "Site fencing, warning signs and public separation",
+      "code_references": [
+        {
+          "source_id": "sbc201-2024",
+          "title": "SBC 201-AR-2024",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20201/SBC201_AR2024.pdf",
+          "section": "Chapter 33",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        },
+        {
+          "source_id": "inspector-guide-2019",
+          "title": "MOMAH technical building inspector guide (2019; 2018-code context)",
+          "url": "https://momah.gov.sa/sites/default/files/2020-03/%D8%AF%D9%84%D9%8A%D9%84%20%D8%A7%D9%84%D9%85%D9%81%D8%AA%D8%B4%20%D8%A7%D9%84%D9%81%D9%86%D9%8A%20%D9%84%D9%84%D9%85%D8%A8%D8%A7%D9%86%D9%8A.pdf",
+          "section": "inspection visit form",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Common site-safety task; a small residential site is not assumed free of the stated work hazard. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Common site-safety task; assess actual workforce, plant, neighboring uses and public interfaces. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "common_lifecycle",
+      "evidence_type": "video_visual",
+      "capability_id": null,
+      "required_evidence": [
+        "Surveyed site boundary",
+        "multi-view site video",
+        "pedestrian and traffic management plan"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "candidate_visual_observation_only",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "height-openings",
+      "stage": "site_safety",
+      "title": "Open edges, floor openings and fall-protection arrangements",
+      "code_references": [
+        {
+          "source_id": "sbc201-2024",
+          "title": "SBC 201-AR-2024",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20201/SBC201_AR2024.pdf",
+          "section": "Chapter 33",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Common site-safety task; a small residential site is not assumed free of the stated work hazard. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Common site-safety task; assess actual workforce, plant, neighboring uses and public interfaces. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "common_lifecycle",
+      "evidence_type": "manual_measurement",
+      "capability_id": null,
+      "required_evidence": [
+        "Close video before concealment",
+        "guardrail and anchorage measurements",
+        "competent temporary-works inspection"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "scaffolds-access",
+      "stage": "site_safety",
+      "title": "Scaffolds, ladders, access platforms and lifting arrangements",
+      "code_references": [
+        {
+          "source_id": "sbc201-2024",
+          "title": "SBC 201-AR-2024",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20201/SBC201_AR2024.pdf",
+          "section": "Chapter 33",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Common site-safety task; a small residential site is not assumed free of the stated work hazard. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Common site-safety task; assess actual workforce, plant, neighboring uses and public interfaces. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "common_lifecycle",
+      "evidence_type": "qualified_inspection",
+      "capability_id": null,
+      "required_evidence": [
+        "Competent inspection",
+        "load and anchorage design",
+        "equipment certifications",
+        "access-route video"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "housekeeping-traffic",
+      "stage": "site_safety",
+      "title": "Housekeeping, material storage and equipment/pedestrian separation",
+      "code_references": [
+        {
+          "source_id": "inspector-guide-2019",
+          "title": "MOMAH technical building inspector guide (2019; 2018-code context)",
+          "url": "https://momah.gov.sa/sites/default/files/2020-03/%D8%AF%D9%84%D9%8A%D9%84%20%D8%A7%D9%84%D9%85%D9%81%D8%AA%D8%B4%20%D8%A7%D9%84%D9%81%D9%86%D9%8A%20%D9%84%D9%84%D9%85%D8%A8%D8%A7%D9%86%D9%8A.pdf",
+          "section": "5.1; 5.2",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        },
+        {
+          "source_id": "sbc201-2024",
+          "title": "SBC 201-AR-2024",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20201/SBC201_AR2024.pdf",
+          "section": "Chapter 33",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Common site-safety task; a small residential site is not assumed free of the stated work hazard. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Common site-safety task; assess actual workforce, plant, neighboring uses and public interfaces. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "common_lifecycle",
+      "evidence_type": "video_visual",
+      "capability_id": null,
+      "required_evidence": [
+        "Timestamped site walkthrough",
+        "traffic layout",
+        "qualified review of hazard observations"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "candidate_visual_observation_only",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "temporary-services",
+      "stage": "site_safety",
+      "title": "Temporary electrical supply, water and worker welfare",
+      "code_references": [
+        {
+          "source_id": "inspector-guide-2019",
+          "title": "MOMAH technical building inspector guide (2019; 2018-code context)",
+          "url": "https://momah.gov.sa/sites/default/files/2020-03/%D8%AF%D9%84%D9%8A%D9%84%20%D8%A7%D9%84%D9%85%D9%81%D8%AA%D8%B4%20%D8%A7%D9%84%D9%81%D9%86%D9%8A%20%D9%84%D9%84%D9%85%D8%A8%D8%A7%D9%86%D9%8A.pdf",
+          "section": "5.1",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        },
+        {
+          "source_id": "sbc401-2024-toc",
+          "title": "SBC 401-CR-2024 official contents",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20401/SBC401_CR_241224-FA.pdf",
+          "section": null,
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        },
+        {
+          "source_id": "sbc701-2024-toc",
+          "title": "SBC 701-CR-2024 official contents",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20701/SBC701-CR_241224-FA.pdf",
+          "section": "311",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Common site-safety task; a small residential site is not assumed free of the stated work hazard. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Common site-safety task; assess actual workforce, plant, neighboring uses and public interfaces. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "common_lifecycle",
+      "evidence_type": "functional_test",
+      "capability_id": null,
+      "required_evidence": [
+        "Temporary installation inspection",
+        "protection and grounding tests",
+        "welfare and utility plan"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "construction-fire",
+      "stage": "site_safety",
+      "title": "Construction-phase fire prevention and emergency access",
+      "code_references": [
+        {
+          "source_id": "sbc801-2024-toc",
+          "title": "SBC 801-CR-2024 official contents",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20801/SBC801_CR_241224-FA.pdf",
+          "section": "Chapter 33",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        },
+        {
+          "source_id": "sbc201-2024",
+          "title": "SBC 201-AR-2024",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20201/SBC201_AR2024.pdf",
+          "section": "Chapter 33",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Common site-safety task; a small residential site is not assumed free of the stated work hazard. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Common site-safety task; assess actual workforce, plant, neighboring uses and public interfaces. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "common_lifecycle",
+      "evidence_type": "qualified_inspection",
+      "capability_id": null,
+      "required_evidence": [
+        "Site fire plan",
+        "actual equipment inspection",
+        "clear emergency routes",
+        "authority conditions"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "excavation-condition",
+      "stage": "earthworks",
+      "title": "Excavation geometry, support and adjacent-property protection",
+      "code_references": [
+        {
+          "source_id": "sbc201-2024",
+          "title": "SBC 201-AR-2024",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20201/SBC201_AR2024.pdf",
+          "section": "Chapter 33",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        },
+        {
+          "source_id": "sbc303-2024-toc",
+          "title": "SBC 303-CR-2024 official contents",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20303/SBC303_CR_241224-FA.pdf",
+          "section": null,
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Applies where this ground operation is specified; use the actual dwelling site investigation and ground conditions. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Applies where this ground operation is specified; use the actual commercial site investigation, loads and neighboring structures. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "system_or_design_dependent",
+      "evidence_type": "survey",
+      "capability_id": null,
+      "required_evidence": [
+        "Surveyed excavation profile",
+        "shoring design",
+        "competent inspection",
+        "adjacent-building condition records"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "founding-level",
+      "stage": "earthworks",
+      "title": "Founding level and exposed bearing stratum",
+      "code_references": [
+        {
+          "source_id": "sbc201-2024",
+          "title": "SBC 201-AR-2024",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20201/SBC201_AR2024.pdf",
+          "section": "110.3.1",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        },
+        {
+          "source_id": "sbc303-2024-toc",
+          "title": "SBC 303-CR-2024 official contents",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20303/SBC303_CR_241224-FA.pdf",
+          "section": null,
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Applies where this ground operation is specified; use the actual dwelling site investigation and ground conditions. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Applies where this ground operation is specified; use the actual commercial site investigation, loads and neighboring structures. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "system_or_design_dependent",
+      "evidence_type": "qualified_inspection",
+      "capability_id": null,
+      "required_evidence": [
+        "Geotechnical acceptance of exposed stratum",
+        "calibrated levels",
+        "approved foundation drawings"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "groundwater",
+      "stage": "earthworks",
+      "title": "Groundwater, drainage and dewatering performance",
+      "code_references": [
+        {
+          "source_id": "sbc303-2024-toc",
+          "title": "SBC 303-CR-2024 official contents",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20303/SBC303_CR_241224-FA.pdf",
+          "section": null,
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Applies where this ground operation is specified; use the actual dwelling site investigation and ground conditions. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Applies where this ground operation is specified; use the actual commercial site investigation, loads and neighboring structures. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "system_or_design_dependent",
+      "evidence_type": "sensor_measurement",
+      "capability_id": null,
+      "required_evidence": [
+        "Water-level monitoring",
+        "approved dewatering design",
+        "discharge records",
+        "inspection of surrounding movement"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "fill-compaction",
+      "stage": "earthworks",
+      "title": "Fill material, layer thickness and compaction",
+      "code_references": [
+        {
+          "source_id": "sbc303-2024-toc",
+          "title": "SBC 303-CR-2024 official contents",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20303/SBC303_CR_241224-FA.pdf",
+          "section": null,
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        },
+        {
+          "source_id": "inspector-guide-2019",
+          "title": "MOMAH technical building inspector guide (2019; 2018-code context)",
+          "url": "https://momah.gov.sa/sites/default/files/2020-03/%D8%AF%D9%84%D9%8A%D9%84%20%D8%A7%D9%84%D9%85%D9%81%D8%AA%D8%B4%20%D8%A7%D9%84%D9%81%D9%86%D9%8A%20%D9%84%D9%84%D9%85%D8%A8%D8%A7%D9%86%D9%8A.pdf",
+          "section": "5.2",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Applies where this ground operation is specified; use the actual dwelling site investigation and ground conditions. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Applies where this ground operation is specified; use the actual commercial site investigation, loads and neighboring structures. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "system_or_design_dependent",
+      "evidence_type": "lab_test",
+      "capability_id": null,
+      "required_evidence": [
+        "Approved fill source",
+        "layer measurements",
+        "field density and moisture tests",
+        "geotechnical acceptance"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "special-ground",
+      "stage": "earthworks",
+      "title": "Expansive, collapsible or sabkha ground treatment where present",
+      "code_references": [
+        {
+          "source_id": "sbc303-2024-toc",
+          "title": "SBC 303-CR-2024 official contents",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20303/SBC303_CR_241224-FA.pdf",
+          "section": "Chapters 9-11 (contents verified)",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Conditional on actual expansive/collapsible/sabkha ground; residential use neither establishes nor excludes that soil condition. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Conditional on actual expansive/collapsible/sabkha ground and approved treatment; commercial use alone is not a trigger. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "system_or_design_dependent",
+      "evidence_type": "lab_test",
+      "capability_id": null,
+      "required_evidence": [
+        "Site-specific soil classification",
+        "treatment design",
+        "field and laboratory verification"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "buried-services",
+      "stage": "earthworks",
+      "title": "Buried services, protection and backfill before covering",
+      "code_references": [
+        {
+          "source_id": "sbc201-2024",
+          "title": "SBC 201-AR-2024",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20201/SBC201_AR2024.pdf",
+          "section": "110.3.2; 110.3.9",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        },
+        {
+          "source_id": "sbc701-2024-toc",
+          "title": "SBC 701-CR-2024 official contents",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20701/SBC701-CR_241224-FA.pdf",
+          "section": "306",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Applies where this ground operation is specified; use the actual dwelling site investigation and ground conditions. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Applies where this ground operation is specified; use the actual commercial site investigation, loads and neighboring structures. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "system_or_design_dependent",
+      "evidence_type": "survey",
+      "capability_id": null,
+      "required_evidence": [
+        "Before-cover walkthrough",
+        "surveyed routes and levels",
+        "pressure or drainage tests",
+        "approved utility drawings"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "footing-prepour",
+      "stage": "foundations",
+      "title": "Footing and foundation inspection before concrete placement",
+      "code_references": [
+        {
+          "source_id": "sbc201-2024",
+          "title": "SBC 201-AR-2024",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20201/SBC201_AR2024.pdf",
+          "section": "110.3.1",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        },
+        {
+          "source_id": "sbc303-2024-toc",
+          "title": "SBC 303-CR-2024 official contents",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20303/SBC303_CR_241224-FA.pdf",
+          "section": null,
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Applies to the specified dwelling foundation system; low height alone does not establish bearing or foundation acceptance. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Applies to the specified commercial foundation system; design loads and ground conditions govern the evidence. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "system_or_design_dependent",
+      "evidence_type": "qualified_inspection",
+      "capability_id": null,
+      "required_evidence": [
+        "Pre-pour inspection signed by competent engineer",
+        "approved dimensions",
+        "reinforcement and bearing checks"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "piles-deep",
+      "stage": "foundations",
+      "title": "Deep foundations and pile integrity where used",
+      "code_references": [
+        {
+          "source_id": "sbc303-2024-toc",
+          "title": "SBC 303-CR-2024 official contents",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20303/SBC303_CR_241224-FA.pdf",
+          "section": null,
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        },
+        {
+          "source_id": "sbc201-2024",
+          "title": "SBC 201-AR-2024",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20201/SBC201_AR2024.pdf",
+          "section": "Chapter 17",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Only where deep foundations are specified by the dwelling's geotechnical/structural design; no assumption that every low-rise dwelling uses piles. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Only where the commercial foundation design specifies deep foundations; type, loads and specified tests govern. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "system_or_design_dependent",
+      "evidence_type": "lab_test",
+      "capability_id": null,
+      "required_evidence": [
+        "Installation logs",
+        "specified integrity and load tests",
+        "geotechnical and structural acceptance"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "foundation-moisture",
+      "stage": "foundations",
+      "title": "Below-ground damp-proofing, waterproofing and drainage",
+      "code_references": [
+        {
+          "source_id": "sbc303-2024-toc",
+          "title": "SBC 303-CR-2024 official contents",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20303/SBC303_CR_241224-FA.pdf",
+          "section": "Chapter 13 (contents verified)",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Applies to the specified dwelling foundation system; low height alone does not establish bearing or foundation acceptance. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Applies to the specified commercial foundation system; design loads and ground conditions govern the evidence. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "system_or_design_dependent",
+      "evidence_type": "functional_test",
+      "capability_id": null,
+      "required_evidence": [
+        "Before-cover membrane video",
+        "material records",
+        "measured laps and terminations",
+        "specified leak or integrity tests"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "slab-underfloor",
+      "stage": "foundations",
+      "title": "Slab and underfloor reinforcement, service penetrations and layers",
+      "code_references": [
+        {
+          "source_id": "sbc201-2024",
+          "title": "SBC 201-AR-2024",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20201/SBC201_AR2024.pdf",
+          "section": "110.3.2",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Applies to the specified dwelling foundation system; low height alone does not establish bearing or foundation acceptance. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Applies to the specified commercial foundation system; design loads and ground conditions govern the evidence. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "system_or_design_dependent",
+      "evidence_type": "qualified_inspection",
+      "capability_id": null,
+      "required_evidence": [
+        "Pre-cover inspection",
+        "approved slab and service drawings",
+        "layer thickness and level measurements"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "anchors-embedments",
+      "stage": "foundations",
+      "title": "Foundation anchors, starter bars and embedded fixtures",
+      "code_references": [
+        {
+          "source_id": "sbc304-2024-toc",
+          "title": "SBC 304-CR-2024 official contents",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20304/SBC304_CR_241224-FA.pdf",
+          "section": "26.7; 26.8 (contents verified)",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Applies to the specified dwelling foundation system; low height alone does not establish bearing or foundation acceptance. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Applies to the specified commercial foundation system; design loads and ground conditions govern the evidence. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "system_or_design_dependent",
+      "evidence_type": "manual_measurement",
+      "capability_id": null,
+      "required_evidence": [
+        "Approved anchor details",
+        "calibrated positions and projection measurements",
+        "material and test certificates"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "rebar-grade",
+      "stage": "reinforcement",
+      "title": "Reinforcement grade, diameter and batch identification",
+      "code_references": [
+        {
+          "source_id": "sbc304-2024-toc",
+          "title": "SBC 304-CR-2024 official contents",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20304/SBC304_CR_241224-FA.pdf",
+          "section": "26.6 (contents verified)",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Common reinforcement task where reinforced concrete is used; inspect against this dwelling's approved structural details. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Common reinforcement task where reinforced concrete is used; inspect against the approved commercial structural details and loading basis. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "system_or_design_dependent",
+      "evidence_type": "document_review",
+      "capability_id": null,
+      "required_evidence": [
+        "Mill certificates and bar marks",
+        "diameter measurements",
+        "material tests as specified"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "rebar-layout",
+      "stage": "reinforcement",
+      "title": "Reinforcement count, spacing and arrangement",
+      "code_references": [
+        {
+          "source_id": "sbc304-2024-toc",
+          "title": "SBC 304-CR-2024 official contents",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20304/SBC304_CR_241224-FA.pdf",
+          "section": "26.6 (contents verified)",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        },
+        {
+          "source_id": "sbc201-2024",
+          "title": "SBC 201-AR-2024",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20201/SBC201_AR2024.pdf",
+          "section": "110.3.1; 110.3.4",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Common reinforcement task where reinforced concrete is used; inspect against this dwelling's approved structural details. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Common reinforcement task where reinforced concrete is used; inspect against the approved commercial structural details and loading basis. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "system_or_design_dependent",
+      "evidence_type": "manual_measurement",
+      "capability_id": null,
+      "required_evidence": [
+        "Calibrated pre-pour measurements",
+        "signed bar schedule",
+        "multi-view evidence with scale"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "rebar-cover",
+      "stage": "reinforcement",
+      "title": "Concrete cover, spacers and chairs",
+      "code_references": [
+        {
+          "source_id": "sbc304-2024-toc",
+          "title": "SBC 304-CR-2024 official contents",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20304/SBC304_CR_241224-FA.pdf",
+          "section": "26.6 (contents verified)",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Common reinforcement task where reinforced concrete is used; inspect against this dwelling's approved structural details. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Common reinforcement task where reinforced concrete is used; inspect against the approved commercial structural details and loading basis. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "system_or_design_dependent",
+      "evidence_type": "manual_measurement",
+      "capability_id": null,
+      "required_evidence": [
+        "Measured cover before placement",
+        "approved cover design",
+        "spacer suitability",
+        "cover-meter checks where specified"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "rebar-laps",
+      "stage": "reinforcement",
+      "title": "Splices, development, couplers and anchorage",
+      "code_references": [
+        {
+          "source_id": "sbc304-2024-toc",
+          "title": "SBC 304-CR-2024 official contents",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20304/SBC304_CR_241224-FA.pdf",
+          "section": "25.4; 25.5; 26.6 (contents verified)",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Common reinforcement task where reinforced concrete is used; inspect against this dwelling's approved structural details. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Common reinforcement task where reinforced concrete is used; inspect against the approved commercial structural details and loading basis. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "system_or_design_dependent",
+      "evidence_type": "manual_measurement",
+      "capability_id": null,
+      "required_evidence": [
+        "Measured lap and anchorage details",
+        "approved drawings",
+        "coupler certificates and tests"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "rebar-condition",
+      "stage": "reinforcement",
+      "title": "Visible reinforcement contamination, damage and corrosion indications",
+      "code_references": [
+        {
+          "source_id": "sbc304-2024-toc",
+          "title": "SBC 304-CR-2024 official contents",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20304/SBC304_CR_241224-FA.pdf",
+          "section": "26.6 (contents verified)",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Common reinforcement task where reinforced concrete is used; inspect against this dwelling's approved structural details. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Common reinforcement task where reinforced concrete is used; inspect against the approved commercial structural details and loading basis. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "system_or_design_dependent",
+      "evidence_type": "video_visual",
+      "capability_id": null,
+      "required_evidence": [
+        "Close pre-pour images or video",
+        "engineer assessment of section loss and acceptable cleaning",
+        "material records"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [
+        "surface_rust",
+        "surface_exposed_rebar"
+      ],
+      "video_observability": "candidate_visual_observation_only",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "posttension",
+      "stage": "reinforcement",
+      "title": "Prestressing tendons, anchorages and grouting where used",
+      "code_references": [
+        {
+          "source_id": "sbc304-2024-toc",
+          "title": "SBC 304-CR-2024 official contents",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20304/SBC304_CR_241224-FA.pdf",
+          "section": "26.10 (contents verified)",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Only where prestressing is actually specified; obtain the dwelling's approved specialist details and calibrated records. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Only where prestressing is specified; the commercial structural design and specialist method govern, not the commercial label alone. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "system_or_design_dependent",
+      "evidence_type": "functional_test",
+      "capability_id": null,
+      "required_evidence": [
+        "Specialist installation records",
+        "calibrated stressing logs",
+        "grout tests",
+        "approved tendon geometry"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "formwork-geometry",
+      "stage": "formwork",
+      "title": "Form dimensions, alignment, levels and openings",
+      "code_references": [
+        {
+          "source_id": "sbc304-2024-toc",
+          "title": "SBC 304-CR-2024 official contents",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20304/SBC304_CR_241224-FA.pdf",
+          "section": "26.11 (contents verified)",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Common task where formwork/falsework is used; residential use does not establish temporary-support or release acceptance. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Common task where formwork/falsework is used; loading, spans and sequence follow the approved project method. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "system_or_design_dependent",
+      "evidence_type": "survey",
+      "capability_id": null,
+      "required_evidence": [
+        "Surveyed formwork geometry",
+        "approved drawings",
+        "signed pre-pour inspection"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "formwork-support",
+      "stage": "formwork",
+      "title": "Shoring, bracing and temporary support stability",
+      "code_references": [
+        {
+          "source_id": "sbc304-2024-toc",
+          "title": "SBC 304-CR-2024 official contents",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20304/SBC304_CR_241224-FA.pdf",
+          "section": "26.11 (contents verified)",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Common task where formwork/falsework is used; residential use does not establish temporary-support or release acceptance. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Common task where formwork/falsework is used; loading, spans and sequence follow the approved project method. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "system_or_design_dependent",
+      "evidence_type": "qualified_inspection",
+      "capability_id": null,
+      "required_evidence": [
+        "Temporary-works design",
+        "competent support inspection",
+        "load and ground-bearing checks"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "formwork-cleanliness",
+      "stage": "formwork",
+      "title": "Form cleanliness, joints and visible preparation",
+      "code_references": [
+        {
+          "source_id": "sbc304-2024-toc",
+          "title": "SBC 304-CR-2024 official contents",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20304/SBC304_CR_241224-FA.pdf",
+          "section": "26.11 (contents verified)",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Common task where formwork/falsework is used; residential use does not establish temporary-support or release acceptance. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Common task where formwork/falsework is used; loading, spans and sequence follow the approved project method. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "system_or_design_dependent",
+      "evidence_type": "video_visual",
+      "capability_id": null,
+      "required_evidence": [
+        "Close pre-pour walkthrough",
+        "approved release-agent details",
+        "engineer approval"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "candidate_visual_observation_only",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "striking-reshoring",
+      "stage": "formwork",
+      "title": "Form striking and reshoring readiness",
+      "code_references": [
+        {
+          "source_id": "sbc304-2024-toc",
+          "title": "SBC 304-CR-2024 official contents",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20304/SBC304_CR_241224-FA.pdf",
+          "section": "26.11; 26.12 (contents verified)",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Common task where formwork/falsework is used; residential use does not establish temporary-support or release acceptance. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Common task where formwork/falsework is used; loading, spans and sequence follow the approved project method. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "system_or_design_dependent",
+      "evidence_type": "lab_test",
+      "capability_id": null,
+      "required_evidence": [
+        "Required in-place strength evidence",
+        "approved striking sequence",
+        "engineer release"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "concrete-delivery",
+      "stage": "concreting",
+      "title": "Concrete mix, delivery identification and placement records",
+      "code_references": [
+        {
+          "source_id": "sbc304-2024-toc",
+          "title": "SBC 304-CR-2024 official contents",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20304/SBC304_CR_241224-FA.pdf",
+          "section": "26.4; 26.5 (contents verified)",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Common task where concrete is used; a dwelling's mix, exposure, placement and acceptance criteria still require project evidence. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Common task where concrete is used; the approved mix, exposure, placement and acceptance criteria remain project-specific. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "system_or_design_dependent",
+      "evidence_type": "document_review",
+      "capability_id": null,
+      "required_evidence": [
+        "Approved mix",
+        "batch and delivery tickets",
+        "placement location and time traceability"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "fresh-concrete",
+      "stage": "concreting",
+      "title": "Fresh-concrete consistency, temperature and air tests as specified",
+      "code_references": [
+        {
+          "source_id": "sbc304-2024-toc",
+          "title": "SBC 304-CR-2024 official contents",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20304/SBC304_CR_241224-FA.pdf",
+          "section": "26.4; 26.5 (contents verified)",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Common task where concrete is used; a dwelling's mix, exposure, placement and acceptance criteria still require project evidence. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Common task where concrete is used; the approved mix, exposure, placement and acceptance criteria remain project-specific. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "system_or_design_dependent",
+      "evidence_type": "lab_test",
+      "capability_id": null,
+      "required_evidence": [
+        "Calibrated fresh-concrete tests",
+        "sampling records",
+        "project acceptance limits"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "placement-compaction",
+      "stage": "concreting",
+      "title": "Placement sequence and visible vibration/segregation indications",
+      "code_references": [
+        {
+          "source_id": "sbc304-2024-toc",
+          "title": "SBC 304-CR-2024 official contents",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20304/SBC304_CR_241224-FA.pdf",
+          "section": "26.5 (contents verified)",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Common task where concrete is used; a dwelling's mix, exposure, placement and acceptance criteria still require project evidence. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Common task where concrete is used; the approved mix, exposure, placement and acceptance criteria remain project-specific. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "system_or_design_dependent",
+      "evidence_type": "video_visual",
+      "capability_id": null,
+      "required_evidence": [
+        "Timestamped actual placement video",
+        "engineer review",
+        "approved method and workability tests"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "candidate_visual_observation_only",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "curing-environment",
+      "stage": "concreting",
+      "title": "Curing coverage, duration and environmental protection",
+      "code_references": [
+        {
+          "source_id": "sbc304-2024-toc",
+          "title": "SBC 304-CR-2024 official contents",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20304/SBC304_CR_241224-FA.pdf",
+          "section": "26.5 (contents verified)",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Common task where concrete is used; a dwelling's mix, exposure, placement and acceptance criteria still require project evidence. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Common task where concrete is used; the approved mix, exposure, placement and acceptance criteria remain project-specific. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "system_or_design_dependent",
+      "evidence_type": "sensor_measurement",
+      "capability_id": null,
+      "required_evidence": [
+        "Curing logs",
+        "time and temperature measurements",
+        "material specifications",
+        "site observations"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "concrete-strength",
+      "stage": "concreting",
+      "title": "Concrete hardened strength and acceptance",
+      "code_references": [
+        {
+          "source_id": "sbc304-2024-toc",
+          "title": "SBC 304-CR-2024 official contents",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20304/SBC304_CR_241224-FA.pdf",
+          "section": "26.12 (contents verified)",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Common task where concrete is used; a dwelling's mix, exposure, placement and acceptance criteria still require project evidence. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Common task where concrete is used; the approved mix, exposure, placement and acceptance criteria remain project-specific. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "system_or_design_dependent",
+      "evidence_type": "lab_test",
+      "capability_id": null,
+      "required_evidence": [
+        "Traceable specimens",
+        "accredited strength tests",
+        "approved acceptance review",
+        "further testing if directed"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "surface-defects",
+      "stage": "concreting",
+      "title": "Visible concrete cracks, honeycombing, spalling and exposed steel indications",
+      "code_references": [
+        {
+          "source_id": "sbc304-2024-toc",
+          "title": "SBC 304-CR-2024 official contents",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20304/SBC304_CR_241224-FA.pdf",
+          "section": "26.12; 26.13 (contents verified)",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        },
+        {
+          "source_id": "sbc-2024-index",
+          "title": "Official Saudi Building Code 2024 suite",
+          "url": "https://sbc.gov.sa/en/BC/Pages/BuildingCode/BC.aspx?year=2024",
+          "section": null,
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Common task where concrete is used; a dwelling's mix, exposure, placement and acceptance criteria still require project evidence. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Common task where concrete is used; the approved mix, exposure, placement and acceptance criteria remain project-specific. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "system_or_design_dependent",
+      "evidence_type": "video_visual",
+      "capability_id": null,
+      "required_evidence": [
+        "Close video with lighting and scale",
+        "mapped defect locations",
+        "calibrated crack width and depth investigations",
+        "engineer assessment"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [
+        "surface_crack",
+        "surface_spalling",
+        "surface_exposed_rebar",
+        "surface_rust",
+        "surface_rockpocket",
+        "surface_efflorescence",
+        "surface_wetspot"
+      ],
+      "video_observability": "candidate_visual_observation_only",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "frame-geometry",
+      "stage": "structure",
+      "title": "Frame plumb, levels, dimensions and floor-by-floor continuity",
+      "code_references": [
+        {
+          "source_id": "sbc201-2024",
+          "title": "SBC 201-AR-2024",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20201/SBC201_AR2024.pdf",
+          "section": "110.3.4",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Applies to the structural system actually used in the dwelling; do not assume a particular material or simplified acceptance. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Applies to the structural system actually used commercially; occupancy and design loads may change the required detailing and inspections. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "system_or_design_dependent",
+      "evidence_type": "survey",
+      "capability_id": null,
+      "required_evidence": [
+        "Calibrated as-built survey",
+        "approved structural drawings",
+        "engineer inspection for each relevant floor"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "steel-connections",
+      "stage": "structure",
+      "title": "Structural steel connections, bolt installation and welds",
+      "code_references": [
+        {
+          "source_id": "sbc201-2024",
+          "title": "SBC 201-AR-2024",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20201/SBC201_AR2024.pdf",
+          "section": "1705.2",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        },
+        {
+          "source_id": "sbc-2024-index",
+          "title": "Official Saudi Building Code 2024 suite",
+          "url": "https://sbc.gov.sa/en/BC/Pages/BuildingCode/BC.aspx?year=2024",
+          "section": null,
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Only where structural steel is used; qualifying residential scope does not make connection inspection unnecessary. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Only where structural steel is used; check project-specific SBC306/related inspection requirements and the approved connection design. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "system_or_design_dependent",
+      "evidence_type": "qualified_inspection",
+      "capability_id": null,
+      "required_evidence": [
+        "Fabricator traceability",
+        "connection drawings",
+        "bolt checks",
+        "required weld inspection and nondestructive tests"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "masonry-work",
+      "stage": "structure",
+      "title": "Masonry units, mortar, ties, reinforcement and grout",
+      "code_references": [
+        {
+          "source_id": "sbc-2024-index",
+          "title": "Official Saudi Building Code 2024 suite",
+          "url": "https://sbc.gov.sa/en/BC/Pages/BuildingCode/BC.aspx?year=2024",
+          "section": null,
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        },
+        {
+          "source_id": "sbc201-2024",
+          "title": "SBC 201-AR-2024",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20201/SBC201_AR2024.pdf",
+          "section": "Chapter 17",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Inspect actual load-bearing/non-load-bearing dwelling masonry under the confirmed design route; do not assume every wall has the same structural role. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Inspect actual masonry role, loads, fire/location and approved SBC305/related requirements; commercial use does not define one masonry detail. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "system_or_design_dependent",
+      "evidence_type": "qualified_inspection",
+      "capability_id": null,
+      "required_evidence": [
+        "Approved SBC 305 design",
+        "material tests",
+        "measured tie and reinforcement layout",
+        "grout records"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "precast-installation",
+      "stage": "structure",
+      "title": "Precast component bearing, lifting, connections and grouting",
+      "code_references": [
+        {
+          "source_id": "sbc-2024-index",
+          "title": "Official Saudi Building Code 2024 suite",
+          "url": "https://sbc.gov.sa/en/BC/Pages/BuildingCode/BC.aspx?year=2024",
+          "section": null,
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        },
+        {
+          "source_id": "sbc304-2024-toc",
+          "title": "SBC 304-CR-2024 official contents",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20304/SBC304_CR_241224-FA.pdf",
+          "section": "26.9 (contents verified)",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Only where precast elements are used; verify the dwelling's approved bearings/connections and relevant referenced requirements. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Only where precast is used; verify approved commercial bearings/connections, installation sequence and applicable SBC312 requirements. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "system_or_design_dependent",
+      "evidence_type": "qualified_inspection",
+      "capability_id": null,
+      "required_evidence": [
+        "SBC 312 project details",
+        "component certificates",
+        "surveyed bearings",
+        "connection and grout inspection"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "movement-damage",
+      "stage": "structure",
+      "title": "Visible structural movement, impact damage and deformation indications",
+      "code_references": [
+        {
+          "source_id": "sbc201-2024",
+          "title": "SBC 201-AR-2024",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20201/SBC201_AR2024.pdf",
+          "section": "Chapter 17",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        },
+        {
+          "source_id": "sbc-2024-index",
+          "title": "Official Saudi Building Code 2024 suite",
+          "url": "https://sbc.gov.sa/en/BC/Pages/BuildingCode/BC.aspx?year=2024",
+          "section": null,
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Applies to the structural system actually used in the dwelling; do not assume a particular material or simplified acceptance. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Applies to the structural system actually used commercially; occupancy and design loads may change the required detailing and inspections. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "system_or_design_dependent",
+      "evidence_type": "video_visual",
+      "capability_id": null,
+      "required_evidence": [
+        "Dated multi-view record",
+        "measured movement",
+        "structural engineer investigation",
+        "repair approval"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "candidate_visual_observation_only",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "roof-membrane",
+      "stage": "envelope",
+      "title": "Roof waterproofing, terminations and penetrations",
+      "code_references": [
+        {
+          "source_id": "sbc201-2024",
+          "title": "SBC 201-AR-2024",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20201/SBC201_AR2024.pdf",
+          "section": "Chapter 15",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Common envelope task for the assembly actually installed; use the dwelling's approved system and relevant residential criteria. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Common envelope task for the assembly actually installed; commercial facade, roof and opening systems may require different design/test evidence. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "system_or_design_dependent",
+      "evidence_type": "functional_test",
+      "capability_id": null,
+      "required_evidence": [
+        "Before-cover close video",
+        "approved membrane system",
+        "measured details",
+        "specified water or integrity test"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "wetarea-waterproof",
+      "stage": "envelope",
+      "title": "Wet-area membrane continuity and leak resistance",
+      "code_references": [
+        {
+          "source_id": "sbc201-2024",
+          "title": "SBC 201-AR-2024",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20201/SBC201_AR2024.pdf",
+          "section": "110.3.8",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        },
+        {
+          "source_id": "sbc701-2024-toc",
+          "title": "SBC 701-CR-2024 official contents",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20701/SBC701-CR_241224-FA.pdf",
+          "section": null,
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Common envelope task for the assembly actually installed; use the dwelling's approved system and relevant residential criteria. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Common envelope task for the assembly actually installed; commercial facade, roof and opening systems may require different design/test evidence. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "system_or_design_dependent",
+      "evidence_type": "functional_test",
+      "capability_id": null,
+      "required_evidence": [
+        "Before-cover inspection",
+        "approved waterproofing detail",
+        "measured falls",
+        "witnessed flood or leak test"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "facade-anchors",
+      "stage": "envelope",
+      "title": "Facade and cladding anchors, fixings and support",
+      "code_references": [
+        {
+          "source_id": "sbc201-2024",
+          "title": "SBC 201-AR-2024",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20201/SBC201_AR2024.pdf",
+          "section": "Chapter 14; Chapter 17",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Common envelope task for the assembly actually installed; use the dwelling's approved system and relevant residential criteria. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Common envelope task for the assembly actually installed; commercial facade, roof and opening systems may require different design/test evidence. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "system_or_design_dependent",
+      "evidence_type": "qualified_inspection",
+      "capability_id": null,
+      "required_evidence": [
+        "Approved facade design",
+        "product certificates",
+        "anchor installation checks and specified tests"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "glazing-openings",
+      "stage": "envelope",
+      "title": "Windows, glazing, doors and visible sealing details",
+      "code_references": [
+        {
+          "source_id": "sbc201-2024",
+          "title": "SBC 201-AR-2024",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20201/SBC201_AR2024.pdf",
+          "section": "Chapters 14; 24",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Common envelope task for the assembly actually installed; use the dwelling's approved system and relevant residential criteria. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Common envelope task for the assembly actually installed; commercial facade, roof and opening systems may require different design/test evidence. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "system_or_design_dependent",
+      "evidence_type": "manual_measurement",
+      "capability_id": null,
+      "required_evidence": [
+        "Safety-glazing identification",
+        "approved opening schedule",
+        "measured installation",
+        "specified water/air tests"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "thermal-insulation",
+      "stage": "envelope",
+      "title": "Insulation continuity and thermal performance",
+      "code_references": [
+        {
+          "source_id": "sbc201-2024",
+          "title": "SBC 201-AR-2024",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20201/SBC201_AR2024.pdf",
+          "section": "110.3.7",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        },
+        {
+          "source_id": "sbc-2024-index",
+          "title": "Official Saudi Building Code 2024 suite",
+          "url": "https://sbc.gov.sa/en/BC/Pages/BuildingCode/BC.aspx?year=2024",
+          "section": null,
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Residential energy applicability must be confirmed, including SBC602 or the qualifying integrated residential provisions; use certified properties and actual installation evidence. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "SBC601 is the nonresidential energy-family reference; confirm mixed-use portions, the approved commercial envelope criteria and actual assembly properties. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "occupancy_height_or_scope_dependent",
+      "evidence_type": "design_review",
+      "capability_id": null,
+      "required_evidence": [
+        "Before-cover video",
+        "certified thermal properties",
+        "thickness measurements",
+        "SBC 601 or 602 energy design and checks"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "roof-drainage",
+      "stage": "envelope",
+      "title": "Roof falls, primary drains and overflow paths",
+      "code_references": [
+        {
+          "source_id": "sbc201-2024",
+          "title": "SBC 201-AR-2024",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20201/SBC201_AR2024.pdf",
+          "section": "Chapter 15",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        },
+        {
+          "source_id": "sbc701-2024-toc",
+          "title": "SBC 701-CR-2024 official contents",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20701/SBC701-CR_241224-FA.pdf",
+          "section": "Chapter 11 (contents verified)",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Common envelope task for the assembly actually installed; use the dwelling's approved system and relevant residential criteria. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Common envelope task for the assembly actually installed; commercial facade, roof and opening systems may require different design/test evidence. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "system_or_design_dependent",
+      "evidence_type": "survey",
+      "capability_id": null,
+      "required_evidence": [
+        "Calibrated falls and outlet measurements",
+        "drainage design",
+        "witnessed flow testing"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "electrical-routing",
+      "stage": "mep_roughin",
+      "title": "Electrical cable routing, protection, supports and enclosures",
+      "code_references": [
+        {
+          "source_id": "sbc201-2024",
+          "title": "SBC 201-AR-2024",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20201/SBC201_AR2024.pdf",
+          "section": "110.3.9",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        },
+        {
+          "source_id": "sbc401-2024-toc",
+          "title": "SBC 401-CR-2024 official contents",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20401/SBC401_CR_241224-FA.pdf",
+          "section": null,
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Review the installed dwelling circuits and protection using the qualifying residential route and referenced electrical requirements. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Review the actual commercial circuit use, demand, protection and any required essential supplies under the applicable SBC401/design route. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "system_or_design_dependent",
+      "evidence_type": "qualified_inspection",
+      "capability_id": null,
+      "required_evidence": [
+        "Approved electrical design",
+        "before-cover walkthrough",
+        "measured clearances",
+        "circuit and product records"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "earthing-bonding",
+      "stage": "mep_roughin",
+      "title": "Earthing and protective bonding continuity",
+      "code_references": [
+        {
+          "source_id": "sbc401-2024-toc",
+          "title": "SBC 401-CR-2024 official contents",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20401/SBC401_CR_241224-FA.pdf",
+          "section": "61-4.2; 61-4.3 (contents verified)",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Actual dwelling earthing/bonding and calibrated verification remain necessary where required; residential scope does not prove continuity. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Actual commercial earthing/bonding design and calibrated verification govern; image appearance cannot establish electrical protection. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "system_or_design_dependent",
+      "evidence_type": "functional_test",
+      "capability_id": null,
+      "required_evidence": [
+        "Calibrated continuity and earth tests",
+        "approved earthing design",
+        "accessible joint inspection"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "plumbing-distribution",
+      "stage": "mep_roughin",
+      "title": "Water distribution materials, supports, joints and protection",
+      "code_references": [
+        {
+          "source_id": "sbc701-2024-toc",
+          "title": "SBC 701-CR-2024 official contents",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20701/SBC701-CR_241224-FA.pdf",
+          "section": "Chapters 3; 6 (contents verified)",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        },
+        {
+          "source_id": "sbc201-2024",
+          "title": "SBC 201-AR-2024",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20201/SBC201_AR2024.pdf",
+          "section": "110.3.9",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Review actual dwelling fixture demand and installed water services under the applicable residential/plumbing route. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Review actual commercial demand and activity-specific services under SBC701/approved design; a shop, office or food use cannot share assumed criteria automatically. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "system_or_design_dependent",
+      "evidence_type": "qualified_inspection",
+      "capability_id": null,
+      "required_evidence": [
+        "Approved plumbing design",
+        "before-cover inspection",
+        "product records",
+        "pressure test"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "drainage-vents",
+      "stage": "mep_roughin",
+      "title": "Drainage, traps, gradients, vents and cleanout access",
+      "code_references": [
+        {
+          "source_id": "sbc701-2024-toc",
+          "title": "SBC 701-CR-2024 official contents",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20701/SBC701-CR_241224-FA.pdf",
+          "section": "Chapters 7; 9; 10 (contents verified)",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Review the installed dwelling drainage/vent layout and applicable residential/plumbing criteria. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Review actual fixture loads, use and approved drainage/vent layout; commercial activity can change design inputs and specialist provisions. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "system_or_design_dependent",
+      "evidence_type": "manual_measurement",
+      "capability_id": null,
+      "required_evidence": [
+        "Calibrated slope and size checks",
+        "approved layout",
+        "witnessed leakage or flow tests"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "potable-backflow",
+      "stage": "mep_roughin",
+      "title": "Potable water separation and backflow prevention",
+      "code_references": [
+        {
+          "source_id": "sbc701-2024-toc",
+          "title": "SBC 701-CR-2024 official contents",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20701/SBC701-CR_241224-FA.pdf",
+          "section": "608; 610 (contents verified)",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Assess actual dwelling water interfaces and required protection; test results and disinfection evidence cannot be inferred from appearance. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Assess actual commercial water hazards/interfaces and specified protection; activity-specific equipment may change the backflow review. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "system_or_design_dependent",
+      "evidence_type": "functional_test",
+      "capability_id": null,
+      "required_evidence": [
+        "Approved backflow device records",
+        "installation and functional tests",
+        "disinfection and water-quality records"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "hvac-ductwork",
+      "stage": "mep_roughin",
+      "title": "Ductwork, supports, insulation and access",
+      "code_references": [
+        {
+          "source_id": "sbc501-2024",
+          "title": "SBC 501 official 2024 code description",
+          "url": "https://sbc.gov.sa/en/BC/Pages/BuildingCode/BCDetails.aspx?codeId=501&year=2024",
+          "section": null,
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        },
+        {
+          "source_id": "sbc201-2024",
+          "title": "SBC 201-AR-2024",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20201/SBC201_AR2024.pdf",
+          "section": "110.3.9",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Review the dwelling ventilation/duct system actually specified; a qualifying residential route may organize the requirements differently. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Review actual commercial ventilation, exhaust, fire interfaces and access under SBC501/approved design; requirements depend on use. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "system_or_design_dependent",
+      "evidence_type": "qualified_inspection",
+      "capability_id": null,
+      "required_evidence": [
+        "Approved mechanical design",
+        "before-cover survey",
+        "product records",
+        "leakage tests where specified"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "hvac-plant",
+      "stage": "mep_roughin",
+      "title": "HVAC equipment, condensate and refrigerant installation",
+      "code_references": [
+        {
+          "source_id": "sbc501-2024",
+          "title": "SBC 501 official 2024 code description",
+          "url": "https://sbc.gov.sa/en/BC/Pages/BuildingCode/BCDetails.aspx?codeId=501&year=2024",
+          "section": null,
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        },
+        {
+          "source_id": "sbc701-2024-toc",
+          "title": "SBC 701-CR-2024 official contents",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20701/SBC701-CR_241224-FA.pdf",
+          "section": "314 (contents verified)",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Review the actual dwelling HVAC/condensate system and manufacturer/approved installation criteria. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Review the actual commercial plant and operating use; plant size, location and fire/service interfaces require project-specific checks. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "system_or_design_dependent",
+      "evidence_type": "functional_test",
+      "capability_id": null,
+      "required_evidence": [
+        "Approved schedules",
+        "clearance measurements",
+        "leak and condensate tests",
+        "manufacturer startup records"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "fuel-gas",
+      "stage": "mep_roughin",
+      "title": "Fuel gas routing, valves, ventilation and leak resistance where installed",
+      "code_references": [
+        {
+          "source_id": "sbc-2024-index",
+          "title": "Official Saudi Building Code 2024 suite",
+          "url": "https://sbc.gov.sa/en/BC/Pages/BuildingCode/BC.aspx?year=2024",
+          "section": null,
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        },
+        {
+          "source_id": "sbc201-2024",
+          "title": "SBC 201-AR-2024",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20201/SBC201_AR2024.pdf",
+          "section": "110.3.9",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Conditional on a gas installation; determine the dwelling route and applicable SBC1201/referenced gas requirements with the authority. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Conditional on installed gas and actual commercial activity; confirm applicable SBC1201 design, ventilation and specialist tests. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "system_or_design_dependent",
+      "evidence_type": "functional_test",
+      "capability_id": null,
+      "required_evidence": [
+        "Applicable SBC 1201 design",
+        "licensed specialist inspection",
+        "calibrated pressure and leak tests"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "telecom-infrastructure",
+      "stage": "mep_roughin",
+      "title": "Telecom pathways, spaces, cabling and interfaces",
+      "code_references": [
+        {
+          "source_id": "telecom-guide-announcement",
+          "title": "SPA: official announcement of building telecom requirements",
+          "url": "https://www.spa.gov.sa/N2164456",
+          "section": null,
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Inspect the dwelling system actually installed under its confirmed residential/discipline route. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Inspect the commercial system actually installed; actual use, equipment, demand and hazards determine design and testing. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "system_or_design_dependent",
+      "evidence_type": "document_review",
+      "capability_id": null,
+      "required_evidence": [
+        "Applicable official telecom guide",
+        "coordinated drawings",
+        "pathway inspections",
+        "cable test records"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "firestop-penetrations",
+      "stage": "fire_life_safety",
+      "title": "Fire and smoke barrier penetrations and joints before covering",
+      "code_references": [
+        {
+          "source_id": "sbc201-2024",
+          "title": "SBC 201-AR-2024",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20201/SBC201_AR2024.pdf",
+          "section": "110.3.6; Chapter 7",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Applies where the dwelling design requires rated/separating assemblies; a visible seal is not a verified system or blanket firestop acceptance. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Applies at required commercial fire/smoke assemblies; occupancy, shafts, services and the tested-system detail determine the inspection. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "occupancy_height_or_scope_dependent",
+      "evidence_type": "qualified_inspection",
+      "capability_id": null,
+      "required_evidence": [
+        "Before-cover close video",
+        "listed tested system matching actual substrate and services",
+        "measured installation",
+        "qualified signoff"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "fire-doors",
+      "stage": "fire_life_safety",
+      "title": "Fire doors, dampers and rated opening protection",
+      "code_references": [
+        {
+          "source_id": "sbc201-2024",
+          "title": "SBC 201-AR-2024",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20201/SBC201_AR2024.pdf",
+          "section": "Chapter 7",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        },
+        {
+          "source_id": "sbc801-2024-toc",
+          "title": "SBC 801-CR-2024 official contents",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20801/SBC801_CR_241224-FA.pdf",
+          "section": null,
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Only where rated openings/doors or dampers are required by the applicable dwelling design; do not import a commercial door schedule automatically. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Confirm occupancy/location-specific rated opening and damper requirements from the approved fire strategy; verify actual labels and operation. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "occupancy_height_or_scope_dependent",
+      "evidence_type": "functional_test",
+      "capability_id": null,
+      "required_evidence": [
+        "Product labels and listings",
+        "installation measurements",
+        "actual operation tests",
+        "approved fire strategy"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "egress-routes",
+      "stage": "fire_life_safety",
+      "title": "Exit routes, stairs, exit doors and obstruction indications",
+      "code_references": [
+        {
+          "source_id": "sbc201-2024",
+          "title": "SBC 201-AR-2024",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20201/SBC201_AR2024.pdf",
+          "section": "Chapter 10",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Check the applicable dwelling escape/exit provisions and actual configuration; do not assume low height removes escape requirements. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Check the actual commercial occupancy/load, route arrangement and approved egress strategy; exact dimensions/travel limits are not verified here. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "occupancy_height_or_scope_dependent",
+      "evidence_type": "manual_measurement",
+      "capability_id": null,
+      "required_evidence": [
+        "Complete route survey",
+        "measured widths and travel distances",
+        "occupancy calculations",
+        "door operation tests"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "suppression-installation",
+      "stage": "fire_life_safety",
+      "title": "Sprinklers, standpipes, pumps and suppression equipment",
+      "code_references": [
+        {
+          "source_id": "sbc801-2024-toc",
+          "title": "SBC 801-CR-2024 official contents",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20801/SBC801_CR_241224-FA.pdf",
+          "section": null,
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        },
+        {
+          "source_id": "sbc201-2024",
+          "title": "SBC 201-AR-2024",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20201/SBC201_AR2024.pdf",
+          "section": "Chapter 9",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Determine whether and what suppression is required for this dwelling under its confirmed scope; no blanket residential exemption or requirement is asserted. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Determine suppression scope from commercial occupancy, height, hazards and approved strategy; not every commercial project has identical systems. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "occupancy_height_or_scope_dependent",
+      "evidence_type": "functional_test",
+      "capability_id": null,
+      "required_evidence": [
+        "Approved hydraulic design",
+        "coverage and clearance measurements",
+        "witnessed pressure and flow tests"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "alarm-emergency-light",
+      "stage": "fire_life_safety",
+      "title": "Alarm devices, emergency lighting and exit signage",
+      "code_references": [
+        {
+          "source_id": "sbc801-2024-toc",
+          "title": "SBC 801-CR-2024 official contents",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20801/SBC801_CR_241224-FA.pdf",
+          "section": null,
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        },
+        {
+          "source_id": "sbc201-2024",
+          "title": "SBC 201-AR-2024",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20201/SBC201_AR2024.pdf",
+          "section": "Chapters 9; 10",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Determine applicable dwelling smoke/alarm, emergency-lighting and signage provisions; requirements are not assumed equal to commercial premises. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Determine alarm/detection, emergency-lighting and exit-signage scope for the actual commercial occupancy and approved fire strategy. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "occupancy_height_or_scope_dependent",
+      "evidence_type": "functional_test",
+      "capability_id": null,
+      "required_evidence": [
+        "Approved cause-and-effect schedule",
+        "detector tests",
+        "audibility/visibility and emergency-duration measurements"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "smoke-compartment",
+      "stage": "fire_life_safety",
+      "title": "Smoke control, compartmentation and smoke-management performance",
+      "code_references": [
+        {
+          "source_id": "sbc201-2024",
+          "title": "SBC 201-AR-2024",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20201/SBC201_AR2024.pdf",
+          "section": "909; Chapter 17",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        },
+        {
+          "source_id": "sbc801-2024-toc",
+          "title": "SBC 801-CR-2024 official contents",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20801/SBC801_CR_241224-FA.pdf",
+          "section": null,
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Conditional on required smoke-control/compartment systems; do not assume such a system exists in every low-rise dwelling. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Conditional on occupancy/height/configuration and approved smoke strategy; verify applicable specialist testing rather than assuming a universal system. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "occupancy_height_or_scope_dependent",
+      "evidence_type": "functional_test",
+      "capability_id": null,
+      "required_evidence": [
+        "Approved fire strategy",
+        "pressure and airflow measurements",
+        "witnessed integrated smoke-control testing"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "accessible-route",
+      "stage": "accessibility",
+      "title": "Accessible paths, ramps, curb transitions and landings",
+      "code_references": [
+        {
+          "source_id": "sbc201-2024",
+          "title": "SBC 201-AR-2024",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20201/SBC201_AR2024.pdf",
+          "section": "Chapter 11",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Scope dependent: distinguish a private dwelling from shared/common or public-facing areas; no blanket residential exemption is inferred. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Occupancy/use dependent: review the applicable accessible public, customer and staff routes/facilities against the approved design. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "occupancy_height_or_scope_dependent",
+      "evidence_type": "manual_measurement",
+      "capability_id": null,
+      "required_evidence": [
+        "Complete calibrated route survey",
+        "measured slopes and clear widths",
+        "applicable approved accessibility design"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "accessible-parking",
+      "stage": "accessibility",
+      "title": "Accessible parking layout and connection to entrances",
+      "code_references": [
+        {
+          "source_id": "sbc201-2024",
+          "title": "SBC 201-AR-2024",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20201/SBC201_AR2024.pdf",
+          "section": "Chapter 11",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Scope dependent: distinguish a private dwelling from shared/common or public-facing areas; no blanket residential exemption is inferred. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Occupancy/use dependent: review the applicable accessible public, customer and staff routes/facilities against the approved design. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "occupancy_height_or_scope_dependent",
+      "evidence_type": "survey",
+      "capability_id": null,
+      "required_evidence": [
+        "Surveyed dimensions and gradients",
+        "approved parking plan",
+        "signage and route inspection"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "accessible-doors",
+      "stage": "accessibility",
+      "title": "Accessible door clearances, hardware and operating forces",
+      "code_references": [
+        {
+          "source_id": "sbc201-2024",
+          "title": "SBC 201-AR-2024",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20201/SBC201_AR2024.pdf",
+          "section": "Chapter 11",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Scope dependent: distinguish a private dwelling from shared/common or public-facing areas; no blanket residential exemption is inferred. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Occupancy/use dependent: review the applicable accessible public, customer and staff routes/facilities against the approved design. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "occupancy_height_or_scope_dependent",
+      "evidence_type": "manual_measurement",
+      "capability_id": null,
+      "required_evidence": [
+        "Calibrated opening and force measurements",
+        "approved door schedule",
+        "functional inspection"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "accessible-sanitary",
+      "stage": "accessibility",
+      "title": "Accessible sanitary fixtures and maneuvering spaces",
+      "code_references": [
+        {
+          "source_id": "sbc201-2024",
+          "title": "SBC 201-AR-2024",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20201/SBC201_AR2024.pdf",
+          "section": "Chapter 11",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        },
+        {
+          "source_id": "sbc701-2024-toc",
+          "title": "SBC 701-CR-2024 official contents",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20701/SBC701-CR_241224-FA.pdf",
+          "section": "404 (contents verified)",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Scope dependent: distinguish a private dwelling from shared/common or public-facing areas; no blanket residential exemption is inferred. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Occupancy/use dependent: review the applicable accessible public, customer and staff routes/facilities against the approved design. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "occupancy_height_or_scope_dependent",
+      "evidence_type": "manual_measurement",
+      "capability_id": null,
+      "required_evidence": [
+        "Calibrated fixture and space survey",
+        "approved layout",
+        "physical operation review"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "gypsum-rated",
+      "stage": "finishes",
+      "title": "Gypsum/lath installation in rated or shear assemblies before finishing",
+      "code_references": [
+        {
+          "source_id": "sbc201-2024",
+          "title": "SBC 201-AR-2024",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20201/SBC201_AR2024.pdf",
+          "section": "110.3.5",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "The rated/shear assembly and stated inspection exceptions must be checked for the dwelling; ordinary finish appearance is not assembly verification. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Check actual commercial rated/shear assemblies and applicable exceptions; occupancy-specific rating and approved construction determine scope. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "occupancy_height_or_scope_dependent",
+      "evidence_type": "qualified_inspection",
+      "capability_id": null,
+      "required_evidence": [
+        "Before-finish close evidence",
+        "approved assembly",
+        "measured fastening and joint details",
+        "product records"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "finish-surface",
+      "stage": "finishes",
+      "title": "Visible finish cracks, damaged tiles, uneven or incomplete surfaces",
+      "code_references": [
+        {
+          "source_id": "sbc201-2024",
+          "title": "SBC 201-AR-2024",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20201/SBC201_AR2024.pdf",
+          "section": "Chapters 8; 12",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Inspect the dwelling's specified finish/assembly; appearance, dimensional acceptance and any fire classification are separate checks. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Inspect the commercial specified finish/assembly; occupancy and location may alter fire, accessibility and durability criteria. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "common_lifecycle",
+      "evidence_type": "video_visual",
+      "capability_id": null,
+      "required_evidence": [
+        "Actual walkthrough with scale and lighting",
+        "approved finish specification",
+        "calibrated flatness checks",
+        "reviewer classification"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "candidate_visual_observation_only",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "finish-material",
+      "stage": "finishes",
+      "title": "Interior finish fire performance and material identity",
+      "code_references": [
+        {
+          "source_id": "sbc201-2024",
+          "title": "SBC 201-AR-2024",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20201/SBC201_AR2024.pdf",
+          "section": "Chapter 8",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Confirm the dwelling location's applicable finish/material criteria; do not infer a fire classification from visual similarity. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Confirm commercial occupancy/location-specific finish/material criteria from the approved design; product identity and certification are required. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "occupancy_height_or_scope_dependent",
+      "evidence_type": "document_review",
+      "capability_id": null,
+      "required_evidence": [
+        "Traceable finish product certificates",
+        "applicable fire classification",
+        "approved room finish schedule"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "stairs-guards",
+      "stage": "finishes",
+      "title": "Stairs, handrails, guards and glazing at occupied spaces",
+      "code_references": [
+        {
+          "source_id": "sbc201-2024",
+          "title": "SBC 201-AR-2024",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20201/SBC201_AR2024.pdf",
+          "section": "Chapters 10; 24",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Check actual dwelling stair/guard/glazing geometry under the confirmed residential route; exact residential criteria are not verified here. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Check commercial egress/accessibility/guard/glazing interfaces under the approved design; do not reuse dwelling dimensions as commercial criteria. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "occupancy_height_or_scope_dependent",
+      "evidence_type": "manual_measurement",
+      "capability_id": null,
+      "required_evidence": [
+        "Calibrated heights and openings",
+        "approved geometry",
+        "anchorage and loading evidence where specified"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "electrical-verification",
+      "stage": "testing_commissioning",
+      "title": "Electrical initial verification and protection operation",
+      "code_references": [
+        {
+          "source_id": "sbc401-2024-toc",
+          "title": "SBC 401-CR-2024 official contents",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20401/SBC401_CR_241224-FA.pdf",
+          "section": "61-4.2; 61-4.3; 61-4.4 (contents verified)",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Perform the tests required for this dwelling's actual installed systems and approved criteria. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Perform the tests required for the actual commercial systems and approved occupancy-specific criteria; do not assume one universal test scope. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "system_or_design_dependent",
+      "evidence_type": "functional_test",
+      "capability_id": null,
+      "required_evidence": [
+        "Calibrated electrical test results",
+        "protection-operation tests",
+        "signed initial-verification report"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "plumbing-verification",
+      "stage": "testing_commissioning",
+      "title": "Water and drainage pressure, leakage and sanitary verification",
+      "code_references": [
+        {
+          "source_id": "sbc701-2024-toc",
+          "title": "SBC 701-CR-2024 official contents",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20701/SBC701-CR_241224-FA.pdf",
+          "section": "112; 312 (contents verified)",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Perform the tests required for this dwelling's actual installed systems and approved criteria. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Perform the tests required for the actual commercial systems and approved occupancy-specific criteria; do not assume one universal test scope. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "system_or_design_dependent",
+      "evidence_type": "functional_test",
+      "capability_id": null,
+      "required_evidence": [
+        "Witnessed calibrated pressure and leakage records",
+        "drainage tests",
+        "approved test procedures"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "ventilation-balancing",
+      "stage": "testing_commissioning",
+      "title": "Airflow, ventilation and system balancing",
+      "code_references": [
+        {
+          "source_id": "sbc501-2024",
+          "title": "SBC 501 official 2024 code description",
+          "url": "https://sbc.gov.sa/en/BC/Pages/BuildingCode/BCDetails.aspx?codeId=501&year=2024",
+          "section": null,
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        },
+        {
+          "source_id": "sbc201-2024",
+          "title": "SBC 201-AR-2024",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20201/SBC201_AR2024.pdf",
+          "section": "110.3.7; 110.3.9",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Perform the tests required for this dwelling's actual installed systems and approved criteria. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Perform the tests required for the actual commercial systems and approved occupancy-specific criteria; do not assume one universal test scope. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "system_or_design_dependent",
+      "evidence_type": "sensor_measurement",
+      "capability_id": null,
+      "required_evidence": [
+        "Calibrated air and water balancing reports",
+        "approved design duties",
+        "actual operating measurements"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "energy-controls",
+      "stage": "testing_commissioning",
+      "title": "Energy controls, metering and equipment performance",
+      "code_references": [
+        {
+          "source_id": "sbc201-2024",
+          "title": "SBC 201-AR-2024",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20201/SBC201_AR2024.pdf",
+          "section": "110.3.7",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        },
+        {
+          "source_id": "sbc-2024-index",
+          "title": "Official Saudi Building Code 2024 suite",
+          "url": "https://sbc.gov.sa/en/BC/Pages/BuildingCode/BC.aspx?year=2024",
+          "section": null,
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Commission only the controls/equipment required by this dwelling's confirmed residential energy provisions and design. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Commission applicable nonresidential energy controls/equipment under the approved SBC601 route; exact trigger and scope need project review. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "occupancy_height_or_scope_dependent",
+      "evidence_type": "functional_test",
+      "capability_id": null,
+      "required_evidence": [
+        "Applicable SBC 601 or 602 commissioning requirements",
+        "controls sequences",
+        "witnessed functional records"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "fire-integrated",
+      "stage": "testing_commissioning",
+      "title": "Integrated fire alarm, suppression, smoke and shutdown tests",
+      "code_references": [
+        {
+          "source_id": "sbc801-2024-toc",
+          "title": "SBC 801-CR-2024 official contents",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20801/SBC801_CR_241224-FA.pdf",
+          "section": null,
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        },
+        {
+          "source_id": "sbc201-2024",
+          "title": "SBC 201-AR-2024",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20201/SBC201_AR2024.pdf",
+          "section": "Chapters 9; 17",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Test the actual fire-system interfaces required for this dwelling; do not invent uninstalled commercial subsystems. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Test the actual approved commercial cause-and-effect interfaces; integrated scope follows installed/required systems and authority acceptance. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "occupancy_height_or_scope_dependent",
+      "evidence_type": "functional_test",
+      "capability_id": null,
+      "required_evidence": [
+        "Approved cause-and-effect test script",
+        "witnessed integrated tests",
+        "competent fire reviewer and authority records"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "elevators",
+      "stage": "testing_commissioning",
+      "title": "Elevators and vertical transport acceptance where installed",
+      "code_references": [
+        {
+          "source_id": "sbc201-2024",
+          "title": "SBC 201-AR-2024",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20201/SBC201_AR2024.pdf",
+          "section": "Chapter 30",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Only if vertical transport is installed or otherwise required by the applicable design/scope; no automatic installation obligation is inferred from low-rise use. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Review installed or required vertical transport with the actual commercial access/occupancy strategy and specialist authority; exact trigger not verified here. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "occupancy_height_or_scope_dependent",
+      "evidence_type": "qualified_inspection",
+      "capability_id": null,
+      "required_evidence": [
+        "Specialist inspection and applicable certification",
+        "load, emergency and safety-function tests"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "special-inspections",
+      "stage": "testing_commissioning",
+      "title": "Project-specific special inspections and structural observations",
+      "code_references": [
+        {
+          "source_id": "sbc201-2024",
+          "title": "SBC 201-AR-2024",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20201/SBC201_AR2024.pdf",
+          "section": "110.3.10; Chapter 17",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Determine whether the specific dwelling structure/material/system triggers special inspections; not a blanket exemption for residential buildings. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Determine special-inspection scope from actual commercial systems/materials and applicable SBC201 chapter17 provisions; not universally every listed test. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "occupancy_height_or_scope_dependent",
+      "evidence_type": "qualified_inspection",
+      "capability_id": null,
+      "required_evidence": [
+        "Approved special-inspection statement",
+        "required site and laboratory reports",
+        "closure of discrepancies"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "final-inspection",
+      "stage": "handover",
+      "title": "Final inspection and closure of outstanding findings",
+      "code_references": [
+        {
+          "source_id": "sbc201-2024",
+          "title": "SBC 201-AR-2024",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20201/SBC201_AR2024.pdf",
+          "section": "110.3.11",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        },
+        {
+          "source_id": "occupancy-service",
+          "title": "MOMAH issuing an occupancy certificate",
+          "url": "https://momah.gov.sa/ar/e-services/issuing-occupancy-certificate",
+          "section": null,
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Common completion review under the applicable residential permit and authority process; an issued approval is still required where applicable. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Common completion review under the commercial permit and authority process; engineering reports and discipline approvals follow the actual project. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "common_lifecycle",
+      "evidence_type": "qualified_inspection",
+      "capability_id": null,
+      "required_evidence": [
+        "Final inspections",
+        "documented corrective work",
+        "authorized engineering report",
+        "authority acceptance"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "asbuilt-records",
+      "stage": "handover",
+      "title": "As-built drawings, warranties, operation and maintenance records",
+      "code_references": [
+        {
+          "source_id": "implementing-regulations",
+          "title": "Official Gazette: implementing regulations for applying the Saudi Building Code",
+          "url": "https://www.uqn.gov.sa/details?p=18175",
+          "section": "Article 17",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        },
+        {
+          "source_id": "inspector-guide-2019",
+          "title": "MOMAH technical building inspector guide (2019; 2018-code context)",
+          "url": "https://momah.gov.sa/sites/default/files/2020-03/%D8%AF%D9%84%D9%8A%D9%84%20%D8%A7%D9%84%D9%85%D9%81%D8%AA%D8%B4%20%D8%A7%D9%84%D9%81%D9%86%D9%8A%20%D9%84%D9%84%D9%85%D8%A8%D8%A7%D9%86%D9%8A.pdf",
+          "section": "5.3",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Common completion review under the applicable residential permit and authority process; an issued approval is still required where applicable. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Common completion review under the commercial permit and authority process; engineering reports and discipline approvals follow the actual project. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "common_lifecycle",
+      "evidence_type": "document_review",
+      "capability_id": null,
+      "required_evidence": [
+        "Signed as-built drawings",
+        "accepted tests",
+        "product and maintenance documentation",
+        "training records"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "external-final",
+      "stage": "handover",
+      "title": "Final site drainage, public interfaces, parking and entrances",
+      "code_references": [
+        {
+          "source_id": "inspector-guide-2019",
+          "title": "MOMAH technical building inspector guide (2019; 2018-code context)",
+          "url": "https://momah.gov.sa/sites/default/files/2020-03/%D8%AF%D9%84%D9%8A%D9%84%20%D8%A7%D9%84%D9%85%D9%81%D8%AA%D8%B4%20%D8%A7%D9%84%D9%81%D9%86%D9%8A%20%D9%84%D9%84%D9%85%D8%A8%D8%A7%D9%86%D9%8A.pdf",
+          "section": "5.3",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        },
+        {
+          "source_id": "sbc201-2024",
+          "title": "SBC 201-AR-2024",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20201/SBC201_AR2024.pdf",
+          "section": "110.3.11",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Common completion review under the applicable residential permit and authority process; an issued approval is still required where applicable. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Common completion review under the commercial permit and authority process; engineering reports and discipline approvals follow the actual project. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "common_lifecycle",
+      "evidence_type": "survey",
+      "capability_id": null,
+      "required_evidence": [
+        "Surveyed completed site",
+        "actual final walkthrough",
+        "approved site plan",
+        "accessibility and drainage evidence"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "occupancy-approval",
+      "stage": "handover",
+      "title": "Municipal occupancy certificate and required discipline approvals",
+      "code_references": [
+        {
+          "source_id": "sbc201-2024",
+          "title": "SBC 201-AR-2024",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20201/SBC201_AR2024.pdf",
+          "section": "111",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        },
+        {
+          "source_id": "implementing-regulations",
+          "title": "Official Gazette: implementing regulations for applying the Saudi Building Code",
+          "url": "https://www.uqn.gov.sa/details?p=18175",
+          "section": "Articles 16-18",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        },
+        {
+          "source_id": "occupancy-service",
+          "title": "MOMAH issuing an occupancy certificate",
+          "url": "https://momah.gov.sa/ar/e-services/issuing-occupancy-certificate",
+          "section": null,
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Use the applicable residential permit/report channel and actual municipal occupancy approval; model results cannot issue or replace a certificate. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "The verified nonresidential occupancy service refers to an engineering office/report and municipal approval; confirm the actual commercial project's complete approvals. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "occupancy_height_or_scope_dependent",
+      "evidence_type": "authority_approval",
+      "capability_id": null,
+      "required_evidence": [
+        "Issued authority certificate",
+        "final inspection and test acceptance",
+        "actual permit and approval records"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "maintenance-monitoring",
+      "stage": "operation_changes",
+      "title": "Periodic inspection, maintenance and defect follow-up",
+      "code_references": [
+        {
+          "source_id": "sbc401-2024-toc",
+          "title": "SBC 401-CR-2024 official contents",
+          "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20401/SBC401_CR_241224-FA.pdf",
+          "section": "61-5 (contents verified)",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        },
+        {
+          "source_id": "sbc-2024-index",
+          "title": "Official Saudi Building Code 2024 suite",
+          "url": "https://sbc.gov.sa/en/BC/Pages/BuildingCode/BC.aspx?year=2024",
+          "section": null,
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Use the actual residential building history, proposed use/change and applicable existing-building route. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Use the actual commercial occupancy history, proposed use/change and applicable existing-building route. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "occupancy_height_or_scope_dependent",
+      "evidence_type": "qualified_inspection",
+      "capability_id": null,
+      "required_evidence": [
+        "Applicable periodic inspection plan",
+        "maintenance logs",
+        "measured defect changes",
+        "competent review"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "alteration-rehabilitation",
+      "stage": "operation_changes",
+      "title": "Alteration, repair, change of use and existing-building assessment",
+      "code_references": [
+        {
+          "source_id": "sbc-2024-index",
+          "title": "Official Saudi Building Code 2024 suite",
+          "url": "https://sbc.gov.sa/en/BC/Pages/BuildingCode/BC.aspx?year=2024",
+          "section": null,
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        },
+        {
+          "source_id": "implementing-regulations",
+          "title": "Official Gazette: implementing regulations for applying the Saudi Building Code",
+          "url": "https://www.uqn.gov.sa/details?p=18175",
+          "section": "Articles 5; 7",
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Review the actual dwelling alteration, repair or change of use and relevant SBC901/SBC310 scope; original residential status does not settle a new use. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Review the actual commercial repair/alteration/change of occupancy and relevant existing-building route; approved reassessment may differ from the original use. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "occupancy_height_or_scope_dependent",
+      "evidence_type": "design_review",
+      "capability_id": null,
+      "required_evidence": [
+        "Applicable SBC 901 or 310 scope",
+        "structural and fire assessment",
+        "authority-approved alteration documents"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    },
+    {
+      "id": "special-occupancies",
+      "stage": "operation_changes",
+      "title": "Project-specific systems and occupancy conditions",
+      "code_references": [
+        {
+          "source_id": "sbc-2024-index",
+          "title": "Official Saudi Building Code 2024 suite",
+          "url": "https://sbc.gov.sa/en/BC/Pages/BuildingCode/BC.aspx?year=2024",
+          "section": null,
+          "reference_scope": "verified_section_heading_or_general_topic_mapping; not a verified acceptance rule"
+        }
+      ],
+      "building_applicability": {
+        "low_rise_residential": "Conditional on actual pools, sewage, heritage, green or other specialist features; none is assumed present in every dwelling. Exact applicability/acceptance clauses were not fully verified; project/authority check required.",
+        "commercial": "Conditional on actual commercial occupancy, hazards and specialist features; identify additional authority/code requirements rather than treating commercial as one category. Exact applicability/acceptance clauses were not fully verified; project/authority check required."
+      },
+      "applicability_basis": "occupancy_height_or_scope_dependent",
+      "evidence_type": "qualified_inspection",
+      "capability_id": null,
+      "required_evidence": [
+        "Applicability review for pools SBC 1401, private sewage SBC 702, heritage SBC 902, green SBC 1001 and special occupancies",
+        "approved specialist test and inspection plan"
+      ],
+      "automation_status": "research_only",
+      "planned_capability_ids": [],
+      "video_observability": "video_alone_insufficient",
+      "validation_status": "not_validated_for_saudi_code_acceptance",
+      "default_assessment": "unassessed",
+      "acceptance_criteria": "Project-specific approved design, applicable controlled code and qualified reviewer required."
+    }
+  ],
+  "sources": [
+    {
+      "id": "sbc-2024-index",
+      "title": "Official Saudi Building Code 2024 suite",
+      "url": "https://sbc.gov.sa/en/BC/Pages/BuildingCode/BC.aspx?year=2024",
+      "verification": "Official index opened; code-family identity verified.",
+      "accessed_on": "2026-10-20"
+    },
+    {
+      "id": "sbc-residential-scope",
+      "title": "Official SBC 1101-1102 residential scope description",
+      "url": "https://sbc.gov.sa/ar/BC/Pages/BuildingCode/BCDetails.aspx?codeId=1101&year=2024",
+      "verification": "Official description verified: qualifying one- or two-family dwellings, no more than three stories; integrated discipline coverage. This is a scope description, not a full applicability-clause review.",
+      "accessed_on": "2026-10-20"
+    },
+    {
+      "id": "sbc201-2024",
+      "title": "SBC 201-AR-2024",
+      "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20201/SBC201_AR2024.pdf",
+      "verification": "Official full 593-page PDF downloaded and text extracted; sections 110, 111 and chapter 17 inspected.",
+      "sha256": "237070fe2784a3e7c4663740718cfec841fa6675eb558d8a9fd2c84dc105a8fc",
+      "accessed_on": "2026-10-20"
+    },
+    {
+      "id": "sbc303-2024-toc",
+      "title": "SBC 303-CR-2024 official contents",
+      "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20303/SBC303_CR_241224-FA.pdf",
+      "verification": "4-page contents downloaded; topic/section headings only, no numerical acceptance criteria verified.",
+      "accessed_on": "2026-10-20"
+    },
+    {
+      "id": "sbc304-2024-toc",
+      "title": "SBC 304-CR-2024 official contents",
+      "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20304/SBC304_CR_241224-FA.pdf",
+      "verification": "6-page contents downloaded; chapter 26 topic headings only.",
+      "accessed_on": "2026-10-20"
+    },
+    {
+      "id": "sbc401-2024-toc",
+      "title": "SBC 401-CR-2024 official contents",
+      "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20401/SBC401_CR_241224-FA.pdf",
+      "verification": "30-page contents downloaded; chapter 61 inspection/testing/reporting headings verified.",
+      "accessed_on": "2026-10-20"
+    },
+    {
+      "id": "sbc501-2024",
+      "title": "SBC 501 official 2024 code description",
+      "url": "https://sbc.gov.sa/en/BC/Pages/BuildingCode/BCDetails.aspx?codeId=501&year=2024",
+      "verification": "Official description opened; full clause text not obtained.",
+      "accessed_on": "2026-10-20"
+    },
+    {
+      "id": "sbc701-2024-toc",
+      "title": "SBC 701-CR-2024 official contents",
+      "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20701/SBC701-CR_241224-FA.pdf",
+      "verification": "6-page contents downloaded; sections 112, 312 and system headings verified.",
+      "accessed_on": "2026-10-20"
+    },
+    {
+      "id": "sbc801-2024-toc",
+      "title": "SBC 801-CR-2024 official contents",
+      "url": "https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20801/SBC801_CR_241224-FA.pdf",
+      "verification": "12-page contents downloaded; fire-system and construction-safety topic headings only.",
+      "accessed_on": "2026-10-20"
+    },
+    {
+      "id": "implementing-regulations",
+      "title": "Official Gazette: implementing regulations for applying the Saudi Building Code",
+      "url": "https://www.uqn.gov.sa/details?p=18175",
+      "verification": "Official publication opened; articles 13-17 and 21-22 inspected. Later amendments were not exhaustively audited.",
+      "accessed_on": "2026-10-20"
+    },
+    {
+      "id": "inspector-guide-2019",
+      "title": "MOMAH technical building inspector guide (2019; 2018-code context)",
+      "url": "https://momah.gov.sa/sites/default/files/2020-03/%D8%AF%D9%84%D9%8A%D9%84%20%D8%A7%D9%84%D9%85%D9%81%D8%AA%D8%B4%20%D8%A7%D9%84%D9%81%D9%86%D9%8A%20%D9%84%D9%84%D9%85%D8%A8%D8%A7%D9%86%D9%8A.pdf",
+      "verification": "15-page official guide opened; initial/during/final inspection and annex checklist read; historical guidance, not a substitute for 2024 code.",
+      "accessed_on": "2026-10-20"
+    },
+    {
+      "id": "permit-service",
+      "title": "MOMAH issuing a building permit",
+      "url": "https://momah.gov.sa/ar/e-services/issuance-building-license",
+      "verification": "Current public service requirements opened.",
+      "accessed_on": "2026-10-20"
+    },
+    {
+      "id": "occupancy-service",
+      "title": "MOMAH issuing an occupancy certificate",
+      "url": "https://momah.gov.sa/ar/e-services/issuing-occupancy-certificate",
+      "verification": "Current public service steps opened.",
+      "accessed_on": "2026-10-20"
+    },
+    {
+      "id": "sbc-edition-brochure",
+      "title": "SBC GETCODE2025 service brochure",
+      "url": "https://sbc.gov.sa/ar/ContactUS/Documents/GETCODE2025.pdf",
+      "verification": "Search-indexed official text identifies ministerial decision 181 dated 2024-12-31 and transition date 2025-06-30; live PDF returned 404, so current legal effect is not independently confirmed.",
+      "accessed_on": "2026-10-20"
+    },
+    {
+      "id": "telecom-guide-announcement",
+      "title": "SPA: official announcement of building telecom requirements",
+      "url": "https://www.spa.gov.sa/N2164456",
+      "verification": "Official announcement opened; telecom infrastructure planning scope verified, detailed guide not acquired.",
+      "accessed_on": "2026-10-20"
+    }
+  ]
+}

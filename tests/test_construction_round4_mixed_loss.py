@@ -1,0 +1,83 @@
+"""Small loss semantics fixtures; no network, training data or inspection claims."""
+import importlib.util
+from pathlib import Path
+
+import torch
+
+SOURCE = Path(__file__).resolve().parents[1] / 'scripts/construction_round4_mixed_loss.py'
+spec = importlib.util.spec_from_file_location('round4_mixed_loss_fixture', SOURCE)
+module = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(module)
+
+
+def test_unknown_class_has_zero_bce_gradient_at_positive_and_background_anchors():
+    logits = torch.zeros(1, 8, 2, requires_grad=True)
+    target = torch.zeros_like(logits)
+    target[0, 3, 0] = .8
+    criterion = module.PartialClassBCE()
+    criterion.supervised_classes = torch.tensor([[1., 0.]])
+    criterion(logits, target).sum().backward()
+    assert torch.count_nonzero(logits.grad[0, :, 1]) == 0
+    assert logits.grad[0, 3, 0] < 0
+    assert logits.grad[0, 0, 0] > 0
+
+
+def test_one_pixel_stroke_keeps_meaningful_positive_gradient_without_thickening():
+    # Explicit numerical unit fixture, not a generated inspection image/video.
+    target = torch.zeros(64, 64)
+    target[31] = 1
+    original = target.clone()
+    logits = torch.zeros_like(target, requires_grad=True)
+    module.balanced_true_mask_loss(logits, target).backward()
+    assert torch.equal(target, original)
+    assert torch.all(logits.grad[31] < 0)
+    assert logits.grad[31].abs().sum() > .1
+    assert torch.all(logits.grad[0] > 0)
+    assert torch.isfinite(logits.grad).all()
+
+
+def test_partial_camera_unassigned_same_class_is_unknown_not_background():
+    logits = torch.zeros(1, 8, 2, requires_grad=True)
+    target = torch.zeros_like(logits)
+    target[0, 3, 0] = .8
+    criterion = module.PartialClassBCE()
+    criterion.supervised_classes = torch.tensor([[1., 0.]])
+    criterion.positive_assignments_only = True
+    criterion(logits, target).sum().backward()
+    assert logits.grad[0, 3, 0] != 0
+    assert torch.count_nonzero(logits.grad[0, :3, 0]) == 0
+    assert torch.count_nonzero(logits.grad[0, 4:, 0]) == 0
+    assert torch.count_nonzero(logits.grad[0, :, 1]) == 0
+
+
+def test_fractional_real_pixel_coverage_is_retained_not_thresholded_away():
+    target = torch.zeros(16, 16)
+    target[4, 2:14] = .125
+    logits = torch.zeros_like(target, requires_grad=True)
+    module.balanced_true_mask_loss(logits, target).backward()
+    assert torch.all(logits.grad[4, 2:14] < 0)
+    assert logits.grad[4, 2:14].abs().sum() > .1
+
+
+def test_memory_bounded_anchor_views_equal_parent_assigned_mask_selection():
+    from ultralytics.utils.loss import v8SegmentationLoss
+    torch.manual_seed(7)
+    criterion = object.__new__(module.MixedConstructionLoss)
+    criterion.overlap = False
+    masks = torch.zeros(2, 16, 16)
+    masks[0, 3, 1:14] = 1
+    masks[1, 8:12, 8:12] = 1
+    foreground = torch.tensor([[True, False, True, True]])
+    indices = torch.tensor([[0, 0, 1, 0]])
+    boxes = torch.tensor([[[0., 0., 16., 16.]] * 4])
+    batch_index = torch.zeros(2, 1)
+    proto = torch.randn(1, 2, 16, 16, requires_grad=True)
+    coefficients = torch.randn(1, 4, 2, requires_grad=True)
+    size = torch.tensor([16., 16.])
+    bounded = criterion.calculate_segmentation_loss(foreground, masks, indices, boxes, batch_index, proto, coefficients, size)
+    reference = v8SegmentationLoss.calculate_segmentation_loss(criterion, foreground, masks, indices, boxes, batch_index, proto, coefficients, size)
+    assert torch.allclose(bounded, reference, atol=1e-7)
+    bounded_grad = torch.autograd.grad(bounded, [proto, coefficients], retain_graph=True)
+    reference_grad = torch.autograd.grad(reference, [proto, coefficients])
+    for actual, expected in zip(bounded_grad, reference_grad):
+        assert torch.allclose(actual, expected, atol=1e-7)

@@ -1,0 +1,36 @@
+{
+  "name": "burhan",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build:web": "tsc --noEmit && vite build",
+    "verify": "tsc --noEmit && node --test tests/*.test.mjs src/engine/*.test.mjs && node scripts/verify-assets.mjs",
+    "build:apk": "node scripts/build-apk.mjs",
+    "package:delivery": "node scripts/package-delivery.mjs",
+    "preview": "vite preview --host 127.0.0.1",
+    "setup:android": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/setup-android.ps1",
+    "predev": "node scripts/sync-runtime.mjs",
+    "prebuild:web": "node scripts/sync-runtime.mjs"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.0.0",
+    "@capacitor/app": "8.1.2",
+    "@capacitor/core": "^8.0.0",
+    "fflate": "^0.8.2",
+    "idb": "^8.0.0",
+    "lucide-react": "^0.468.0",
+    "onnxruntime-web": "^1.23.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^8.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "typescript": "^5.7.0",
+    "vite": "^6.1.0"
+  }
+}

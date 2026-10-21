@@ -1,0 +1,614 @@
+[
+  {
+    "title": "NIST, 2021",
+    "url": "https://www.nist.gov/publications/maintenance-costs-and-advanced-maintenance-techniques-manufacturing-machinery-survey",
+    "memo": "industrial-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "Flex",
+    "url": "https://flex.com/downloads/driving-innovation-efficiency-and-quality-through-advanced-manufacturing-solutions",
+    "memo": "industrial-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "MacroFab, July 2024",
+    "url": "https://nws.macrofab.com/blog/aoi-inspection-process",
+    "memo": "industrial-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "SICK",
+    "url": "https://support.sick.com/sick-knowledgebase/article/?id=d206e0b2-9b07-ed11-82e5-000d3a441c4d",
+    "memo": "industrial-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "NRCan",
+    "url": "https://natural-resources.canada.ca/energy-efficiency/energy-star/energy-efficiency-reference-guide-compressed-air",
+    "memo": "industrial-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "FLIR",
+    "url": "https://www.flir.com/en-ca/instruments/condition-monitoring-solutions/compressed-air--gas-leak-detection/",
+    "memo": "industrial-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "DHL",
+    "url": "https://www.dhl.com/gb-en/microsites/csi/computer-vision/logistics-use-cases/shipments.html",
+    "memo": "industrial-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "Cognex product support",
+    "url": "https://support.cognex.com/en/products/in-sight-d900",
+    "memo": "industrial-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "reference guide",
+    "url": "https://docs.cognex.com/isvidi_191/EN/isD900inst.pdf",
+    "memo": "industrial-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "Live product page",
+    "url": "https://landing.ai/landinglens",
+    "memo": "industrial-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "Agentic APIs pricing",
+    "url": "https://landing.ai/pricing-agentic-apis",
+    "memo": "industrial-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "Product",
+    "url": "https://instrumental.com/how-it-works",
+    "memo": "industrial-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "Plans",
+    "url": "https://tulip.co/plans/",
+    "memo": "industrial-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "Condition monitoring",
+    "url": "https://tractian.com/en/solutions/condition-monitoring",
+    "memo": "industrial-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "Pricing",
+    "url": "https://tractian.com/en/pricing",
+    "memo": "industrial-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "Authors, 2022",
+    "url": "https://github.com/amazon-science/spot-diff/blob/main/README.md?plain=1",
+    "memo": "industrial-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "AWS registry",
+    "url": "https://github.com/awslabs/open-data-registry/blob/main/datasets/visa.yaml",
+    "memo": "industrial-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "Jabil",
+    "url": "https://www.jabil.com/capability/electronics.html",
+    "memo": "industrial-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "IPAD",
+    "url": "https://github.com/LJF1113/IPAD",
+    "memo": "industrial-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "MVTec terms",
+    "url": "https://www.mvtec.com/research-teaching/datasets/mvtec-ad",
+    "memo": "industrial-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "Assembly documentation",
+    "url": "https://docs.circuithub.com/assembly/assembly-lines",
+    "memo": "industrial-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "Capabilities",
+    "url": "https://www.macrofab.com/assets/uploads/documents/macrofab-capabilities.pdf",
+    "memo": "industrial-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "NIST manufacturing automation",
+    "url": "https://www.nist.gov/mep/robotics-and-manufacturing-automation",
+    "memo": "industrial-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "Lookout migration notice",
+    "url": "https://aws.amazon.com/blogs/machine-learning/exploring-alternatives-and-seamlessly-migrating-data-from-amazon-lookout-for-vision/",
+    "memo": "industrial-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "FHWA guide",
+    "url": "https://www.fhwa.dot.gov/pavement/management/qm/data_qm_guide.pdf",
+    "memo": "infrastructure-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "SBIR award",
+    "url": "https://www.sbir.gov/awards/187826",
+    "memo": "infrastructure-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "vialytics",
+    "url": "https://www.vialytics.com/",
+    "memo": "infrastructure-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "RoadBotics brochure",
+    "url": "https://www.roadbotics.com/wp-content/uploads/2021/03/subscription-options.pdf",
+    "memo": "infrastructure-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "Pavemetrics",
+    "url": "https://www.pavemetrics.com/capabilities/lcms-2/cracking/",
+    "memo": "infrastructure-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "Authors' paper",
+    "url": "https://arxiv.org/abs/2209.08538",
+    "memo": "infrastructure-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "originating project and license",
+    "url": "https://github.com/sekilab/RoadDamageDetector",
+    "memo": "infrastructure-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "EPA smart sewer technologies",
+    "url": "https://www.epa.gov/npdes/smart-sewer-technologies",
+    "memo": "infrastructure-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "EPA condition-assessment report",
+    "url": "https://nepis.epa.gov/Exe/ZyPURL.cgi?Dockey=P1008H44.TXT",
+    "memo": "infrastructure-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "SewerAI pricing",
+    "url": "https://www.sewerai.com/pricing",
+    "memo": "infrastructure-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "starter offer",
+    "url": "https://go.sewerai.com/starter-bundle",
+    "memo": "infrastructure-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "existing assistant",
+    "url": "https://www.sewerai.com/products/command-center",
+    "memo": "infrastructure-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "Pallon",
+    "url": "https://www.pallon.com/",
+    "memo": "infrastructure-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "VAPAR FAQ",
+    "url": "https://www.vapar.co/faqs",
+    "memo": "infrastructure-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "University project",
+    "url": "https://vap.aau.dk/sewer-ml/",
+    "memo": "infrastructure-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "CVPR paper",
+    "url": "https://openaccess.thecvf.com/content/CVPR2021/papers/Haurum_Sewer-ML_A_Multi-Label_Sewer_Defect_Classification_Dataset_and_Benchmark_CVPR_2021_paper.pdf",
+    "memo": "infrastructure-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "DOE O&M guidance",
+    "url": "https://www.energy.gov/cmei/femp/life-cycle-photovoltaic-systems-operate-and-maintain-existing-photovoltaic-system",
+    "memo": "infrastructure-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "Raptor report descriptions",
+    "url": "https://raptormaps.com/resources/reports",
+    "memo": "infrastructure-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "Raptor inspections",
+    "url": "https://raptormaps.com/products/solar-inspections-analytics",
+    "memo": "infrastructure-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "Sitemark inspections",
+    "url": "https://www.sitemark.com/solutions/solar-inspections/",
+    "memo": "infrastructure-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "Aerodyne infrastructure",
+    "url": "https://aerodyne.group/infra.html",
+    "memo": "infrastructure-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "older Sitemark brochure",
+    "url": "https://f.hubspotusercontent30.net/hubfs/6021737/Marketing%20Materials/Corporate%20Brochure/Corporate%20Overview.pdf",
+    "memo": "infrastructure-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "Dataset",
+    "url": "https://github.com/RaptorMaps/InfraredSolarModules",
+    "memo": "infrastructure-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "license",
+    "url": "https://github.com/RaptorMaps/InfraredSolarModules/blob/master/LICENSE",
+    "memo": "infrastructure-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "FAO",
+    "url": "https://www.fao.org/newsroom/detail/Climate-change-fans-spread-of-pests-and-threatens-plants-and-crops-new-FAO-study/ar",
+    "memo": "infrastructure-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "Plantix",
+    "url": "https://www.plantix.net/en/",
+    "memo": "infrastructure-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "B2B scale",
+    "url": "https://www.plantix.net/en/plantix-intelligence/",
+    "memo": "infrastructure-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "Kindwise pricing",
+    "url": "https://www.kindwise.com/pricing",
+    "memo": "infrastructure-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "Cropin customers",
+    "url": "https://www.cropin.com/customers/",
+    "memo": "infrastructure-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "Dataset authors",
+    "url": "https://github.com/spMohanty/PlantVillage-Dataset",
+    "memo": "infrastructure-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "original experiment",
+    "url": "https://arxiv.org/abs/1604.03169",
+    "memo": "infrastructure-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "Lynden tools",
+    "url": "https://www.lynden.com/online-tools/",
+    "memo": "frontline-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "supplier requirements",
+    "url": "https://www.lynden.com/wp-content/uploads/vendor-onboarding-canada.pdf",
+    "memo": "frontline-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "ArcBest",
+    "url": "https://support.arcb.com/en/articles/1509576-document-retrieval",
+    "memo": "frontline-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "Pricing",
+    "url": "https://scanbot.io/contact-sales/",
+    "memo": "frontline-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "quality API",
+    "url": "https://api-docs.scanbot.io/web/classes/Config.DocumentQualityAnalyzerResult.html",
+    "memo": "frontline-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "Regula documentation",
+    "url": "https://docs.regulaforensics.com/develop/doc-reader-sdk/overview/image-quality/",
+    "memo": "frontline-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "Scandit",
+    "url": "https://www.scandit.com/industries/post-and-parcel/driver-operations/",
+    "memo": "frontline-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "Case study",
+    "url": "https://scanbot.io/success-stories/arcbest/",
+    "memo": "frontline-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "Dataset",
+    "url": "https://github.com/jchazalon/smartdoc15-ch1-dataset",
+    "memo": "frontline-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "TCIA evaluation collection",
+    "url": "https://www.cancerimagingarchive.net/collection/pseudo-phi-dicom-data/",
+    "memo": "frontline-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "DICOM guidance",
+    "url": "https://dicom.nema.org/medical/dicom/current/output/chtml/part15/sect_E.3.html",
+    "memo": "frontline-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "TCIA process",
+    "url": "https://www.cancerimagingarchive.net/about-the-cancer-imaging-archive-tcia/",
+    "memo": "frontline-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "Santesoft",
+    "url": "https://www.santesoft.com/win/sante-dicom-editor/sante-dicom-editor.html",
+    "memo": "frontline-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "Instructions",
+    "url": "https://santesoft.com/win/sante-dicom-viewer-pro/howto/anonymize.html",
+    "memo": "frontline-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "Developer documentation",
+    "url": "https://www.dclunie.com/pixelmed/software/javadoc/com/pixelmed/display/DicomImageBlackout.html",
+    "memo": "frontline-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "Documentation",
+    "url": "https://pydicom.github.io/deid/getting-started/dicom-pixels/",
+    "memo": "frontline-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "Microsoft engineering account",
+    "url": "https://medium.com/data-science-at-microsoft/redacting-sensitive-text-from-dicom-medical-images-in-python-ab35a34a10c0",
+    "memo": "frontline-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "Dataset paper",
+    "url": "https://www.nature.com/articles/s41597-021-00967-y",
+    "memo": "frontline-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "Archived TCIA policy",
+    "url": "https://wiki.cancerimagingarchive.net/display/Public/Data%2BUsage%2BPolicies%2Band%2BRestrictions",
+    "memo": "frontline-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "current download instructions",
+    "url": "https://www.cancerimagingarchive.net/faqs/",
+    "memo": "frontline-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "MIDI-B",
+    "url": "https://www.cancerimagingarchive.net/collection/MIDI-B-Test-MIDI-B-Validation/",
+    "memo": "frontline-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "WHO, February 2026",
+    "url": "https://www.who.int/en/news-room/fact-sheets/detail/blindness-and-visual-impairment",
+    "memo": "frontline-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "VizWiz quality",
+    "url": "https://vizwiz.org/tasks-and-datasets/image-quality-issues/",
+    "memo": "frontline-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "VQA dataset",
+    "url": "https://vizwiz.org/tasks-and-datasets/vqa/",
+    "memo": "frontline-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "Consumer price",
+    "url": "https://support.bemyeyes.com/hc/en-us/articles/360006070777-Do-I-have-to-pay-for-Be-My-Eyes",
+    "memo": "frontline-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "workplace price",
+    "url": "https://www.bemyeyes.com/business/workplace-pricing/",
+    "memo": "frontline-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "Microsoft launch description",
+    "url": "https://news.microsoft.com/es-es/2023/12/05/microsoft-lanza-seeing-ai-en-android-la-app-gratuita-que-facilita-el-reconocimiento-y-descripcion-del-entorno-a-personas-ciegas-con-nuevos-idiomas-y-funciones-actualizadas/",
+    "memo": "frontline-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "OSHA",
+    "url": "https://www.osha.gov/warehousing",
+    "memo": "frontline-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "Intenseye",
+    "url": "https://www.intenseye.com/",
+    "memo": "frontline-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "Protex",
+    "url": "https://www.protex.ai/",
+    "memo": "frontline-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "Voxel",
+    "url": "https://www.voxelai.com/",
+    "memo": "frontline-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "DHL",
+    "url": "https://www.dhl.com/us-en/home/supply-chain/solutions/returns-and-circularity.html",
+    "memo": "frontline-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "EEA",
+    "url": "https://www.eea.europa.eu/en/newsroom/news/many-returned-and-unsold-textiles",
+    "memo": "frontline-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "Loop",
+    "url": "https://www.loopreturns.com/pricing/?product=order-tracking",
+    "memo": "frontline-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "Happy Returns",
+    "url": "https://info.happyreturns.com/hubfs/Sales%20Enablement%20shared/Happy%20Returns%20Overview.pdf",
+    "memo": "frontline-research.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "Devpost overview",
+    "url": "https://opencv26.devpost.com/",
+    "memo": "competition-and-screening.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "rules",
+    "url": "https://opencv26.devpost.com/rules",
+    "memo": "competition-and-screening.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "public gallery",
+    "url": "https://opencv26.devpost.com/project-gallery",
+    "memo": "competition-and-screening.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "5.0.0 release page",
+    "url": "https://opencv.org/release/opencv-5-0-0/",
+    "memo": "competition-and-screening.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "OpenCV 5 DNN engine documentation",
+    "url": "https://docs.opencv.org/doc/doxygen/html/de/db7/api_dnn_engine_selection.html",
+    "memo": "competition-and-screening.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "Ingka Group, 12 May 2026",
+    "url": "https://www.ingka.com/newsroom/one-million-bags-of-leftovers-and-how-were-putting-them-to-good-use/",
+    "memo": "competition-and-screening.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "Winnow",
+    "url": "https://www.winnowsolutions.com/why-winnow",
+    "memo": "competition-and-screening.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "Leanpath's product suite",
+    "url": "https://www.leanpath.com/products/food-waste-tracking/",
+    "memo": "competition-and-screening.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "Orbisk's published plans",
+    "url": "https://orbisk.com/product/solutions/",
+    "memo": "competition-and-screening.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "AWS documents time-limited S3 presigned uploads and downloads",
+    "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-presigned-url.html",
+    "memo": "competition-and-screening.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "AWS's T3 product page",
+    "url": "https://aws.amazon.com/ec2/instance-types/t3/",
+    "memo": "competition-and-screening.md",
+    "accessed": "2026-10-20"
+  },
+  {
+    "title": "AWS VPC pricing",
+    "url": "https://aws.amazon.com/vpc/pricing/",
+    "memo": "competition-and-screening.md",
+    "accessed": "2026-10-20"
+  }
+]

@@ -1,0 +1,10 @@
+opencv-python==5.0.0.93
+numpy==2.2.6
+fastapi==0.116.1
+uvicorn==0.35.0
+pydantic==2.11.7
+pypdfium2==5.14.0
+rapidocr==3.9.0
+onnxruntime==1.23.2
+openvino==2026.1.0
+scikit-learn==1.7.2

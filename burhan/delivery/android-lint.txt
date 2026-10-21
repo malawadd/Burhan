@@ -1,0 +1,200 @@
+C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\gradle\wrapper\gradle-wrapper.properties:3: Warning: A newer version of Gradle than 8.14.3 is available: 8.14.6 [AndroidGradlePluginVersion]
+distributionUrl=https\://services.gradle.org/distributions/gradle-8.14.3-all.zip
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "AndroidGradlePluginVersion":
+   This detector looks for usage of the Android Gradle Plugin where the
+   version you are using is not the current stable release. Using older
+   versions is fine, and there are cases where you deliberately want to stick
+   with an older version. However, you may simply not be aware that a more
+   recent version is available, and that is what this lint check helps find.
+
+C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\build.gradle:36: Warning: A newer version of androidx.camera:camera-camera2 than 1.5.1 is available: 1.6.2 [GradleDependency]
+    implementation 'androidx.camera:camera-camera2:1.5.1'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\build.gradle:37: Warning: A newer version of androidx.camera:camera-lifecycle than 1.5.1 is available: 1.6.2 [GradleDependency]
+    implementation 'androidx.camera:camera-lifecycle:1.5.1'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\build.gradle:38: Warning: A newer version of androidx.camera:camera-view than 1.5.1 is available: 1.6.2 [GradleDependency]
+    implementation 'androidx.camera:camera-view:1.5.1'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\build.gradle:41: Warning: A newer version of androidx.room:room-runtime than 2.8.3 is available: 2.8.5 [GradleDependency]
+    implementation 'androidx.room:room-runtime:2.8.3'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\build.gradle:42: Warning: A newer version of androidx.room:room-compiler than 2.8.3 is available: 2.8.5 [GradleDependency]
+    annotationProcessor 'androidx.room:room-compiler:2.8.3'
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\build.gradle:44: Warning: A newer version of androidx.appcompat:appcompat than 1.7.1 is available: 1.8.0 [GradleDependency]
+    implementation "androidx.appcompat:appcompat:$androidxAppCompatVersion"
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "GradleDependency":
+   This detector looks for usages of libraries where the version you are using
+   is not the current stable release. Using older versions is fine, and there
+   are cases where you deliberately want to stick with an older version.
+   However, you may simply not be aware that a more recent version is
+   available, and that is what this lint check helps find.
+
+C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\build.gradle:39: Warning: A newer version of com.microsoft.onnxruntime:onnxruntime-android than 1.23.2 is available: 1.31.0 [NewerVersionAvailable]
+    implementation 'com.microsoft.onnxruntime:onnxruntime-android:1.23.2'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\build.gradle:40: Warning: A newer version of org.opencv:opencv than 4.12.0 is available: 5.0.0.1 [NewerVersionAvailable]
+    implementation 'org.opencv:opencv:4.12.0'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "NewerVersionAvailable":
+   This detector checks with a central repository to see if there are newer
+   versions available for the dependencies used by this project. This is
+   similar to the GradleDependency check, which checks for newer versions
+   available in the Android SDK tools and libraries, but this works with any
+   MavenCentral dependency, and connects to the library every time, which
+   makes it more flexible but also much slower.
+
+C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\build.gradle:12: Warning: Missing x86_64 ABI support for ChromeOS [ChromeOsAbiSupport]
+        ndk { abiFilters 'arm64-v8a' }
+                         ~~~~~~~~~~~
+
+   Explanation for issues of type "ChromeOsAbiSupport":
+   To properly support ChromeOS, your Android application should have an x86
+   and/or x86_64 binary as part of the build configuration. To fix the issue,
+   ensure your files are properly optimized for ARM; the binary translator
+   will then ensure compatibility with x86. Alternatively, add an abiSplit for
+   x86 within your build.gradle file and create the required x86
+   dependencies.
+
+   https://developer.android.com/ndk/guides/abis
+
+C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\src\main\res\drawable-v24: Warning: This folder configuration (v24) is unnecessary; minSdkVersion is 31. Merge all the resources in this folder into drawable. [ObsoleteSdkInt]
+C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\src\main\res\mipmap-anydpi-v26: Warning: This folder configuration (v26) is unnecessary; minSdkVersion is 31. Merge all the resources in this folder into mipmap-anydpi. [ObsoleteSdkInt]
+
+   Explanation for issues of type "ObsoleteSdkInt":
+   This check flags version checks that are not necessary, because the
+   minSdkVersion (or surrounding known API level) is already at least as high
+   as the version checked for.
+
+   Similarly, it also looks for resources in -vNN folders, such as values-v14
+   where the version qualifier is less than or equal to the minSdkVersion,
+   where the contents should be merged into the best folder.
+
+C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\src\main\res\layout\activity_main.xml:2: Warning: The resource R.layout.activity_main appears to be unused [UnusedResources]
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+^
+C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\src\main\res\xml\config.xml:2: Warning: The resource R.xml.config appears to be unused [UnusedResources]
+<widget version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+^
+C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\src\main\res\drawable\ic_launcher_background.xml:2: Warning: The resource R.drawable.ic_launcher_background appears to be unused [UnusedResources]
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+^
+C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\src\main\res\mipmap-hdpi\ic_launcher_foreground.png: Warning: The resource R.mipmap.ic_launcher_foreground appears to be unused [UnusedResources]
+C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\src\main\res\drawable-v24\ic_launcher_foreground.xml:1: Warning: The resource R.drawable.ic_launcher_foreground appears to be unused [UnusedResources]
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+^
+C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\src\main\res\drawable\splash.png: Warning: The resource R.drawable.splash appears to be unused [UnusedResources]
+C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\src\main\res\values\strings.xml:5: Warning: The resource R.string.package_name appears to be unused [UnusedResources]
+    <string name="package_name">com.burhan.site</string>
+            ~~~~~~~~~~~~~~~~~~~
+C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\src\main\res\values\strings.xml:6: Warning: The resource R.string.custom_url_scheme appears to be unused [UnusedResources]
+    <string name="custom_url_scheme">com.burhan.site</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "UnusedResources":
+   Unused resources make applications larger and slow down builds.
+
+
+   The unused resource check can ignore tests. If you want to include
+   resources that are only referenced from tests, consider packaging them in a
+   test source set instead.
+
+   You can include test sources in the unused resource check by setting the
+   system property lint.unused-resources.include-tests =true, and to exclude
+   them (usually for performance reasons), use
+   lint.unused-resources.exclude-tests =true.
+   ,
+
+   Available options:
+
+   **skip-libraries** (default is true):
+   Whether the unused resource check should skip reporting unused resources in libraries.
+
+   Many libraries will declare resources that are part of the library surface; other modules depending on the library will also reference the resources. To avoid reporting all these resources as unused (in the context of a library), the unused resource check normally skips reporting unused resources in libraries. Instead, run the unused resource check on the consuming app module (along with `checkDependencies=true`).
+
+   However, there are cases where you want to check that all the resources declared in a library are used; in that case, you can disable the skip option.
+
+   To configure this option, use a `lint.xml` file with an <option> like this:
+
+   ```xml
+   <lint>
+       <issue id="UnusedResources">
+           <option name="skip-libraries" value="true" />
+       </issue>
+   </lint>
+   ```
+
+C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\src\main\java\com\burhan\site\ScanActivity.java:137: Warning: Consider also using StorageManager#getAllocatableBytes and allocateBytes which will consider clearable cached data [UsableSpace]
+        if(getFilesDir().getUsableSpace()<30L*1024*1024)throw new IOException(text("Storage low. Export a backup and free space.","المساحة منخفضة. صدّر نسخة احتياطية وحرّر مساحة."));
+                         ~~~~~~~~~~~~~~
+
+   Explanation for issues of type "UsableSpace":
+   When you need to allocate disk space for large files, consider using the
+   new allocateBytes(FileDescriptor, long) API, which will automatically clear
+   cached files belonging to other apps (as needed) to meet your request.
+
+   When deciding if the device has enough disk space to hold your new data,
+   call getAllocatableBytes(UUID) instead of using getUsableSpace(), since the
+   former will consider any cached data that the system is willing to clear on
+   your behalf.
+
+   Note that these methods require API level 26. If your app is running on
+   older devices, you will probably need to use both APIs, conditionally
+   switching on Build.VERSION.SDK_INT. Lint only looks in the same compilation
+   unit to see if you are already using both APIs, so if it warns even though
+   you are already using the new API, consider moving the calls to the same
+   file or suppressing the warning.
+
+C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\src\main\res\mipmap-anydpi-v26\ic_launcher.xml:2: Warning: The application adaptive icon is missing a monochrome tag [MonochromeLauncherIcon]
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+^
+C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\src\main\res\mipmap-anydpi-v26\ic_launcher_round.xml:2: Warning: The application adaptive roundIcon is missing a monochrome tag [MonochromeLauncherIcon]
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+^
+
+   Explanation for issues of type "MonochromeLauncherIcon":
+   If android:roundIcon and android:icon are both in your manifest, you must
+   either remove the reference to android:roundIcon if it is not needed; or,
+   supply the monochrome icon in the drawable defined by the android:roundIcon
+   and android:icon attribute.
+
+   For example, if android:roundIcon and android:icon are both in the
+   manifest, a launcher might choose to use android:roundIcon over
+   android:icon to display the adaptive app icon. Therefore, your themed
+   application iconwill not show if your monochrome attribute is not also
+   specified in android:roundIcon.
+
+C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\src\main\res\drawable-land-xxxhdpi\splash.png: Warning: The image splash.png varies significantly in its density-independent (dip) size across the various density versions: drawable-land-hdpi/splash.png: 533x320 dp (800x480 px), drawable-land-mdpi/splash.png: 480x320 dp (480x320 px), drawable-land-xhdpi/splash.png: 640x360 dp (1280x720 px), drawable-land-xxhdpi/splash.png: 533x320 dp (1600x960 px), drawable-land-xxxhdpi/splash.png: 480x320 dp (1920x1280 px) [IconDipSize]
+
+   Explanation for issues of type "IconDipSize":
+   Checks the all icons which are provided in multiple densities, all compute
+   to roughly the same density-independent pixel (dip) size. This catches
+   errors where images are either placed in the wrong folder, or icons are
+   changed to new sizes but some folders are forgotten.
+
+C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\src\main\res\drawable\splash.png: Warning: The splash.png icon has identical contents in the following configuration folders: drawable-land-mdpi, drawable [IconDuplicatesConfig]
+
+   Explanation for issues of type "IconDuplicatesConfig":
+   If an icon is provided under different configuration parameters such as
+   drawable-hdpi or -v11, they should typically be different. This detector
+   catches cases where the same icon is provided in different configuration
+   folder which is usually not intentional.
+
+C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\src\main\res\drawable\splash.png: Warning: Found bitmap drawable res/drawable/splash.png in densityless folder [IconLocation]
+
+   Explanation for issues of type "IconLocation":
+   The res/drawable folder is intended for density-independent graphics such
+   as shapes defined in XML. For bitmaps, move it to drawable-mdpi and
+   consider providing higher and lower resolution versions in drawable-ldpi,
+   drawable-hdpi and drawable-xhdpi. If the icon really is density independent
+   (for example a solid color) you can place it in drawable-nodpi.
+
+   https://developer.android.com/guide/practices/screens_support.html
+
+0 errors, 26 warnings

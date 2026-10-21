@@ -1,0 +1,11 @@
+# Independent static review of CUBIT restricted restoration
+
+This review reads the extractor and completed metadata receipts only. The reviewer did not restore a checkpoint, instantiate a model, execute inference or repeat extraction. Root had independently released extraction before this review finished; the executed source and receipts remain unchanged.
+
+The checkpoint is fixed to SHA `e463069e06daf66fd99c21f5d9a3d88fe7a48c71d43263ed4d338a56e6a86d30`. The executed extractor SHA is `0e31b3731ab58517b78b5a1c4628b6e3c98e934be17d1e33700fa5cf10411274`. It explicitly uses `torch.load(...,weights_only=True,map_location='cpu')`, rejects globals outside an enumerated official Torch/Ultralytics/NumPy allowlist, and substitutes narrow legacy shims: only `dill._load_type('set')` and only `getattr(official Detect,'forward')`. Neither shim permits generic module, type or attribute lookup. No unrestricted pickle, generic dill loader or forward call appears in the extractor.
+
+This is **audited object restoration**, rather than tensor-only deserialization: allowlisted local classes may execute trusted restoration methods. The exact known checkpoint byte pin and narrow callable scope matter. Class-map/head and finite-state checks are present. The completed receipt reports 417 finite tensors, 3,275,176 elements, classes 0 crack/1 spalling and state SHA `afe2ae068dd6b502ac69baa940c5da8eb7d907a037a907739451589644af2a8c`; it reports no architecture rebuild or network forward. These are producer receipts, not independent execution by this reviewer.
+
+Future hardening, without rewriting or rerunning this historical extraction: reject a nonempty ambient `torch.serialization.get_safe_globals()` before adding the scoped allowlist; require equality with the audited unsafe-global inventory; and pin local trusted restoration-module hashes/package versions in the pre-load protocol. The existing subset check already rejects newly introduced globals, and the exact checkpoint hash fixes the present inventory. These suggestions do not establish a discovered arbitrary-code path in the reviewed shims.
+
+Checkpoint license and source-training overlap remain unverified. Successful restricted restoration does not qualify defect accuracy, speed, independent validation or deployment rights. Later export/inference needs its own protected protocol and root release.

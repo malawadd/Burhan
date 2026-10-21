@@ -1,0 +1,51 @@
+{
+  "app": "Burhan",
+  "version": "1.0.0",
+  "verifiedAt": "2026-10-20T23:06:18.517Z",
+  "apk": {
+    "file": "Burhan-v1.0.0-debug.apk",
+    "sha256": "2967196e7efe6103a1bb9d86ce1ab87c3e2f2471f35b6e72ab91d278f526b5ad",
+    "bytes": 192405192,
+    "signature": "APK v2 verified by apksigner",
+    "zipAlignment": "16KB zipalign check passed",
+    "nativeElfAlignment": "all six ARM64 libraries have >=16KB LOAD alignment"
+  },
+  "automated": {
+    "typescript": "passed",
+    "domainBackupDecoderTests": 13,
+    "modelHashes": 4,
+    "catalogue": {
+      "originalTasks": 89,
+      "directVisualTasks": 3,
+      "stages": 16
+    },
+    "goldenPythonOutputDecoder": "exact boxes and masks on the procedural fixture",
+    "androidLint": {
+      "errors": 0,
+      "warnings": 26
+    },
+    "androidBuild": "assembleDebug passed",
+    "instrumentationBuild": "assembleDebugAndroidTest passed; not run on device"
+  },
+  "observedBrowserChecks": {
+    "workflow": "project -> inspection -> manual finding -> completion -> immutable report -> reload -> saved report; passed",
+    "languageLayout": "English/dark and Arabic RTL/light at390px; no horizontal overflow",
+    "backup": "ZIP export observed, portable evidence/tamper/traversal/metadata restore tests passed",
+    "actualScannerWorker": "all four models executed through the actual Chromium Scanner image-import path; saved original/annotated images and matching SHA/runtime metadata verified",
+    "modelExecutionCounts": {
+      "crack": 2,
+      "surface320": 3,
+      "surface512": 3,
+      "ppe": 0
+    },
+    "input": "original193x127 procedural test pattern; not a construction accuracy dataset",
+    "pdf": "English, Arabic and bilingual A4 examples; all six pages rendered with Poppler and visually reviewed"
+  },
+  "limitations": [
+    "No physical Android phone connected: live native camera, native inference parity, device recovery, thermal endurance, Android print/share and battery behaviour remain pending.",
+    "Browser numerical resize differences remain explicitly documented in tests/fixtures/README.md; no exact end-to-end parity claim.",
+    "Existing experimental models have documented misses/false alerts; no field accuracy, safety or code-compliance qualification.",
+    "Native unit-test task has no placeholder arithmetic tests; meaningful native smoke tests require a device."
+  ],
+  "physicalDeviceChecklist": "docs/device-checklist.md"
+}

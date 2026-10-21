@@ -1,0 +1,2344 @@
+[
+  {
+    "label": "Factory · spatial model: recovered kos02 defect (review only, reused comparison)",
+    "profile": "factory",
+    "path": "datasets/factory/KolektorSDD/kos02/Part6.jpg",
+    "input_fps": 16,
+    "deadline_ms": 100,
+    "preview_fps": 6,
+    "profile_options": {
+      "defect_model_path": "models/factory/spatial_unet_v10h_sdd2-step300.onnx",
+      "confirmation_frames": 1,
+      "defect_backend": "auto"
+    }
+  },
+  {
+    "label": "Factory · spatial model: recovered kos38 defect (review only, reused comparison)",
+    "profile": "factory",
+    "path": "datasets/factory/KolektorSDD/kos38/Part1.jpg",
+    "input_fps": 16,
+    "deadline_ms": 100,
+    "preview_fps": 6,
+    "profile_options": {
+      "defect_model_path": "models/factory/spatial_unet_v10h_sdd2-step300.onnx",
+      "confirmation_frames": 1,
+      "defect_backend": "auto"
+    }
+  },
+  {
+    "label": "Factory · spatial model: normal reference view (review only, reused comparison)",
+    "profile": "factory",
+    "path": "datasets/factory/KolektorSDD/kos04/Part0.jpg",
+    "input_fps": 16,
+    "deadline_ms": 100,
+    "preview_fps": 6,
+    "profile_options": {
+      "defect_model_path": "models/factory/spatial_unet_v10h_sdd2-step300.onnx",
+      "confirmation_frames": 1,
+      "defect_backend": "auto"
+    }
+  },
+  {
+    "label": "Factory · spatial model: remaining missed defect (review only, reused comparison)",
+    "profile": "factory",
+    "path": "datasets/factory/KolektorSDD/kos12/Part5.jpg",
+    "input_fps": 16,
+    "deadline_ms": 100,
+    "preview_fps": 6,
+    "profile_options": {
+      "defect_model_path": "models/factory/spatial_unet_v10h_sdd2-step300.onnx",
+      "confirmation_frames": 1,
+      "defect_backend": "auto"
+    }
+  },
+  {
+    "label": "Factory baseline RF · real Kolektor defective surface (reused comparison)",
+    "profile": "factory",
+    "path": "datasets/factory/KolektorSDD/kos04/Part3.jpg",
+    "input_fps": 15,
+    "deadline_ms": 200,
+    "profile_options": {
+      "defect_model_path": "models/factory/kolektor_surface_rf.joblib",
+      "confirmation_frames": 1,
+      "defect_backend": "auto"
+    }
+  },
+  {
+    "label": "Factory baseline RF · real Kolektor normal surface (reused comparison)",
+    "profile": "factory",
+    "path": "datasets/factory/KolektorSDD/kos04/Part0.jpg",
+    "input_fps": 15,
+    "deadline_ms": 200,
+    "profile_options": {
+      "defect_model_path": "models/factory/kolektor_surface_rf.joblib",
+      "confirmation_frames": 1,
+      "defect_backend": "auto"
+    }
+  },
+  {
+    "label": "Factory baseline RF · baseline missed annotated defect (real public image)",
+    "profile": "factory",
+    "path": "datasets/factory/KolektorSDD/kos02/Part6.jpg",
+    "input_fps": 15,
+    "deadline_ms": 200,
+    "profile_options": {
+      "defect_model_path": "models/factory/kolektor_surface_rf.joblib",
+      "confirmation_frames": 1,
+      "defect_backend": "auto"
+    }
+  },
+  {
+    "label": "Factory · review-policy experiment (no verified defect-recall gain)",
+    "profile": "factory",
+    "path": "datasets/factory/KolektorSDD/kos04/Part3.jpg",
+    "input_fps": 15,
+    "deadline_ms": 200,
+    "profile_options": {
+      "defect_model_path": "models/factory/kolektor_surface_rf_v2_recall_review.joblib",
+      "confirmation_frames": 1,
+      "defect_backend": "auto"
+    }
+  },
+  {
+    "label": "Factory · review-policy false localization on a defective image",
+    "profile": "factory",
+    "path": "datasets/factory/KolektorSDD/kos02/Part6.jpg",
+    "input_fps": 15,
+    "deadline_ms": 200,
+    "profile_options": {
+      "defect_model_path": "models/factory/kolektor_surface_rf_v2_recall_review.joblib",
+      "confirmation_frames": 1,
+      "defect_backend": "auto"
+    }
+  },
+  {
+    "label": "Freight · public invoice fixture (externally authored)",
+    "profile": "freight",
+    "path": "datasets/freight/invoice-pack/01-simple-english/invoice.png",
+    "input_fps": 2,
+    "deadline_ms": 5000,
+    "profile_options": {
+      "required_pages": [
+        "invoice"
+      ],
+      "stable_frames": 2
+    }
+  },
+  {
+    "label": "Freight · real CORD receipt photo (unknown type for review)",
+    "profile": "freight",
+    "path": "datasets/freight/cord/test-000.jpg",
+    "input_fps": 2,
+    "deadline_ms": 5000,
+    "profile_options": {
+      "stable_frames": 2
+    }
+  },
+  {
+    "label": "Roads - CPU balanced 416px potholes (public image)",
+    "profile": "roads",
+    "path": "datasets/roads-rdd2022-test-balanced/images/China_MotorBike_001578.jpg",
+    "input_fps": 4,
+    "deadline_ms": 500,
+    "profile_options": {
+      "backend": "model",
+      "model_variant": "fiveclass",
+      "input_size": 416,
+      "cpu_threads": 4,
+      "engine": "onnxruntime"
+    }
+  },
+  {
+    "label": "Roads - CPU balanced 416px repairs and cracks",
+    "profile": "roads",
+    "path": "datasets/roads-rdd2022-test-balanced/images/China_MotorBike_001563.jpg",
+    "input_fps": 4,
+    "deadline_ms": 500,
+    "profile_options": {
+      "backend": "model",
+      "model_variant": "fiveclass",
+      "input_size": 416,
+      "cpu_threads": 4,
+      "engine": "onnxruntime"
+    }
+  },
+  {
+    "label": "Roads - laptop Intel GPU 416px potholes (local acceleration)",
+    "profile": "roads",
+    "path": "datasets/roads-rdd2022-test-balanced/images/China_MotorBike_001578.jpg",
+    "input_fps": 12,
+    "deadline_ms": 150,
+    "profile_options": {
+      "backend": "model",
+      "model_variant": "fiveclass",
+      "input_size": 416,
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "cpu_threads": 4
+    }
+  },
+  {
+    "label": "Construction · actual NIOSH video / PPE candidates (safety misses documented)",
+    "profile": "construction",
+    "path": "datasets/construction/framer-fall-protection-public-domain.webm",
+    "source_kind": "file",
+    "input_fps": 15,
+    "deadline_ms": 200,
+    "video_mode": "realtime",
+    "preview_fps": 6,
+    "profile_options": {
+      "mode": "ppe",
+      "stage": "site_safety",
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "ppe_preprocess": "letterbox",
+      "cpu_threads": 4
+    },
+    "purpose": "failure_diagnostic"
+  },
+  {
+    "label": "Construction · actual raw 4K bridge / sparse crack review (known false candidates)",
+    "profile": "construction",
+    "path": "datasets/construction/bridge_raw/bd_vid_0031.mp4",
+    "source_kind": "file",
+    "input_fps": 3,
+    "deadline_ms": 250,
+    "video_mode": "realtime",
+    "preview_fps": 6,
+    "profile_options": {
+      "mode": "crack",
+      "stage": "structure",
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "mask_rendering": "boxes",
+      "cpu_threads": 4
+    },
+    "purpose": "failure_diagnostic"
+  },
+  {
+    "label": "Construction · actual bridge720p proxy / crack candidates (detail reduced)",
+    "profile": "construction",
+    "path": "datasets/construction/proxies/bd_vid_0031-720p.mp4",
+    "source_kind": "file",
+    "input_fps": 10,
+    "deadline_ms": 200,
+    "video_mode": "realtime",
+    "preview_fps": 6,
+    "profile_options": {
+      "mode": "crack",
+      "stage": "structure",
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "mask_rendering": "boxes",
+      "cpu_threads": 4
+    },
+    "purpose": "failure_diagnostic"
+  },
+  {
+    "label": "Construction · real branching crack / known localized hits and misses",
+    "profile": "construction",
+    "path": "datasets/construction/evcivil/crack_10/crack_10-lossless-frames.nut",
+    "source_kind": "file",
+    "input_fps": 8,
+    "deadline_ms": 200,
+    "video_mode": "every_frame",
+    "preview_fps": 6,
+    "purpose": "defect_evidence",
+    "profile_options": {
+      "mode": "crack",
+      "stage": "structure",
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "mask_rendering": "boxes",
+      "cpu_threads": 4,
+      "show_context_objects": false,
+      "crack_variant": "joint_aware_candidate"
+    }
+  },
+  {
+    "label": "Construction · real thin crack / known failure challenge",
+    "profile": "construction",
+    "path": "datasets/construction/evcivil/crack_89/crack_89-lossless-frames.nut",
+    "source_kind": "file",
+    "input_fps": 8,
+    "deadline_ms": 200,
+    "video_mode": "every_frame",
+    "preview_fps": 6,
+    "purpose": "defect_evidence",
+    "profile_options": {
+      "mode": "crack",
+      "stage": "structure",
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "mask_rendering": "boxes",
+      "cpu_threads": 4,
+      "show_context_objects": false,
+      "crack_variant": "joint_aware_candidate"
+    }
+  },
+  {
+    "label": "Construction PHOTO · Visible surface crack · first labelled case (mask IoU 0.00)",
+    "profile": "construction",
+    "path": "datasets/construction/dacl10k/images/damage_diagnostic/dacl10k_v2_validation_0055.jpg",
+    "source_kind": "image",
+    "input_fps": 2,
+    "deadline_ms": 1500,
+    "preview_fps": 4,
+    "purpose": "photo_evidence",
+    "evidence_family": "dacl_round3_photo",
+    "note": "Real still photo, not video. First labelled visible surface crack example from the frozen dataset order. This class's mask IoU is 0.000; pixel precision 0.0%, recall 0.0%. All 14 condition channels run locally. The 512px model is slow and several categories have weak localization; this public validation photo is not independent field qualification. Press Start for a fresh local inference; publisher masks are never model inputs.",
+    "source_sha256": "0c6faebb52c3defd12c04b0a6606baf2c36126481dcd02cccff986ec18c2aab7",
+    "profile_options": {
+      "mode": "damage",
+      "damage_variant": "dacl_segformer_b1",
+      "stage": "structure",
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "mask_rendering": "masks",
+      "cpu_threads": 4,
+      "show_context_objects": false,
+      "confidence": 0.5,
+      "minimum_component_pixels": 4
+    }
+  },
+  {
+    "label": "Construction PHOTO · Alligator cracking pattern · first labelled case (mask IoU 0.44)",
+    "profile": "construction",
+    "path": "datasets/construction/dacl10k/images/damage_diagnostic/dacl10k_v2_validation_0231.jpg",
+    "source_kind": "image",
+    "input_fps": 2,
+    "deadline_ms": 1500,
+    "preview_fps": 4,
+    "purpose": "photo_evidence",
+    "evidence_family": "dacl_round3_photo",
+    "note": "Real still photo, not video. First labelled alligator cracking pattern example from the frozen dataset order. This class's mask IoU is 0.439; pixel precision 43.9%, recall 99.8%. All 14 condition channels run locally. The 512px model is slow and several categories have weak localization; this public validation photo is not independent field qualification. Press Start for a fresh local inference; publisher masks are never model inputs.",
+    "source_sha256": "3be0807a4be5a28e9b56e73b45683795cc430580f950c4128431e55db4c3fa22",
+    "profile_options": {
+      "mode": "damage",
+      "damage_variant": "dacl_segformer_b1",
+      "stage": "structure",
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "mask_rendering": "masks",
+      "cpu_threads": 4,
+      "show_context_objects": false,
+      "confidence": 0.5,
+      "minimum_component_pixels": 4
+    }
+  },
+  {
+    "label": "Construction PHOTO · Visible wet spot · first labelled case (mask IoU 0.27)",
+    "profile": "construction",
+    "path": "datasets/construction/dacl10k/images/damage_diagnostic/dacl10k_v2_validation_0046.jpg",
+    "source_kind": "image",
+    "input_fps": 2,
+    "deadline_ms": 1500,
+    "preview_fps": 4,
+    "purpose": "photo_evidence",
+    "evidence_family": "dacl_round3_photo",
+    "note": "Real still photo, not video. First labelled visible wet spot example from the frozen dataset order. This class's mask IoU is 0.274; pixel precision 96.5%, recall 27.7%. All 14 condition channels run locally. The 512px model is slow and several categories have weak localization; this public validation photo is not independent field qualification. Press Start for a fresh local inference; publisher masks are never model inputs.",
+    "source_sha256": "756136abc4af8a29def98b38672a040d5f2cc27922a589f887d8c282775aedc3",
+    "profile_options": {
+      "mode": "damage",
+      "damage_variant": "dacl_segformer_b1",
+      "stage": "structure",
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "mask_rendering": "masks",
+      "cpu_threads": 4,
+      "show_context_objects": false,
+      "confidence": 0.5,
+      "minimum_component_pixels": 4
+    }
+  },
+  {
+    "label": "Construction PHOTO · Efflorescence · first labelled case (mask IoU 0.18)",
+    "profile": "construction",
+    "path": "datasets/construction/dacl10k/images/damage_diagnostic/dacl10k_v2_validation_0046.jpg",
+    "source_kind": "image",
+    "input_fps": 2,
+    "deadline_ms": 1500,
+    "preview_fps": 4,
+    "purpose": "photo_evidence",
+    "evidence_family": "dacl_round3_photo",
+    "note": "Real still photo, not video. First labelled efflorescence example from the frozen dataset order. This class's mask IoU is 0.183; pixel precision 91.2%, recall 18.6%. All 14 condition channels run locally. The 512px model is slow and several categories have weak localization; this public validation photo is not independent field qualification. Press Start for a fresh local inference; publisher masks are never model inputs.",
+    "source_sha256": "756136abc4af8a29def98b38672a040d5f2cc27922a589f887d8c282775aedc3",
+    "profile_options": {
+      "mode": "damage",
+      "damage_variant": "dacl_segformer_b1",
+      "stage": "structure",
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "mask_rendering": "masks",
+      "cpu_threads": 4,
+      "show_context_objects": false,
+      "confidence": 0.5,
+      "minimum_component_pixels": 4
+    }
+  },
+  {
+    "label": "Construction PHOTO · Rust / corrosion staining · first labelled case (mask IoU 0.55)",
+    "profile": "construction",
+    "path": "datasets/construction/dacl10k/images/damage_diagnostic/dacl10k_v2_validation_0047.jpg",
+    "source_kind": "image",
+    "input_fps": 2,
+    "deadline_ms": 1500,
+    "preview_fps": 4,
+    "purpose": "photo_evidence",
+    "evidence_family": "dacl_round3_photo",
+    "note": "Real still photo, not video. First labelled rust / corrosion staining example from the frozen dataset order. This class's mask IoU is 0.550; pixel precision 65.1%, recall 78.0%. All 14 condition channels run locally. The 512px model is slow and several categories have weak localization; this public validation photo is not independent field qualification. Press Start for a fresh local inference; publisher masks are never model inputs.",
+    "source_sha256": "1018de15be9095dc5bd8d716a4b9aa931e684f2ec8c9da3373769f5ac42a4a6d",
+    "profile_options": {
+      "mode": "damage",
+      "damage_variant": "dacl_segformer_b1",
+      "stage": "structure",
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "mask_rendering": "masks",
+      "cpu_threads": 4,
+      "show_context_objects": false,
+      "confidence": 0.5,
+      "minimum_component_pixels": 4
+    }
+  },
+  {
+    "label": "Construction PHOTO · Rockpocket / honeycomb appearance · first labelled case (mask IoU 0.21)",
+    "profile": "construction",
+    "path": "datasets/construction/dacl10k/images/damage_diagnostic/dacl10k_v2_validation_0035.jpg",
+    "source_kind": "image",
+    "input_fps": 2,
+    "deadline_ms": 1500,
+    "preview_fps": 4,
+    "purpose": "photo_evidence",
+    "evidence_family": "dacl_round3_photo",
+    "note": "Real still photo, not video. First labelled rockpocket / honeycomb appearance example from the frozen dataset order. This class's mask IoU is 0.212; pixel precision 25.0%, recall 57.9%. All 14 condition channels run locally. The 512px model is slow and several categories have weak localization; this public validation photo is not independent field qualification. Press Start for a fresh local inference; publisher masks are never model inputs.",
+    "source_sha256": "2672742f691f6baf077a884ce2bc00b929011eb777df7eec939cdd967c0cd64b",
+    "profile_options": {
+      "mode": "damage",
+      "damage_variant": "dacl_segformer_b1",
+      "stage": "structure",
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "mask_rendering": "masks",
+      "cpu_threads": 4,
+      "show_context_objects": false,
+      "confidence": 0.5,
+      "minimum_component_pixels": 4
+    }
+  },
+  {
+    "label": "Construction PHOTO · Inspector-marked hollow-area boundary (chalk) · first labelled case (mask IoU 0.44)",
+    "profile": "construction",
+    "path": "datasets/construction/dacl10k/images/damage_diagnostic/dacl10k_v2_validation_0047.jpg",
+    "source_kind": "image",
+    "input_fps": 2,
+    "deadline_ms": 1500,
+    "preview_fps": 4,
+    "purpose": "photo_evidence",
+    "evidence_family": "dacl_round3_photo",
+    "note": "Real still photo, not video. First labelled inspector-marked hollow-area boundary (chalk) example from the frozen dataset order. This class's mask IoU is 0.439; pixel precision 87.2%, recall 46.9%. All 14 condition channels run locally. The 512px model is slow and several categories have weak localization; this public validation photo is not independent field qualification. Press Start for a fresh local inference; publisher masks are never model inputs.",
+    "source_sha256": "1018de15be9095dc5bd8d716a4b9aa931e684f2ec8c9da3373769f5ac42a4a6d",
+    "profile_options": {
+      "mode": "damage",
+      "damage_variant": "dacl_segformer_b1",
+      "stage": "structure",
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "mask_rendering": "masks",
+      "cpu_threads": 4,
+      "show_context_objects": false,
+      "confidence": 0.5,
+      "minimum_component_pixels": 4
+    }
+  },
+  {
+    "label": "Construction PHOTO · Visible cavity · first labelled case (mask IoU 0.03)",
+    "profile": "construction",
+    "path": "datasets/construction/dacl10k/images/damage_diagnostic/dacl10k_v2_validation_0035.jpg",
+    "source_kind": "image",
+    "input_fps": 2,
+    "deadline_ms": 1500,
+    "preview_fps": 4,
+    "purpose": "photo_evidence",
+    "evidence_family": "dacl_round3_photo",
+    "note": "Real still photo, not video. First labelled visible cavity example from the frozen dataset order. This class's mask IoU is 0.033; pixel precision 3.3%, recall 99.6%. All 14 condition channels run locally. The 512px model is slow and several categories have weak localization; this public validation photo is not independent field qualification. Press Start for a fresh local inference; publisher masks are never model inputs.",
+    "source_sha256": "2672742f691f6baf077a884ce2bc00b929011eb777df7eec939cdd967c0cd64b",
+    "profile_options": {
+      "mode": "damage",
+      "damage_variant": "dacl_segformer_b1",
+      "stage": "structure",
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "mask_rendering": "masks",
+      "cpu_threads": 4,
+      "show_context_objects": false,
+      "confidence": 0.5,
+      "minimum_component_pixels": 4
+    }
+  },
+  {
+    "label": "Construction PHOTO · Spalling / surface material loss · first labelled case (mask IoU 0.18)",
+    "profile": "construction",
+    "path": "datasets/construction/dacl10k/images/damage_diagnostic/dacl10k_v2_validation_0035.jpg",
+    "source_kind": "image",
+    "input_fps": 2,
+    "deadline_ms": 1500,
+    "preview_fps": 4,
+    "purpose": "photo_evidence",
+    "evidence_family": "dacl_round3_photo",
+    "note": "Real still photo, not video. First labelled concrete spalling example from the frozen dataset order. This class's mask IoU is 0.181; pixel precision 60.3%, recall 20.5%. All 14 condition channels run locally. The 512px model is slow and several categories have weak localization; this public validation photo is not independent field qualification. Press Start for a fresh local inference; publisher masks are never model inputs.",
+    "source_sha256": "2672742f691f6baf077a884ce2bc00b929011eb777df7eec939cdd967c0cd64b",
+    "profile_options": {
+      "mode": "damage",
+      "damage_variant": "dacl_segformer_b1",
+      "stage": "structure",
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "mask_rendering": "masks",
+      "cpu_threads": 4,
+      "show_context_objects": false,
+      "confidence": 0.5,
+      "minimum_component_pixels": 4
+    }
+  },
+  {
+    "label": "Construction PHOTO · Graffiti / surface markings · first labelled case (mask IoU 0.33)",
+    "profile": "construction",
+    "path": "datasets/construction/dacl10k/images/damage_diagnostic/dacl10k_v2_validation_0121.jpg",
+    "source_kind": "image",
+    "input_fps": 2,
+    "deadline_ms": 1500,
+    "preview_fps": 4,
+    "purpose": "photo_evidence",
+    "evidence_family": "dacl_round3_photo",
+    "note": "Real still photo, not video. First labelled graffiti / surface markings example from the frozen dataset order. This class's mask IoU is 0.329; pixel precision 69.3%, recall 38.5%. All 14 condition channels run locally. The 512px model is slow and several categories have weak localization; this public validation photo is not independent field qualification. Press Start for a fresh local inference; publisher masks are never model inputs.",
+    "source_sha256": "dfc1546a758991954fc2872db8e2339ac6a9179acb6cb3e62fd45189953c688b",
+    "profile_options": {
+      "mode": "damage",
+      "damage_variant": "dacl_segformer_b1",
+      "stage": "structure",
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "mask_rendering": "masks",
+      "cpu_threads": 4,
+      "show_context_objects": false,
+      "confidence": 0.5,
+      "minimum_component_pixels": 4
+    }
+  },
+  {
+    "label": "Construction PHOTO · Surface weathering · first labelled case (mask IoU 0.02)",
+    "profile": "construction",
+    "path": "datasets/construction/dacl10k/images/damage_diagnostic/dacl10k_v2_validation_0035.jpg",
+    "source_kind": "image",
+    "input_fps": 2,
+    "deadline_ms": 1500,
+    "preview_fps": 4,
+    "purpose": "photo_evidence",
+    "evidence_family": "dacl_round3_photo",
+    "note": "Real still photo, not video. First labelled surface weathering example from the frozen dataset order. This class's mask IoU is 0.023; pixel precision 2.9%, recall 9.5%. All 14 condition channels run locally. The 512px model is slow and several categories have weak localization; this public validation photo is not independent field qualification. Press Start for a fresh local inference; publisher masks are never model inputs.",
+    "source_sha256": "2672742f691f6baf077a884ce2bc00b929011eb777df7eec939cdd967c0cd64b",
+    "profile_options": {
+      "mode": "damage",
+      "damage_variant": "dacl_segformer_b1",
+      "stage": "structure",
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "mask_rendering": "masks",
+      "cpu_threads": 4,
+      "show_context_objects": false,
+      "confidence": 0.5,
+      "minimum_component_pixels": 4
+    }
+  },
+  {
+    "label": "Construction PHOTO · Residual formwork · first labelled case (mask IoU 0.36)",
+    "profile": "construction",
+    "path": "datasets/construction/dacl10k/images/damage_diagnostic/dacl10k_v2_validation_0098.jpg",
+    "source_kind": "image",
+    "input_fps": 2,
+    "deadline_ms": 1500,
+    "preview_fps": 4,
+    "purpose": "photo_evidence",
+    "evidence_family": "dacl_round3_photo",
+    "note": "Real still photo, not video. First labelled residual formwork example from the frozen dataset order. This class's mask IoU is 0.360; pixel precision 54.3%, recall 51.7%. All 14 condition channels run locally. The 512px model is slow and several categories have weak localization; this public validation photo is not independent field qualification. Press Start for a fresh local inference; publisher masks are never model inputs.",
+    "source_sha256": "205751f21fa3a5e00fbf4d65911736a0909dc98bb1510564ebbbb91067bc69d8",
+    "profile_options": {
+      "mode": "damage",
+      "damage_variant": "dacl_segformer_b1",
+      "stage": "structure",
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "mask_rendering": "masks",
+      "cpu_threads": 4,
+      "show_context_objects": false,
+      "confidence": 0.5,
+      "minimum_component_pixels": 4
+    }
+  },
+  {
+    "label": "Construction PHOTO · Exposed reinforcement · first labelled case (mask IoU 0.61)",
+    "profile": "construction",
+    "path": "datasets/construction/dacl10k/images/damage_diagnostic/dacl10k_v2_validation_0060.jpg",
+    "source_kind": "image",
+    "input_fps": 2,
+    "deadline_ms": 1500,
+    "preview_fps": 4,
+    "purpose": "photo_evidence",
+    "evidence_family": "dacl_round3_photo",
+    "note": "Real still photo, not video. First labelled exposed reinforcement example from the frozen dataset order. This class's mask IoU is 0.608; pixel precision 66.3%, recall 87.9%. All 14 condition channels run locally. The 512px model is slow and several categories have weak localization; this public validation photo is not independent field qualification. Press Start for a fresh local inference; publisher masks are never model inputs.",
+    "source_sha256": "c4864a5aadb92d3ee8856b23e6798acaaa345c0ab72b9ecc4809afed7130588e",
+    "profile_options": {
+      "mode": "damage",
+      "damage_variant": "dacl_segformer_b1",
+      "stage": "structure",
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "mask_rendering": "masks",
+      "cpu_threads": 4,
+      "show_context_objects": false,
+      "confidence": 0.5,
+      "minimum_component_pixels": 4
+    }
+  },
+  {
+    "label": "Construction PHOTO · Concrete surface loss / erosion appearance · first labelled case (mask IoU 0.26)",
+    "profile": "construction",
+    "path": "datasets/construction/dacl10k/images/damage_diagnostic/dacl10k_v2_validation_0055.jpg",
+    "source_kind": "image",
+    "input_fps": 2,
+    "deadline_ms": 1500,
+    "preview_fps": 4,
+    "purpose": "photo_evidence",
+    "evidence_family": "dacl_round3_photo",
+    "note": "Real still photo, not video. First labelled concrete surface loss / erosion appearance example from the frozen dataset order. This class's mask IoU is 0.256; pixel precision 87.6%, recall 26.5%. All 14 condition channels run locally. The 512px model is slow and several categories have weak localization; this public validation photo is not independent field qualification. Press Start for a fresh local inference; publisher masks are never model inputs.",
+    "source_sha256": "0c6faebb52c3defd12c04b0a6606baf2c36126481dcd02cccff986ec18c2aab7",
+    "profile_options": {
+      "mode": "damage",
+      "damage_variant": "dacl_segformer_b1",
+      "stage": "structure",
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "mask_rendering": "masks",
+      "cpu_threads": 4,
+      "show_context_objects": false,
+      "confidence": 0.5,
+      "minimum_component_pixels": 4
+    }
+  },
+  {
+    "label": "Construction diagnostic · historical / SEEN TRAINING / spalling_54",
+    "profile": "construction",
+    "path": "datasets/construction/evcivil-round3/replay/spalling_54/spalling_54-lossless-frames.nut",
+    "input_fps": 15,
+    "deadline_ms": 500,
+    "preview_fps": 8,
+    "video_mode": "every_frame",
+    "purpose": "failure_diagnostic",
+    "note": "Failed-calibration model. SEEN TRAINING: crack0TP/0FN/5unmatched; spall65TP/185FN/88unmatched. Complete real source, publisher boxes; no independent accuracy credit. Publisher-labelled surface material loss; substrate and structural cause are not confirmed.",
+    "profile_options": {
+      "mode": "damage",
+      "damage_variant": "evcivil_r3_historical_failed",
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "mask_rendering": "boxes",
+      "class_confidence": {
+        "crack": 0.65,
+        "spalling": 0.2
+      },
+      "confirm_frames": 1,
+      "stage": "structure"
+    },
+    "independent_accuracy_credit": false,
+    "source_kind": "file"
+  },
+  {
+    "label": "Construction diagnostic · historical / CAL FAILURE / spalling_75",
+    "profile": "construction",
+    "path": "datasets/construction/evcivil-round3/replay/spalling_75/spalling_75-lossless-frames.nut",
+    "input_fps": 15,
+    "deadline_ms": 500,
+    "preview_fps": 8,
+    "video_mode": "every_frame",
+    "purpose": "failure_diagnostic",
+    "note": "Failed-calibration model. CAL FAILURE: crack0TP/0FN/0unmatched; spall0TP/77FN/3unmatched. Complete real source, publisher boxes; no independent accuracy credit. Publisher-labelled surface material loss; substrate and structural cause are not confirmed.",
+    "profile_options": {
+      "mode": "damage",
+      "damage_variant": "evcivil_r3_historical_failed",
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "mask_rendering": "boxes",
+      "class_confidence": {
+        "crack": 0.65,
+        "spalling": 0.2
+      },
+      "confirm_frames": 1,
+      "stage": "structure"
+    },
+    "independent_accuracy_credit": false,
+    "source_kind": "file"
+  },
+  {
+    "label": "Construction diagnostic · historical / CAL THIN FAILURE / crack_129",
+    "profile": "construction",
+    "path": "datasets/construction/evcivil-round3/replay/crack_129/crack_129-lossless-frames.nut",
+    "input_fps": 15,
+    "deadline_ms": 500,
+    "preview_fps": 8,
+    "video_mode": "every_frame",
+    "purpose": "failure_diagnostic",
+    "note": "Failed-calibration model. CAL THIN FAILURE: crack4TP/67FN/1unmatched; spall0TP/0FN/14unmatched. Complete real source, publisher boxes; no independent accuracy credit. Publisher-labelled surface material loss; substrate and structural cause are not confirmed.",
+    "profile_options": {
+      "mode": "damage",
+      "damage_variant": "evcivil_r3_historical_failed",
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "mask_rendering": "boxes",
+      "class_confidence": {
+        "crack": 0.65,
+        "spalling": 0.2
+      },
+      "confirm_frames": 1,
+      "stage": "structure"
+    },
+    "independent_accuracy_credit": false,
+    "source_kind": "file"
+  },
+  {
+    "label": "Construction diagnostic · adapted / SEEN TRAINING / spalling_54",
+    "profile": "construction",
+    "path": "datasets/construction/evcivil-round3/replay/spalling_54/spalling_54-lossless-frames.nut",
+    "input_fps": 15,
+    "deadline_ms": 500,
+    "preview_fps": 8,
+    "video_mode": "every_frame",
+    "purpose": "failure_diagnostic",
+    "note": "Failed-calibration model. SEEN TRAINING: crack0TP/0FN/127unmatched; spall0TP/250FN/0unmatched. Complete real source, publisher boxes; no independent accuracy credit. Publisher-labelled surface material loss; substrate and structural cause are not confirmed.",
+    "profile_options": {
+      "mode": "damage",
+      "damage_variant": "evcivil_r3_adapted_failed",
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "mask_rendering": "boxes",
+      "class_confidence": {
+        "crack": 0.1,
+        "spalling": 0.85
+      },
+      "confirm_frames": 1,
+      "stage": "structure"
+    },
+    "independent_accuracy_credit": false,
+    "source_kind": "file"
+  },
+  {
+    "label": "Construction diagnostic · adapted / CAL FAILURE / spalling_75",
+    "profile": "construction",
+    "path": "datasets/construction/evcivil-round3/replay/spalling_75/spalling_75-lossless-frames.nut",
+    "input_fps": 15,
+    "deadline_ms": 500,
+    "preview_fps": 8,
+    "video_mode": "every_frame",
+    "purpose": "failure_diagnostic",
+    "note": "Failed-calibration model. CAL FAILURE: crack0TP/0FN/0unmatched; spall0TP/77FN/0unmatched. Complete real source, publisher boxes; no independent accuracy credit. Publisher-labelled surface material loss; substrate and structural cause are not confirmed.",
+    "profile_options": {
+      "mode": "damage",
+      "damage_variant": "evcivil_r3_adapted_failed",
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "mask_rendering": "boxes",
+      "class_confidence": {
+        "crack": 0.1,
+        "spalling": 0.85
+      },
+      "confirm_frames": 1,
+      "stage": "structure"
+    },
+    "independent_accuracy_credit": false,
+    "source_kind": "file"
+  },
+  {
+    "label": "Construction diagnostic · adapted / CAL THIN FAILURE / crack_129",
+    "profile": "construction",
+    "path": "datasets/construction/evcivil-round3/replay/crack_129/crack_129-lossless-frames.nut",
+    "input_fps": 15,
+    "deadline_ms": 500,
+    "preview_fps": 8,
+    "video_mode": "every_frame",
+    "purpose": "failure_diagnostic",
+    "note": "Failed-calibration model. CAL THIN FAILURE: crack17TP/54FN/16unmatched; spall0TP/0FN/0unmatched. Complete real source, publisher boxes; no independent accuracy credit. Publisher-labelled surface material loss; substrate and structural cause are not confirmed.",
+    "profile_options": {
+      "mode": "damage",
+      "damage_variant": "evcivil_r3_adapted_failed",
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "mask_rendering": "boxes",
+      "class_confidence": {
+        "crack": 0.1,
+        "spalling": 0.85
+      },
+      "confirm_frames": 1,
+      "stage": "structure"
+    },
+    "independent_accuracy_credit": false,
+    "source_kind": "file"
+  },
+  {
+    "label": "Construction development · Before / crack_89 / FAILED",
+    "profile": "construction",
+    "path": "datasets/construction/evcivil/crack_89/crack_89-lossless-frames.nut",
+    "input_fps": 15,
+    "deadline_ms": 500,
+    "preview_fps": 8,
+    "video_mode": "every_frame",
+    "purpose": "failure_diagnostic",
+    "note": "FAILED camera calibration; reused_exposed_development, not independent. Crack 0TP/8FN/4 unmatched; surface loss 0TP/0FN/0 unmatched. Four separate RAW/NNinput/sourceGT/MODEL panes. Verify material, no automatic acceptance. Every-frame replay can be slower than source time; input15FPS is not measured capacity.",
+    "profile_options": {
+      "mode": "damage",
+      "stage": "structure",
+      "damage_variant": "evcivil_r4_head_failed",
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "mask_rendering": "boxes",
+      "exposure_policy": "low_light_gain",
+      "class_confidence": {
+        "crack": 0.45,
+        "spalling": 0.1
+      },
+      "confirm_frames": 1
+    },
+    "independent_accuracy_credit": false,
+    "source_kind": "file"
+  },
+  {
+    "label": "Construction development · Before / crack_129 / FAILED",
+    "profile": "construction",
+    "path": "datasets/construction/evcivil-round3/replay/crack_129/crack_129-lossless-frames.nut",
+    "input_fps": 15,
+    "deadline_ms": 500,
+    "preview_fps": 8,
+    "video_mode": "every_frame",
+    "purpose": "failure_diagnostic",
+    "note": "FAILED camera calibration; calibration_development, not independent. Crack 0TP/71FN/3 unmatched; surface loss 0TP/0FN/46 unmatched. Four separate RAW/NNinput/sourceGT/MODEL panes. Verify material, no automatic acceptance. Every-frame replay can be slower than source time; input15FPS is not measured capacity.",
+    "profile_options": {
+      "mode": "damage",
+      "stage": "structure",
+      "damage_variant": "evcivil_r4_head_failed",
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "mask_rendering": "boxes",
+      "exposure_policy": "low_light_gain",
+      "class_confidence": {
+        "crack": 0.45,
+        "spalling": 0.1
+      },
+      "confirm_frames": 1
+    },
+    "independent_accuracy_credit": false,
+    "source_kind": "file"
+  },
+  {
+    "label": "Construction development · Before / spalling_75 / FAILED",
+    "profile": "construction",
+    "path": "datasets/construction/evcivil-round3/replay/spalling_75/spalling_75-lossless-frames.nut",
+    "input_fps": 15,
+    "deadline_ms": 500,
+    "preview_fps": 8,
+    "video_mode": "every_frame",
+    "purpose": "failure_diagnostic",
+    "note": "FAILED camera calibration; calibration_development, not independent. Crack 0TP/0FN/0 unmatched; surface loss 0TP/77FN/1 unmatched. Four separate RAW/NNinput/sourceGT/MODEL panes. Verify material, no automatic acceptance. Every-frame replay can be slower than source time; input15FPS is not measured capacity.",
+    "profile_options": {
+      "mode": "damage",
+      "stage": "structure",
+      "damage_variant": "evcivil_r4_head_failed",
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "mask_rendering": "boxes",
+      "exposure_policy": "low_light_gain",
+      "class_confidence": {
+        "crack": 0.45,
+        "spalling": 0.1
+      },
+      "confirm_frames": 1
+    },
+    "independent_accuracy_credit": false,
+    "source_kind": "file"
+  },
+  {
+    "label": "Construction development · Before / ros_crack_21 / FAILED",
+    "profile": "construction",
+    "path": "datasets/construction/evcivil-round3/replay/ros_crack_21/ros_crack_21-lossless-frames.nut",
+    "input_fps": 15,
+    "deadline_ms": 500,
+    "preview_fps": 8,
+    "video_mode": "every_frame",
+    "purpose": "failure_diagnostic",
+    "note": "FAILED camera calibration; calibration_development, not independent. Crack 0TP/442FN/0 unmatched; surface loss 0TP/0FN/45 unmatched. Four separate RAW/NNinput/sourceGT/MODEL panes. Verify material, no automatic acceptance. Every-frame replay can be slower than source time; input15FPS is not measured capacity.",
+    "profile_options": {
+      "mode": "damage",
+      "stage": "structure",
+      "damage_variant": "evcivil_r4_head_failed",
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "mask_rendering": "boxes",
+      "exposure_policy": "low_light_gain",
+      "class_confidence": {
+        "crack": 0.45,
+        "spalling": 0.1
+      },
+      "confirm_frames": 1
+    },
+    "independent_accuracy_credit": false,
+    "source_kind": "file"
+  },
+  {
+    "label": "Construction development · After / crack_89 / FAILED",
+    "profile": "construction",
+    "path": "datasets/construction/evcivil/crack_89/crack_89-lossless-frames.nut",
+    "input_fps": 15,
+    "deadline_ms": 500,
+    "preview_fps": 8,
+    "video_mode": "every_frame",
+    "purpose": "failure_diagnostic",
+    "note": "FAILED camera calibration; reused_exposed_development, not independent. Crack 0TP/8FN/8 unmatched; surface loss 0TP/0FN/0 unmatched. Four separate RAW/NNinput/sourceGT/MODEL panes. Verify material, no automatic acceptance. Every-frame replay can be slower than source time; input15FPS is not measured capacity.",
+    "profile_options": {
+      "mode": "damage",
+      "stage": "structure",
+      "damage_variant": "evcivil_r4_real_lowlight_failed",
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "mask_rendering": "boxes",
+      "exposure_policy": "low_light_gain",
+      "class_confidence": {
+        "crack": 0.1,
+        "spalling": 0.25
+      },
+      "confirm_frames": 1
+    },
+    "independent_accuracy_credit": false,
+    "source_kind": "file"
+  },
+  {
+    "label": "Construction development · After / crack_129 / FAILED",
+    "profile": "construction",
+    "path": "datasets/construction/evcivil-round3/replay/crack_129/crack_129-lossless-frames.nut",
+    "input_fps": 15,
+    "deadline_ms": 500,
+    "preview_fps": 8,
+    "video_mode": "every_frame",
+    "purpose": "failure_diagnostic",
+    "note": "FAILED camera calibration; calibration_development, not independent. Crack 1TP/70FN/1 unmatched; surface loss 0TP/0FN/0 unmatched. Four separate RAW/NNinput/sourceGT/MODEL panes. Verify material, no automatic acceptance. Every-frame replay can be slower than source time; input15FPS is not measured capacity.",
+    "profile_options": {
+      "mode": "damage",
+      "stage": "structure",
+      "damage_variant": "evcivil_r4_real_lowlight_failed",
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "mask_rendering": "boxes",
+      "exposure_policy": "low_light_gain",
+      "class_confidence": {
+        "crack": 0.1,
+        "spalling": 0.25
+      },
+      "confirm_frames": 1
+    },
+    "independent_accuracy_credit": false,
+    "source_kind": "file"
+  },
+  {
+    "label": "Construction development · After / spalling_75 / FAILED",
+    "profile": "construction",
+    "path": "datasets/construction/evcivil-round3/replay/spalling_75/spalling_75-lossless-frames.nut",
+    "input_fps": 15,
+    "deadline_ms": 500,
+    "preview_fps": 8,
+    "video_mode": "every_frame",
+    "purpose": "failure_diagnostic",
+    "note": "FAILED camera calibration; calibration_development, not independent. Crack 0TP/0FN/0 unmatched; surface loss 0TP/77FN/0 unmatched. Four separate RAW/NNinput/sourceGT/MODEL panes. Verify material, no automatic acceptance. Every-frame replay can be slower than source time; input15FPS is not measured capacity.",
+    "profile_options": {
+      "mode": "damage",
+      "stage": "structure",
+      "damage_variant": "evcivil_r4_real_lowlight_failed",
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "mask_rendering": "boxes",
+      "exposure_policy": "low_light_gain",
+      "class_confidence": {
+        "crack": 0.1,
+        "spalling": 0.25
+      },
+      "confirm_frames": 1
+    },
+    "independent_accuracy_credit": false,
+    "source_kind": "file"
+  },
+  {
+    "label": "Construction development · After / ros_crack_21 / FAILED",
+    "profile": "construction",
+    "path": "datasets/construction/evcivil-round3/replay/ros_crack_21/ros_crack_21-lossless-frames.nut",
+    "input_fps": 15,
+    "deadline_ms": 500,
+    "preview_fps": 8,
+    "video_mode": "every_frame",
+    "purpose": "failure_diagnostic",
+    "note": "FAILED camera calibration; calibration_development, not independent. Crack 10TP/432FN/412 unmatched; surface loss 0TP/0FN/0 unmatched. Four separate RAW/NNinput/sourceGT/MODEL panes. Verify material, no automatic acceptance. Every-frame replay can be slower than source time; input15FPS is not measured capacity.",
+    "profile_options": {
+      "mode": "damage",
+      "stage": "structure",
+      "damage_variant": "evcivil_r4_real_lowlight_failed",
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "mask_rendering": "boxes",
+      "exposure_policy": "low_light_gain",
+      "class_confidence": {
+        "crack": 0.1,
+        "spalling": 0.25
+      },
+      "confirm_frames": 1
+    },
+    "independent_accuracy_credit": false,
+    "source_kind": "file"
+  },
+  {
+    "label": "Tile PHOTO research · crack · first fixed source case",
+    "profile": "construction",
+    "path": "datasets/construction/finishes-expansion/mvtec-tile/original/test/crack/000.png",
+    "input_fps": 2,
+    "deadline_ms": 1500,
+    "preview_fps": 4,
+    "video_mode": "every_frame",
+    "purpose": "photo_evidence",
+    "media_type": "still_photo",
+    "source_sha256": "d10be1f6ec065f83d54c03b4093d7d87dfcc77617d8eb0df9f5a053aece4becf",
+    "comparison_image": "output/evaluation/construction-finishes-tile/crack-raw-gt-model.jpg",
+    "independent_accuracy_credit": false,
+    "profile_options": {
+      "mode": "damage",
+      "damage_variant": "tile_surface_anomaly_research",
+      "stage": "finishes",
+      "engine": "onnxruntime",
+      "openvino_device": "CPU",
+      "cpu_threads": 1,
+      "mask_rendering": "masks",
+      "exposure_policy": "off",
+      "damage_classes": [
+        "tile_surface_anomaly"
+      ],
+      "confirm_frames": 1
+    },
+    "note": "Real manufacturing PHOTO research; generic surface anomaly, not a semantic defect subtype or installed ceramic inspection. All117 photo test results retained: crack region IoU.50 0/17; good3/33 flags. Raw-threshold pixel metrics are separate from serving area filtering. No video or15FPS claim."
+  },
+  {
+    "label": "Tile PHOTO research · glue_strip · first fixed source case",
+    "profile": "construction",
+    "path": "datasets/construction/finishes-expansion/mvtec-tile/original/test/glue_strip/000.png",
+    "input_fps": 2,
+    "deadline_ms": 1500,
+    "preview_fps": 4,
+    "video_mode": "every_frame",
+    "purpose": "photo_evidence",
+    "media_type": "still_photo",
+    "source_sha256": "789bf3426655aed432ea611d9c62354d6a43d13efb0acaacd27a49de851e65f6",
+    "comparison_image": "output/evaluation/construction-finishes-tile/glue_strip-raw-gt-model.jpg",
+    "independent_accuracy_credit": false,
+    "profile_options": {
+      "mode": "damage",
+      "damage_variant": "tile_surface_anomaly_research",
+      "stage": "finishes",
+      "engine": "onnxruntime",
+      "openvino_device": "CPU",
+      "cpu_threads": 1,
+      "mask_rendering": "masks",
+      "exposure_policy": "off",
+      "damage_classes": [
+        "tile_surface_anomaly"
+      ],
+      "confirm_frames": 1
+    },
+    "note": "Real manufacturing PHOTO research; generic surface anomaly, not a semantic defect subtype or installed ceramic inspection. All117 photo test results retained: crack region IoU.50 0/17; good3/33 flags. Raw-threshold pixel metrics are separate from serving area filtering. No video or15FPS claim."
+  },
+  {
+    "label": "Tile PHOTO research · good · first fixed source case",
+    "profile": "construction",
+    "path": "datasets/construction/finishes-expansion/mvtec-tile/original/test/good/000.png",
+    "input_fps": 2,
+    "deadline_ms": 1500,
+    "preview_fps": 4,
+    "video_mode": "every_frame",
+    "purpose": "photo_evidence",
+    "media_type": "still_photo",
+    "source_sha256": "179ff21a9d65e9e6371c6383ffa970adfa04502725a3c4d654e08d8377c0b781",
+    "comparison_image": "output/evaluation/construction-finishes-tile/good-raw-gt-model.jpg",
+    "independent_accuracy_credit": false,
+    "profile_options": {
+      "mode": "damage",
+      "damage_variant": "tile_surface_anomaly_research",
+      "stage": "finishes",
+      "engine": "onnxruntime",
+      "openvino_device": "CPU",
+      "cpu_threads": 1,
+      "mask_rendering": "masks",
+      "exposure_policy": "off",
+      "damage_classes": [
+        "tile_surface_anomaly"
+      ],
+      "confirm_frames": 1
+    },
+    "note": "Real manufacturing PHOTO research; generic surface anomaly, not a semantic defect subtype or installed ceramic inspection. All117 photo test results retained: crack region IoU.50 0/17; good3/33 flags. Raw-threshold pixel metrics are separate from serving area filtering. No video or15FPS claim."
+  },
+  {
+    "label": "Tile PHOTO research · gray_stroke · first fixed source case",
+    "profile": "construction",
+    "path": "datasets/construction/finishes-expansion/mvtec-tile/original/test/gray_stroke/000.png",
+    "input_fps": 2,
+    "deadline_ms": 1500,
+    "preview_fps": 4,
+    "video_mode": "every_frame",
+    "purpose": "photo_evidence",
+    "media_type": "still_photo",
+    "source_sha256": "687ee96b4b356dfa87e49b78a807dcdf026f80705801d6e670578648c5d3bba2",
+    "comparison_image": "output/evaluation/construction-finishes-tile/gray_stroke-raw-gt-model.jpg",
+    "independent_accuracy_credit": false,
+    "profile_options": {
+      "mode": "damage",
+      "damage_variant": "tile_surface_anomaly_research",
+      "stage": "finishes",
+      "engine": "onnxruntime",
+      "openvino_device": "CPU",
+      "cpu_threads": 1,
+      "mask_rendering": "masks",
+      "exposure_policy": "off",
+      "damage_classes": [
+        "tile_surface_anomaly"
+      ],
+      "confirm_frames": 1
+    },
+    "note": "Real manufacturing PHOTO research; generic surface anomaly, not a semantic defect subtype or installed ceramic inspection. All117 photo test results retained: crack region IoU.50 0/17; good3/33 flags. Raw-threshold pixel metrics are separate from serving area filtering. No video or15FPS claim."
+  },
+  {
+    "label": "Tile PHOTO research · oil · first fixed source case",
+    "profile": "construction",
+    "path": "datasets/construction/finishes-expansion/mvtec-tile/original/test/oil/000.png",
+    "input_fps": 2,
+    "deadline_ms": 1500,
+    "preview_fps": 4,
+    "video_mode": "every_frame",
+    "purpose": "photo_evidence",
+    "media_type": "still_photo",
+    "source_sha256": "cce758df17a18b3d60e54b367bec27639dd48d83cfee1f7546d80058188ba130",
+    "comparison_image": "output/evaluation/construction-finishes-tile/oil-raw-gt-model.jpg",
+    "independent_accuracy_credit": false,
+    "profile_options": {
+      "mode": "damage",
+      "damage_variant": "tile_surface_anomaly_research",
+      "stage": "finishes",
+      "engine": "onnxruntime",
+      "openvino_device": "CPU",
+      "cpu_threads": 1,
+      "mask_rendering": "masks",
+      "exposure_policy": "off",
+      "damage_classes": [
+        "tile_surface_anomaly"
+      ],
+      "confirm_frames": 1
+    },
+    "note": "Real manufacturing PHOTO research; generic surface anomaly, not a semantic defect subtype or installed ceramic inspection. All117 photo test results retained: crack region IoU.50 0/17; good3/33 flags. Raw-threshold pixel metrics are separate from serving area filtering. No video or15FPS claim."
+  },
+  {
+    "label": "Tile PHOTO research · rough · first fixed source case",
+    "profile": "construction",
+    "path": "datasets/construction/finishes-expansion/mvtec-tile/original/test/rough/000.png",
+    "input_fps": 2,
+    "deadline_ms": 1500,
+    "preview_fps": 4,
+    "video_mode": "every_frame",
+    "purpose": "photo_evidence",
+    "media_type": "still_photo",
+    "source_sha256": "02e34713dbf8db192267e62b44134b555e419c13b2a1d24460257e76a7a8155d",
+    "comparison_image": "output/evaluation/construction-finishes-tile/rough-raw-gt-model.jpg",
+    "independent_accuracy_credit": false,
+    "profile_options": {
+      "mode": "damage",
+      "damage_variant": "tile_surface_anomaly_research",
+      "stage": "finishes",
+      "engine": "onnxruntime",
+      "openvino_device": "CPU",
+      "cpu_threads": 1,
+      "mask_rendering": "masks",
+      "exposure_policy": "off",
+      "damage_classes": [
+        "tile_surface_anomaly"
+      ],
+      "confirm_frames": 1
+    },
+    "note": "Real manufacturing PHOTO research; generic surface anomaly, not a semantic defect subtype or installed ceramic inspection. All117 photo test results retained: crack region IoU.50 0/17; good3/33 flags. Raw-threshold pixel metrics are separate from serving area filtering. No video or15FPS claim."
+  },
+  {
+    "label": "Crack mask diagnostic · Before / crack_89 / fixed .50",
+    "profile": "construction",
+    "path": "datasets\\construction\\evcivil\\crack_89\\crack_89-lossless-frames.nut",
+    "input_fps": 15,
+    "deadline_ms": 500,
+    "preview_fps": 8,
+    "video_mode": "every_frame",
+    "purpose": "failure_diagnostic",
+    "profile_options": {
+      "mode": "damage",
+      "damage_variant": "pixel_fixed50_before",
+      "stage": "structure",
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "cpu_threads": 1,
+      "mask_rendering": "masks",
+      "exposure_policy": "low_light_gain",
+      "confidence": 0.5,
+      "damage_classes": [
+        "crack"
+      ],
+      "confirm_frames": 1
+    },
+    "note": "Real complete camera recording: 0 box matches, 8 missed, 20 unmatched. Yellow raw mask / blue served mask do not assert true pixels. Failed research; spalling unsupported; no independent accuracy credit.",
+    "independent_accuracy_credit": false,
+    "source_kind": "file"
+  },
+  {
+    "label": "Crack mask diagnostic · Before / crack_129 / fixed .50",
+    "profile": "construction",
+    "path": "datasets\\construction\\evcivil-round3\\replay\\crack_129\\crack_129-lossless-frames.nut",
+    "input_fps": 15,
+    "deadline_ms": 500,
+    "preview_fps": 8,
+    "video_mode": "every_frame",
+    "purpose": "failure_diagnostic",
+    "profile_options": {
+      "mode": "damage",
+      "damage_variant": "pixel_fixed50_before",
+      "stage": "structure",
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "cpu_threads": 1,
+      "mask_rendering": "masks",
+      "exposure_policy": "low_light_gain",
+      "confidence": 0.5,
+      "damage_classes": [
+        "crack"
+      ],
+      "confirm_frames": 1
+    },
+    "note": "Real complete camera recording: 8 box matches, 63 missed, 60 unmatched. Yellow raw mask / blue served mask do not assert true pixels. Failed research; spalling unsupported; no independent accuracy credit.",
+    "independent_accuracy_credit": false,
+    "source_kind": "file"
+  },
+  {
+    "label": "Crack mask diagnostic · Before / ros_crack_21 / fixed .50",
+    "profile": "construction",
+    "path": "datasets\\construction\\evcivil-round3\\replay\\ros_crack_21\\ros_crack_21-lossless-frames.nut",
+    "input_fps": 15,
+    "deadline_ms": 500,
+    "preview_fps": 8,
+    "video_mode": "every_frame",
+    "purpose": "failure_diagnostic",
+    "profile_options": {
+      "mode": "damage",
+      "damage_variant": "pixel_fixed50_before",
+      "stage": "structure",
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "cpu_threads": 1,
+      "mask_rendering": "masks",
+      "exposure_policy": "low_light_gain",
+      "confidence": 0.5,
+      "damage_classes": [
+        "crack"
+      ],
+      "confirm_frames": 1
+    },
+    "note": "Real complete camera recording: 68 box matches, 374 missed, 1667 unmatched. Yellow raw mask / blue served mask do not assert true pixels. Failed research; spalling unsupported; no independent accuracy credit.",
+    "independent_accuracy_credit": false,
+    "source_kind": "file"
+  },
+  {
+    "label": "Crack mask diagnostic · After / crack_89 / fixed .50",
+    "profile": "construction",
+    "path": "datasets\\construction\\evcivil\\crack_89\\crack_89-lossless-frames.nut",
+    "input_fps": 15,
+    "deadline_ms": 500,
+    "preview_fps": 8,
+    "video_mode": "every_frame",
+    "purpose": "failure_diagnostic",
+    "profile_options": {
+      "mode": "damage",
+      "damage_variant": "pixel_fixed50_after",
+      "stage": "structure",
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "cpu_threads": 1,
+      "mask_rendering": "masks",
+      "exposure_policy": "low_light_gain",
+      "confidence": 0.5,
+      "damage_classes": [
+        "crack"
+      ],
+      "confirm_frames": 1
+    },
+    "note": "Real complete camera recording: 0 box matches, 8 missed, 49 unmatched. Yellow raw mask / blue served mask do not assert true pixels. Failed research; spalling unsupported; no independent accuracy credit.",
+    "independent_accuracy_credit": false,
+    "source_kind": "file"
+  },
+  {
+    "label": "Crack mask diagnostic · After / crack_129 / fixed .50",
+    "profile": "construction",
+    "path": "datasets\\construction\\evcivil-round3\\replay\\crack_129\\crack_129-lossless-frames.nut",
+    "input_fps": 15,
+    "deadline_ms": 500,
+    "preview_fps": 8,
+    "video_mode": "every_frame",
+    "purpose": "failure_diagnostic",
+    "profile_options": {
+      "mode": "damage",
+      "damage_variant": "pixel_fixed50_after",
+      "stage": "structure",
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "cpu_threads": 1,
+      "mask_rendering": "masks",
+      "exposure_policy": "low_light_gain",
+      "confidence": 0.5,
+      "damage_classes": [
+        "crack"
+      ],
+      "confirm_frames": 1
+    },
+    "note": "Real complete camera recording: 7 box matches, 64 missed, 84 unmatched. Yellow raw mask / blue served mask do not assert true pixels. Failed research; spalling unsupported; no independent accuracy credit.",
+    "independent_accuracy_credit": false,
+    "source_kind": "file"
+  },
+  {
+    "label": "Crack mask diagnostic · After / ros_crack_21 / fixed .50",
+    "profile": "construction",
+    "path": "datasets\\construction\\evcivil-round3\\replay\\ros_crack_21\\ros_crack_21-lossless-frames.nut",
+    "input_fps": 15,
+    "deadline_ms": 500,
+    "preview_fps": 8,
+    "video_mode": "every_frame",
+    "purpose": "failure_diagnostic",
+    "profile_options": {
+      "mode": "damage",
+      "damage_variant": "pixel_fixed50_after",
+      "stage": "structure",
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "cpu_threads": 1,
+      "mask_rendering": "masks",
+      "exposure_policy": "low_light_gain",
+      "confidence": 0.5,
+      "damage_classes": [
+        "crack"
+      ],
+      "confirm_frames": 1
+    },
+    "note": "Real complete camera recording: 136 box matches, 306 missed, 3563 unmatched. Yellow raw mask / blue served mask do not assert true pixels. Failed research; spalling unsupported; no independent accuracy credit.",
+    "independent_accuracy_credit": false,
+    "source_kind": "file"
+  },
+  {
+    "label": "POST-HOC known-hit surface crack · best epoch1 · original lossless recording",
+    "profile": "construction",
+    "path": "datasets\\construction\\evcivil-round3\\replay\\crack_129\\crack_129-lossless-frames.nut",
+    "input_fps": 15,
+    "deadline_ms": 500,
+    "preview_fps": 8,
+    "video_mode": "every_frame",
+    "purpose": "failure_diagnostic",
+    "profile_options": {
+      "mode": "damage",
+      "damage_variant": "evcivil_r4_real_lowlight_failed",
+      "exposure_policy": "low_light_gain",
+      "mask_rendering": "boxes",
+      "show_context_objects": false,
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "cpu_threads": 1,
+      "confirm_frames": 1
+    },
+    "note": "POST-HOC known-hit illustration / FAILED research: 1 matches, 70 misses, 1 unmatched boxes. Selected after CAL hits were known; no independent accuracy credit. Material-loss substrate is unverified; all exposures and failures retained. Requested15FPS replay is not a measured capacity claim.",
+    "independent_accuracy_credit": false,
+    "source_kind": "file"
+  },
+  {
+    "label": "POST-HOC known-hit surface material loss · best epoch1 · original lossless recording",
+    "profile": "construction",
+    "path": "datasets\\construction\\evcivil-round3\\replay\\spalling_76\\spalling_76-lossless-frames.nut",
+    "input_fps": 15,
+    "deadline_ms": 500,
+    "preview_fps": 8,
+    "video_mode": "every_frame",
+    "purpose": "failure_diagnostic",
+    "profile_options": {
+      "mode": "damage",
+      "damage_variant": "evcivil_r4_real_lowlight_failed",
+      "exposure_policy": "low_light_gain",
+      "mask_rendering": "boxes",
+      "show_context_objects": false,
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "cpu_threads": 1,
+      "confirm_frames": 1
+    },
+    "note": "POST-HOC known-hit illustration / FAILED research: 48 matches, 159 misses, 4 unmatched boxes. Selected after CAL hits were known; no independent accuracy credit. Material-loss substrate is unverified; all exposures and failures retained. Requested15FPS replay is not a measured capacity claim.",
+    "independent_accuracy_credit": false,
+    "source_kind": "file"
+  },
+  {
+    "label": "POST-HOC known-hit surface crack · final epoch4 · original lossless recording",
+    "profile": "construction",
+    "path": "datasets\\construction\\evcivil-round3\\replay\\crack_129\\crack_129-lossless-frames.nut",
+    "input_fps": 15,
+    "deadline_ms": 500,
+    "preview_fps": 8,
+    "video_mode": "every_frame",
+    "purpose": "failure_diagnostic",
+    "profile_options": {
+      "mode": "damage",
+      "damage_variant": "evcivil_r4_last4_failed",
+      "exposure_policy": "low_light_gain",
+      "mask_rendering": "boxes",
+      "show_context_objects": false,
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "cpu_threads": 1,
+      "confirm_frames": 1
+    },
+    "note": "POST-HOC known-hit illustration / FAILED research: 5 matches, 66 misses, 12 unmatched boxes. Selected after CAL hits were known; no independent accuracy credit. Material-loss substrate is unverified; all exposures and failures retained. Requested15FPS replay is not a measured capacity claim.",
+    "independent_accuracy_credit": false,
+    "source_kind": "file"
+  },
+  {
+    "label": "POST-HOC known-hit surface material loss · final epoch4 · original lossless recording",
+    "profile": "construction",
+    "path": "datasets\\construction\\evcivil-round3\\replay\\spalling_76\\spalling_76-lossless-frames.nut",
+    "input_fps": 15,
+    "deadline_ms": 500,
+    "preview_fps": 8,
+    "video_mode": "every_frame",
+    "purpose": "failure_diagnostic",
+    "profile_options": {
+      "mode": "damage",
+      "damage_variant": "evcivil_r4_last4_failed",
+      "exposure_policy": "low_light_gain",
+      "mask_rendering": "boxes",
+      "show_context_objects": false,
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "cpu_threads": 1,
+      "confirm_frames": 1
+    },
+    "note": "POST-HOC known-hit illustration / FAILED research: 50 matches, 157 misses, 35 unmatched boxes. Selected after CAL hits were known; no independent accuracy credit. Material-loss substrate is unverified; all exposures and failures retained. Requested15FPS replay is not a measured capacity claim.",
+    "independent_accuracy_credit": false,
+    "source_kind": "file"
+  },
+  {
+    "label": "Wall PHOTO research - Wall surface crack - first acquired source",
+    "profile": "construction",
+    "path": "datasets\\construction\\finishes-expansion\\mbdd2025-wall-photos\\original\\JPEGImages\\Hefei7615.jpg",
+    "input_fps": 2,
+    "deadline_ms": 1500,
+    "preview_fps": 4,
+    "purpose": "photo_evidence",
+    "media_type": "still_photo",
+    "source_sha256": "6286e616a4694da18e9fe3e0a4b8cb61f9892e56f208b2051d38785d694fe71d",
+    "comparison_image": "output\\evaluation\\construction-wall-five-class-v3\\Hefei7615-raw-publisher-model.jpg",
+    "independent_accuracy_credit": false,
+    "profile_options": {
+      "mode": "damage",
+      "damage_variant": "mbdd_wall_total16_failed",
+      "damage_classes": [
+        "crack"
+      ],
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "cpu_threads": 1,
+      "stage": "finishes",
+      "exposure_policy": "off",
+      "show_context_objects": false,
+      "confirm_frames": 1
+    },
+    "note": "Real still PHOTO, first acquired class-positive source, all18 measured photos retained. All five accuracy guards fail. No humidity measurement, paint-only, installed-tile or video qualification."
+  },
+  {
+    "label": "Wall PHOTO research - Wall damp/stain appearance - first acquired source",
+    "profile": "construction",
+    "path": "datasets\\construction\\finishes-expansion\\mbdd2025-wall-photos\\original\\JPEGImages\\Hefei2882.jpg",
+    "input_fps": 2,
+    "deadline_ms": 1500,
+    "preview_fps": 4,
+    "purpose": "photo_evidence",
+    "media_type": "still_photo",
+    "source_sha256": "12f3aefad5cd58858769b134935993c9d176a2a1eb57c4b01c5f9b0b1be5c901",
+    "comparison_image": "output\\evaluation\\construction-wall-five-class-v3\\Hefei2882-raw-publisher-model.jpg",
+    "independent_accuracy_credit": false,
+    "profile_options": {
+      "mode": "damage",
+      "damage_variant": "mbdd_wall_total16_failed",
+      "damage_classes": [
+        "leakage"
+      ],
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "cpu_threads": 1,
+      "stage": "finishes",
+      "exposure_policy": "off",
+      "show_context_objects": false,
+      "confirm_frames": 1
+    },
+    "note": "Real still PHOTO, first acquired class-positive source, all18 measured photos retained. All five accuracy guards fail. No humidity measurement, paint-only, installed-tile or video qualification."
+  },
+  {
+    "label": "Wall PHOTO research - Detached surface material - first acquired source",
+    "profile": "construction",
+    "path": "datasets\\construction\\finishes-expansion\\mbdd2025-wall-photos\\original\\JPEGImages\\Hefei7615.jpg",
+    "input_fps": 2,
+    "deadline_ms": 1500,
+    "preview_fps": 4,
+    "purpose": "photo_evidence",
+    "media_type": "still_photo",
+    "source_sha256": "6286e616a4694da18e9fe3e0a4b8cb61f9892e56f208b2051d38785d694fe71d",
+    "comparison_image": "output\\evaluation\\construction-wall-five-class-v3\\Hefei7615-raw-publisher-model.jpg",
+    "independent_accuracy_credit": false,
+    "profile_options": {
+      "mode": "damage",
+      "damage_variant": "mbdd_wall_total16_failed",
+      "damage_classes": [
+        "abscission"
+      ],
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "cpu_threads": 1,
+      "stage": "finishes",
+      "exposure_policy": "off",
+      "show_context_objects": false,
+      "confirm_frames": 1
+    },
+    "note": "Real still PHOTO, first acquired class-positive source, all18 measured photos retained. All five accuracy guards fail. No humidity measurement, paint-only, installed-tile or video qualification."
+  },
+  {
+    "label": "Wall PHOTO research - Wall corrosion appearance - first acquired source",
+    "profile": "construction",
+    "path": "datasets\\construction\\finishes-expansion\\mbdd2025-wall-photos\\original\\JPEGImages\\Hefei1183.jpg",
+    "input_fps": 2,
+    "deadline_ms": 1500,
+    "preview_fps": 4,
+    "purpose": "photo_evidence",
+    "media_type": "still_photo",
+    "source_sha256": "7a5d3d5d66618816115bc7cfe157bf385c24202adca26426d40b729dcf4ce710",
+    "comparison_image": "output\\evaluation\\construction-wall-five-class-v3\\Hefei1183-raw-publisher-model.jpg",
+    "independent_accuracy_credit": false,
+    "profile_options": {
+      "mode": "damage",
+      "damage_variant": "mbdd_wall_total16_failed",
+      "damage_classes": [
+        "corrosion"
+      ],
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "cpu_threads": 1,
+      "stage": "finishes",
+      "exposure_policy": "off",
+      "show_context_objects": false,
+      "confirm_frames": 1
+    },
+    "note": "Real still PHOTO, first acquired class-positive source, all18 measured photos retained. All five accuracy guards fail. No humidity measurement, paint-only, installed-tile or video qualification."
+  },
+  {
+    "label": "Wall PHOTO research - Wall bulge appearance - first acquired source",
+    "profile": "construction",
+    "path": "datasets\\construction\\finishes-expansion\\mbdd2025-wall-photos\\original\\JPEGImages\\Hefei13263.jpg",
+    "input_fps": 2,
+    "deadline_ms": 1500,
+    "preview_fps": 4,
+    "purpose": "photo_evidence",
+    "media_type": "still_photo",
+    "source_sha256": "fc41c2d500e9c4e7a11f3022b589a1f0cd9a0d71890528f7e193613c628f125f",
+    "comparison_image": "output\\evaluation\\construction-wall-five-class-v3\\Hefei13263-raw-publisher-model.jpg",
+    "independent_accuracy_credit": false,
+    "profile_options": {
+      "mode": "damage",
+      "damage_variant": "mbdd_wall_total16_failed",
+      "damage_classes": [
+        "bulge"
+      ],
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "cpu_threads": 1,
+      "stage": "finishes",
+      "exposure_policy": "off",
+      "show_context_objects": false,
+      "confirm_frames": 1
+    },
+    "note": "Real still PHOTO, first acquired class-positive source, all18 measured photos retained. All five accuracy guards fail. No humidity measurement, paint-only, installed-tile or video qualification."
+  },
+  {
+    "label": "CUBIT author masks · thin crack · FAILED research / original lossless video",
+    "profile": "construction",
+    "path": "datasets\\construction\\evcivil\\crack_89\\crack_89-lossless-frames.nut",
+    "source_kind": "file",
+    "input_fps": 15,
+    "deadline_ms": 500,
+    "preview_fps": 8,
+    "video_mode": "every_frame",
+    "purpose": "failure_diagnostic",
+    "independent_accuracy_credit": false,
+    "profile_options": {
+      "mode": "damage",
+      "damage_variant": "cubit_author_v2_failed",
+      "confidence": 0.25,
+      "class_confidence": {
+        "crack": 0.25,
+        "spalling": 0.25
+      },
+      "mask_rendering": "masks",
+      "exposure_policy": "low_light_gain",
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "cpu_threads": 1,
+      "confirm_frames": 1,
+      "show_context_objects": false,
+      "stage": "structure"
+    },
+    "note": "FAILED author-mask research: 0 box matches, 8 misses, 7 unmatched boxes. All original exposures and actual masks retained; no pixel GT or independent accuracy credit. Requested15FPS source replay is not measured capacity; model input is lossless original video."
+  },
+  {
+    "label": "CUBIT author masks · surface crack · FAILED research / original lossless video",
+    "profile": "construction",
+    "path": "datasets\\construction\\evcivil-round3\\replay\\crack_129\\crack_129-lossless-frames.nut",
+    "source_kind": "file",
+    "input_fps": 15,
+    "deadline_ms": 500,
+    "preview_fps": 8,
+    "video_mode": "every_frame",
+    "purpose": "failure_diagnostic",
+    "independent_accuracy_credit": false,
+    "profile_options": {
+      "mode": "damage",
+      "damage_variant": "cubit_author_v2_failed",
+      "confidence": 0.25,
+      "class_confidence": {
+        "crack": 0.25,
+        "spalling": 0.25
+      },
+      "mask_rendering": "masks",
+      "exposure_policy": "low_light_gain",
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "cpu_threads": 1,
+      "confirm_frames": 1,
+      "show_context_objects": false,
+      "stage": "structure"
+    },
+    "note": "FAILED author-mask research: 38 box matches, 33 misses, 3 unmatched boxes. All original exposures and actual masks retained; no pixel GT or independent accuracy credit. Requested15FPS source replay is not measured capacity; model input is lossless original video."
+  },
+  {
+    "label": "CUBIT author masks · surface material loss · FAILED research / original lossless video",
+    "profile": "construction",
+    "path": "datasets\\construction\\evcivil-round3\\replay\\spalling_75\\spalling_75-lossless-frames.nut",
+    "source_kind": "file",
+    "input_fps": 15,
+    "deadline_ms": 500,
+    "preview_fps": 8,
+    "video_mode": "every_frame",
+    "purpose": "failure_diagnostic",
+    "independent_accuracy_credit": false,
+    "profile_options": {
+      "mode": "damage",
+      "damage_variant": "cubit_author_v2_failed",
+      "confidence": 0.25,
+      "class_confidence": {
+        "crack": 0.25,
+        "spalling": 0.25
+      },
+      "mask_rendering": "masks",
+      "exposure_policy": "low_light_gain",
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "cpu_threads": 1,
+      "confirm_frames": 1,
+      "show_context_objects": false,
+      "stage": "structure"
+    },
+    "note": "FAILED author-mask research: 0 box matches, 77 misses, 29 unmatched boxes. All original exposures and actual masks retained; no pixel GT or independent accuracy credit. Requested15FPS source replay is not measured capacity; model input is lossless original video."
+  },
+  {
+    "label": "CUBIT author masks · night crack · FAILED research / original lossless video",
+    "profile": "construction",
+    "path": "datasets\\construction\\evcivil-round3\\replay\\ros_crack_21\\ros_crack_21-lossless-frames.nut",
+    "source_kind": "file",
+    "input_fps": 15,
+    "deadline_ms": 500,
+    "preview_fps": 8,
+    "video_mode": "every_frame",
+    "purpose": "failure_diagnostic",
+    "independent_accuracy_credit": false,
+    "profile_options": {
+      "mode": "damage",
+      "damage_variant": "cubit_author_v2_failed",
+      "confidence": 0.25,
+      "class_confidence": {
+        "crack": 0.25,
+        "spalling": 0.25
+      },
+      "mask_rendering": "masks",
+      "exposure_policy": "low_light_gain",
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "cpu_threads": 1,
+      "confirm_frames": 1,
+      "show_context_objects": false,
+      "stage": "structure"
+    },
+    "note": "FAILED author-mask research: 0 box matches, 442 misses, 177 unmatched boxes. All original exposures and actual masks retained; no pixel GT or independent accuracy credit. Requested15FPS source replay is not measured capacity; model input is lossless original video."
+  },
+  {
+    "label": "CUBIT author masks · surface material loss · FAILED research · POST-HOC / original lossless video",
+    "profile": "construction",
+    "path": "datasets\\construction\\evcivil-round3\\replay\\spalling_76\\spalling_76-lossless-frames.nut",
+    "source_kind": "file",
+    "input_fps": 15,
+    "deadline_ms": 500,
+    "preview_fps": 8,
+    "video_mode": "every_frame",
+    "purpose": "failure_diagnostic",
+    "independent_accuracy_credit": false,
+    "profile_options": {
+      "mode": "damage",
+      "damage_variant": "cubit_author_v2_failed",
+      "confidence": 0.25,
+      "class_confidence": {
+        "crack": 0.25,
+        "spalling": 0.25
+      },
+      "mask_rendering": "masks",
+      "exposure_policy": "low_light_gain",
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "cpu_threads": 1,
+      "confirm_frames": 1,
+      "show_context_objects": false,
+      "stage": "structure"
+    },
+    "note": "POST-HOC known-hit source chosen previously from old-model results. FAILED author-mask research: 0 box matches, 207 misses, 1 unmatched boxes. All original exposures and actual masks retained; no pixel GT or independent accuracy credit. Requested15FPS source replay is not measured capacity; model input is lossless original video."
+  },
+  {
+    "label": "Owner local video · VID-20261020-WA0000 / author_masks · unscored research",
+    "profile": "construction",
+    "path": "C:\\Users\\IAM\\Documents\\hackathon\\opencv\\videos\\VID-20261020-WA0000.mp4",
+    "source_kind": "file",
+    "input_fps": 15,
+    "deadline_ms": 500,
+    "preview_fps": 8,
+    "video_mode": "every_frame",
+    "purpose": "failure_diagnostic",
+    "independent_accuracy_credit": false,
+    "private_local_input": true,
+    "profile_options": {
+      "mode": "damage",
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "cpu_threads": 1,
+      "confirm_frames": 1,
+      "stage": "all",
+      "damage_variant": "cubit_author_v2_failed",
+      "mask_rendering": "masks"
+    },
+    "note": "Original owner video; local only, diagnostic only, never training. 15FPS is a requested replay rate, not measured model capacity. No verified frame annotations, moisture measurement or fastener inspection."
+  },
+  {
+    "label": "Owner local video · VID-20261020-WA0000 / wall_appearance · unscored research",
+    "profile": "construction",
+    "path": "C:\\Users\\IAM\\Documents\\hackathon\\opencv\\videos\\VID-20261020-WA0000.mp4",
+    "source_kind": "file",
+    "input_fps": 15,
+    "deadline_ms": 500,
+    "preview_fps": 8,
+    "video_mode": "every_frame",
+    "purpose": "failure_diagnostic",
+    "independent_accuracy_credit": false,
+    "private_local_input": true,
+    "profile_options": {
+      "mode": "damage",
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "cpu_threads": 1,
+      "confirm_frames": 1,
+      "stage": "all",
+      "damage_variant": "mbdd_wall_total16_failed",
+      "mask_rendering": "boxes"
+    },
+    "note": "Original owner video; local only, diagnostic only, never training. 15FPS is a requested replay rate, not measured model capacity. No verified frame annotations, moisture measurement or fastener inspection."
+  },
+  {
+    "label": "Owner local video · VID-20261020-WA0000 / broad_masks · unscored research",
+    "profile": "construction",
+    "path": "C:\\Users\\IAM\\Documents\\hackathon\\opencv\\videos\\VID-20261020-WA0000.mp4",
+    "source_kind": "file",
+    "input_fps": 15,
+    "deadline_ms": 500,
+    "preview_fps": 8,
+    "video_mode": "every_frame",
+    "purpose": "failure_diagnostic",
+    "independent_accuracy_credit": false,
+    "private_local_input": true,
+    "profile_options": {
+      "mode": "damage",
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "cpu_threads": 1,
+      "confirm_frames": 1,
+      "stage": "all",
+      "damage_variant": "dacl_segformer_b1",
+      "mask_rendering": "masks",
+      "confidence": 0.5,
+      "damage_classes": [
+        "crack",
+        "alligator_crack",
+        "wetspot",
+        "efflorescence",
+        "rust",
+        "spalling",
+        "cavity",
+        "weathering",
+        "washout"
+      ]
+    },
+    "note": "Original owner video; local only, diagnostic only, never training. 15FPS is a requested replay rate, not measured model capacity. No verified frame annotations, moisture measurement or fastener inspection."
+  },
+  {
+    "label": "Owner local video · VID-20261020-WA0001 / author_masks · unscored research",
+    "profile": "construction",
+    "path": "C:\\Users\\IAM\\Documents\\hackathon\\opencv\\videos\\VID-20261020-WA0001.mp4",
+    "source_kind": "file",
+    "input_fps": 15,
+    "deadline_ms": 500,
+    "preview_fps": 8,
+    "video_mode": "every_frame",
+    "purpose": "failure_diagnostic",
+    "independent_accuracy_credit": false,
+    "private_local_input": true,
+    "profile_options": {
+      "mode": "damage",
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "cpu_threads": 1,
+      "confirm_frames": 1,
+      "stage": "all",
+      "damage_variant": "cubit_author_v2_failed",
+      "mask_rendering": "masks"
+    },
+    "note": "Original owner video; local only, diagnostic only, never training. 15FPS is a requested replay rate, not measured model capacity. No verified frame annotations, moisture measurement or fastener inspection."
+  },
+  {
+    "label": "Owner local video · VID-20261020-WA0001 / wall_appearance · unscored research",
+    "profile": "construction",
+    "path": "C:\\Users\\IAM\\Documents\\hackathon\\opencv\\videos\\VID-20261020-WA0001.mp4",
+    "source_kind": "file",
+    "input_fps": 15,
+    "deadline_ms": 500,
+    "preview_fps": 8,
+    "video_mode": "every_frame",
+    "purpose": "failure_diagnostic",
+    "independent_accuracy_credit": false,
+    "private_local_input": true,
+    "profile_options": {
+      "mode": "damage",
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "cpu_threads": 1,
+      "confirm_frames": 1,
+      "stage": "all",
+      "damage_variant": "mbdd_wall_total16_failed",
+      "mask_rendering": "boxes"
+    },
+    "note": "Original owner video; local only, diagnostic only, never training. 15FPS is a requested replay rate, not measured model capacity. No verified frame annotations, moisture measurement or fastener inspection."
+  },
+  {
+    "label": "Owner local video · VID-20261020-WA0001 / broad_masks · unscored research",
+    "profile": "construction",
+    "path": "C:\\Users\\IAM\\Documents\\hackathon\\opencv\\videos\\VID-20261020-WA0001.mp4",
+    "source_kind": "file",
+    "input_fps": 15,
+    "deadline_ms": 500,
+    "preview_fps": 8,
+    "video_mode": "every_frame",
+    "purpose": "failure_diagnostic",
+    "independent_accuracy_credit": false,
+    "private_local_input": true,
+    "profile_options": {
+      "mode": "damage",
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "cpu_threads": 1,
+      "confirm_frames": 1,
+      "stage": "all",
+      "damage_variant": "dacl_segformer_b1",
+      "mask_rendering": "masks",
+      "confidence": 0.5,
+      "damage_classes": [
+        "crack",
+        "alligator_crack",
+        "wetspot",
+        "efflorescence",
+        "rust",
+        "spalling",
+        "cavity",
+        "weathering",
+        "washout"
+      ]
+    },
+    "note": "Original owner video; local only, diagnostic only, never training. 15FPS is a requested replay rate, not measured model capacity. No verified frame annotations, moisture measurement or fastener inspection."
+  },
+  {
+    "label": "Owner local video · VID-20261020-WA0002 / author_masks · unscored research",
+    "profile": "construction",
+    "path": "C:\\Users\\IAM\\Documents\\hackathon\\opencv\\videos\\VID-20261020-WA0002.mp4",
+    "source_kind": "file",
+    "input_fps": 15,
+    "deadline_ms": 500,
+    "preview_fps": 8,
+    "video_mode": "every_frame",
+    "purpose": "failure_diagnostic",
+    "independent_accuracy_credit": false,
+    "private_local_input": true,
+    "profile_options": {
+      "mode": "damage",
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "cpu_threads": 1,
+      "confirm_frames": 1,
+      "stage": "all",
+      "damage_variant": "cubit_author_v2_failed",
+      "mask_rendering": "masks"
+    },
+    "note": "Original owner video; local only, diagnostic only, never training. 15FPS is a requested replay rate, not measured model capacity. No verified frame annotations, moisture measurement or fastener inspection."
+  },
+  {
+    "label": "Owner local video · VID-20261020-WA0002 / wall_appearance · unscored research",
+    "profile": "construction",
+    "path": "C:\\Users\\IAM\\Documents\\hackathon\\opencv\\videos\\VID-20261020-WA0002.mp4",
+    "source_kind": "file",
+    "input_fps": 15,
+    "deadline_ms": 500,
+    "preview_fps": 8,
+    "video_mode": "every_frame",
+    "purpose": "failure_diagnostic",
+    "independent_accuracy_credit": false,
+    "private_local_input": true,
+    "profile_options": {
+      "mode": "damage",
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "cpu_threads": 1,
+      "confirm_frames": 1,
+      "stage": "all",
+      "damage_variant": "mbdd_wall_total16_failed",
+      "mask_rendering": "boxes"
+    },
+    "note": "Original owner video; local only, diagnostic only, never training. 15FPS is a requested replay rate, not measured model capacity. No verified frame annotations, moisture measurement or fastener inspection."
+  },
+  {
+    "label": "Owner local video · VID-20261020-WA0002 / broad_masks · unscored research",
+    "profile": "construction",
+    "path": "C:\\Users\\IAM\\Documents\\hackathon\\opencv\\videos\\VID-20261020-WA0002.mp4",
+    "source_kind": "file",
+    "input_fps": 15,
+    "deadline_ms": 500,
+    "preview_fps": 8,
+    "video_mode": "every_frame",
+    "purpose": "failure_diagnostic",
+    "independent_accuracy_credit": false,
+    "private_local_input": true,
+    "profile_options": {
+      "mode": "damage",
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "cpu_threads": 1,
+      "confirm_frames": 1,
+      "stage": "all",
+      "damage_variant": "dacl_segformer_b1",
+      "mask_rendering": "masks",
+      "confidence": 0.5,
+      "damage_classes": [
+        "crack",
+        "alligator_crack",
+        "wetspot",
+        "efflorescence",
+        "rust",
+        "spalling",
+        "cavity",
+        "weathering",
+        "washout"
+      ]
+    },
+    "note": "Original owner video; local only, diagnostic only, never training. 15FPS is a requested replay rate, not measured model capacity. No verified frame annotations, moisture measurement or fastener inspection."
+  },
+  {
+    "label": "Owner local video · VID_20261020_075653953 / author_masks · unscored research",
+    "profile": "construction",
+    "path": "C:\\Users\\IAM\\Documents\\hackathon\\opencv\\videos\\VID_20261020_075653953.mp4",
+    "source_kind": "file",
+    "input_fps": 15,
+    "deadline_ms": 500,
+    "preview_fps": 8,
+    "video_mode": "every_frame",
+    "purpose": "failure_diagnostic",
+    "independent_accuracy_credit": false,
+    "private_local_input": true,
+    "profile_options": {
+      "mode": "damage",
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "cpu_threads": 1,
+      "confirm_frames": 1,
+      "stage": "all",
+      "damage_variant": "cubit_author_v2_failed",
+      "mask_rendering": "masks"
+    },
+    "note": "Original owner video; local only, diagnostic only, never training. 15FPS is a requested replay rate, not measured model capacity. No verified frame annotations, moisture measurement or fastener inspection."
+  },
+  {
+    "label": "Owner local video · VID_20261020_075653953 / wall_appearance · unscored research",
+    "profile": "construction",
+    "path": "C:\\Users\\IAM\\Documents\\hackathon\\opencv\\videos\\VID_20261020_075653953.mp4",
+    "source_kind": "file",
+    "input_fps": 15,
+    "deadline_ms": 500,
+    "preview_fps": 8,
+    "video_mode": "every_frame",
+    "purpose": "failure_diagnostic",
+    "independent_accuracy_credit": false,
+    "private_local_input": true,
+    "profile_options": {
+      "mode": "damage",
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "cpu_threads": 1,
+      "confirm_frames": 1,
+      "stage": "all",
+      "damage_variant": "mbdd_wall_total16_failed",
+      "mask_rendering": "boxes"
+    },
+    "note": "Original owner video; local only, diagnostic only, never training. 15FPS is a requested replay rate, not measured model capacity. No verified frame annotations, moisture measurement or fastener inspection."
+  },
+  {
+    "label": "Owner local video · VID_20261020_075653953 / broad_masks · unscored research",
+    "profile": "construction",
+    "path": "C:\\Users\\IAM\\Documents\\hackathon\\opencv\\videos\\VID_20261020_075653953.mp4",
+    "source_kind": "file",
+    "input_fps": 15,
+    "deadline_ms": 500,
+    "preview_fps": 8,
+    "video_mode": "every_frame",
+    "purpose": "failure_diagnostic",
+    "independent_accuracy_credit": false,
+    "private_local_input": true,
+    "profile_options": {
+      "mode": "damage",
+      "engine": "openvino",
+      "openvino_device": "GPU",
+      "cpu_threads": 1,
+      "confirm_frames": 1,
+      "stage": "all",
+      "damage_variant": "dacl_segformer_b1",
+      "mask_rendering": "masks",
+      "confidence": 0.5,
+      "damage_classes": [
+        "crack",
+        "alligator_crack",
+        "wetspot",
+        "efflorescence",
+        "rust",
+        "spalling",
+        "cavity",
+        "weathering",
+        "washout"
+      ]
+    },
+    "note": "Original owner video; local only, diagnostic only, never training. 15FPS is a requested replay rate, not measured model capacity. No verified frame annotations, moisture measurement or fastener inspection."
+  },
+  {
+    "label": "Construction CPU FAILED900 · crack_89 / original camera input",
+    "profile": "construction",
+    "path": "datasets/construction/evcivil/crack_89/crack_89-lossless-frames.nut",
+    "source_kind": "file",
+    "input_fps": 2,
+    "deadline_ms": 1500,
+    "preview_fps": 2,
+    "video_mode": "every_frame",
+    "purpose": "failure_diagnostic",
+    "independent_accuracy_credit": false,
+    "private_local_input": false,
+    "profile_options": {
+      "mode": "damage",
+      "damage_variant": "round4_mixed_cpu_failed",
+      "engine": "onnxruntime",
+      "openvino_device": "CPU",
+      "cpu_threads": 1,
+      "confidence": 0.25,
+      "nms_iou": 0.45,
+      "exposure_policy": "low_light_gain",
+      "mask_rendering": "masks",
+      "damage_classes": [
+        "crack",
+        "spalling"
+      ],
+      "confirm_frames": 1,
+      "stage": "all"
+    },
+    "note": "FAILED experimental model; masks are actual model candidates, not verified damage or code acceptance. Historical cached GPU BEFORE versus trained CPU AFTER changes both backend and weights. Measured humidity, fastener adequacy and structural severity remain unsupported. No promotion/default change. Original raw camera input only. Requested2FPS replay is not measured capacity; every_frame may replay slowly."
+  },
+  {
+    "label": "Construction CPU FAILED900 · crack_129 / original camera input",
+    "profile": "construction",
+    "path": "datasets/construction/evcivil-round3/replay/crack_129/crack_129-lossless-frames.nut",
+    "source_kind": "file",
+    "input_fps": 2,
+    "deadline_ms": 1500,
+    "preview_fps": 2,
+    "video_mode": "every_frame",
+    "purpose": "failure_diagnostic",
+    "independent_accuracy_credit": false,
+    "private_local_input": false,
+    "profile_options": {
+      "mode": "damage",
+      "damage_variant": "round4_mixed_cpu_failed",
+      "engine": "onnxruntime",
+      "openvino_device": "CPU",
+      "cpu_threads": 1,
+      "confidence": 0.25,
+      "nms_iou": 0.45,
+      "exposure_policy": "low_light_gain",
+      "mask_rendering": "masks",
+      "damage_classes": [
+        "crack",
+        "spalling"
+      ],
+      "confirm_frames": 1,
+      "stage": "all"
+    },
+    "note": "FAILED experimental model; masks are actual model candidates, not verified damage or code acceptance. Historical cached GPU BEFORE versus trained CPU AFTER changes both backend and weights. Measured humidity, fastener adequacy and structural severity remain unsupported. No promotion/default change. Original raw camera input only. Requested2FPS replay is not measured capacity; every_frame may replay slowly."
+  },
+  {
+    "label": "Construction CPU FAILED900 · spalling_75 / original camera input",
+    "profile": "construction",
+    "path": "datasets/construction/evcivil-round3/replay/spalling_75/spalling_75-lossless-frames.nut",
+    "source_kind": "file",
+    "input_fps": 2,
+    "deadline_ms": 1500,
+    "preview_fps": 2,
+    "video_mode": "every_frame",
+    "purpose": "failure_diagnostic",
+    "independent_accuracy_credit": false,
+    "private_local_input": false,
+    "profile_options": {
+      "mode": "damage",
+      "damage_variant": "round4_mixed_cpu_failed",
+      "engine": "onnxruntime",
+      "openvino_device": "CPU",
+      "cpu_threads": 1,
+      "confidence": 0.25,
+      "nms_iou": 0.45,
+      "exposure_policy": "low_light_gain",
+      "mask_rendering": "masks",
+      "damage_classes": [
+        "crack",
+        "spalling"
+      ],
+      "confirm_frames": 1,
+      "stage": "all"
+    },
+    "note": "FAILED experimental model; masks are actual model candidates, not verified damage or code acceptance. Historical cached GPU BEFORE versus trained CPU AFTER changes both backend and weights. Measured humidity, fastener adequacy and structural severity remain unsupported. No promotion/default change. Original raw camera input only. Requested2FPS replay is not measured capacity; every_frame may replay slowly."
+  },
+  {
+    "label": "Construction CPU FAILED900 · ros_crack_21 / original camera input",
+    "profile": "construction",
+    "path": "datasets/construction/evcivil-round3/replay/ros_crack_21/ros_crack_21-lossless-frames.nut",
+    "source_kind": "file",
+    "input_fps": 2,
+    "deadline_ms": 1500,
+    "preview_fps": 2,
+    "video_mode": "every_frame",
+    "purpose": "failure_diagnostic",
+    "independent_accuracy_credit": false,
+    "private_local_input": false,
+    "profile_options": {
+      "mode": "damage",
+      "damage_variant": "round4_mixed_cpu_failed",
+      "engine": "onnxruntime",
+      "openvino_device": "CPU",
+      "cpu_threads": 1,
+      "confidence": 0.25,
+      "nms_iou": 0.45,
+      "exposure_policy": "low_light_gain",
+      "mask_rendering": "masks",
+      "damage_classes": [
+        "crack",
+        "spalling"
+      ],
+      "confirm_frames": 1,
+      "stage": "all"
+    },
+    "note": "FAILED experimental model; masks are actual model candidates, not verified damage or code acceptance. Historical cached GPU BEFORE versus trained CPU AFTER changes both backend and weights. Measured humidity, fastener adequacy and structural severity remain unsupported. No promotion/default change. Original raw camera input only. Requested2FPS replay is not measured capacity; every_frame may replay slowly."
+  },
+  {
+    "label": "Construction CPU FAILED900 · spalling_76 / original camera input",
+    "profile": "construction",
+    "path": "datasets/construction/evcivil-round3/replay/spalling_76/spalling_76-lossless-frames.nut",
+    "source_kind": "file",
+    "input_fps": 2,
+    "deadline_ms": 1500,
+    "preview_fps": 2,
+    "video_mode": "every_frame",
+    "purpose": "failure_diagnostic",
+    "independent_accuracy_credit": false,
+    "private_local_input": false,
+    "profile_options": {
+      "mode": "damage",
+      "damage_variant": "round4_mixed_cpu_failed",
+      "engine": "onnxruntime",
+      "openvino_device": "CPU",
+      "cpu_threads": 1,
+      "confidence": 0.25,
+      "nms_iou": 0.45,
+      "exposure_policy": "low_light_gain",
+      "mask_rendering": "masks",
+      "damage_classes": [
+        "crack",
+        "spalling"
+      ],
+      "confirm_frames": 1,
+      "stage": "all"
+    },
+    "note": "FAILED experimental model; masks are actual model candidates, not verified damage or code acceptance. Historical cached GPU BEFORE versus trained CPU AFTER changes both backend and weights. Measured humidity, fastener adequacy and structural severity remain unsupported. No promotion/default change. Original raw camera input only. Requested2FPS replay is not measured capacity; every_frame may replay slowly."
+  },
+  {
+    "label": "Owner CPU FAILED900 · VID-20261020-WA0000 / original private input",
+    "profile": "construction",
+    "path": "C:\\Users\\IAM\\Documents\\hackathon\\opencv\\videos\\VID-20261020-WA0000.mp4",
+    "source_kind": "file",
+    "input_fps": 2,
+    "deadline_ms": 1500,
+    "preview_fps": 2,
+    "video_mode": "every_frame",
+    "purpose": "failure_diagnostic",
+    "independent_accuracy_credit": false,
+    "private_local_input": true,
+    "profile_options": {
+      "mode": "damage",
+      "damage_variant": "round4_mixed_cpu_failed",
+      "engine": "onnxruntime",
+      "openvino_device": "CPU",
+      "cpu_threads": 1,
+      "confidence": 0.25,
+      "nms_iou": 0.45,
+      "exposure_policy": "low_light_gain",
+      "mask_rendering": "masks",
+      "damage_classes": [
+        "crack",
+        "spalling"
+      ],
+      "confirm_frames": 1,
+      "stage": "all"
+    },
+    "note": "FAILED experimental model; masks are actual model candidates, not verified damage or code acceptance. Historical cached GPU BEFORE versus trained CPU AFTER changes both backend and weights. Measured humidity, fastener adequacy and structural severity remain unsupported. No promotion/default change. Original raw camera input only. Requested2FPS replay is not measured capacity; every_frame may replay slowly."
+  },
+  {
+    "label": "Owner CPU FAILED900 · VID-20261020-WA0001 / original private input",
+    "profile": "construction",
+    "path": "C:\\Users\\IAM\\Documents\\hackathon\\opencv\\videos\\VID-20261020-WA0001.mp4",
+    "source_kind": "file",
+    "input_fps": 2,
+    "deadline_ms": 1500,
+    "preview_fps": 2,
+    "video_mode": "every_frame",
+    "purpose": "failure_diagnostic",
+    "independent_accuracy_credit": false,
+    "private_local_input": true,
+    "profile_options": {
+      "mode": "damage",
+      "damage_variant": "round4_mixed_cpu_failed",
+      "engine": "onnxruntime",
+      "openvino_device": "CPU",
+      "cpu_threads": 1,
+      "confidence": 0.25,
+      "nms_iou": 0.45,
+      "exposure_policy": "low_light_gain",
+      "mask_rendering": "masks",
+      "damage_classes": [
+        "crack",
+        "spalling"
+      ],
+      "confirm_frames": 1,
+      "stage": "all"
+    },
+    "note": "FAILED experimental model; masks are actual model candidates, not verified damage or code acceptance. Historical cached GPU BEFORE versus trained CPU AFTER changes both backend and weights. Measured humidity, fastener adequacy and structural severity remain unsupported. No promotion/default change. Original raw camera input only. Requested2FPS replay is not measured capacity; every_frame may replay slowly."
+  },
+  {
+    "label": "Owner CPU FAILED900 · VID-20261020-WA0002 / original private input",
+    "profile": "construction",
+    "path": "C:\\Users\\IAM\\Documents\\hackathon\\opencv\\videos\\VID-20261020-WA0002.mp4",
+    "source_kind": "file",
+    "input_fps": 2,
+    "deadline_ms": 1500,
+    "preview_fps": 2,
+    "video_mode": "every_frame",
+    "purpose": "failure_diagnostic",
+    "independent_accuracy_credit": false,
+    "private_local_input": true,
+    "profile_options": {
+      "mode": "damage",
+      "damage_variant": "round4_mixed_cpu_failed",
+      "engine": "onnxruntime",
+      "openvino_device": "CPU",
+      "cpu_threads": 1,
+      "confidence": 0.25,
+      "nms_iou": 0.45,
+      "exposure_policy": "low_light_gain",
+      "mask_rendering": "masks",
+      "damage_classes": [
+        "crack",
+        "spalling"
+      ],
+      "confirm_frames": 1,
+      "stage": "all"
+    },
+    "note": "FAILED experimental model; masks are actual model candidates, not verified damage or code acceptance. Historical cached GPU BEFORE versus trained CPU AFTER changes both backend and weights. Measured humidity, fastener adequacy and structural severity remain unsupported. No promotion/default change. Original raw camera input only. Requested2FPS replay is not measured capacity; every_frame may replay slowly."
+  },
+  {
+    "label": "Owner CPU FAILED900 · VID_20261020_075653953 / original private input",
+    "profile": "construction",
+    "path": "C:\\Users\\IAM\\Documents\\hackathon\\opencv\\videos\\VID_20261020_075653953.mp4",
+    "source_kind": "file",
+    "input_fps": 2,
+    "deadline_ms": 1500,
+    "preview_fps": 2,
+    "video_mode": "every_frame",
+    "purpose": "failure_diagnostic",
+    "independent_accuracy_credit": false,
+    "private_local_input": true,
+    "profile_options": {
+      "mode": "damage",
+      "damage_variant": "round4_mixed_cpu_failed",
+      "engine": "onnxruntime",
+      "openvino_device": "CPU",
+      "cpu_threads": 1,
+      "confidence": 0.25,
+      "nms_iou": 0.45,
+      "exposure_policy": "low_light_gain",
+      "mask_rendering": "masks",
+      "damage_classes": [
+        "crack",
+        "spalling"
+      ],
+      "confirm_frames": 1,
+      "stage": "all"
+    },
+    "note": "FAILED experimental model; masks are actual model candidates, not verified damage or code acceptance. Historical cached GPU BEFORE versus trained CPU AFTER changes both backend and weights. Measured humidity, fastener adequacy and structural severity remain unsupported. No promotion/default change. Original raw camera input only. Requested2FPS replay is not measured capacity; every_frame may replay slowly."
+  }
+]

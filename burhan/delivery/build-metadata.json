@@ -1,0 +1,13 @@
+{
+  "name": "Burhan",
+  "version": "1.0.0",
+  "package": "com.burhan.site",
+  "createdAt": "2026-10-20T23:02:21.015Z",
+  "apk": "Burhan-v1.0.0-debug.apk",
+  "sha256": "2967196e7efe6103a1bb9d86ce1ab87c3e2f2471f35b6e72ab91d278f526b5ad",
+  "bytes": 192405192,
+  "minSdk": 31,
+  "targetSdk": 36,
+  "abi": "arm64-v8a",
+  "physicalDeviceValidation": "pending: no connected device"
+}
