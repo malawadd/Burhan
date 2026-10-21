@@ -1,4 +1,4 @@
-const modes=new Set(['manual','crack','surface','ppe']);
+const modes=new Set(['manual','crack','surface','ppe','research']);
 const actionTypes=new Set(['select_detector','request_view','request_manual_check','ask_context','prepare_finding']);
 const clean=(v,n)=>typeof v==='string'?v.slice(0,n):'';
 /** Treat the remote planner as untrusted input, including during local development. */

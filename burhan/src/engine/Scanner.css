@@ -12,3 +12,5 @@
 
 .scan-sheet-backdrop{z-index:240}
 .scan-header>button{min-width:48px}
+
+.scan-check-group{display:grid;gap:8px;min-width:0}.scan-check-heading{margin:12px 0 2px;color:#b9bfc6;font-size:12px;font-weight:700;line-height:1.5}

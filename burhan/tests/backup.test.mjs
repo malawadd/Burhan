@@ -7,6 +7,15 @@ const png='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAA
 const time='2026-10-21T00:00:00Z';
 function make(){const finding={id:'f',inspectionId:'i',label:'ملاحظة',source:'manual',review:'confirmed',status:'open',priority:'medium',notes:'صورة اختبار',action:'Review',createdAt:time,updatedAt:time,evidence:[{id:'e',original:png,annotated:png,capturedAt:time,width:1,height:1}],followUp:[]};return {schemaVersion:1,projects:[{id:'p',name:'Test',address:'Site',createdAt:time}],inspections:[{id:'i',projectId:'p',title:'Test',location:'Room',inspector:'QA',stage:'structure',taskId:'visual-cracks',mode:'manual',status:'completed',createdAt:time,updatedAt:time,acknowledged:true,checklist:{}}],findings:[finding],reports:[],settings:{language:'ar',theme:'dark',inspector:'QA',autoSave:true}};}
 let downloaded;
+test('expanded evidence and entered measurements survive portable backup with a frozen report',async()=>{
+  const state=make(),e=state.findings[0].evidence[0];state.inspections[0].mode='research';state.inspections[0].researchInputs={nominalJointMm:3,toleranceMm:.5};
+  e.observations=[];e.provenance={taskId:'research:tile_installation:joint_width',categoryId:'joint_width',family:'tile_installation',experimental:true,measurements:{nominalJointMm:3,measuredJointMm:3.2,notes:'Gauge <3mm> مقياس'}};
+  state.reports=[{id:'r',inspectionId:'i',version:1,language:'bilingual',createdAt:time,summary:'Saved',snapshot:structuredClone({project:state.projects[0],inspection:state.inspections[0],findings:state.findings})}];
+  const originalCreate=URL.createObjectURL,originalDocument=globalThis.document;globalThis.document={createElement(){return {click(){}}}};URL.createObjectURL=blob=>{downloaded=blob;return 'blob:test'};
+  try{await exportBackup(state)}finally{URL.createObjectURL=originalCreate;globalThis.document=originalDocument}
+  const restored=await importBackup(new File([await downloaded.arrayBuffer()],'expanded.zip'));assert.deepEqual(restored.findings[0].evidence[0].provenance,e.provenance);assert.deepEqual(restored.inspections[0].researchInputs,state.inspections[0].researchInputs);
+  e.provenance.measurements.measuredJointMm=10;assert.equal(restored.reports[0].snapshot.findings[0].evidence[0].provenance.measurements.measuredJointMm,3.2);
+});
 test('portable ZIP retains Arabic records and deduplicated evidence; altered content rejected',async()=>{
   const originalCreate=URL.createObjectURL;const originalDocument=globalThis.document;
   globalThis.document={createElement(){return {click(){}};}};URL.createObjectURL=blob=>{downloaded=blob;return 'blob:test';};

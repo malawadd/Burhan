@@ -3,7 +3,7 @@ import type {Evidence,Language,Observation,Mode} from './types';
 export interface SmartScanSummary {sessionId:string;provider:string;scene:string;steps:{at:string;instruction:string;reason:string;mode:Mode;scene:string}[]}
 export interface NativeCapture {evidence:Evidence;observations:Observation[];inspectionId?:string;followUp?:boolean;findingId?:string;smartContext?:{sessionId:string;provider:string;sceneVersion:number;guidance:string;mode:string;activeTaskId:string}}
 interface NativeApi {
-  scan(options:{inspectionId:string;mode:string;autoSave:boolean;language:Language;followUp:boolean;findingId?:string;smart?:boolean;backendUrl?:string;backendToken?:string;smartSessionId?:string;stage?:string;taskId?:string;location?:string}):Promise<{captures:NativeCapture[];smart?:SmartScanSummary}>;
+  scan(options:{inspectionId:string;mode:string;autoSave:boolean;language:Language;followUp:boolean;findingId?:string;smart?:boolean;backendUrl?:string;backendToken?:string;smartSessionId?:string;stage?:string;taskId?:string;location?:string;modelId?:string;categoryId?:string}):Promise<{captures:NativeCapture[];smart?:SmartScanSummary}>;
   sharePhoto(options:{uri:string;filename?:string}):Promise<void>;
   getCameraPreferences():Promise<{preferences:import('./lib/camera-preferences').CameraPreferences}>;
   setCameraPreferences(options:{preferences:import('./lib/camera-preferences').CameraPreferences}):Promise<{preferences:import('./lib/camera-preferences').CameraPreferences}>;

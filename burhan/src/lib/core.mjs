@@ -2,21 +2,39 @@ const text=(value,name)=>{if(typeof value!=='string')throw new Error(`Invalid ${
 const timestamp=(value,name)=>{text(value,name);if(!Number.isFinite(Date.parse(value)))throw new Error(`Invalid ${name}`);};
 const enumeration=(value,values,name)=>{if(!values.includes(value))throw new Error(`Invalid ${name}`);};
 const boundedText=(value,name,max=4000)=>{text(value,name);if(value.length>max)throw new Error(`Invalid ${name} length`);};
+function measurementsRow(m){
+  if(!m||typeof m!=='object'||Array.isArray(m))throw new Error('Invalid physical measurements');
+  for(const [key,value] of Object.entries(m)){
+    if(key==='notes'){boundedText(value,'measurement notes',2000);continue;}
+    if(!['nominalJointMm','toleranceMm','measuredJointMm'].includes(key)||!Number.isFinite(value)||value<0||value>1000000)throw new Error('Invalid physical measurement');
+  }
+}
+function provenanceRow(p){
+  if(!p||typeof p!=='object'||Array.isArray(p)||typeof p.experimental!=='boolean')throw new Error('Invalid evidence provenance');
+  boundedText(p.taskId,'provenance task',160);
+  for(const key of ['categoryId','family','modelId','preprocessing','runtime'])if(p[key]!==undefined)boundedText(p[key],`provenance ${key}`,300);
+  if(p.sha256!==undefined&&!/^[a-f0-9]{64}$/.test(p.sha256))throw new Error('Invalid provenance checksum');
+  if(p.inputSize!==undefined&&(!Number.isInteger(p.inputSize)||p.inputSize<1||p.inputSize>4096))throw new Error('Invalid provenance input size');
+  for(const key of ['confidence','nms'])if(p[key]!==undefined&&(!Number.isFinite(p[key])||p[key]<0||p[key]>1))throw new Error('Invalid provenance operating point');
+  if(p.classConfidence!==undefined){if(!p.classConfidence||typeof p.classConfidence!=='object'||Array.isArray(p.classConfidence)||Object.keys(p.classConfidence).length>100)throw new Error('Invalid provenance thresholds');for(const value of Object.values(p.classConfidence))if(!Number.isFinite(value)||value<0||value>1)throw new Error('Invalid provenance threshold');}
+  if(p.measurements!==undefined)measurementsRow(p.measurements);
+}
 function smartRow(s){
   if(!s||typeof s!=='object'||Array.isArray(s))throw new Error('Invalid smart inspection history');
   boundedText(s.sessionId,'smart session',256);boundedText(s.provider,'smart provider',80);boundedText(s.scene,'smart scene',2048);
   if(!Array.isArray(s.steps)||s.steps.length>100)throw new Error('Invalid smart guidance steps');
-  for(const step of s.steps){if(!step||typeof step!=='object')throw new Error('Invalid smart step');timestamp(step.at,'smart step timestamp');boundedText(step.instruction,'smart instruction');boundedText(step.reason,'smart reason');boundedText(step.scene,'smart step scene',2048);enumeration(step.mode,['manual','ppe','crack','surface'],'smart detector');}
+  for(const step of s.steps){if(!step||typeof step!=='object')throw new Error('Invalid smart step');timestamp(step.at,'smart step timestamp');boundedText(step.instruction,'smart instruction');boundedText(step.reason,'smart reason');boundedText(step.scene,'smart step scene',2048);enumeration(step.mode,['manual','ppe','crack','surface','research'],'smart detector');}
 }
 function projectRow(p){if(!p||typeof p.id!=='string')throw new Error('Invalid project');text(p.name,'project name');text(p.address,'project address');timestamp(p.createdAt,'project createdAt');}
 function inspectionRow(i){
   if(!i)throw new Error('Invalid inspection');
   for(const key of ['id','projectId','title','location','inspector','stage','taskId'])text(i[key],`inspection ${key}`);
   timestamp(i.createdAt,'inspection createdAt');timestamp(i.updatedAt,'inspection updatedAt');
-  enumeration(i.status,['draft','in_progress','completed'],'inspection status');enumeration(i.mode,['manual','ppe','crack','surface'],'analysis mode');
+  enumeration(i.status,['draft','in_progress','completed'],'inspection status');enumeration(i.mode,['manual','ppe','crack','surface','research'],'analysis mode');
   if(typeof i.acknowledged!=='boolean'||!i.checklist||Array.isArray(i.checklist)||typeof i.checklist!=='object')throw new Error('Invalid checklist');
   for(const v of Object.values(i.checklist))enumeration(v,['not_checked','acceptable','issue','not_applicable'],'checklist decision');
   if(i.smart!==undefined)smartRow(i.smart);
+  if(i.researchInputs!==undefined)measurementsRow(i.researchInputs);
 }
 function observationRow(o){
   if(!o||!Number.isInteger(o.classId)||o.classId<0||!Number.isFinite(o.score)||o.score<0||o.score>1||!Number.isFinite(o.inferenceMs)||o.inferenceMs<0)throw new Error('Invalid observation');
@@ -27,6 +45,7 @@ function observationRow(o){
 function evidenceRow(e){
   if(!e||typeof e.id!=='string'||typeof e.original!=='string'||typeof e.annotated!=='string'||!Number.isFinite(e.width)||!Number.isFinite(e.height)||e.width<1||e.height<1)throw new Error('Invalid evidence');
   timestamp(e.capturedAt,'evidence capturedAt');
+  if(e.provenance!==undefined)provenanceRow(e.provenance);
   if(e.captureSource!==undefined)enumeration(e.captureSource,['analysis','photo','import'],'capture source');
   if(e.detectorBaseline!==undefined){boundedText(e.detectorBaseline,'detector baseline',32*1024*1024);if(!e.detectorBaseline)throw new Error('Invalid detector baseline');}
   if(e.annotations!==undefined){
@@ -37,7 +56,7 @@ function evidenceRow(e){
     if(!e.detectorBaseline)throw new Error('Annotated evidence requires detector baseline');
   }
   if(e.observations!==undefined){if(!Array.isArray(e.observations))throw new Error('Invalid evidence observations');e.observations.forEach(observationRow);}
-  if(e.smartContext!==undefined){const c=e.smartContext;if(!c||typeof c!=='object'||!Number.isSafeInteger(c.sceneVersion)||c.sceneVersion<0)throw new Error('Invalid evidence smart context');for(const k of ['sessionId','provider','guidance','activeTaskId'])boundedText(c[k],`evidence smart ${k}`);enumeration(c.mode,['manual','ppe','crack','surface'],'evidence smart mode');}
+  if(e.smartContext!==undefined){const c=e.smartContext;if(!c||typeof c!=='object'||!Number.isSafeInteger(c.sceneVersion)||c.sceneVersion<0)throw new Error('Invalid evidence smart context');for(const k of ['sessionId','provider','guidance','activeTaskId'])boundedText(c[k],`evidence smart ${k}`);enumeration(c.mode,['manual','ppe','crack','surface','research'],'evidence smart mode');}
 }
 function findingRow(f){
   if(!f)throw new Error('Invalid finding');

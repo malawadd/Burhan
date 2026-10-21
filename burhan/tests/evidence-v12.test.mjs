@@ -8,8 +8,8 @@ const make=()=>({schemaVersion:1,projects:[{id:'p',name:'Site',address:'',create
 
 test('camera preference catalogue has all independent bilingual switches and intended defaults',()=>{
   const definitions=JSON.parse(readFileSync(new URL('../public/camera-settings.json',import.meta.url),'utf8'));
-  assert.equal(definitions.schemaVersion,1);assert.equal(definitions.settings.length,16);assert.equal(new Set(definitions.settings.map(d=>d.key)).size,16);
-  const off=['focusLock','framingGrid','cameraLevel','higherDetailPhotos','photoMarkup','individualPhotoSharing'];
+  assert.equal(definitions.schemaVersion,1);assert.equal(definitions.settings.length,17);assert.equal(new Set(definitions.settings.map(d=>d.key)).size,17);
+  const off=['expandedInspectionModels','focusLock','framingGrid','cameraLevel','higherDetailPhotos','photoMarkup','individualPhotoSharing'];
   for(const d of definitions.settings){assert.equal(d.default,!off.includes(d.key));assert.ok(d.label.en&&d.label.ar&&d.description.en&&d.description.ar);assert.equal(typeof d.nativeOnly,'boolean');}
 });
 test('new evidence metadata validates and reports preserve immutable original, detector baseline and markup',()=>{

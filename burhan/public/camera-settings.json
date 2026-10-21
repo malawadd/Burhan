@@ -2,6 +2,20 @@
   "schemaVersion": 1,
   "settings": [
     {
+      "key": "expandedInspectionModels",
+      "default": false,
+      "group": "assistance",
+      "nativeOnly": false,
+      "label": {
+        "en": "Expanded inspection models",
+        "ar": "نماذج الفحص الموسعة"
+      },
+      "description": {
+        "en": "Optional experimental wall and connection detectors, plus guided manual tile checks. Current models remain the default. Review every candidate.",
+        "ar": "كواشف تجريبية اختيارية للجدران والوصلات مع فحوصات يدوية موجهة للبلاط. تبقى النماذج الحالية هي الافتراضية. راجع كل ملاحظة مرشحة."
+      }
+    },
+    {
       "key": "aiSuggestionHints",
       "default": true,
       "group": "assistance",

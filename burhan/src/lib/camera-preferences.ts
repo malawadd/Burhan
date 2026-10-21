@@ -1,7 +1,7 @@
 import {Capacitor} from '@capacitor/core';
 import {BurhanNative} from '../native';
 import definitionsSource from '../../public/camera-settings.json';
-export type CameraPreferenceKey='aiSuggestionHints'|'volumeButtonCapture'|'pinchToZoom'|'quickCaptureReview'|'undoLastCapture'|'keepScreenAwake'|'doubleTapProtection'|'captureHaptics'|'rememberLastZoom'|'liveDetectionOverlays'|'focusLock'|'framingGrid'|'cameraLevel'|'higherDetailPhotos'|'photoMarkup'|'individualPhotoSharing';
+export type CameraPreferenceKey='expandedInspectionModels'|'aiSuggestionHints'|'volumeButtonCapture'|'pinchToZoom'|'quickCaptureReview'|'undoLastCapture'|'keepScreenAwake'|'doubleTapProtection'|'captureHaptics'|'rememberLastZoom'|'liveDetectionOverlays'|'focusLock'|'framingGrid'|'cameraLevel'|'higherDetailPhotos'|'photoMarkup'|'individualPhotoSharing';
 export type CameraPreferences=Record<CameraPreferenceKey,boolean>;
 export const cameraDefaults=Object.fromEntries(definitionsSource.settings.map(d=>[d.key,d.default])) as CameraPreferences;
 export interface CameraSettingDefinition {key:CameraPreferenceKey;default:boolean;label:{en:string;ar:string};description:{en:string;ar:string};nativeOnly:boolean;group:'capture'|'assistance'|'framing'|'review'}
