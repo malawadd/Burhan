@@ -16,8 +16,8 @@ public class CameraPreferencesTest {
     private Context context;
     @Before public void setup(){context=RuntimeEnvironment.getApplication();context.getSharedPreferences("burhan-camera-v1",Context.MODE_PRIVATE).edit().clear().commit();}
     @Test public void sharedDefinitionsSupplyDefaultsAndPersistIndependently() throws Exception {
-        assertEquals(16,CameraPreferences.definitions(context).getJSONArray("settings").length());
-        JSONObject initial=CameraPreferences.read(context);assertTrue(initial.getBoolean("aiSuggestionHints"));assertFalse(initial.getBoolean("photoMarkup"));
+        assertEquals(17,CameraPreferences.definitions(context).getJSONArray("settings").length());
+        JSONObject initial=CameraPreferences.read(context);assertTrue(initial.getBoolean("aiSuggestionHints"));assertFalse(initial.getBoolean("photoMarkup"));assertFalse(initial.getBoolean("expandedInspectionModels"));
         CameraPreferences.write(context,new JSONObject().put("photoMarkup",true).put("aiSuggestionHints",false).put("lastZoom",2.5));
         JSONObject restored=CameraPreferences.read(context);assertTrue(restored.getBoolean("photoMarkup"));assertFalse(restored.getBoolean("aiSuggestionHints"));assertTrue(restored.getBoolean("undoLastCapture"));assertEquals(2.5,restored.getDouble("lastZoom"),.001);
     }

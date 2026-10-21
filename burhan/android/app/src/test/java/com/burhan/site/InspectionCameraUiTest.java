@@ -310,6 +310,21 @@ public class InspectionCameraUiTest {
         if(view instanceof ViewGroup){ViewGroup group=(ViewGroup)view;for(int i=0;i<group.getChildCount();i++)assertButtonWordsStayWhole(group.getChildAt(i));}
     }
 
+    @Test public void expandedChecksAreOptInAndExperimentalStatusFitsCompactCamera()throws Exception {
+        fixture(360,800,1,false);
+        CameraPreferences.write(controller.get(),new JSONObject().put("expandedInspectionModels",false));
+        ui.showChecks();shadowOf(Looper.getMainLooper()).idle();
+        assertNull(findText(ShadowDialog.getLatestDialog().getWindow().getDecorView(),"Peeling paint"));ui.dismissSheets();
+        try{
+            CameraPreferences.write(controller.get(),new JSONObject().put("expandedInspectionModels",true));
+            ui.showChecks();shadowOf(Looper.getMainLooper()).idle();
+            assertNotNull(findText(ShadowDialog.getLatestDialog().getWindow().getDecorView(),"Peeling paint"));
+            assertNotNull(findText(ShadowDialog.getLatestDialog().getWindow().getDecorView(),"Walls and finishes"));
+            ui.dismissSheets();ui.setSelectedTask("research:walls_finishes:peeling_paint");ui.setTaskLocked(true);ui.setTask("Peeling paint","research");
+            assertTrue(ui.taskMode.getText().toString().contains("Experimental"));screenshot("inspection-en-360x800-expanded-research");checkMainControls(360,800);
+        }finally{CameraPreferences.write(controller.get(),new JSONObject().put("expandedInspectionModels",false));}
+    }
+
     private void assertFullyVisible(View view,int width,int height){
         Rect rectangle=bounds(view);
         assertTrue("View has empty bounds: "+view,rectangle.width()>0&&rectangle.height()>0);

@@ -108,12 +108,12 @@ public class BurhanNativePlugin extends Plugin {
     @PluginMethod public void scan(PluginCall call) {
         if(scanning){call.reject("Camera already open");return;}
         String id=call.getString("inspectionId");String mode=call.getString("mode","manual");
-        if(id==null || !Arrays.asList("manual","ppe","crack","surface").contains(mode)){call.reject("Valid inspection and mode required");return;}
-        scanning=true;
+        if(id==null || !Arrays.asList("manual","ppe","crack","surface","research").contains(mode)){call.reject("Valid inspection and mode required");return;}
         Intent intent=new Intent(getActivity(), ScanActivity.class);
-        intent.putExtra("inspectionId",id);intent.putExtra("mode",mode);intent.putExtra("autoSave",call.getBoolean("autoSave",true));intent.putExtra("language",call.getString("language","en"));intent.putExtra("followUp",call.getBoolean("followUp",false));intent.putExtra("findingId",call.getString("findingId"));
+        if("research".equals(mode)&&!ResearchCatalogue.enabled(getContext())){call.reject("Expanded inspection models are disabled");return;}
+        intent.putExtra("modelId",call.getString("modelId"));intent.putExtra("categoryId",call.getString("categoryId"));intent.putExtra("inspectionId",id);intent.putExtra("mode",mode);intent.putExtra("autoSave",call.getBoolean("autoSave",true));intent.putExtra("language",call.getString("language","en"));intent.putExtra("followUp",call.getBoolean("followUp",false));intent.putExtra("findingId",call.getString("findingId"));
         intent.putExtra("smart",call.getBoolean("smart",false));intent.putExtra("backendUrl",call.getString("backendUrl"));intent.putExtra("backendToken",call.getString("backendToken"));intent.putExtra("smartSessionId",call.getString("smartSessionId"));intent.putExtra("stage",call.getString("stage",""));intent.putExtra("taskId",call.getString("taskId",""));intent.putExtra("location",call.getString("location",""));
-        startActivityForResult(call,intent,"scanFinished");
+        scanning=true;startActivityForResult(call,intent,"scanFinished");
     }
     @ActivityCallback private void scanFinished(PluginCall call, ActivityResult result) {
         scanning=false;if(call==null)return;

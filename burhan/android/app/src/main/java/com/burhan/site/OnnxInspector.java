@@ -83,24 +83,36 @@ final class OnnxInspector implements AutoCloseable {
     }
     synchronized Frame infer(Bitmap bitmap,String id) throws Exception {
         load(id);long start=android.os.SystemClock.elapsedRealtime();Frame frame=new Frame();frame.image=bitmap;frame.modelId=id;
-        frame.modelInfo=new JSONObject().put("sha256",spec.getString("sha256")).put("inputSize",size).put("preprocessing",spec.getString("preprocessing")).put("confidence",threshold).put("nms",spec.optDouble("nms",.45)).put("runtime","onnxruntime-android@1.23.2/CPU;OpenCV@"+Core.VERSION);
+        frame.modelInfo=new JSONObject().put("sha256",spec.getString("sha256")).put("inputSize",size).put("preprocessing",spec.getString("preprocessing")).put("confidence",threshold).put("nms",spec.optDouble("nms",.45)).put("classConfidence",spec.optJSONObject("classConfidence")==null?new JSONObject():spec.getJSONObject("classConfidence")).put("runtime","onnxruntime-android@1.23.2/CPU;OpenCV@"+Core.VERSION);
         Mat rgba=new Mat(),bgr=new Mat(),resized=new Mat();Utils.bitmapToMat(bitmap,rgba);Imgproc.cvtColor(rgba,bgr,Imgproc.COLOR_RGBA2BGR);rgba.release();
         boolean dacl=spec.getString("kind").equals("dacl");float sx=(float)size/bitmap.getWidth(),sy=(float)size/bitmap.getHeight();int px=0,py=0;
         try {
             if(dacl){Imgproc.resize(bgr,resized,new Size(size,size),0,0,Imgproc.INTER_LINEAR);}
             else {
                 // Both registered YOLO models use the Python runtime's letterbox contract.
-                float ratio=Math.min(sx,sy);sx=sy=ratio;int rw=(int)Math.rint(bitmap.getWidth()*ratio),rh=(int)Math.rint(bitmap.getHeight()*ratio);px=(size-rw)/2;py=(size-rh)/2;
+                double exactRatio=Math.min(size/(double)bitmap.getWidth(),size/(double)bitmap.getHeight());float ratio=Math.min(sx,sy);sx=sy=ratio;boolean research="research".equals(spec.optString("mode"));int rw=Math.max(1,(int)Math.rint(bitmap.getWidth()*(research?exactRatio:ratio))),rh=Math.max(1,(int)Math.rint(bitmap.getHeight()*(research?exactRatio:ratio)));px=(size-rw)/2;py=(size-rh)/2;
                 Mat scaled=new Mat();Imgproc.resize(bgr,scaled,new Size(rw,rh),0,0,Imgproc.INTER_LINEAR);resized=new Mat(size,size,CvType.CV_8UC3,new Scalar(114,114,114));Mat roi=resized.submat(py,py+rh,px,px+rw);scaled.copyTo(roi);roi.release();scaled.release();
             }
             byte[] pixels=new byte[size*size*3];resized.get(0,0,pixels);long[] shape={1,3,size,size};
             try(OnnxTensor input=dacl?byteTensor(pixels,shape):floatTensor(pixels,shape);OrtSession.Result result=session.run(Collections.singletonMap(session.getInputNames().iterator().next(),input))){
                 if(dacl)decodeDacl((float[][][][])result.get(0).getValue(),frame);
-                else decodeYolo((float[][][])result.get(0).getValue(),id.equals("crack")?(float[][][][])result.get(1).getValue():null,sx,sy,px,py,frame);
+                else if("research".equals(spec.optString("mode")))decodeResearch(result,frame);
+                else decodeYolo((float[][][])result.get(0).getValue(),"yolo_segmentation".equals(spec.optString("kind"))?(float[][][][])result.get(1).getValue():null,sx,sy,px,py,frame);
             }
             for(Detection detection:frame.detections)detection.makeMaskBitmap(bitmap.getWidth(),bitmap.getHeight());
             frame.millis=android.os.SystemClock.elapsedRealtime()-start;return frame;
         } finally {bgr.release();resized.release();}
+    }
+    private void decodeResearch(OrtSession.Result result,Frame frame)throws Exception {
+        float[] thresholds=new float[labels.length];JSONObject perClass=spec.optJSONObject("classConfidence");
+        for(int i=0;i<labels.length;i++)thresholds[i]=(float)(perClass==null?threshold:perClass.optDouble(labels[i],threshold));
+        List<ResearchOutputDecoder.Box> decoded;
+        if("ssdlite_detection".equals(spec.getString("kind"))){
+            if(!result.get("boxes").isPresent()||!result.get("labels").isPresent()||!result.get("scores").isPresent())throw new IOException("SSDLite outputs must be named boxes, labels, scores");
+            decoded=ResearchOutputDecoder.decode((float[][])result.get("boxes").get().getValue(),(long[])result.get("labels").get().getValue(),(float[])result.get("scores").get().getValue(),thresholds,frame.image.getWidth(),frame.image.getHeight(),size,true,(float)spec.optDouble("nms",.45));
+        }else if("yolo_detection".equals(spec.getString("kind")))decoded=ResearchOutputDecoder.yolo((float[][][])result.get(0).getValue(),thresholds,frame.image.getWidth(),frame.image.getHeight(),size,(float)spec.optDouble("nms",.45));
+        else throw new IOException("Unsupported research output decoder");
+        for(ResearchOutputDecoder.Box box:decoded){Detection d=new Detection();d.classId=box.category;d.label=labels[box.category];d.score=box.score;d.box=new RectF(box.xyxy[0],box.xyxy[1],box.xyxy[2],box.xyxy[3]);frame.detections.add(d);}
     }
     private OnnxTensor byteTensor(byte[] interleaved,long[] shape) throws OrtException {
         int area=size*size;ByteBuffer buffer=ByteBuffer.allocateDirect(area*3).order(ByteOrder.nativeOrder());
@@ -114,7 +126,7 @@ final class OnnxInspector implements AutoCloseable {
     }
     private void decodeYolo(float[][][] outputs,float[][][][] prototypes,float sx,float sy,int px,int py,Frame frame) throws Exception {
         float[][] values=outputs[0];int expected=4+labels.length+(prototypes==null?0:32);
-        if(values.length!=expected||values[0].length!=8400)throw new IOException("Unexpected YOLO output geometry");
+        if(values.length!=expected||values[0].length==0)throw new IOException("Unexpected YOLO output geometry");
         List<Integer> anchors=new ArrayList<>();
         for(int index=0;index<values[0].length;index++){
             int category=0;for(int c=1;c<labels.length;c++)if(values[4+c][index]>values[4+category][index])category=c;

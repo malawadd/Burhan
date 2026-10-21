@@ -55,7 +55,7 @@ final class SmartInspectionClient implements AutoCloseable {
     private static class HttpFailure extends IOException {final int status;HttpFailure(int status){super("Backend HTTP "+status);this.status=status;}}
     private JSONObject request(String method,String path,JSONObject body) throws Exception {
         if(Thread.currentThread().isInterrupted())throw new InterruptedIOException("Request cancelled");
-        HttpURLConnection current=(HttpURLConnection)new URL(url+path).openConnection();connection=current;current.setRequestMethod(method);current.setInstanceFollowRedirects(false);current.setConnectTimeout(12000);current.setReadTimeout(20000);current.setRequestProperty("Authorization","Bearer "+token);current.setRequestProperty("Accept","application/json");current.setRequestProperty("User-Agent","Burhan/1.2.0 (Android; SmartInspection)");
+        HttpURLConnection current=(HttpURLConnection)new URL(url+path).openConnection();connection=current;current.setRequestMethod(method);current.setInstanceFollowRedirects(false);current.setConnectTimeout(12000);current.setReadTimeout(20000);current.setRequestProperty("Authorization","Bearer "+token);current.setRequestProperty("Accept","application/json");current.setRequestProperty("User-Agent","Burhan/1.3.0 (Android; SmartInspection)");
         try{
             if(body!=null){current.setDoOutput(true);current.setRequestProperty("Content-Type","application/json");byte[] bytes=body.toString().getBytes(StandardCharsets.UTF_8);current.setFixedLengthStreamingMode(bytes.length);try(OutputStream out=current.getOutputStream()){out.write(bytes);}}
             int code=current.getResponseCode();if(code<200||code>=300)throw new HttpFailure(code);
