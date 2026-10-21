@@ -1,0 +1,20 @@
+{
+  "dictionary": "DICT_4X4_50",
+  "id": 0,
+  "black_outer_edge_mm": 50,
+  "quiet_border_mm": 10,
+  "svg_page_mm": [
+    70,
+    70
+  ],
+  "software_decode": [
+    0
+  ],
+  "scope": "Generated calibration target only; no real installation, camera calibration or measurement accuracy evidence.",
+  "print": "Print SVG at actual size / 100%, no fit-to-page. Independently measure the black outer square and enter its actual size.",
+  "files": {
+    "aruco-4x4-50-id0-50mm.svg": "f205bc2ec3c531c46f8ca3caca4b57a2214fa3dffc5fdfea29648fe844f8a2f1",
+    "aruco-id0-preview.png": "bae5ef89e101340633b58bf4ff11c58a7034cbc6b5618fab2525afa62bf9738f"
+  },
+  "script_sha256": "26d0c109880626c66716f9d725bbbe8441af803fd3e54ac0ef2bd8f2f92524d1"
+}
