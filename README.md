@@ -8,6 +8,8 @@ The main Android and browser application lives in [`burhan/`](burhan/). This rep
 
 | You want to… | Go to |
 |---|---|
+| Understand perception, planning, and actions | [Agent workflow](#agent-workflow) and [architecture](#architecture) |
+| Inspect the OpenCV-to-action trace and evaluation | [Recorded demonstration](#opencv-5-changes-the-next-action) and [evaluation](#evaluation-and-human-control) |
 | Set up the Smart Inspection service | [Smart Inspection backend](#smart-inspection-backend) |
 | Try Burhan without a phone or emulator | [Run the browser app](#run-the-browser-app) |
 | Build and install the Android app | [Android build](#android-build) |
@@ -15,6 +17,126 @@ The main Android and browser application lives in [`burhan/`](burhan/). This rep
 | Find source code, models, reports, or research | [Repository map](#repository-map) and [documentation](#documentation) |
 
 For the full Burhan experience, run the Smart Inspection backend, launch the browser or Android app, and pair them in Settings. Smart Inspection requires internet access for AI guidance; visual detection runs on the device. The separate Python edge dashboard is for experiments and is not required to run Burhan. Commands below use PowerShell, with the working directory identified in each section.
+
+## Agent workflow
+
+Smart Inspection follows a **perception → decision → action → feedback** loop. OpenCV 5 measurements and local detector observations become inputs to the next planning turn. The agent proposes bounded inspection actions; the inspector chooses the active check and reviews the evidence.
+
+```mermaid
+flowchart TD
+    Capture["Camera view or imported photograph"]
+    Perception["PERCEPTION · OpenCV 5 quality measurements<br/>and on-device detector observations"]
+    Context["ORCHESTRATION · Current scene and selected check<br/>Enabled capabilities, recent plans, and action results"]
+    Decision["DECISION · AWS Bedrock / Nova 2 Lite<br/>Interpret the scene and propose the next inspection step"]
+    Validate{"Typed plan, task catalogue,<br/>and current scene valid?"}
+    Reject["Record rejection or failure<br/>Show the error and retain human control"]
+    Proposal["Show proposed check, reason, and capture instruction"]
+    Human{"Inspector selects<br/>or changes a check?"}
+    Action["ACTION · Run the selected local detector,<br/>request a view, or guide a manual check"]
+    Review["Inspector captures evidence, reviews candidates,<br/>and records findings or corrective actions"]
+    Feedback["Record check events and action results<br/>Update context for the next turn"]
+
+    Capture --> Perception --> Context --> Decision --> Validate
+    Validate -->|No| Reject
+    Reject --> Capture
+    Validate -->|Yes| Proposal --> Human
+    Human -->|Select| Action --> Review --> Feedback
+    Human -->|Dismiss, skip, or correct| Feedback
+    Feedback --> Context
+    Action -->|Closer view or refocus requested| Capture
+```
+
+The action vocabulary is `select_detector`, `request_view`, `request_manual_check`, `ask_context`, and `prepare_finding`. A detector proposal does not start a detector until the user selects its check. The implementation is in the [backend orchestration](burhan/backend/app.py), [plan/action schemas](burhan/backend/models.py), [capability registry](burhan/backend/capabilities.py), and [client guide controller](burhan/src/engine/SmartGuide.tsx).
+
+## Architecture
+
+```mermaid
+flowchart LR
+    subgraph Device["Burhan · Android or browser"]
+        Camera["Camera or image input"]
+        NativeCV["Android · OpenCV 5<br/>Image preprocessing"]
+        NativeONNX["Android · ONNX Runtime<br/>Local visual detectors"]
+        NativeMasks["Android · OpenCV 5<br/>Mask/component processing"]
+        WebONNX["Browser · ONNX Runtime Web / WASM<br/>Local visual detectors"]
+        Snapshot["Selected snapshot + observations<br/>Current check and inspector context"]
+        UI["Smart guide and inspector controls"]
+        Evidence["Reviewed evidence and reports<br/>Room/files on Android · IndexedDB on web"]
+        Camera --> NativeCV --> NativeONNX --> NativeMasks --> Snapshot
+        Camera --> WebONNX --> Snapshot
+        UI --> Evidence
+    end
+
+    subgraph Backend["Smart Inspection backend · local computer or EC2"]
+        API["FastAPI · Paired device authentication<br/>Session and scene-version checks"]
+        Quality["OpenCV 5 · Decode, resize, and encode<br/>Focus and exposure measurements"]
+        Agent["Agent orchestrator<br/>Bounded memory, capability context, and job queue"]
+        Validation["Typed plan and action validation<br/>Task availability and selected-check constraints"]
+        Trace["SQLite · Perception, decision,<br/>action acknowledgements, and failures"]
+        API --> Quality --> Agent
+        Agent --> Trace
+        Validation --> Trace
+    end
+
+    subgraph AWS["AWS components"]
+        Nova["Amazon Bedrock · Nova 2 Lite<br/>Multimodal reasoning and structured plan tool response"]
+        S3["Private S3<br/>Backend deployment artifact"]
+        EC2["EC2 + systemd<br/>Backend hosting template"]
+        IAM["IAM instance role<br/>Artifact and model permissions"]
+        SSM["Systems Manager<br/>Administration and port forwarding"]
+        S3 -.-> EC2
+        IAM -.-> EC2
+        SSM -.-> EC2
+    end
+
+    Snapshot -->|Authenticated snapshot request| API
+    Agent -->|Image + OpenCV metrics + context| Nova
+    Nova -->|submit_inspection_plan| Validation
+    Validation -->|Validated proposals and guidance| UI
+    UI -->|Human selections and action results| API
+    EC2 -.->|Hosts| API
+    IAM -.->|InvokeModel permission| Nova
+```
+
+OpenCV 5 is used in Android inference preparation/decoding and independently in the Python backend for image-quality measurements. Browser inference uses WASM; its snapshots receive the same backend OpenCV analysis. The AWS request is implemented in the [Bedrock adapter](burhan/backend/providers.py). EC2, S3, IAM, and Systems Manager describe the supplied [CloudFormation deployment path](burhan/backend/deploy/aws-ec2.yaml).
+
+## OpenCV 5 changes the next action
+
+The [recorded two-turn trace](burhan/delivery/evaluation/backend-real.json) shows the same permitted site photograph followed by a deliberately defocused version. The backend computes `context.backendQuality` with OpenCV 5 and passes it into the planner alongside the snapshot and previous action acknowledgements.
+
+| Trace field | First view | Defocused view |
+|---|---|---|
+| OpenCV version | `5.0.0` | `5.0.0` |
+| `laplacianVariance` | `1098.82` | `1.05` |
+| Relevant action | `request_view`, ID `view-glazing` | `request_view`, ID `refocus-pending-view` |
+| Next instruction, summarized | Capture a closer view of the panel and frame edges, keeping detail sharp. | Hold still, tap to refocus, and capture one sharp image. |
+| Turn outcome | `completed` | `completed` |
+| Action acknowledgement | `accepted` | `accepted` |
+
+The second decision's reason explicitly cites Laplacian variance **1.05** and prioritizes restoring focus. The trace records `guidanceChanged: true`, with `perception → decision → tool_results` events for both turns. OpenCV output therefore participates in the later action choice rather than appearing only as a dashboard statistic.
+
+This is a controlled capture-quality demonstration: both the photograph's detail and its measured quality change, so it does not isolate the metric from the image as a causal ablation. `accepted` acknowledges an instruction; it does not claim a physical inspection or capture was performed. The saved run used a different configured planner provider and is not a live AWS receipt. The [verification record](burhan/delivery/verification.json) identifies AWS coverage as transport-stub contract.
+
+### Reproduce the AWS demonstration
+
+Start and pair the backend using the [AWS setup below](#smart-inspection-backend). Confirm the health response reports `provider: aws` and `ready: true`, then run from the repository root, replacing the image path with a permitted photograph:
+
+```powershell
+Invoke-RestMethod http://127.0.0.1:3210/api/v1/health
+./burhan/backend/.venv/Scripts/python.exe burhan/scripts/test-smart-backend.py --url http://127.0.0.1:3210 --image "C:/path/to/permitted-site-photo.jpg" --output output/judging/smart-inspection-trace.json
+```
+
+This submits two online planning turns. The [reproduction script](burhan/scripts/test-smart-backend.py) records the actual provider, source hash, OpenCV measurements, decisions, turn timing, and action acknowledgements without saving pairing credentials. Inspect the output for two completed turns, OpenCV version 5, reduced sharpness in the second view, changed guidance, and the corresponding trace events. Keep failures in the record if a turn does not complete.
+
+## Evaluation and human control
+
+| Area | What is evaluated | Evidence and observed scope |
+|---|---|---|
+| Task success | Image/context submission produces a bounded plan; changed capture quality changes the next instruction. | The [two-turn run](burhan/delivery/evaluation/backend-real.json) completed 2/2 turns and recorded changed guidance. This evaluates the guidance workflow, not defect accuracy or completed physical inspection. |
+| Failure handling | Invalid images, authentication/ownership, quotas, unavailable providers, obsolete scenes, restarts, and unsupported actions. | [Backend tests](burhan/backend/tests/test_backend.py) and [capability tests](burhan/backend/tests/test_expanded.py). The current backend suite passes **46 tests**; provider transports are isolated in these tests. Invalid requests are rejected, obsolete work is superseded/cancelled, and planning failures remain visible. |
+| Observability | Follow a turn from perception to decision and action result, including scene/turn IDs, timestamps, reasons, quality measurements, and provider metrics. | Authenticated `GET /api/v1/sessions/{id}/trace`; the [saved trace](burhan/delivery/evaluation/backend-real.json) contains actual `perception`, `decision`, and `tool_results` events. Rejected plans and failures have their own event types in the backend. |
+| Human control | A recommendation stays a proposal until selected; the inspector can dismiss, correct, skip, stop, pause the guide, and review findings. | [Selection/execution tests](burhan/backend/tests/test_backend.py) reject a detector-completed acknowledgement before user selection with HTTP 409. [Browser report checks](burhan/delivery/evaluation/v13-browser-report.json) retain provenance/measurements and exercise dismissal of a false candidate. |
+
+
 
 ## Run the browser app
 
