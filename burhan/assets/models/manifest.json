@@ -116,5 +116,84 @@
     "source": "https://huggingface.co/spaces/phiyodr/dacl-challenge/tree/f5bee34782e7e02393ba4f206a95ba5ed67eb8a5",
     "scope": "Author-trained DACL10k; public image/polygon diagnostics, author training/checkpoint-selection overlap not independently established; no Saudi-site validation",
     "license": "Author DACL model; DACL10k dataset CC BY-NC4.0, mirror CC BY4 label does not override author terms; author checkpoint license undeclared, commercial clearance unresolved"
+  },
+  {
+    "id": "research-phele",
+    "mode": "research",
+    "file": "research-phele.onnx",
+    "sha256": "043cd896209071d3f2607eaa5a061c2b2922df046262151ddf6b9ad5a2b2c40b",
+    "bytes": 9073627,
+    "inputSize": 320,
+    "kind": "ssdlite_detection",
+    "classes": [
+      "peeling_paint",
+      "mold_appearance"
+    ],
+    "preprocessing": "rgb_float_letterbox",
+    "confidence": 0.35,
+    "classConfidence": {
+      "peeling_paint": 0.35,
+      "mold_appearance": 0.35
+    },
+    "nms": 0.45,
+    "researchOnly": true,
+    "family": "walls_finishes",
+    "source": "https://data.mendeley.com/datasets/yzsxcvc8dp/4",
+    "license": "PHELE public data CC BY 4.0; TorchVision BSD-3-Clause and COCO pretraining conditions",
+    "sourceManifest": "models/construction/expansion-phele-v1/ssdlite320/manifest.json",
+    "sourceManifestSha256": "1ef8104a31b87d4db5373024d2d475918b5d4e756474a75a4e46d4d74a4e96b0",
+    "scope": "Physical wall/site independence unavailable; fewer than 50 independent positive and negative examples per class; photo-only box labels."
+  },
+  {
+    "id": "research-fasteners",
+    "mode": "research",
+    "file": "research-fasteners.onnx",
+    "sha256": "498a2a678dc8488397fb5f7cac9804b7fb09994772b9d68fd73ce31a836ce467",
+    "bytes": 12686872,
+    "inputSize": 512,
+    "kind": "yolo_detection",
+    "classes": [
+      "visibly_unseated_connection",
+      "fastener_absence_appearance"
+    ],
+    "preprocessing": "rgb_float_letterbox",
+    "confidence": 0.025,
+    "classConfidence": {
+      "visibly_unseated_connection": 0.025,
+      "fastener_absence_appearance": 0.9
+    },
+    "nms": 0.45,
+    "researchOnly": true,
+    "family": "brackets_railings",
+    "source": "https://data.mendeley.com/datasets/cxnj6cp4rb/1",
+    "license": "SDNET data CC BY 4.0; Ultralytics AGPL-3.0 conditions apply.",
+    "sourceManifest": "models/construction/expansion-sdnet-v2-performance/yolov8n/manifest.json",
+    "sourceManifestSha256": "d2e1d0a1376000400e1379f8100dd4fc0a7c4ca1476888bf7613aaa6b518748f",
+    "scope": "Annotation-relative development only; physical-site independence unverified; no release."
+  },
+  {
+    "id": "research-stain",
+    "mode": "research",
+    "file": "research-stain.onnx",
+    "sha256": "654384b6653b055583fe2b2a5e73920795ff5d2eb7844d988fd6c9b813649505",
+    "bytes": 9015722,
+    "inputSize": 320,
+    "kind": "ssdlite_detection",
+    "classes": [
+      "damp_stained_appearance"
+    ],
+    "preprocessing": "rgb_float_letterbox",
+    "confidence": 0.25,
+    "classConfidence": {
+      "damp_stained_appearance": 0.25
+    },
+    "nms": 0.45,
+    "researchOnly": true,
+    "family": "walls_finishes",
+    "source": "https://zenodo.org/records/15622584",
+    "license": "MBDD2025 CC BY4.0; TorchVision BSD3Clause; COCO initializer conditions apply",
+    "sourceManifest": "models/construction/expansion-wall-stain-v1/ssdlite320/manifest.json",
+    "sourceManifestSha256": "9dfe325e0e12d01668aa22b402fca7e6955b6b89d3d87218a682a176ac503569",
+    "scope": "Source leakage/stain appearance; no independent site/video qualification or healthy-wall false-alarm evidence"
   }
 ]

@@ -1,0 +1,1020 @@
+{
+  "purpose": "Reused TRAIN photograph numerical/runtime diagnostic, not independent accuracy or phone qualification",
+  "opencv": "5.0.0",
+  "cases": [
+    {
+      "id": "research-phele-train",
+      "modelId": "research-phele",
+      "source": "datasets/construction/expansion-public-v1/phele/prepared/train/images/train_101.jpg",
+      "sourceSha256": "9267dd7155f1b26cc0340920f6fffa03e6e51c08dd3a3502635747cb362c8db3",
+      "width": 417,
+      "height": 417,
+      "rgba": "research-phele-train-rgba.gz",
+      "input": "research-phele-train-input.gz",
+      "image": "research-phele-train.png",
+      "outputs": [
+        {
+          "name": "boxes",
+          "file": "research-phele-train-output0.gz",
+          "dims": [
+            199,
+            4
+          ],
+          "dtype": "float32"
+        },
+        {
+          "name": "labels",
+          "file": "research-phele-train-output1.gz",
+          "dims": [
+            199
+          ],
+          "dtype": "int64"
+        },
+        {
+          "name": "scores",
+          "file": "research-phele-train-output2.gz",
+          "dims": [
+            199
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "observations": [],
+      "cpuInferenceMs": 308.5154000436887
+    },
+    {
+      "id": "research-phele-rotated",
+      "modelId": "research-phele",
+      "source": "datasets/construction/expansion-public-v1/phele/prepared/train/images/train_101.jpg",
+      "sourceSha256": "9267dd7155f1b26cc0340920f6fffa03e6e51c08dd3a3502635747cb362c8db3",
+      "width": 383,
+      "height": 383,
+      "rgba": "research-phele-rotated-rgba.gz",
+      "input": "research-phele-rotated-input.gz",
+      "image": "research-phele-rotated.png",
+      "outputs": [
+        {
+          "name": "boxes",
+          "file": "research-phele-rotated-output0.gz",
+          "dims": [
+            189,
+            4
+          ],
+          "dtype": "float32"
+        },
+        {
+          "name": "labels",
+          "file": "research-phele-rotated-output1.gz",
+          "dims": [
+            189
+          ],
+          "dtype": "int64"
+        },
+        {
+          "name": "scores",
+          "file": "research-phele-rotated-output2.gz",
+          "dims": [
+            189
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "observations": [],
+      "cpuInferenceMs": 335.66420001443475
+    },
+    {
+      "id": "research-phele-target-negative",
+      "modelId": "research-phele",
+      "source": "datasets/construction/expansion-public-v1/phele/prepared/train/images/train_104.jpg",
+      "sourceSha256": "10e171941de6b814876db29d9a2c4e5ac14f205714af68e9c0a545506f6ad49b",
+      "width": 417,
+      "height": 417,
+      "rgba": "research-phele-target-negative-rgba.gz",
+      "input": "research-phele-target-negative-input.gz",
+      "image": "research-phele-target-negative.png",
+      "outputs": [
+        {
+          "name": "boxes",
+          "file": "research-phele-target-negative-output0.gz",
+          "dims": [
+            191,
+            4
+          ],
+          "dtype": "float32"
+        },
+        {
+          "name": "labels",
+          "file": "research-phele-target-negative-output1.gz",
+          "dims": [
+            191
+          ],
+          "dtype": "int64"
+        },
+        {
+          "name": "scores",
+          "file": "research-phele-target-negative-output2.gz",
+          "dims": [
+            191
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "observations": [
+        {
+          "label": "peeling_paint",
+          "bbox": [
+            82,
+            86,
+            171,
+            251
+          ],
+          "score": 0.35880985856056213,
+          "localization": "box_only"
+        }
+      ],
+      "cpuInferenceMs": 214.17929988820106
+    },
+    {
+      "id": "research-fasteners-train",
+      "modelId": "research-fasteners",
+      "source": "datasets/construction/expansion-public-v1/sdnet2025/prepared/images/train/Loosen-10.jpg",
+      "sourceSha256": "386e8600d3fc8547c09230fc48e129de015d7b7ac224d47788911283b2511a81",
+      "width": 417,
+      "height": 417,
+      "rgba": "research-fasteners-train-rgba.gz",
+      "input": "research-fasteners-train-input.gz",
+      "image": "research-fasteners-train.png",
+      "outputs": [
+        {
+          "name": "output0",
+          "file": "research-fasteners-train-output0.gz",
+          "dims": [
+            1,
+            6,
+            5376
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "observations": [
+        {
+          "label": "visibly_unseated_connection",
+          "bbox": [
+            30,
+            133,
+            44,
+            43
+          ],
+          "score": 0.07196974754333496,
+          "localization": "box_only"
+        },
+        {
+          "label": "visibly_unseated_connection",
+          "bbox": [
+            26,
+            166,
+            42,
+            37
+          ],
+          "score": 0.05107831954956055,
+          "localization": "box_only"
+        },
+        {
+          "label": "visibly_unseated_connection",
+          "bbox": [
+            286,
+            144,
+            72,
+            81
+          ],
+          "score": 0.04025706648826599,
+          "localization": "box_only"
+        },
+        {
+          "label": "fastener_absence_appearance",
+          "bbox": [
+            290,
+            145,
+            67,
+            79
+          ],
+          "score": 0.9347306489944458,
+          "localization": "box_only"
+        }
+      ],
+      "cpuInferenceMs": 780.6769000599161
+    },
+    {
+      "id": "research-fasteners-rotated",
+      "modelId": "research-fasteners",
+      "source": "datasets/construction/expansion-public-v1/sdnet2025/prepared/images/train/Loosen-10.jpg",
+      "sourceSha256": "386e8600d3fc8547c09230fc48e129de015d7b7ac224d47788911283b2511a81",
+      "width": 383,
+      "height": 383,
+      "rgba": "research-fasteners-rotated-rgba.gz",
+      "input": "research-fasteners-rotated-input.gz",
+      "image": "research-fasteners-rotated.png",
+      "outputs": [
+        {
+          "name": "output0",
+          "file": "research-fasteners-rotated-output0.gz",
+          "dims": [
+            1,
+            6,
+            5376
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "observations": [
+        {
+          "label": "visibly_unseated_connection",
+          "bbox": [
+            198,
+            24,
+            26,
+            37
+          ],
+          "score": 0.21576890349388123,
+          "localization": "box_only"
+        },
+        {
+          "label": "visibly_unseated_connection",
+          "bbox": [
+            165,
+            8,
+            39,
+            47
+          ],
+          "score": 0.16570043563842773,
+          "localization": "box_only"
+        },
+        {
+          "label": "visibly_unseated_connection",
+          "bbox": [
+            221,
+            27,
+            38,
+            41
+          ],
+          "score": 0.08281493186950684,
+          "localization": "box_only"
+        },
+        {
+          "label": "visibly_unseated_connection",
+          "bbox": [
+            207,
+            24,
+            21,
+            24
+          ],
+          "score": 0.02507328987121582,
+          "localization": "box_only"
+        }
+      ],
+      "cpuInferenceMs": 490.76650000642985
+    },
+    {
+      "id": "research-fasteners-target-negative",
+      "modelId": "research-fasteners",
+      "source": "datasets/construction/expansion-public-v1/sdnet2025/prepared/images/train/fixed-RAW_(10).jpg",
+      "sourceSha256": "9853400fa8ccd63a5cae076827c7e60c4bf349f154be1a621fcdcdd439d48e4a",
+      "width": 417,
+      "height": 417,
+      "rgba": "research-fasteners-target-negative-rgba.gz",
+      "input": "research-fasteners-target-negative-input.gz",
+      "image": "research-fasteners-target-negative.png",
+      "outputs": [
+        {
+          "name": "output0",
+          "file": "research-fasteners-target-negative-output0.gz",
+          "dims": [
+            1,
+            6,
+            5376
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "observations": [],
+      "cpuInferenceMs": 459.79339990299195
+    },
+    {
+      "id": "research-stain-train",
+      "modelId": "research-stain",
+      "source": "datasets/construction/expansion-public-v1/wall-stain/prepared/images/train/Hefei8665.jpg",
+      "sourceSha256": "0cf12d34bbb14372e141dba594e867bfbed65a3f2a0368d8efda57a6e5a5b5c5",
+      "width": 417,
+      "height": 417,
+      "rgba": "research-stain-train-rgba.gz",
+      "input": "research-stain-train-input.gz",
+      "image": "research-stain-train.png",
+      "outputs": [
+        {
+          "name": "boxes",
+          "file": "research-stain-train-output0.gz",
+          "dims": [
+            103,
+            4
+          ],
+          "dtype": "float32"
+        },
+        {
+          "name": "labels",
+          "file": "research-stain-train-output1.gz",
+          "dims": [
+            103
+          ],
+          "dtype": "int64"
+        },
+        {
+          "name": "scores",
+          "file": "research-stain-train-output2.gz",
+          "dims": [
+            103
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "observations": [
+        {
+          "label": "damp_stained_appearance",
+          "bbox": [
+            258,
+            153,
+            86,
+            148
+          ],
+          "score": 0.4948084056377411,
+          "localization": "box_only"
+        },
+        {
+          "label": "damp_stained_appearance",
+          "bbox": [
+            223,
+            154,
+            93,
+            143
+          ],
+          "score": 0.4180811941623688,
+          "localization": "box_only"
+        },
+        {
+          "label": "damp_stained_appearance",
+          "bbox": [
+            298,
+            155,
+            50,
+            146
+          ],
+          "score": 0.30219513177871704,
+          "localization": "box_only"
+        },
+        {
+          "label": "damp_stained_appearance",
+          "bbox": [
+            254,
+            168,
+            56,
+            119
+          ],
+          "score": 0.296530157327652,
+          "localization": "box_only"
+        },
+        {
+          "label": "damp_stained_appearance",
+          "bbox": [
+            75,
+            131,
+            110,
+            107
+          ],
+          "score": 0.29247087240219116,
+          "localization": "box_only"
+        },
+        {
+          "label": "damp_stained_appearance",
+          "bbox": [
+            262,
+            210,
+            116,
+            102
+          ],
+          "score": 0.28324076533317566,
+          "localization": "box_only"
+        },
+        {
+          "label": "damp_stained_appearance",
+          "bbox": [
+            285,
+            149,
+            113,
+            150
+          ],
+          "score": 0.2789933383464813,
+          "localization": "box_only"
+        },
+        {
+          "label": "damp_stained_appearance",
+          "bbox": [
+            315,
+            142,
+            62,
+            154
+          ],
+          "score": 0.2696499228477478,
+          "localization": "box_only"
+        },
+        {
+          "label": "damp_stained_appearance",
+          "bbox": [
+            1,
+            127,
+            22,
+            44
+          ],
+          "score": 0.2680332660675049,
+          "localization": "box_only"
+        },
+        {
+          "label": "damp_stained_appearance",
+          "bbox": [
+            251,
+            131,
+            110,
+            115
+          ],
+          "score": 0.2623700201511383,
+          "localization": "box_only"
+        },
+        {
+          "label": "damp_stained_appearance",
+          "bbox": [
+            141,
+            166,
+            106,
+            119
+          ],
+          "score": 0.2565882205963135,
+          "localization": "box_only"
+        },
+        {
+          "label": "damp_stained_appearance",
+          "bbox": [
+            207,
+            0,
+            178,
+            182
+          ],
+          "score": 0.2543601095676422,
+          "localization": "box_only"
+        },
+        {
+          "label": "damp_stained_appearance",
+          "bbox": [
+            279,
+            135,
+            50,
+            154
+          ],
+          "score": 0.25413262844085693,
+          "localization": "box_only"
+        },
+        {
+          "label": "damp_stained_appearance",
+          "bbox": [
+            152,
+            162,
+            46,
+            113
+          ],
+          "score": 0.2524328827857971,
+          "localization": "box_only"
+        },
+        {
+          "label": "damp_stained_appearance",
+          "bbox": [
+            100,
+            152,
+            91,
+            112
+          ],
+          "score": 0.25092586874961853,
+          "localization": "box_only"
+        },
+        {
+          "label": "damp_stained_appearance",
+          "bbox": [
+            173,
+            127,
+            50,
+            144
+          ],
+          "score": 0.25060316920280457,
+          "localization": "box_only"
+        }
+      ],
+      "cpuInferenceMs": 174.07579999417067
+    },
+    {
+      "id": "research-stain-rotated",
+      "modelId": "research-stain",
+      "source": "datasets/construction/expansion-public-v1/wall-stain/prepared/images/train/Hefei8665.jpg",
+      "sourceSha256": "0cf12d34bbb14372e141dba594e867bfbed65a3f2a0368d8efda57a6e5a5b5c5",
+      "width": 383,
+      "height": 383,
+      "rgba": "research-stain-rotated-rgba.gz",
+      "input": "research-stain-rotated-input.gz",
+      "image": "research-stain-rotated.png",
+      "outputs": [
+        {
+          "name": "boxes",
+          "file": "research-stain-rotated-output0.gz",
+          "dims": [
+            100,
+            4
+          ],
+          "dtype": "float32"
+        },
+        {
+          "name": "labels",
+          "file": "research-stain-rotated-output1.gz",
+          "dims": [
+            100
+          ],
+          "dtype": "int64"
+        },
+        {
+          "name": "scores",
+          "file": "research-stain-rotated-output2.gz",
+          "dims": [
+            100
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "observations": [
+        {
+          "label": "damp_stained_appearance",
+          "bbox": [
+            216,
+            127,
+            80,
+            244
+          ],
+          "score": 0.38867655396461487,
+          "localization": "box_only"
+        },
+        {
+          "label": "damp_stained_appearance",
+          "bbox": [
+            193,
+            222,
+            91,
+            140
+          ],
+          "score": 0.3417986035346985,
+          "localization": "box_only"
+        },
+        {
+          "label": "damp_stained_appearance",
+          "bbox": [
+            230,
+            0,
+            56,
+            131
+          ],
+          "score": 0.31903448700904846,
+          "localization": "box_only"
+        },
+        {
+          "label": "damp_stained_appearance",
+          "bbox": [
+            89,
+            88,
+            81,
+            225
+          ],
+          "score": 0.3181649148464203,
+          "localization": "box_only"
+        },
+        {
+          "label": "damp_stained_appearance",
+          "bbox": [
+            243,
+            200,
+            73,
+            183
+          ],
+          "score": 0.30220797657966614,
+          "localization": "box_only"
+        },
+        {
+          "label": "damp_stained_appearance",
+          "bbox": [
+            75,
+            256,
+            59,
+            121
+          ],
+          "score": 0.28634071350097656,
+          "localization": "box_only"
+        },
+        {
+          "label": "damp_stained_appearance",
+          "bbox": [
+            25,
+            143,
+            90,
+            145
+          ],
+          "score": 0.283767968416214,
+          "localization": "box_only"
+        },
+        {
+          "label": "damp_stained_appearance",
+          "bbox": [
+            89,
+            87,
+            34,
+            124
+          ],
+          "score": 0.28193968534469604,
+          "localization": "box_only"
+        },
+        {
+          "label": "damp_stained_appearance",
+          "bbox": [
+            14,
+            64,
+            80,
+            234
+          ],
+          "score": 0.2733672559261322,
+          "localization": "box_only"
+        },
+        {
+          "label": "damp_stained_appearance",
+          "bbox": [
+            68,
+            187,
+            45,
+            126
+          ],
+          "score": 0.27215006947517395,
+          "localization": "box_only"
+        },
+        {
+          "label": "damp_stained_appearance",
+          "bbox": [
+            196,
+            145,
+            83,
+            145
+          ],
+          "score": 0.2695198953151703,
+          "localization": "box_only"
+        },
+        {
+          "label": "damp_stained_appearance",
+          "bbox": [
+            82,
+            180,
+            91,
+            195
+          ],
+          "score": 0.26899710297584534,
+          "localization": "box_only"
+        },
+        {
+          "label": "damp_stained_appearance",
+          "bbox": [
+            61,
+            72,
+            80,
+            134
+          ],
+          "score": 0.2689336836338043,
+          "localization": "box_only"
+        },
+        {
+          "label": "damp_stained_appearance",
+          "bbox": [
+            76,
+            168,
+            57,
+            135
+          ],
+          "score": 0.2639145851135254,
+          "localization": "box_only"
+        },
+        {
+          "label": "damp_stained_appearance",
+          "bbox": [
+            62,
+            115,
+            73,
+            154
+          ],
+          "score": 0.2613101005554199,
+          "localization": "box_only"
+        },
+        {
+          "label": "damp_stained_appearance",
+          "bbox": [
+            240,
+            0,
+            31,
+            33
+          ],
+          "score": 0.26007530093193054,
+          "localization": "box_only"
+        },
+        {
+          "label": "damp_stained_appearance",
+          "bbox": [
+            88,
+            224,
+            34,
+            89
+          ],
+          "score": 0.2588595449924469,
+          "localization": "box_only"
+        },
+        {
+          "label": "damp_stained_appearance",
+          "bbox": [
+            45,
+            205,
+            295,
+            173
+          ],
+          "score": 0.25791487097740173,
+          "localization": "box_only"
+        },
+        {
+          "label": "damp_stained_appearance",
+          "bbox": [
+            21,
+            45,
+            91,
+            159
+          ],
+          "score": 0.25715744495391846,
+          "localization": "box_only"
+        },
+        {
+          "label": "damp_stained_appearance",
+          "bbox": [
+            118,
+            0,
+            145,
+            173
+          ],
+          "score": 0.25586777925491333,
+          "localization": "box_only"
+        },
+        {
+          "label": "damp_stained_appearance",
+          "bbox": [
+            23,
+            19,
+            126,
+            143
+          ],
+          "score": 0.25492891669273376,
+          "localization": "box_only"
+        },
+        {
+          "label": "damp_stained_appearance",
+          "bbox": [
+            224,
+            0,
+            41,
+            151
+          ],
+          "score": 0.25483575463294983,
+          "localization": "box_only"
+        },
+        {
+          "label": "damp_stained_appearance",
+          "bbox": [
+            229,
+            0,
+            31,
+            47
+          ],
+          "score": 0.2539730668067932,
+          "localization": "box_only"
+        },
+        {
+          "label": "damp_stained_appearance",
+          "bbox": [
+            79,
+            245,
+            23,
+            64
+          ],
+          "score": 0.25068116188049316,
+          "localization": "box_only"
+        }
+      ],
+      "cpuInferenceMs": 137.94819999020547
+    },
+    {
+      "id": "research-stain-target-negative",
+      "modelId": "research-stain",
+      "source": "datasets/construction/expansion-public-v1/wall-stain/prepared/images/train/Hefei3368.jpg",
+      "sourceSha256": "8cfeb5f1ce3afdeec5adb68bd0c600470e91e059641d63f1600645e6e93408e4",
+      "width": 417,
+      "height": 417,
+      "rgba": "research-stain-target-negative-rgba.gz",
+      "input": "research-stain-target-negative-input.gz",
+      "image": "research-stain-target-negative.png",
+      "outputs": [
+        {
+          "name": "boxes",
+          "file": "research-stain-target-negative-output0.gz",
+          "dims": [
+            87,
+            4
+          ],
+          "dtype": "float32"
+        },
+        {
+          "name": "labels",
+          "file": "research-stain-target-negative-output1.gz",
+          "dims": [
+            87
+          ],
+          "dtype": "int64"
+        },
+        {
+          "name": "scores",
+          "file": "research-stain-target-negative-output2.gz",
+          "dims": [
+            87
+          ],
+          "dtype": "float32"
+        }
+      ],
+      "observations": [
+        {
+          "label": "damp_stained_appearance",
+          "bbox": [
+            234,
+            96,
+            163,
+            90
+          ],
+          "score": 0.32653701305389404,
+          "localization": "box_only"
+        },
+        {
+          "label": "damp_stained_appearance",
+          "bbox": [
+            226,
+            122,
+            93,
+            200
+          ],
+          "score": 0.29968684911727905,
+          "localization": "box_only"
+        },
+        {
+          "label": "damp_stained_appearance",
+          "bbox": [
+            4,
+            117,
+            95,
+            212
+          ],
+          "score": 0.29502615332603455,
+          "localization": "box_only"
+        },
+        {
+          "label": "damp_stained_appearance",
+          "bbox": [
+            206,
+            53,
+            155,
+            111
+          ],
+          "score": 0.2935972511768341,
+          "localization": "box_only"
+        },
+        {
+          "label": "damp_stained_appearance",
+          "bbox": [
+            334,
+            81,
+            73,
+            159
+          ],
+          "score": 0.27839305996894836,
+          "localization": "box_only"
+        },
+        {
+          "label": "damp_stained_appearance",
+          "bbox": [
+            235,
+            63,
+            171,
+            84
+          ],
+          "score": 0.27525559067726135,
+          "localization": "box_only"
+        },
+        {
+          "label": "damp_stained_appearance",
+          "bbox": [
+            167,
+            139,
+            112,
+            167
+          ],
+          "score": 0.2725342810153961,
+          "localization": "box_only"
+        },
+        {
+          "label": "damp_stained_appearance",
+          "bbox": [
+            220,
+            251,
+            33,
+            61
+          ],
+          "score": 0.2655907869338989,
+          "localization": "box_only"
+        },
+        {
+          "label": "damp_stained_appearance",
+          "bbox": [
+            122,
+            141,
+            109,
+            167
+          ],
+          "score": 0.2647668719291687,
+          "localization": "box_only"
+        },
+        {
+          "label": "damp_stained_appearance",
+          "bbox": [
+            244,
+            135,
+            173,
+            86
+          ],
+          "score": 0.26067888736724854,
+          "localization": "box_only"
+        },
+        {
+          "label": "damp_stained_appearance",
+          "bbox": [
+            201,
+            114,
+            153,
+            183
+          ],
+          "score": 0.2590773403644562,
+          "localization": "box_only"
+        },
+        {
+          "label": "damp_stained_appearance",
+          "bbox": [
+            242,
+            250,
+            156,
+            75
+          ],
+          "score": 0.2553607225418091,
+          "localization": "box_only"
+        },
+        {
+          "label": "damp_stained_appearance",
+          "bbox": [
+            313,
+            213,
+            62,
+            113
+          ],
+          "score": 0.25264179706573486,
+          "localization": "box_only"
+        },
+        {
+          "label": "damp_stained_appearance",
+          "bbox": [
+            89,
+            126,
+            99,
+            194
+          ],
+          "score": 0.25011906027793884,
+          "localization": "box_only"
+        }
+      ],
+      "cpuInferenceMs": 127.56329996045679
+    }
+  ]
+}

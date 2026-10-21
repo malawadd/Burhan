@@ -1,0 +1,646 @@
+{
+  "schemaVersion": 1,
+  "families": [
+    {
+      "id": "walls_finishes",
+      "title": "Walls and finishes",
+      "titleAr": "الجدران والتشطيبات"
+    },
+    {
+      "id": "brackets_railings",
+      "title": "Brackets and railings",
+      "titleAr": "الحوامل والدرابزين"
+    },
+    {
+      "id": "tile_installation",
+      "title": "Tile installation",
+      "titleAr": "تركيب البلاط"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "research:walls_finishes:damp_stained_appearance",
+      "family": "walls_finishes",
+      "categoryId": "damp_stained_appearance",
+      "title": "Damp / stained appearance",
+      "titleAr": "مظهر بقع أو رطوبة محتملة",
+      "stage": "research:walls_finishes",
+      "mode": "research",
+      "automatic": true,
+      "capabilityId": "damp_stained_appearance",
+      "researchOnly": true,
+      "scope": "MBDD publisher leakage boxes were trained as visible stain appearance; measured accuracy fails. The 47 positive/51 other-defect-negative TEST photos are not independent healthy-wall validation or moisture measurements.",
+      "guidance": "Show a sharp, evenly lit close-up and an intact neighbouring surface. Record the visible appearance and confirm it by inspection.",
+      "guidanceAr": "أظهر لقطة قريبة واضحة بإضاءة متجانسة مع جزء سليم مجاور. وثّق المظهر المرئي وتحقق منه بالفحص.",
+      "requiredEvidence": [
+        "surface overview",
+        "close-up evidence",
+        "inspector assessment"
+      ],
+      "modelId": "research-stain"
+    },
+    {
+      "id": "research:walls_finishes:mold_appearance",
+      "family": "walls_finishes",
+      "categoryId": "mold_appearance",
+      "title": "Mold-like appearance",
+      "titleAr": "مظهر شبيه بالعفن",
+      "stage": "research:walls_finishes",
+      "mode": "research",
+      "automatic": true,
+      "capabilityId": "mold_appearance",
+      "researchOnly": true,
+      "scope": "Public PHELE Mold labels were trained, but only 3 Mold-positive TEST photos exist, recall is poor, and physical sites are unknown. Appearance is not humidity or fungal diagnosis.",
+      "guidance": "Show a sharp, evenly lit close-up and an intact neighbouring surface. Record the visible appearance and confirm it by inspection.",
+      "guidanceAr": "أظهر لقطة قريبة واضحة بإضاءة متجانسة مع جزء سليم مجاور. وثّق المظهر المرئي وتحقق منه بالفحص.",
+      "requiredEvidence": [
+        "surface overview",
+        "close-up evidence",
+        "inspector assessment"
+      ],
+      "modelId": "research-phele"
+    },
+    {
+      "id": "research:walls_finishes:peeling_paint",
+      "family": "walls_finishes",
+      "categoryId": "peeling_paint",
+      "title": "Peeling paint",
+      "titleAr": "تقشر الطلاء",
+      "stage": "research:walls_finishes",
+      "mode": "research",
+      "automatic": true,
+      "capabilityId": "peeling_paint",
+      "researchOnly": true,
+      "scope": "PHELE box-labelled photographs were trained; 11 peeling-positive TEST photos show many misses and false alarms, with no independent building/video qualification.",
+      "guidance": "Show a sharp, evenly lit close-up and an intact neighbouring surface. Record the visible appearance and confirm it by inspection.",
+      "guidanceAr": "أظهر لقطة قريبة واضحة بإضاءة متجانسة مع جزء سليم مجاور. وثّق المظهر المرئي وتحقق منه بالفحص.",
+      "requiredEvidence": [
+        "surface overview",
+        "close-up evidence",
+        "inspector assessment"
+      ],
+      "modelId": "research-phele"
+    },
+    {
+      "id": "research:walls_finishes:paint_blister",
+      "family": "walls_finishes",
+      "categoryId": "paint_blister",
+      "title": "Paint blister",
+      "titleAr": "فقاعات الطلاء",
+      "stage": "research:walls_finishes",
+      "mode": "manual",
+      "automatic": false,
+      "capabilityId": "paint_blister",
+      "researchOnly": true,
+      "scope": "A public indoor-defects project was identified, but its annotated archive has not been acquired and accepted. No paint-blister model or validated masks are installed.",
+      "guidance": "Show a sharp, evenly lit close-up and an intact neighbouring surface. Record the visible appearance and confirm it by inspection.",
+      "guidanceAr": "أظهر لقطة قريبة واضحة بإضاءة متجانسة مع جزء سليم مجاور. وثّق المظهر المرئي وتحقق منه بالفحص.",
+      "requiredEvidence": [
+        "surface overview",
+        "close-up evidence",
+        "inspector assessment"
+      ]
+    },
+    {
+      "id": "research:walls_finishes:efflorescence",
+      "family": "walls_finishes",
+      "categoryId": "efflorescence",
+      "title": "Salt deposits / efflorescence",
+      "titleAr": "ترسبات الأملاح",
+      "stage": "research:walls_finishes",
+      "mode": "manual",
+      "automatic": false,
+      "capabilityId": "efflorescence",
+      "researchOnly": true,
+      "scope": "A real CC BY 4.0 Batalha limestone photo/mask source was partially audited at one known site; white-joint annotation scope needs review, and no local fit or qualified indoor-wall/video evaluation exists.",
+      "guidance": "Show a sharp, evenly lit close-up and an intact neighbouring surface. Record the visible appearance and confirm it by inspection.",
+      "guidanceAr": "أظهر لقطة قريبة واضحة بإضاءة متجانسة مع جزء سليم مجاور. وثّق المظهر المرئي وتحقق منه بالفحص.",
+      "requiredEvidence": [
+        "surface overview",
+        "close-up evidence",
+        "inspector assessment"
+      ]
+    },
+    {
+      "id": "research:walls_finishes:crack",
+      "family": "walls_finishes",
+      "categoryId": "crack",
+      "title": "Surface cracks",
+      "titleAr": "شقوق السطح",
+      "stage": "research:walls_finishes",
+      "mode": "manual",
+      "automatic": false,
+      "capabilityId": "crack",
+      "researchOnly": true,
+      "scope": "Legacy crack experiments and evaluations are retained; thin cracks, localization and false alarms remain unqualified. No new production release is established.",
+      "guidance": "Show a sharp, evenly lit close-up and an intact neighbouring surface. Record the visible appearance and confirm it by inspection.",
+      "guidanceAr": "أظهر لقطة قريبة واضحة بإضاءة متجانسة مع جزء سليم مجاور. وثّق المظهر المرئي وتحقق منه بالفحص.",
+      "requiredEvidence": [
+        "surface overview",
+        "close-up evidence",
+        "inspector assessment"
+      ]
+    },
+    {
+      "id": "research:walls_finishes:spalling",
+      "family": "walls_finishes",
+      "categoryId": "spalling",
+      "title": "Surface material loss",
+      "titleAr": "فقدان مادة السطح",
+      "stage": "research:walls_finishes",
+      "mode": "manual",
+      "automatic": false,
+      "capabilityId": "spalling",
+      "researchOnly": true,
+      "scope": "Legacy spalling experiments are retained and remain unqualified on real localization. Material loss is not automatically peeling paint or another finishing fault.",
+      "guidance": "Show a sharp, evenly lit close-up and an intact neighbouring surface. Record the visible appearance and confirm it by inspection.",
+      "guidanceAr": "أظهر لقطة قريبة واضحة بإضاءة متجانسة مع جزء سليم مجاور. وثّق المظهر المرئي وتحقق منه بالفحص.",
+      "requiredEvidence": [
+        "surface overview",
+        "close-up evidence",
+        "inspector assessment"
+      ]
+    },
+    {
+      "id": "research:walls_finishes:paint_run",
+      "family": "walls_finishes",
+      "categoryId": "paint_run",
+      "title": "Paint runs",
+      "titleAr": "سيلان الطلاء",
+      "stage": "research:walls_finishes",
+      "mode": "manual",
+      "automatic": false,
+      "capabilityId": "paint_run",
+      "researchOnly": true,
+      "scope": "No accepted real paint-run training labels or independent finish/lighting negatives are available; no detector has been trained for this category.",
+      "guidance": "Show a sharp, evenly lit close-up and an intact neighbouring surface. Record the visible appearance and confirm it by inspection.",
+      "guidanceAr": "أظهر لقطة قريبة واضحة بإضاءة متجانسة مع جزء سليم مجاور. وثّق المظهر المرئي وتحقق منه بالفحص.",
+      "requiredEvidence": [
+        "surface overview",
+        "close-up evidence",
+        "inspector assessment"
+      ]
+    },
+    {
+      "id": "research:walls_finishes:patchy_coverage",
+      "family": "walls_finishes",
+      "categoryId": "patchy_coverage",
+      "title": "Patchy coating",
+      "titleAr": "تفاوت تغطية الطلاء",
+      "stage": "research:walls_finishes",
+      "mode": "manual",
+      "automatic": false,
+      "capabilityId": "patchy_coverage",
+      "researchOnly": true,
+      "scope": "No accepted coating-coverage labels or controlled reference/lighting validation are available; shadows and intended texture cannot be treated as paint faults.",
+      "guidance": "Show a sharp, evenly lit close-up and an intact neighbouring surface. Record the visible appearance and confirm it by inspection.",
+      "guidanceAr": "أظهر لقطة قريبة واضحة بإضاءة متجانسة مع جزء سليم مجاور. وثّق المظهر المرئي وتحقق منه بالفحص.",
+      "requiredEvidence": [
+        "surface overview",
+        "close-up evidence",
+        "inspector assessment"
+      ]
+    },
+    {
+      "id": "research:walls_finishes:broken_sealant",
+      "family": "walls_finishes",
+      "categoryId": "broken_sealant",
+      "title": "Broken sealant",
+      "titleAr": "تلف مادة سد الفواصل",
+      "stage": "research:walls_finishes",
+      "mode": "manual",
+      "automatic": false,
+      "capabilityId": "broken_sealant",
+      "researchOnly": true,
+      "scope": "No accepted broken-sealant annotations or expected joint-detail validation are available; no detector is trained for this category.",
+      "guidance": "Show a sharp, evenly lit close-up and an intact neighbouring surface. Record the visible appearance and confirm it by inspection.",
+      "guidanceAr": "أظهر لقطة قريبة واضحة بإضاءة متجانسة مع جزء سليم مجاور. وثّق المظهر المرئي وتحقق منه بالفحص.",
+      "requiredEvidence": [
+        "surface overview",
+        "close-up evidence",
+        "inspector assessment"
+      ]
+    },
+    {
+      "id": "research:walls_finishes:missing_sealant",
+      "family": "walls_finishes",
+      "categoryId": "missing_sealant",
+      "title": "Missing sealant",
+      "titleAr": "غياب مادة سد الفواصل",
+      "stage": "research:walls_finishes",
+      "mode": "manual",
+      "automatic": false,
+      "capabilityId": "missing_sealant",
+      "researchOnly": true,
+      "scope": "No accepted missing-sealant labels or approved expected joint layout are available; no detector is trained for this category.",
+      "guidance": "Show a sharp, evenly lit close-up and an intact neighbouring surface. Record the visible appearance and confirm it by inspection.",
+      "guidanceAr": "أظهر لقطة قريبة واضحة بإضاءة متجانسة مع جزء سليم مجاور. وثّق المظهر المرئي وتحقق منه بالفحص.",
+      "requiredEvidence": [
+        "surface overview",
+        "close-up evidence",
+        "inspector assessment"
+      ]
+    },
+    {
+      "id": "research:walls_finishes:uneven_door_window_reveal",
+      "family": "walls_finishes",
+      "categoryId": "uneven_door_window_reveal",
+      "title": "Door / window reveal",
+      "titleAr": "انتظام حواف الأبواب والنوافذ",
+      "stage": "research:walls_finishes",
+      "mode": "manual",
+      "automatic": false,
+      "capabilityId": "uneven_door_window_reveal",
+      "researchOnly": true,
+      "scope": "No accepted reveal-gap labels, approved reference or independently measured installation validation are available.",
+      "guidance": "Show a sharp, evenly lit close-up and an intact neighbouring surface. Record the visible appearance and confirm it by inspection.",
+      "guidanceAr": "أظهر لقطة قريبة واضحة بإضاءة متجانسة مع جزء سليم مجاور. وثّق المظهر المرئي وتحقق منه بالفحص.",
+      "requiredEvidence": [
+        "surface overview",
+        "close-up evidence",
+        "inspector assessment"
+      ]
+    },
+    {
+      "id": "research:brackets_railings:missing_bolt",
+      "family": "brackets_railings",
+      "categoryId": "missing_bolt",
+      "title": "Expected bolt",
+      "titleAr": "وجود المسمار المطلوب",
+      "stage": "research:brackets_railings",
+      "mode": "manual",
+      "automatic": false,
+      "capabilityId": "missing_bolt",
+      "researchOnly": true,
+      "scope": "SDNET combines missing bolt/nut appearance rather than separate bolt absence. An installation finding also needs an expected layout and positively visible empty seat; no qualified model supplies those prerequisites.",
+      "guidance": "Show the whole connection, then its visible bolt and nut seats. Compare with the approved expected layout; appearance does not measure torque or anchorage.",
+      "guidanceAr": "أظهر الوصلة كاملة ثم مواضع المسامير والصواميل المرئية. قارن بالمخطط المعتمد؛ المظهر لا يقيس العزم أو كفاءة التثبيت.",
+      "requiredEvidence": [
+        "connection overview",
+        "close-up evidence",
+        "expected fastening layout",
+        "inspector assessment"
+      ]
+    },
+    {
+      "id": "research:brackets_railings:missing_nut",
+      "family": "brackets_railings",
+      "categoryId": "missing_nut",
+      "title": "Expected nut",
+      "titleAr": "وجود الصامولة المطلوبة",
+      "stage": "research:brackets_railings",
+      "mode": "manual",
+      "automatic": false,
+      "capabilityId": "missing_nut",
+      "researchOnly": true,
+      "scope": "SDNET combines missing bolt/nut appearance rather than separate nut absence. An expected layout and positively visible empty seat are required; detector silence never proves a missing nut.",
+      "guidance": "Show the whole connection, then its visible bolt and nut seats. Compare with the approved expected layout; appearance does not measure torque or anchorage.",
+      "guidanceAr": "أظهر الوصلة كاملة ثم مواضع المسامير والصواميل المرئية. قارن بالمخطط المعتمد؛ المظهر لا يقيس العزم أو كفاءة التثبيت.",
+      "requiredEvidence": [
+        "connection overview",
+        "close-up evidence",
+        "expected fastening layout",
+        "inspector assessment"
+      ]
+    },
+    {
+      "id": "research:brackets_railings:fastener_absence_appearance",
+      "family": "brackets_railings",
+      "categoryId": "fastener_absence_appearance",
+      "title": "Fastener-absence appearance",
+      "titleAr": "مظهر غياب مثبت",
+      "stage": "research:brackets_railings",
+      "mode": "research",
+      "automatic": true,
+      "capabilityId": "fastener_absence_appearance",
+      "researchOnly": true,
+      "scope": "SDNET publisher Missing appearance was trained for research. Source labels are incomplete and physical sites are unknown; it does not establish a required missing installation component or pass real-video release.",
+      "guidance": "Show the whole connection, then its visible bolt and nut seats. Compare with the approved expected layout; appearance does not measure torque or anchorage.",
+      "guidanceAr": "أظهر الوصلة كاملة ثم مواضع المسامير والصواميل المرئية. قارن بالمخطط المعتمد؛ المظهر لا يقيس العزم أو كفاءة التثبيت.",
+      "requiredEvidence": [
+        "connection overview",
+        "close-up evidence",
+        "expected fastening layout",
+        "inspector assessment"
+      ],
+      "modelId": "research-fasteners"
+    },
+    {
+      "id": "research:brackets_railings:visibly_unseated_connection",
+      "family": "brackets_railings",
+      "categoryId": "visibly_unseated_connection",
+      "title": "Visibly unseated bolt / nut",
+      "titleAr": "مظهر مسمار أو صامولة غير مستقر",
+      "stage": "research:brackets_railings",
+      "mode": "research",
+      "automatic": true,
+      "capabilityId": "visibly_unseated_connection",
+      "researchOnly": true,
+      "scope": "SDNET publisher Loosen connections were trained for research; incomplete labels, unknown sites and failed release evidence remain. Visible appearance does not measure torque, embedment or anchorage strength.",
+      "guidance": "Show the whole connection, then its visible bolt and nut seats. Compare with the approved expected layout; appearance does not measure torque or anchorage.",
+      "guidanceAr": "أظهر الوصلة كاملة ثم مواضع المسامير والصواميل المرئية. قارن بالمخطط المعتمد؛ المظهر لا يقيس العزم أو كفاءة التثبيت.",
+      "requiredEvidence": [
+        "connection overview",
+        "close-up evidence",
+        "expected fastening layout",
+        "inspector assessment"
+      ],
+      "modelId": "research-fasteners"
+    },
+    {
+      "id": "research:brackets_railings:corrosion_appearance",
+      "family": "brackets_railings",
+      "categoryId": "corrosion_appearance",
+      "title": "Connection corrosion appearance",
+      "titleAr": "مظهر تآكل الوصلة",
+      "stage": "research:brackets_railings",
+      "mode": "manual",
+      "automatic": false,
+      "capabilityId": "corrosion_appearance",
+      "researchOnly": true,
+      "scope": "Although advertised in metadata, the acquired SDNET annotation taxonomy has no corrosion class. No accepted steel-connection corrosion detector is established in this family.",
+      "guidance": "Show the whole connection, then its visible bolt and nut seats. Compare with the approved expected layout; appearance does not measure torque or anchorage.",
+      "guidanceAr": "أظهر الوصلة كاملة ثم مواضع المسامير والصواميل المرئية. قارن بالمخطط المعتمد؛ المظهر لا يقيس العزم أو كفاءة التثبيت.",
+      "requiredEvidence": [
+        "connection overview",
+        "close-up evidence",
+        "expected fastening layout",
+        "inspector assessment"
+      ]
+    },
+    {
+      "id": "research:tile_installation:joint_width",
+      "family": "tile_installation",
+      "categoryId": "joint_width",
+      "title": "Joint width",
+      "titleAr": "عرض الفاصل",
+      "stage": "research:tile_installation",
+      "mode": "manual",
+      "automatic": false,
+      "capabilityId": "joint_width",
+      "researchOnly": true,
+      "scope": "Only experimental parallel-edge spacing geometry is implemented. It is not a grout classifier; installed-floor data with independently measured widths is missing, so millimetre results and fault decisions are unqualified.",
+      "guidance": "Photograph the joint and surrounding tiles. Record the specified width/tolerance and a physical measurement; judge against the approved installation detail.",
+      "guidanceAr": "صوّر الفاصل والبلاط المحيط. سجّل العرض والسماحية المحددين وقياساً فعلياً، ثم راجع التفصيل المعتمد.",
+      "requiredEvidence": [
+        "overview photo",
+        "close-up evidence",
+        "approved specification / layout",
+        "physical measurements and instrument"
+      ]
+    },
+    {
+      "id": "research:tile_installation:joint_too_wide",
+      "family": "tile_installation",
+      "categoryId": "joint_too_wide",
+      "title": "Joint wider than specified",
+      "titleAr": "فاصل أعرض من المحدد",
+      "stage": "research:tile_installation",
+      "mode": "manual",
+      "automatic": false,
+      "capabilityId": "joint_too_wide",
+      "researchOnly": true,
+      "scope": "Requires identified grout joints, valid same-plane calibration, entered nominal width/tolerance and independently measured installed-floor validation; those release data are missing.",
+      "guidance": "Photograph the joint and surrounding tiles. Record the specified width/tolerance and a physical measurement; judge against the approved installation detail.",
+      "guidanceAr": "صوّر الفاصل والبلاط المحيط. سجّل العرض والسماحية المحددين وقياساً فعلياً، ثم راجع التفصيل المعتمد.",
+      "requiredEvidence": [
+        "overview photo",
+        "close-up evidence",
+        "approved specification / layout",
+        "physical measurements and instrument"
+      ]
+    },
+    {
+      "id": "research:tile_installation:joint_too_narrow",
+      "family": "tile_installation",
+      "categoryId": "joint_too_narrow",
+      "title": "Joint narrower than specified",
+      "titleAr": "فاصل أضيق من المحدد",
+      "stage": "research:tile_installation",
+      "mode": "manual",
+      "automatic": false,
+      "capabilityId": "joint_too_narrow",
+      "researchOnly": true,
+      "scope": "Requires identified grout joints, valid same-plane calibration, entered nominal width/tolerance and independently measured installed-floor validation; those release data are missing.",
+      "guidance": "Photograph the joint and surrounding tiles. Record the specified width/tolerance and a physical measurement; judge against the approved installation detail.",
+      "guidanceAr": "صوّر الفاصل والبلاط المحيط. سجّل العرض والسماحية المحددين وقياساً فعلياً، ثم راجع التفصيل المعتمد.",
+      "requiredEvidence": [
+        "overview photo",
+        "close-up evidence",
+        "approved specification / layout",
+        "physical measurements and instrument"
+      ]
+    },
+    {
+      "id": "research:tile_installation:inconsistent_spacing",
+      "family": "tile_installation",
+      "categoryId": "inconsistent_spacing",
+      "title": "Joint spacing consistency",
+      "titleAr": "اتساق تباعد الفواصل",
+      "stage": "research:tile_installation",
+      "mode": "manual",
+      "automatic": false,
+      "capabilityId": "inconsistent_spacing",
+      "researchOnly": true,
+      "scope": "Parallel-edge observations do not establish a tile grid. No accepted installed-floor spacing labels or independently measured validation support this decision.",
+      "guidance": "Photograph the joint and surrounding tiles. Record the specified width/tolerance and a physical measurement; judge against the approved installation detail.",
+      "guidanceAr": "صوّر الفاصل والبلاط المحيط. سجّل العرض والسماحية المحددين وقياساً فعلياً، ثم راجع التفصيل المعتمد.",
+      "requiredEvidence": [
+        "overview photo",
+        "close-up evidence",
+        "approved specification / layout",
+        "physical measurements and instrument"
+      ]
+    },
+    {
+      "id": "research:tile_installation:joint_alignment",
+      "family": "tile_installation",
+      "categoryId": "joint_alignment",
+      "title": "Joint line alignment",
+      "titleAr": "استقامة خط الفاصل",
+      "stage": "research:tile_installation",
+      "mode": "manual",
+      "automatic": false,
+      "capabilityId": "joint_alignment",
+      "researchOnly": true,
+      "scope": "No accepted installed-floor joint/grid annotations or project-reference alignment validation exist; reported edge angles alone are not a crooked-installation decision.",
+      "guidance": "Photograph the joint and surrounding tiles. Record the specified width/tolerance and a physical measurement; judge against the approved installation detail.",
+      "guidanceAr": "صوّر الفاصل والبلاط المحيط. سجّل العرض والسماحية المحددين وقياساً فعلياً، ثم راجع التفصيل المعتمد.",
+      "requiredEvidence": [
+        "overview photo",
+        "close-up evidence",
+        "approved specification / layout",
+        "physical measurements and instrument"
+      ]
+    },
+    {
+      "id": "research:tile_installation:row_misalignment",
+      "family": "tile_installation",
+      "categoryId": "row_misalignment",
+      "title": "Tile row alignment",
+      "titleAr": "محاذاة صفوف البلاط",
+      "stage": "research:tile_installation",
+      "mode": "manual",
+      "automatic": false,
+      "capabilityId": "row_misalignment",
+      "researchOnly": true,
+      "scope": "Requires a verified tile grid and expected row layout. No accepted installed-floor annotations or measured layout validation are available.",
+      "guidance": "Photograph the joint and surrounding tiles. Record the specified width/tolerance and a physical measurement; judge against the approved installation detail.",
+      "guidanceAr": "صوّر الفاصل والبلاط المحيط. سجّل العرض والسماحية المحددين وقياساً فعلياً، ثم راجع التفصيل المعتمد.",
+      "requiredEvidence": [
+        "overview photo",
+        "close-up evidence",
+        "approved specification / layout",
+        "physical measurements and instrument"
+      ]
+    },
+    {
+      "id": "research:tile_installation:missing_grout",
+      "family": "tile_installation",
+      "categoryId": "missing_grout",
+      "title": "Grout presence",
+      "titleAr": "وجود حشو الفواصل",
+      "stage": "research:tile_installation",
+      "mode": "manual",
+      "automatic": false,
+      "capabilityId": "missing_grout",
+      "researchOnly": true,
+      "scope": "No accepted real installed-joint grout-presence labels are available. Dark joints, shadows, decorative seams and intended open joints must be distinguished before detection can be released.",
+      "guidance": "Photograph the joint and surrounding tiles. Record the specified width/tolerance and a physical measurement; judge against the approved installation detail.",
+      "guidanceAr": "صوّر الفاصل والبلاط المحيط. سجّل العرض والسماحية المحددين وقياساً فعلياً، ثم راجع التفصيل المعتمد.",
+      "requiredEvidence": [
+        "overview photo",
+        "close-up evidence",
+        "approved specification / layout",
+        "physical measurements and instrument"
+      ]
+    },
+    {
+      "id": "research:tile_installation:cracked_tile",
+      "family": "tile_installation",
+      "categoryId": "cracked_tile",
+      "title": "Installed tile cracks",
+      "titleAr": "شقوق البلاط المركب",
+      "stage": "research:tile_installation",
+      "mode": "manual",
+      "automatic": false,
+      "capabilityId": "cracked_tile",
+      "researchOnly": true,
+      "scope": "Manufacturing-tile anomalies do not validate cracks in installed floors. Accepted installation data and real decorative-vein/reflection negatives are still missing.",
+      "guidance": "Photograph the joint and surrounding tiles. Record the specified width/tolerance and a physical measurement; judge against the approved installation detail.",
+      "guidanceAr": "صوّر الفاصل والبلاط المحيط. سجّل العرض والسماحية المحددين وقياساً فعلياً، ثم راجع التفصيل المعتمد.",
+      "requiredEvidence": [
+        "overview photo",
+        "close-up evidence",
+        "approved specification / layout",
+        "physical measurements and instrument"
+      ]
+    },
+    {
+      "id": "research:tile_installation:chipped_edge",
+      "family": "tile_installation",
+      "categoryId": "chipped_edge",
+      "title": "Tile edge damage",
+      "titleAr": "تلف حافة البلاط",
+      "stage": "research:tile_installation",
+      "mode": "manual",
+      "automatic": false,
+      "capabilityId": "chipped_edge",
+      "researchOnly": true,
+      "scope": "No accepted installed-tile edge-damage annotations and independent real-installation evaluation are available.",
+      "guidance": "Photograph the joint and surrounding tiles. Record the specified width/tolerance and a physical measurement; judge against the approved installation detail.",
+      "guidanceAr": "صوّر الفاصل والبلاط المحيط. سجّل العرض والسماحية المحددين وقياساً فعلياً، ثم راجع التفصيل المعتمد.",
+      "requiredEvidence": [
+        "overview photo",
+        "close-up evidence",
+        "approved specification / layout",
+        "physical measurements and instrument"
+      ]
+    },
+    {
+      "id": "research:tile_installation:broken_corner",
+      "family": "tile_installation",
+      "categoryId": "broken_corner",
+      "title": "Tile corner damage",
+      "titleAr": "تلف زاوية البلاط",
+      "stage": "research:tile_installation",
+      "mode": "manual",
+      "automatic": false,
+      "capabilityId": "broken_corner",
+      "researchOnly": true,
+      "scope": "No accepted installed-tile corner-fracture annotations and independent real-installation evaluation are available.",
+      "guidance": "Photograph the joint and surrounding tiles. Record the specified width/tolerance and a physical measurement; judge against the approved installation detail.",
+      "guidanceAr": "صوّر الفاصل والبلاط المحيط. سجّل العرض والسماحية المحددين وقياساً فعلياً، ثم راجع التفصيل المعتمد.",
+      "requiredEvidence": [
+        "overview photo",
+        "close-up evidence",
+        "approved specification / layout",
+        "physical measurements and instrument"
+      ]
+    },
+    {
+      "id": "research:tile_installation:missing_tile",
+      "family": "tile_installation",
+      "categoryId": "missing_tile",
+      "title": "Expected tile presence",
+      "titleAr": "وجود البلاطة المطلوبة",
+      "stage": "research:tile_installation",
+      "mode": "manual",
+      "automatic": false,
+      "capabilityId": "missing_tile",
+      "researchOnly": true,
+      "scope": "Requires an expected installation layout and visible intended tile position. No accepted missing-installed-tile data/reference evaluation is available.",
+      "guidance": "Photograph the joint and surrounding tiles. Record the specified width/tolerance and a physical measurement; judge against the approved installation detail.",
+      "guidanceAr": "صوّر الفاصل والبلاط المحيط. سجّل العرض والسماحية المحددين وقياساً فعلياً، ثم راجع التفصيل المعتمد.",
+      "requiredEvidence": [
+        "overview photo",
+        "close-up evidence",
+        "approved specification / layout",
+        "physical measurements and instrument"
+      ]
+    },
+    {
+      "id": "research:tile_installation:open_perimeter_joint",
+      "family": "tile_installation",
+      "categoryId": "open_perimeter_joint",
+      "title": "Perimeter joint detail",
+      "titleAr": "تفصيل الفاصل المحيطي",
+      "stage": "research:tile_installation",
+      "mode": "manual",
+      "automatic": false,
+      "capabilityId": "open_perimeter_joint",
+      "researchOnly": true,
+      "scope": "No accepted perimeter-joint labels or approved joint detail are available; an intentionally open movement joint is not automatically a fault.",
+      "guidance": "Photograph the joint and surrounding tiles. Record the specified width/tolerance and a physical measurement; judge against the approved installation detail.",
+      "guidanceAr": "صوّر الفاصل والبلاط المحيط. سجّل العرض والسماحية المحددين وقياساً فعلياً، ثم راجع التفصيل المعتمد.",
+      "requiredEvidence": [
+        "overview photo",
+        "close-up evidence",
+        "approved specification / layout",
+        "physical measurements and instrument"
+      ]
+    },
+    {
+      "id": "research:tile_installation:misaligned_skirting",
+      "family": "tile_installation",
+      "categoryId": "misaligned_skirting",
+      "title": "Skirting alignment",
+      "titleAr": "محاذاة الوزرة",
+      "stage": "research:tile_installation",
+      "mode": "manual",
+      "automatic": false,
+      "capabilityId": "misaligned_skirting",
+      "researchOnly": true,
+      "scope": "No accepted skirting-installation alignment labels, project reference or measured validation are available.",
+      "guidance": "Photograph the joint and surrounding tiles. Record the specified width/tolerance and a physical measurement; judge against the approved installation detail.",
+      "guidanceAr": "صوّر الفاصل والبلاط المحيط. سجّل العرض والسماحية المحددين وقياساً فعلياً، ثم راجع التفصيل المعتمد.",
+      "requiredEvidence": [
+        "overview photo",
+        "close-up evidence",
+        "approved specification / layout",
+        "physical measurements and instrument"
+      ]
+    }
+  ],
+  "releasedCategories": []
+}
