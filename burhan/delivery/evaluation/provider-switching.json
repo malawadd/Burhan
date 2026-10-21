@@ -1,0 +1,45 @@
+{
+  "testedAt": "2026-10-21T03:01:52Z",
+  "endpoint": "https://merhaba-api.kiyan.finance",
+  "scope": "Isolated restarted API instances with real provider selection/readiness; live public tunnel remains on codex.",
+  "appRebuiltForSwitch": false,
+  "switches": [
+    {
+      "provider": "codex",
+      "health": {
+        "status": "ok",
+        "provider": "codex",
+        "ready": true
+      },
+      "persistedPairingAccepted": true
+    },
+    {
+      "provider": "aws",
+      "health": {
+        "status": "ok",
+        "provider": "aws",
+        "ready": false
+      },
+      "persistedPairingAccepted": true
+    },
+    {
+      "provider": "off",
+      "health": {
+        "status": "ok",
+        "provider": "off",
+        "ready": false
+      },
+      "persistedPairingAccepted": true
+    },
+    {
+      "provider": "codex",
+      "health": {
+        "status": "ok",
+        "provider": "codex",
+        "ready": true
+      },
+      "persistedPairingAccepted": true
+    }
+  ],
+  "awsLiveInference": "Not run: no AWS credentials/model access available. SDK request contract tested separately."
+}

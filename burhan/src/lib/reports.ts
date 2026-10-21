@@ -2,6 +2,8 @@ import {Capacitor} from '@capacitor/core';
 import {BurhanNative} from '../native';
 import type {AppState,Language,Report} from '../types';
 import {escapeHtml as esc,safeImage,snapshotReport} from './core.mjs';
+import {smartReportHtml} from './smart-report.mjs';
+import {evidenceMetadataHtml} from './evidence-report.mjs';
 import {imageSrc,uid} from './store';
 import arabicCatalogue from '../../assets/catalogue-ar.json';
 
@@ -25,8 +27,9 @@ export function reportHtml(report:Report):string{
   <section class="meta"><div><b>${text('project')}</b>${esc(project.name)}</div><div><b>${text('location')}</b>${esc(inspection.location||l.unknown)}</div><div><b>${text('inspector')}</b>${esc(inspection.inspector||l.unknown)}</div><div><b>${text('date')}</b>${esc(new Date(report.createdAt).toLocaleString(lang==='ar'?'ar-SA':'en-GB',{timeZone:'Asia/Riyadh',calendar:'gregory'}))} (UTC+3)</div></section>
   <h2>${text('scope')}</h2><p>${esc(value(inspection.mode))} · ${esc(stageLabel)} · ${esc(value(inspection.status))}</p>
   <section class="stats"><span>${text('confirmed')}: ${findings.filter(f=>f.review==='confirmed').length}</span><span>${text('pending')}: ${findings.filter(f=>f.review==='unreviewed').length}</span><span>${text('dismissed')}: ${findings.filter(f=>f.review==='dismissed').length}</span></section>
-  <h2>${text('findings')}</h2>${findings.length?findings.map((f,index)=>`<article class="finding"><h3>${index+1}. ${esc(f.label)}</h3><p>${text('review')}: <b>${esc(value(f.review))}</b> · ${text('status')}: ${esc(value(f.status))} · ${text('priority')}: ${esc(value(f.priority))}</p><p><b>${text('notes')}</b><br>${esc(f.notes||'—')}</p><p><b>${text('action')}</b><br>${esc(f.action||'—')}</p>${f.observation?`<p class="muted">${text('model')}: ${esc(f.observation.modelId)} · ${text('score')}: ${(f.observation.score*100).toFixed(1)}% · ${esc(f.observation.capturedAt)}</p>`:''}<div class="images">${f.evidence.flatMap(e=>[image(e.original,l.before),image(e.annotated,l.overlay)]).join('')}${f.followUp.map(e=>image(e.original,l.after)).join('')}</div></article>`).join(''):`<p>${text('none')}</p>`}
+  <h2>${text('findings')}</h2>${findings.length?findings.map((f,index)=>`<article class="finding"><h3>${index+1}. ${esc(f.label)}</h3><p>${text('review')}: <b>${esc(value(f.review))}</b> · ${text('status')}: ${esc(value(f.status))} · ${text('priority')}: ${esc(value(f.priority))}</p><p><b>${text('notes')}</b><br>${esc(f.notes||'—')}</p><p><b>${text('action')}</b><br>${esc(f.action||'—')}</p>${f.observation?`<p class="muted">${text('model')}: ${esc(f.observation.modelId)} · ${text('score')}: ${(f.observation.score*100).toFixed(1)}% · ${esc(f.observation.capturedAt)}</p>`:''}<div class="images">${f.evidence.flatMap(e=>[image(e.original,l.before),image(e.annotated,e.annotations?.shapes.length?(lang==='ar'?'دليل مع تعليقات المفتش':'Evidence with inspector markup'):l.overlay),e.detectorBaseline&&e.detectorBaseline!==e.annotated?image(e.detectorBaseline,lang==='ar'?'خط أساس الكاشف':'Detector baseline'):'',evidenceMetadataHtml(e,report.language)]).join('')}${f.followUp.map(e=>image(e.annotated,l.after)+evidenceMetadataHtml(e,report.language)).join('')}</div></article>`).join(''):`<p>${text('none')}</p>`}
   <h2>${text('checks')}</h2><table>${Object.entries(inspection.checklist).map(([key,v])=>`<tr><td>${esc(checkLabel(key))}</td><td>${esc(value(v))}</td></tr>`).join('')}</table>
+  ${smartReportHtml(inspection.smart,report.language)}
   <h2>${text('limitations')}</h2><p>${text('limit')}</p>${recordedModels.map(m=>`<div class="muted" style="overflow-wrap:anywhere"><b>${text('model')}: ${esc(m.id)}</b><br>SHA-256: <bdi dir="ltr">${esc(m.sha256)}</bdi><br>${esc(m.runtime)} · ${m.inputSize}px · ${esc(m.preprocessing)} · confidence ${m.confidence} · NMS ${m.nms}</div>`).join('')}<p class="muted">${esc(report.summary)}</p><footer>Burhan · ${text('signed')} · <bdi dir="ltr">${esc(report.createdAt)}</bdi></footer></main></body></html>`;
 }
 export async function dataUri(path:string):Promise<string>{
@@ -36,7 +39,7 @@ export async function dataUri(path:string):Promise<string>{
 }
 export async function exportReport(report:Report):Promise<void>{
   const copy=structuredClone(report);
-  for(const f of copy.snapshot.findings)for(const e of [...f.evidence,...f.followUp]){e.original=await dataUri(e.original);e.annotated=await dataUri(e.annotated);}
+  for(const f of copy.snapshot.findings)for(const e of [...f.evidence,...f.followUp]){e.original=await dataUri(e.original);e.annotated=await dataUri(e.annotated);if(e.detectorBaseline)e.detectorBaseline=await dataUri(e.detectorBaseline);}
   let html=reportHtml(copy);
   for(const font of ['NotoSansArabic-Regular.ttf','NotoSans-Regular.ttf']){
     const r=await fetch(`/fonts/${font}`);if(!r.ok)throw new Error('Report font unavailable');

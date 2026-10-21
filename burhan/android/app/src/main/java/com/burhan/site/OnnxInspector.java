@@ -75,13 +75,15 @@ final class OnnxInspector implements AutoCloseable {
         StringBuilder hash=new StringBuilder();for(byte value:digest.digest())hash.append(String.format(Locale.ROOT,"%02x",value&255));
         if(!hash.toString().equals(next.getString("sha256")))throw new IOException("Model integrity check failed: "+id);
         OrtSession.SessionOptions options=new OrtSession.SessionOptions();options.setIntraOpNumThreads(Math.min(4,Math.max(1,Runtime.getRuntime().availableProcessors()/2)));options.setInterOpNumThreads(1);options.addConfigEntry("session.intra_op.allow_spinning","0");
+        // Detector selection must never retain two live networks on a midrange phone.
+        if(session!=null){session.close();session=null;}loadedId=null;
         OrtSession replacement;try{replacement=ENV.createSession(target.getAbsolutePath(),options);}finally{options.close();}
-        if(session!=null)session.close();session=replacement;spec=next;loadedId=id;size=spec.getInt("inputSize");threshold=(float)spec.optDouble("confidence",.25);
+        session=replacement;spec=next;loadedId=id;size=spec.getInt("inputSize");threshold=(float)spec.optDouble("confidence",.25);
         JSONArray classes=spec.getJSONArray("classes");labels=new String[classes.length()];for(int i=0;i<labels.length;i++)labels[i]=classes.getString(i);
     }
     synchronized Frame infer(Bitmap bitmap,String id) throws Exception {
         load(id);long start=android.os.SystemClock.elapsedRealtime();Frame frame=new Frame();frame.image=bitmap;frame.modelId=id;
-        frame.modelInfo=new JSONObject().put("sha256",spec.getString("sha256")).put("inputSize",size).put("preprocessing",spec.getString("preprocessing")).put("confidence",threshold).put("nms",spec.optDouble("nms",.45)).put("runtime","onnxruntime-android@1.23.2/CPU");
+        frame.modelInfo=new JSONObject().put("sha256",spec.getString("sha256")).put("inputSize",size).put("preprocessing",spec.getString("preprocessing")).put("confidence",threshold).put("nms",spec.optDouble("nms",.45)).put("runtime","onnxruntime-android@1.23.2/CPU;OpenCV@"+Core.VERSION);
         Mat rgba=new Mat(),bgr=new Mat(),resized=new Mat();Utils.bitmapToMat(bitmap,rgba);Imgproc.cvtColor(rgba,bgr,Imgproc.COLOR_RGBA2BGR);rgba.release();
         boolean dacl=spec.getString("kind").equals("dacl");float sx=(float)size/bitmap.getWidth(),sy=(float)size/bitmap.getHeight();int px=0,py=0;
         try {

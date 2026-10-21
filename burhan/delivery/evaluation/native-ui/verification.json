@@ -1,0 +1,44 @@
+{
+  "status": "passed",
+  "version": "1.2.0",
+  "verifiedAt": "2026-10-21T05:06:32.803Z",
+  "framework": "Robolectric 4.16.1 / SDK35 native graphics / actual Android Material Views",
+  "tests": 14,
+  "cases": [
+    "manualInspectionKeepsCaptureAndSurfaceOptionsWithoutGuideControls",
+    "subtleHintSelectsWithoutCapturingAndHidesForWarningsAndDetails",
+    "arabicLandscapeAtDoubleFontScalePreservesPersistentActions",
+    "readinessCountAndIndependentGuideCameraStateDoNotTriggerCaptures",
+    "fullGuidanceAlternativesAndGuideControlsAreAvailableInSheetWithoutCapturing",
+    "landscape640x360UsesCameraBesideControls",
+    "unpairedGuideStillOffersInstalledChecksWithoutRemoteSuggestions",
+    "compactDoubleFontWarningKeepsCameraAndPersistentActionsVisible",
+    "english360x800RendersActualMaterialCameraHierarchy",
+    "hintHorizontalSwipeDismissesWithoutSelectingOrCapturing",
+    "arabic360x800LargeTextKeepsEssentialControlsReachable",
+    "englishCompact320x640KeepsCameraAndCaptureActionsVisible",
+    "clearingSceneSuggestionsRemovesOldChoicesFromAnAlreadyOpenSheet",
+    "englishCompactAtDoubleFontScalePreservesPersistentActions"
+  ],
+  "screenshots": [
+    "inspection-ar-360x800-font160.png",
+    "inspection-ar-640x360-font200.png",
+    "inspection-en-320x640-font100.png",
+    "inspection-en-320x640-font200-camera-paused.png",
+    "inspection-en-320x640-font200-warning.png",
+    "inspection-en-320x640-font200.png",
+    "inspection-en-360x800-font100.png",
+    "inspection-en-360x800-subtle-hint.png",
+    "inspection-en-640x360-font100.png"
+  ],
+  "scope": "Camera UI rendered with a blank preview fixture. No camera, model, network request or physical device was started by these layout tests.",
+  "coverage": [
+    "320x640 and 360x800 portrait; 640x360 landscape",
+    "English and Arabic; normal, 160% and 200% text",
+    "Persistent capture/import/review bounds, target sizes, label clipping and word boundaries",
+    "Storage warning, readiness, saved count and independent camera/guide state",
+    "Full guidance, manual mode, offline installed detector choices and stale alternative removal",
+    "Subtle hint tap/swipe behavior without a new card; selected state preserved on dismissal"
+  ],
+  "phoneValidation": "Pending on the user's phone; layout renders do not validate hardware camera, focus or thermal performance."
+}

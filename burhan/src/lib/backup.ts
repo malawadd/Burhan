@@ -13,7 +13,7 @@ export async function exportBackup(state:AppState):Promise<void>{
     const key='media/'+[...new Uint8Array(id)].map(b=>b.toString(16).padStart(2,'0')).join('')+'.txt';media[key]=strToU8(uri);return 'backup:'+key;
   };
   const evidence=copy.findings.flatMap(f=>[...f.evidence,...f.followUp]).concat(copy.reports.flatMap(r=>r.snapshot.findings.flatMap(f=>[...f.evidence,...f.followUp])));
-  for(const e of evidence){e.original=await convert(e.original);e.annotated=await convert(e.annotated);}
+  for(const e of evidence){e.original=await convert(e.original);e.annotated=await convert(e.annotated);if(e.detectorBaseline)e.detectorBaseline=await convert(e.detectorBaseline);}
   media['burhan.json']=strToU8(JSON.stringify({format:'burhan-backup',version:1,state:copy}));
   const zipped=zipSync(media,{level:1});
   if(zipped.byteLength>200*1024*1024)throw new Error('Backup exceeds 200 MB limit. Export individual reports and reduce evidence before retrying.');
@@ -42,8 +42,9 @@ export async function importBackup(file:File):Promise<AppState>{
   const data=JSON.parse(strFromU8(files['burhan.json']));if(data.format!=='burhan-backup'||data.version!==1)throw new Error('Unsupported backup');
   const state=validateState(data.state);
   const evidence=state.findings.flatMap(f=>[...f.evidence,...f.followUp]).concat(state.reports.flatMap(r=>r.snapshot.findings.flatMap(f=>[...f.evidence,...f.followUp])));
-  for(const e of evidence)for(const field of ['original','annotated'] as const){
-    const ref=e[field];if(!ref.startsWith('backup:'))throw new Error('Nonportable backup evidence');
+  for(const e of evidence)for(const field of ['original','annotated','detectorBaseline'] as const){
+    if(field==='detectorBaseline'&&!e[field])continue;
+    const ref=e[field]!;if(!ref.startsWith('backup:'))throw new Error('Nonportable backup evidence');
     const key=ref.slice(7);const bytes=files[key];if(!bytes)throw new Error('Missing backup evidence');
     const uri=strFromU8(bytes);const digest=await crypto.subtle.digest('SHA-256',strToU8(uri));
     const expected='media/'+[...new Uint8Array(digest)].map(b=>b.toString(16).padStart(2,'0')).join('')+'.txt';

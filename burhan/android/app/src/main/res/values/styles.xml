@@ -9,6 +9,19 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="AppTheme.InspectionCamera" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">#FFD43B</item>
+        <item name="colorOnPrimary">#111315</item>
+        <item name="colorSecondary">#FFD43B</item>
+        <item name="colorOnSecondary">#111315</item>
+        <item name="colorSurface">#171B1F</item>
+        <item name="colorOnSurface">#F4F2EA</item>
+        <item name="android:windowBackground">#111315</item>
+        <item name="android:fontFamily">sans</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+    </style>
+
     <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>

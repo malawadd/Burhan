@@ -23,3 +23,15 @@ test('restore rejects nested malformed metadata and traversal archive names',asy
   await assert.rejects(()=>importBackup(new File([bytes],'bad.zip')),/updatedAt/);
   const bad=zipSync({'../burhan.json':strToU8('{}')});await assert.rejects(()=>importBackup(new File([bad],'bad.zip')),/Unexpected/);
 });
+
+
+test('new capture source, baseline and normalized markup survive ZIP round trip with immutable report media',async()=>{
+  const state=make();const e=state.findings[0].evidence[0];e.captureSource='photo';e.detectorBaseline=png;e.annotations={version:1,shapes:[{kind:'ellipse',points:[.1,.1,.9,.9]}]};
+  state.reports=[{id:'r',inspectionId:'i',version:1,language:'en',createdAt:time,summary:'Saved report',snapshot:structuredClone({project:state.projects[0],inspection:state.inspections[0],findings:state.findings})}];
+  e.annotated='data:image/png;base64,TkVX';
+  const originalCreate=URL.createObjectURL;const originalDocument=globalThis.document;globalThis.document={createElement(){return {click(){}};}};URL.createObjectURL=blob=>{downloaded=blob;return 'blob:test';};
+  try{await exportBackup(state);}finally{URL.createObjectURL=originalCreate;globalThis.document=originalDocument;}
+  const bytes=new Uint8Array(await downloaded.arrayBuffer());const restored=await importBackup(new File([bytes],'backup.zip'));
+  assert.deepEqual(restored.findings[0].evidence[0],e);assert.equal(restored.reports[0].snapshot.findings[0].evidence[0].annotated,png);
+  assert.equal(Object.keys(unzipSync(bytes)).filter(k=>k.startsWith('media/')).length,2);
+});

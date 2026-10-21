@@ -1,5 +1,5 @@
 import {readFileSync} from 'node:fs';import {unzipSync} from 'fflate';
-const filename=process.argv[2]??'delivery/Burhan-v1.0.0-debug.apk';
+const filename=process.argv[2]??'delivery/'+JSON.parse(readFileSync('delivery/build-metadata.json','utf8')).apk;
 const libraries=unzipSync(new Uint8Array(readFileSync(filename)),{filter:f=>/^lib\/arm64-v8a\/.*\.so$/.test(f.name)});
 let count=0;
 for(const [name,data]of Object.entries(libraries)){

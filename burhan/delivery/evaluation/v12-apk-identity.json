@@ -1,0 +1,10 @@
+{
+  "version": "1.2.0",
+  "versionCode": 4,
+  "verifiedAt": "2026-10-21T05:06:27.7450793Z",
+  "package": "com.burhan.site",
+  "apkSha256": "2ac237dbe7cf00ff93e265a6a9e08376b0cdd8f3398f909782e4231de0798ab1",
+  "signatureMatchesVersion": "1.1.1",
+  "certificateSha256": "Signer #1 certificate SHA-256 digest: d85cab46c9cdcf86dfb3409e3b46f0a2c190f62cfa9737c700bbe0eb3be4734f",
+  "status": "passed"
+}

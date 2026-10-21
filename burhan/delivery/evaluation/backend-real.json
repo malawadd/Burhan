@@ -1,0 +1,361 @@
+{
+  "testedAt": "2026-10-21T02:46:57Z",
+  "endpoint": "https://merhaba-api.kiyan.finance",
+  "provider": "codex",
+  "source": {
+    "file": "dacl10k_v2_train_5577.jpg",
+    "sha256": "b89ab4206d4afbdce606427354b2326e81e17e2f1ed14e647641a2c094baff17"
+  },
+  "scope": "Two real provider turns; second image deliberately loses detail. Not a scene or defect accuracy benchmark.",
+  "turns": [
+    {
+      "id": "ae4RJ0eisBR0Y9Ev43oqAy00",
+      "status": "completed",
+      "sceneVersion": 1,
+      "provider": "codex",
+      "result": {
+        "scene": {
+          "environment": "unknown",
+          "description": "Heavily fractured transparent panels in a yellow metal frame, with mesh behind and debris near the base. The installation's purpose and setting are uncertain.",
+          "confidence": 0.94
+        },
+        "guidance": "From a safe distance, use camera zoom to capture a closer, straight-on view of the lower-right panel and its frame edges; keep focus on the fracture pattern and reduce glare.",
+        "reason": "The supplied sharpness and exposure metrics support closer visual documentation. Apparent glazing fractures require human assessment; the photograph cannot establish glass type, retention, dimensions or compliance.",
+        "suggestions": [
+          {
+            "taskId": "glazing-openings",
+            "title": "Inspect apparent glazing fractures and retention",
+            "mode": "manual",
+            "reason": "Check panel damage and edge retention because loose fragments may present a hazard. Have a competent glazing inspector review close views, safety-glazing identification and approved details; physically verify dimensions when access is controlled.",
+            "automatic": false
+          },
+          {
+            "taskId": "housekeeping-traffic",
+            "title": "Inspect debris and nearby access",
+            "mode": "manual",
+            "reason": "Check the visible debris near the base for possible sharp fragments and pedestrian exposure. Have site personnel inspect the surrounding route and arrange controlled cleanup.",
+            "automatic": false
+          }
+        ],
+        "actions": [
+          {
+            "id": "view-glazing",
+            "type": "request_view",
+            "mode": "manual",
+            "taskId": "glazing-openings",
+            "instruction": "From a safe distance, zoom in on the lower-right panel and frame edges, keeping the fracture pattern sharp and minimizing glare."
+          },
+          {
+            "id": "context-glazing",
+            "type": "ask_context",
+            "mode": "manual",
+            "taskId": "glazing-openings",
+            "instruction": "Identify this installation's purpose and whether people can currently access either side."
+          },
+          {
+            "id": "manual-glazing",
+            "type": "request_manual_check",
+            "mode": "manual",
+            "taskId": "glazing-openings",
+            "instruction": "Have a competent glazing inspector assess fragment retention, edge supports and safety-glazing identification under controlled access. Obtain physical measurements and compare with approved installation details; do not press or handle the panels."
+          }
+        ],
+        "needsHumanReview": true
+      },
+      "durationSeconds": 23.24
+    },
+    {
+      "id": "xC5F2v7ByXOGDYpsrGWWD-d1",
+      "status": "completed",
+      "sceneVersion": 2,
+      "provider": "codex",
+      "result": {
+        "scene": {
+          "environment": "unknown",
+          "description": "Severely blurred view; materials, installation type and possible damage cannot be identified reliably. Earlier glazing observations remain unconfirmed.",
+          "confidence": 0.98
+        },
+        "guidance": "Hold the camera still at your current distance, tap to refocus on the previously targeted lower-right area, and capture one sharp image.",
+        "reason": "Severe visible blur and Laplacian variance of 1.05 make detail assessment unreliable. Exposure metrics show no substantial clipping, so restore focus first. Previous action acknowledgments do not establish that inspection occurred.",
+        "suggestions": [
+          {
+            "taskId": "glazing-openings",
+            "title": "Continue the pending opening close-up",
+            "mode": "manual",
+            "reason": "Keep the earlier inspection pending until a sharp view and human identification establish what is present; then review any visible panel and frame condition. This image cannot confirm glazing or fractures.",
+            "automatic": false
+          }
+        ],
+        "actions": [
+          {
+            "id": "refocus-pending-view",
+            "type": "request_view",
+            "mode": "manual",
+            "taskId": "glazing-openings",
+            "instruction": "Hold still at your current distance, tap to refocus on the previously targeted lower-right area, and capture one sharp image."
+          },
+          {
+            "id": "clarify-installation",
+            "type": "ask_context",
+            "mode": "manual",
+            "taskId": "glazing-openings",
+            "instruction": "Identify the installation and its material, and state whether this view is indoors, outdoors or at a boundary between them."
+          }
+        ],
+        "needsHumanReview": true
+      },
+      "durationSeconds": 30.83
+    }
+  ],
+  "trace": {
+    "sessionId": "va5C1GRAfIlxvg-SvA-OWpv6",
+    "events": [
+      {
+        "type": "perception",
+        "turnId": "ae4RJ0eisBR0Y9Ev43oqAy00",
+        "at": 1792550820.3590093,
+        "data": {
+          "sceneVersion": 1,
+          "context": {
+            "mode": "manual",
+            "locked": false,
+            "activeTaskId": "",
+            "completedTaskIds": [],
+            "correction": "",
+            "evidenceCount": 0,
+            "observations": [],
+            "quality": {
+              "source": "integration-test-original"
+            },
+            "backendQuality": {
+              "opencvVersion": "5.0.0",
+              "width": 1024,
+              "height": 768,
+              "laplacianVariance": 1098.82,
+              "meanBrightness": 112.08,
+              "darkFraction": 0.0054,
+              "brightFraction": 0.0131
+            }
+          }
+        }
+      },
+      {
+        "type": "decision",
+        "turnId": "ae4RJ0eisBR0Y9Ev43oqAy00",
+        "at": 1792550840.8069482,
+        "data": {
+          "plan": {
+            "scene": {
+              "environment": "unknown",
+              "description": "Heavily fractured transparent panels in a yellow metal frame, with mesh behind and debris near the base. The installation's purpose and setting are uncertain.",
+              "confidence": 0.94
+            },
+            "guidance": "From a safe distance, use camera zoom to capture a closer, straight-on view of the lower-right panel and its frame edges; keep focus on the fracture pattern and reduce glare.",
+            "reason": "The supplied sharpness and exposure metrics support closer visual documentation. Apparent glazing fractures require human assessment; the photograph cannot establish glass type, retention, dimensions or compliance.",
+            "suggestions": [
+              {
+                "taskId": "glazing-openings",
+                "title": "Inspect apparent glazing fractures and retention",
+                "mode": "manual",
+                "reason": "Check panel damage and edge retention because loose fragments may present a hazard. Have a competent glazing inspector review close views, safety-glazing identification and approved details; physically verify dimensions when access is controlled.",
+                "automatic": false
+              },
+              {
+                "taskId": "housekeeping-traffic",
+                "title": "Inspect debris and nearby access",
+                "mode": "manual",
+                "reason": "Check the visible debris near the base for possible sharp fragments and pedestrian exposure. Have site personnel inspect the surrounding route and arrange controlled cleanup.",
+                "automatic": false
+              }
+            ],
+            "actions": [
+              {
+                "id": "view-glazing",
+                "type": "request_view",
+                "mode": "manual",
+                "taskId": "glazing-openings",
+                "instruction": "From a safe distance, zoom in on the lower-right panel and frame edges, keeping the fracture pattern sharp and minimizing glare."
+              },
+              {
+                "id": "context-glazing",
+                "type": "ask_context",
+                "mode": "manual",
+                "taskId": "glazing-openings",
+                "instruction": "Identify this installation's purpose and whether people can currently access either side."
+              },
+              {
+                "id": "manual-glazing",
+                "type": "request_manual_check",
+                "mode": "manual",
+                "taskId": "glazing-openings",
+                "instruction": "Have a competent glazing inspector assess fragment retention, edge supports and safety-glazing identification under controlled access. Obtain physical measurements and compare with approved installation details; do not press or handle the panels."
+              }
+            ],
+            "needsHumanReview": true
+          },
+          "metrics": {
+            "engine": "codex-cli",
+            "usage": {
+              "input_tokens": 20423,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 419,
+              "reasoning_output_tokens": 0
+            },
+            "durationMs": 20445
+          }
+        }
+      },
+      {
+        "type": "tool_results",
+        "turnId": "ae4RJ0eisBR0Y9Ev43oqAy00",
+        "at": 1792550843.5167315,
+        "data": {
+          "turnId": "ae4RJ0eisBR0Y9Ev43oqAy00",
+          "sceneVersion": 1,
+          "results": [
+            {
+              "actionId": "view-glazing",
+              "status": "accepted",
+              "detail": "API verification acknowledged this suggestion; no physical inspection action was performed."
+            },
+            {
+              "actionId": "context-glazing",
+              "status": "accepted",
+              "detail": "API verification acknowledged this suggestion; no physical inspection action was performed."
+            },
+            {
+              "actionId": "manual-glazing",
+              "status": "accepted",
+              "detail": "API verification acknowledged this suggestion; no physical inspection action was performed."
+            }
+          ]
+        }
+      },
+      {
+        "type": "perception",
+        "turnId": "xC5F2v7ByXOGDYpsrGWWD-d1",
+        "at": 1792550859.5761275,
+        "data": {
+          "sceneVersion": 2,
+          "context": {
+            "mode": "manual",
+            "locked": false,
+            "activeTaskId": "",
+            "completedTaskIds": [],
+            "correction": "",
+            "evidenceCount": 0,
+            "observations": [],
+            "quality": {
+              "source": "integration-test-deliberately-defocused"
+            },
+            "backendQuality": {
+              "opencvVersion": "5.0.0",
+              "width": 1024,
+              "height": 768,
+              "laplacianVariance": 1.05,
+              "meanBrightness": 111.98,
+              "darkFraction": 0.0,
+              "brightFraction": 0.0
+            }
+          }
+        }
+      },
+      {
+        "type": "decision",
+        "turnId": "xC5F2v7ByXOGDYpsrGWWD-d1",
+        "at": 1792550889.2709029,
+        "data": {
+          "plan": {
+            "scene": {
+              "environment": "unknown",
+              "description": "Severely blurred view; materials, installation type and possible damage cannot be identified reliably. Earlier glazing observations remain unconfirmed.",
+              "confidence": 0.98
+            },
+            "guidance": "Hold the camera still at your current distance, tap to refocus on the previously targeted lower-right area, and capture one sharp image.",
+            "reason": "Severe visible blur and Laplacian variance of 1.05 make detail assessment unreliable. Exposure metrics show no substantial clipping, so restore focus first. Previous action acknowledgments do not establish that inspection occurred.",
+            "suggestions": [
+              {
+                "taskId": "glazing-openings",
+                "title": "Continue the pending opening close-up",
+                "mode": "manual",
+                "reason": "Keep the earlier inspection pending until a sharp view and human identification establish what is present; then review any visible panel and frame condition. This image cannot confirm glazing or fractures.",
+                "automatic": false
+              }
+            ],
+            "actions": [
+              {
+                "id": "refocus-pending-view",
+                "type": "request_view",
+                "mode": "manual",
+                "taskId": "glazing-openings",
+                "instruction": "Hold still at your current distance, tap to refocus on the previously targeted lower-right area, and capture one sharp image."
+              },
+              {
+                "id": "clarify-installation",
+                "type": "ask_context",
+                "mode": "manual",
+                "taskId": "glazing-openings",
+                "instruction": "Identify the installation and its material, and state whether this view is indoors, outdoors or at a boundary between them."
+              }
+            ],
+            "needsHumanReview": true
+          },
+          "metrics": {
+            "engine": "codex-cli",
+            "usage": {
+              "input_tokens": 21054,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 303,
+              "reasoning_output_tokens": 0
+            },
+            "durationMs": 28437
+          }
+        }
+      },
+      {
+        "type": "tool_results",
+        "turnId": "xC5F2v7ByXOGDYpsrGWWD-d1",
+        "at": 1792550891.702698,
+        "data": {
+          "turnId": "xC5F2v7ByXOGDYpsrGWWD-d1",
+          "sceneVersion": 2,
+          "results": [
+            {
+              "actionId": "refocus-pending-view",
+              "status": "accepted",
+              "detail": "API verification acknowledged this suggestion; no physical inspection action was performed."
+            },
+            {
+              "actionId": "clarify-installation",
+              "status": "accepted",
+              "detail": "API verification acknowledged this suggestion; no physical inspection action was performed."
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "qualityRespondedTo": [
+    {
+      "opencvVersion": "5.0.0",
+      "width": 1024,
+      "height": 768,
+      "laplacianVariance": 1098.82,
+      "meanBrightness": 112.08,
+      "darkFraction": 0.0054,
+      "brightFraction": 0.0131
+    },
+    {
+      "opencvVersion": "5.0.0",
+      "width": 1024,
+      "height": 768,
+      "laplacianVariance": 1.05,
+      "meanBrightness": 111.98,
+      "darkFraction": 0.0,
+      "brightFraction": 0.0
+    }
+  ],
+  "guidanceChanged": true
+}

@@ -28,7 +28,8 @@
 
         </activity>
 
-        <activity android:name=".ScanActivity" android:exported="false" android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ScanActivity" android:exported="false" android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|screenLayout|uiMode|density" android:theme="@style/AppTheme.InspectionCamera" />
+        <activity android:name=".CameraSettingsActivity" android:exported="false" android:theme="@style/AppTheme.InspectionCamera" />
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.fileprovider"

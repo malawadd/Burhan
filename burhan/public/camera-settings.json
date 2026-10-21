@@ -1,0 +1,229 @@
+{
+  "schemaVersion": 1,
+  "settings": [
+    {
+      "key": "aiSuggestionHints",
+      "default": true,
+      "group": "assistance",
+      "nativeOnly": false,
+      "label": {
+        "en": "AI suggestion hints",
+        "ar": "تلميحات المساعد"
+      },
+      "description": {
+        "en": "Show one subtle suggestion; explanations remain in Details.",
+        "ar": "عرض اقتراح مختصر واحد، والشروحات في التفاصيل."
+      }
+    },
+    {
+      "key": "volumeButtonCapture",
+      "default": true,
+      "group": "capture",
+      "nativeOnly": true,
+      "label": {
+        "en": "Volume-button capture",
+        "ar": "التقاط بزر الصوت"
+      },
+      "description": {
+        "en": "One photo per volume-key press while scanning.",
+        "ar": "صورة واحدة لكل ضغطة زر صوت أثناء المسح."
+      }
+    },
+    {
+      "key": "pinchToZoom",
+      "default": true,
+      "group": "capture",
+      "nativeOnly": true,
+      "label": {
+        "en": "Pinch to zoom",
+        "ar": "التكبير بإصبعين"
+      },
+      "description": {
+        "en": "Use the camera’s supported zoom range.",
+        "ar": "استخدام نطاق التكبير الذي تدعمه الكاميرا."
+      }
+    },
+    {
+      "key": "quickCaptureReview",
+      "default": true,
+      "group": "review",
+      "nativeOnly": false,
+      "label": {
+        "en": "Quick capture review",
+        "ar": "مراجعة سريعة للصور"
+      },
+      "description": {
+        "en": "Review recent evidence and continue using the camera.",
+        "ar": "مراجعة الأدلة الحديثة ثم متابعة الكاميرا."
+      }
+    },
+    {
+      "key": "undoLastCapture",
+      "default": true,
+      "group": "review",
+      "nativeOnly": false,
+      "label": {
+        "en": "Undo last capture",
+        "ar": "التراجع عن آخر التقاط"
+      },
+      "description": {
+        "en": "Five seconds to undo the newly saved photo only.",
+        "ar": "خمس ثوانٍ للتراجع عن الصورة المحفوظة للتو فقط."
+      }
+    },
+    {
+      "key": "keepScreenAwake",
+      "default": true,
+      "group": "capture",
+      "nativeOnly": false,
+      "label": {
+        "en": "Keep screen awake",
+        "ar": "إبقاء الشاشة مضاءة"
+      },
+      "description": {
+        "en": "Keep the screen on during active scanning.",
+        "ar": "إبقاء الشاشة مضاءة أثناء المسح النشط."
+      }
+    },
+    {
+      "key": "doubleTapProtection",
+      "default": true,
+      "group": "capture",
+      "nativeOnly": false,
+      "label": {
+        "en": "Accidental double-tap protection",
+        "ar": "منع الالتقاط المزدوج بالخطأ"
+      },
+      "description": {
+        "en": "Add a short shutter cooldown. Saving always remains protected.",
+        "ar": "إضافة مهلة قصيرة بين اللقطات. تبقى حماية الحفظ مفعلة دائماً."
+      }
+    },
+    {
+      "key": "captureHaptics",
+      "default": true,
+      "group": "capture",
+      "nativeOnly": true,
+      "label": {
+        "en": "Capture haptics",
+        "ar": "اهتزاز تأكيد الالتقاط"
+      },
+      "description": {
+        "en": "Confirm successful storage with a brief vibration.",
+        "ar": "تأكيد الحفظ باهتزاز قصير."
+      }
+    },
+    {
+      "key": "rememberLastZoom",
+      "default": true,
+      "group": "capture",
+      "nativeOnly": true,
+      "label": {
+        "en": "Remember last zoom",
+        "ar": "تذكّر آخر تكبير"
+      },
+      "description": {
+        "en": "Restore supported zoom; flash and focus lock stay off.",
+        "ar": "استعادة التكبير المدعوم دون تشغيل الفلاش أو قفل التركيز."
+      }
+    },
+    {
+      "key": "liveDetectionOverlays",
+      "default": true,
+      "group": "assistance",
+      "nativeOnly": false,
+      "label": {
+        "en": "Show live detection overlays",
+        "ar": "عرض علامات الكشف المباشر"
+      },
+      "description": {
+        "en": "Show detector marks over the preview. Keep saved evidence.",
+        "ar": "عرض علامات الكاشف فوق المعاينة مع الاحتفاظ بالأدلة."
+      }
+    },
+    {
+      "key": "focusLock",
+      "default": false,
+      "group": "capture",
+      "nativeOnly": true,
+      "label": {
+        "en": "Long-press focus lock",
+        "ar": "قفل التركيز بالضغط المطوّل"
+      },
+      "description": {
+        "en": "Hold to lock focus; tap again to release.",
+        "ar": "اضغط مطولاً لقفل التركيز، ثم انقر لتحريره."
+      }
+    },
+    {
+      "key": "framingGrid",
+      "default": false,
+      "group": "framing",
+      "nativeOnly": false,
+      "label": {
+        "en": "Framing grid",
+        "ar": "شبكة التكوين"
+      },
+      "description": {
+        "en": "Show a rule-of-thirds guide.",
+        "ar": "عرض شبكة لتقسيم الإطار إلى أثلاث."
+      }
+    },
+    {
+      "key": "cameraLevel",
+      "default": false,
+      "group": "framing",
+      "nativeOnly": true,
+      "label": {
+        "en": "Camera level",
+        "ar": "ميزان الكاميرا"
+      },
+      "description": {
+        "en": "Show phone orientation, not building alignment.",
+        "ar": "عرض اتجاه الهاتف، ولا يقيس استقامة المبنى."
+      }
+    },
+    {
+      "key": "higherDetailPhotos",
+      "default": false,
+      "group": "capture",
+      "nativeOnly": true,
+      "label": {
+        "en": "Higher-detail photos",
+        "ar": "صور بتفاصيل أعلى"
+      },
+      "description": {
+        "en": "Use photo capture up to 2048 pixels when supported. Cloud thumbnails stay bounded.",
+        "ar": "التقاط صور حتى ٢٠٤٨ بكسل عند الدعم، دون زيادة حجم صور السحابة المصغّرة."
+      }
+    },
+    {
+      "key": "photoMarkup",
+      "default": false,
+      "group": "review",
+      "nativeOnly": false,
+      "label": {
+        "en": "Photo markup",
+        "ar": "التعليق على الصور"
+      },
+      "description": {
+        "en": "Draw arrows and circles in Review while preserving the original.",
+        "ar": "رسم أسهم ودوائر أثناء المراجعة مع الاحتفاظ بالأصل."
+      }
+    },
+    {
+      "key": "individualPhotoSharing",
+      "default": false,
+      "group": "review",
+      "nativeOnly": false,
+      "label": {
+        "en": "Individual photo sharing",
+        "ar": "مشاركة صورة منفردة"
+      },
+      "description": {
+        "en": "Share the selected original or annotated photo explicitly.",
+        "ar": "مشاركة الصورة الأصلية أو المعلّق عليها باختيارك."
+      }
+    }
+  ]
+}

@@ -24,6 +24,33 @@ public class BurhanNativePlugin extends Plugin {
     private WebView printView;
     private volatile boolean scanning;
     private final Map<String,File> backupFiles=new ConcurrentHashMap<>();
+    @PluginMethod public void getCameraPreferences(PluginCall call){io.execute(()->{try{JSObject result=new JSObject();result.put("preferences",CameraPreferences.read(getContext()));call.resolve(result);}catch(Exception e){call.reject("Cannot read camera preferences",e);}});}
+    @PluginMethod public void setCameraPreferences(PluginCall call){io.execute(()->{try{JSObject updates=call.getObject("preferences");if(updates==null)throw new IllegalArgumentException("Camera preferences required");JSObject result=new JSObject();result.put("preferences",CameraPreferences.write(getContext(),updates));call.resolve(result);}catch(Exception e){call.reject("Cannot save camera preferences",e);}});}
+    @PluginMethod public void sharePhoto(PluginCall call){
+        String source=call.getString("uri");if(source==null){call.reject("Photo required");return;}
+        io.execute(()->{File copy=null;try{
+            File folder=new File(getContext().getCacheDir(),"shared-backups");if(!folder.exists()&&!folder.mkdirs())throw new IOException("Sharing folder unavailable");
+            String mime="image/jpeg",extension="jpg";byte[] bytes=null;File original=null;
+            if(source.startsWith("data:image/")){
+                int comma=source.indexOf(',');if(comma<0||comma>40||source.length()>45*1024*1024)throw new IOException("Photo too large for sharing");
+                String header=source.substring(0,comma);if(!header.matches("data:image/(jpeg|jpg|png|webp);base64"))throw new IOException("Unsupported photo type");
+                if(header.contains("png")){mime="image/png";extension="png";}else if(header.contains("webp")){mime="image/webp";extension="webp";}
+                bytes=Base64.decode(source.substring(comma+1),Base64.DEFAULT);
+            }else{
+                Uri parsed=Uri.parse(source);if(!"file".equals(parsed.getScheme())||parsed.getPath()==null)throw new IOException("Photo must be local evidence");
+                original=new File(parsed.getPath()).getCanonicalFile();String allowed=getContext().getFilesDir().getCanonicalPath()+File.separator;
+                if(!original.getPath().startsWith(allowed)||!original.isFile())throw new IOException("Photo is not available in this workspace");
+            }
+            long length=bytes==null?original.length():bytes.length;if(length<=0||folder.getUsableSpace()<length+1024*1024)throw new IOException("Insufficient sharing storage");
+            copy=new File(folder,"Burhan-photo-"+UUID.randomUUID()+"."+extension);
+            if(bytes!=null){try(FileOutputStream out=new FileOutputStream(copy)){out.write(bytes);out.getFD().sync();}}else java.nio.file.Files.copy(original.toPath(),copy.toPath());
+            Uri uri=FileProvider.getUriForFile(getContext(),getContext().getPackageName()+".fileprovider",copy);
+            Intent share=new Intent(Intent.ACTION_SEND).setType(mime).putExtra(Intent.EXTRA_STREAM,uri).addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);share.setClipData(android.content.ClipData.newRawUri("Burhan evidence",uri));
+            getActivity().runOnUiThread(()->{try{getActivity().startActivity(Intent.createChooser(share,"Share Burhan photo"));call.resolve();}catch(Exception error){call.reject("Cannot open photo sharing",error);}});
+        }catch(Exception error){if(copy!=null)copy.delete();call.reject("Cannot share photo",error);}});
+    }
+    @PluginMethod public void getSmartSettings(PluginCall call){io.execute(()->{try{call.resolve(JSObject.fromJSONObject(SmartSettings.get(getContext())));}catch(Exception e){call.reject("Cannot read secure pairing settings; pair this device again",e);}});}
+    @PluginMethod public void setSmartSettings(PluginCall call){io.execute(()->{try{SmartSettings.set(getContext(),call.getString("url",SmartSettings.DEFAULT_URL),call.getString("token",""));call.resolve();}catch(Exception e){call.reject("Cannot save secure pairing settings",e);}});}
     @PluginMethod public void beginBackup(PluginCall call){
         String filename=call.getString("filename","Burhan-backup.zip");if(!filename.matches("[A-Za-z0-9._-]+\\.zip")){call.reject("Valid ZIP filename required");return;}
         io.execute(()->{try{File directory=new File(getContext().getCacheDir(),"shared-backups");if(!directory.exists()&&!directory.mkdirs())throw new IOException("Backup folder unavailable");String id=UUID.randomUUID().toString();File archive=new File(directory,id+"-"+filename);if(!archive.createNewFile())throw new IOException("Cannot start backup archive");backupFiles.put(id,archive);JSObject result=new JSObject();result.put("id",id);call.resolve(result);}catch(Exception e){call.reject("Cannot start backup",e);}});
@@ -85,11 +112,13 @@ public class BurhanNativePlugin extends Plugin {
         scanning=true;
         Intent intent=new Intent(getActivity(), ScanActivity.class);
         intent.putExtra("inspectionId",id);intent.putExtra("mode",mode);intent.putExtra("autoSave",call.getBoolean("autoSave",true));intent.putExtra("language",call.getString("language","en"));intent.putExtra("followUp",call.getBoolean("followUp",false));intent.putExtra("findingId",call.getString("findingId"));
+        intent.putExtra("smart",call.getBoolean("smart",false));intent.putExtra("backendUrl",call.getString("backendUrl"));intent.putExtra("backendToken",call.getString("backendToken"));intent.putExtra("smartSessionId",call.getString("smartSessionId"));intent.putExtra("stage",call.getString("stage",""));intent.putExtra("taskId",call.getString("taskId",""));intent.putExtra("location",call.getString("location",""));
         startActivityForResult(call,intent,"scanFinished");
     }
     @ActivityCallback private void scanFinished(PluginCall call, ActivityResult result) {
         scanning=false;if(call==null)return;
-        io.execute(() -> {try {call.resolve(captures(call.getString("inspectionId")));}catch(Exception e){call.reject("Saved evidence remains recoverable; reload inspection",e);} });
+        String smart=result.getData()==null?null:result.getData().getStringExtra("smart");
+        io.execute(() -> {try {JSObject response=captures(call.getString("inspectionId"));if(smart!=null)response.put("smart",new JSONObject(smart));call.resolve(response);}catch(Exception e){call.reject("Saved evidence remains recoverable; reload inspection",e);} });
     }
     /** Uses the platform print dialog, supporting Save as PDF, Arabic shaping and paging. */
     @PluginMethod public void printReport(PluginCall call) {

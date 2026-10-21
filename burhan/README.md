@@ -1,15 +1,28 @@
 # Burhan · برهان
 
-An offline construction inspection workspace with native Android live camera analysis, reviewed findings, corrective actions, inspection history and English/Arabic reports. Dark neobrutalist interface with accessible field controls.
+Construction inspection with offline Android detection, an adaptive camera guide, reviewed findings, corrective actions and English/Arabic reports. Smart Inspection uses a paired backend to interpret scenes and decide which evidence to collect next. Dark neobrutalist interface with accessible field controls.
 
 ## Start here
 
-- **Install:** copy `delivery/Burhan-v1.0.0-debug.apk` to an ARM64 Android 12+ phone, open it and permit installation from the app you used to open the file. Burhan requests camera permission when you scan.
-- **Use:** create a project → new inspection → select stage/task and analysis mode → start live inspection → collect evidence → review findings → complete checks → generate report.
+- **Install:** copy `delivery/Burhan-v1.2.0-debug.apk` to an ARM64 Android 12+ phone. Keep the previous installation to preserve data; this update uses the same package/signing identity. Export a backup first.
+- **Smart Inspection:** start `backend/start.ps1 -Install`, obtain the pairing code from its terminal, then pair in Burhan Settings using `https://merhaba-api.kiyan.finance`. Tap **Start Smart Inspection**, start the assistant and point the camera. See [the Smart Inspection guide](docs/smart-inspection.md).
+- **Manual/offline use:** create a project → new inspection → select stage/task and analysis mode → collect evidence → review findings → complete checks → generate report. This remains available without a backend.
 - **Reports:** saved inside Burhan as immutable versions. **Export PDF** opens Android's print dialog: choose **Save as PDF**, A4, and save to your chosen folder.
 - **Back up:** Settings → Export backup → save the ZIP outside the app. Uninstalling or clearing app storage removes local inspections and evidence.
 
 Read [the English field guide](docs/user-guide-en.md) or [دليل الاستخدام العربي](docs/user-guide-ar.md). See [build instructions](docs/developer-guide.md), [models and limitations](docs/model-notes.md), and [physical-device checks](docs/device-checklist.md).
+
+Version 1.2.0 adds explicit Explore/check selection, tappable and swipeable AI hints, and independent Camera & Capture preferences. [Settings and camera tools](docs/camera-settings.md). The native camera keeps one current check, a short next instruction, yellow Capture evidence, and a saved-evidence Review count. Full guidance, alternative/installed checks and assistant controls open in a Material bottom sheet. Camera pause and guide pause are labelled separately. Large text uses stacked actions; landscape places controls beside the camera. [Native camera layout and verification](docs/camera-interface.md).
+
+## One backend, three modes
+
+Edit `backend/.env` and restart the backend:
+
+```env
+SMART_INSPECTION_PROVIDER=codex
+```
+
+Use `codex` for the installed, signed-in CLI, `aws` for Bedrock Nova 2 Lite, or `off` to disable remote guidance. The phone keeps the same backend URL; no APK rebuild is needed. Codex runs on the developer PC but uses online inference and the signed-in account's usage limits. AWS needs backend credentials/model access; it is not silently used as a fallback. See [backend setup and API documentation](backend/README.md).
 
 ## Browser preview — no emulator
 
@@ -57,4 +70,4 @@ This is a personal field prototype using existing experimental models. It is not
 
 The Python-output numerical decoder checks and all four Web WASM model executions pass. Browser resizing introduces explicitly measured pixel differences; see `tests/fixtures/README.md`. No Android phone was connected during initial development: hardware camera, native inference, thermal endurance, Android PDF/share and native data recovery require the physical-device checklist. Consult `delivery/verification.json` for the exact delivered checks.
 
-Source, assets, Android project, build scripts and guides are all inside this folder. No Python service or internet is needed by the installed app. Build dependency downloads require internet on a fresh development machine.
+Source, assets, Android project, backend, build scripts and guides are all inside this folder. Offline detection requires neither Python nor internet. Scene-aware Smart Inspection requires the paired backend and online provider; snapshots are transmitted only while the assistant is enabled. Build dependency downloads require internet on a fresh development machine.

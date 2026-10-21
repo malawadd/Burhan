@@ -1,0 +1,17 @@
+{
+  "version": "1.2.0",
+  "verifiedAt": "2026-10-21T04:46:25.903375+00:00",
+  "publicBaseUrl": "https://merhaba-api.kiyan.finance",
+  "health": {
+    "status": "ok",
+    "provider": "codex",
+    "ready": true
+  },
+  "authenticatedSession": true,
+  "eventAccepted": true,
+  "eventRetryDeduplicated": true,
+  "checkEventCount": 1,
+  "sessionClosed": true,
+  "physicalPhoneUsed": false,
+  "scope": "Actual HTTPS domain -> tunnel -> restarted local backend; paired test client. No camera or model inference in this connectivity check."
+}

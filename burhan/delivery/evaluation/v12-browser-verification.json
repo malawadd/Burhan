@@ -1,0 +1,123 @@
+{
+  "version": "1.2.0",
+  "at": "2026-10-21T04:54:19.830329+00:00",
+  "browser": "Microsoft Edge via isolated Playwright CLI session burhan-v12",
+  "servedUrl": "http://127.0.0.1:4173/",
+  "backendUrl": "https://merhaba-api.kiyan.finance",
+  "physicalPhoneTested": false,
+  "realChecks": {
+    "settings": {
+      "count": 16,
+      "browserSwitchesOffOn": 9,
+      "hardwareOnlySwitchesDisabled": 7,
+      "persistenceAfterReload": true
+    },
+    "publicDevicePairing": true,
+    "selectDeselectExplore": true,
+    "completeReturnsExplore": true,
+    "actualOfflineModel": {
+      "model": "crack",
+      "observation": "crack 52%",
+      "detectorOnlyAfterSelection": true,
+      "overlayClearedOnDeselect": true
+    },
+    "importAndUndo": {
+      "exactSessionCaptureRemoved": true,
+      "countAfterUndo": 0,
+      "savedAgain": true
+    },
+    "review": {
+      "originalAndAnnotated": true,
+      "arrowSaved": true,
+      "normalizedCoordinates": [
+        0.2,
+        0.2,
+        0.6,
+        0.6
+      ],
+      "originalAndDetectorBaselinePreserved": true,
+      "dimensions": [
+        768,
+        1024
+      ],
+      "captureSource": "import",
+      "retakeSuccessKeepsCount": 1,
+      "quickReviewOffReturnsToFindings": true
+    },
+    "cameraSettingsRoundTrip": {
+      "evidencePreserved": true,
+      "selectedCheckPreserved": true
+    },
+    "smartAgent": {
+      "provider": "codex",
+      "publicTunnelUsed": true,
+      "sessionId": "q0DopqaglN-jx7f1kI48myX2",
+      "actualTurns": 2,
+      "durationsMs": [
+        15689,
+        17098
+      ],
+      "proposal": "Visible cracks / joints",
+      "beforeTap": "Exploring",
+      "afterTap": "Visible cracks / joints",
+      "afterStop": "Exploring",
+      "realSwipeDismissedHint": true,
+      "swipePreservedCurrentCheck": true,
+      "authenticatedEvents": [
+        "proposed",
+        "selected",
+        "stopped",
+        "dismissed"
+      ],
+      "noDetectorExecutionClaimedBeforeSelection": true
+    }
+  },
+  "injectedChecks": {
+    "retakeStorageFailure": "IDBObjectStore.put deliberately throws QuotaExceededError; prior photo and count1 preserved; retry succeeded",
+    "browserShareFallback": "navigator.canShare deliberately false; real JPEG download observed"
+  },
+  "unitChecks": [
+    "same-scene dismissal suppression",
+    "minimum60second suppression across scene changes",
+    "completion/active/dismissed recommendation filtering",
+    "target-bound pending guidance",
+    "retake task association",
+    "capture commit rebases concurrent remote history; stale generic snapshots skipped",
+    "failed durable replacement preserves previous evidence"
+  ],
+  "pending": [
+    "Physical CameraX/volume/pinch/focus/rotation and device sensor tests; JVM/browser tests do not replace these."
+  ],
+  "screenshots": [
+    "v12-browser-hint.png",
+    "v12-browser-selected.png",
+    "v12-browser-dismissed.png",
+    "v12-browser-settings.png",
+    "v12-browser-review.png",
+    "v12-browser-compact-header.png"
+  ],
+  "completedAt": "2026-10-21T04:56:31.834267+00:00",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "finalBundleVerified": "/assets/index-DQIXMHb7.js",
+  "screenshotNotes": "All viewport-only 390\u00d7844. Hint/dismissed show real Codex plans; selected/settings/review recaptured against final web bundle. Root may apply final cosmetic header changes after these captures. Root recaptured compact header after final CSS and startup-cooldown fix; postQa identifies the final bundle.",
+  "postQa": {
+    "at": "2026-10-21T05:02:11.727867+00:00",
+    "bundle": "/assets/index-BQ0H7Xyp.js",
+    "rapidFirstImportStored": true,
+    "countAfterRapidFirstImport": 1,
+    "saveConfirmationOnlyAfterStorage": true,
+    "headerHeight": 52,
+    "headerButtonMinimumWidth": 48,
+    "headerButtonMinimumHeight": 48,
+    "viewportWidth": 390,
+    "settingsModalZ": 240,
+    "undoZ": 230,
+    "modalAboveUndo": true,
+    "sourceReviewed": [
+      "Browser image share preserves original MIME/extension"
+    ]
+  }
+}

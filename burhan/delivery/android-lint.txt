@@ -1,3 +1,22 @@
+C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\src\main\java\com\burhan\site\InspectionCameraUi.java:126: Warning: Implicitly using the default locale is a common source of bugs: Use toLowerCase(Locale) instead. For strings meant to be internal use Locale.ROOT, otherwise Locale.getDefault(). [DefaultLocale]
+    public void setTask(String title,String detector){task=title==null?"":title;mode=detector==null?"manual":detector;taskTitle.setText(task.isEmpty()?(smart?t("Looking around","استكشاف المنطقة"):modeTitle(mode)):task);taskMode.setText(smart&&selectedTaskId.isEmpty()&&"manual".equals(mode)?t("Exploring · detector inactive","استكشاف · الكاشف غير نشط"):"manual".equals(mode)?t("Manual evidence · you confirm findings","توثيق يدوي · أنت تؤكد النتائج"):t("On-device "+modeTitle(mode).toLowerCase()+" · review observations","كشف على الجهاز: "+modeTitle(mode)+" · راجع الملاحظات"));refreshSheet();}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ~~~~~~~~~~~
+
+   Explanation for issues of type "DefaultLocale":
+   Calling String#toLowerCase() or #toUpperCase() without specifying an
+   explicit locale is a common source of bugs. The reason for that is that
+   those methods will use the current locale on the user's device, and even
+   though the code appears to work correctly when you are developing the app,
+   it will fail in some locales. For example, in the Turkish locale, the
+   uppercase replacement for i is not I.
+
+   If you want the methods to just perform ASCII replacement, for example to
+   convert an enum name, call String#toUpperCase(Locale.ROOT) instead. If you
+   really want to use the current locale, call
+   String#toUpperCase(Locale.getDefault()) instead.
+
+   https://developer.android.com/reference/java/util/Locale.html#default_locale
+
 C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\gradle\wrapper\gradle-wrapper.properties:3: Warning: A newer version of Gradle than 8.14.3 is available: 8.14.6 [AndroidGradlePluginVersion]
 distributionUrl=https\://services.gradle.org/distributions/gradle-8.14.3-all.zip
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -9,22 +28,25 @@ distributionUrl=https\://services.gradle.org/distributions/gradle-8.14.3-all.zip
    with an older version. However, you may simply not be aware that a more
    recent version is available, and that is what this lint check helps find.
 
-C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\build.gradle:36: Warning: A newer version of androidx.camera:camera-camera2 than 1.5.1 is available: 1.6.2 [GradleDependency]
+C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\build.gradle:37: Warning: A newer version of com.google.android.material:material than 1.13.0 is available: 1.14.0 [GradleDependency]
+    implementation 'com.google.android.material:material:1.13.0'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\build.gradle:38: Warning: A newer version of androidx.camera:camera-camera2 than 1.5.1 is available: 1.6.2 [GradleDependency]
     implementation 'androidx.camera:camera-camera2:1.5.1'
                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\build.gradle:37: Warning: A newer version of androidx.camera:camera-lifecycle than 1.5.1 is available: 1.6.2 [GradleDependency]
+C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\build.gradle:39: Warning: A newer version of androidx.camera:camera-lifecycle than 1.5.1 is available: 1.6.2 [GradleDependency]
     implementation 'androidx.camera:camera-lifecycle:1.5.1'
                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\build.gradle:38: Warning: A newer version of androidx.camera:camera-view than 1.5.1 is available: 1.6.2 [GradleDependency]
+C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\build.gradle:40: Warning: A newer version of androidx.camera:camera-view than 1.5.1 is available: 1.6.2 [GradleDependency]
     implementation 'androidx.camera:camera-view:1.5.1'
                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\build.gradle:41: Warning: A newer version of androidx.room:room-runtime than 2.8.3 is available: 2.8.5 [GradleDependency]
+C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\build.gradle:43: Warning: A newer version of androidx.room:room-runtime than 2.8.3 is available: 2.8.5 [GradleDependency]
     implementation 'androidx.room:room-runtime:2.8.3'
                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\build.gradle:42: Warning: A newer version of androidx.room:room-compiler than 2.8.3 is available: 2.8.5 [GradleDependency]
+C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\build.gradle:44: Warning: A newer version of androidx.room:room-compiler than 2.8.3 is available: 2.8.5 [GradleDependency]
     annotationProcessor 'androidx.room:room-compiler:2.8.3'
                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\build.gradle:44: Warning: A newer version of androidx.appcompat:appcompat than 1.7.1 is available: 1.8.0 [GradleDependency]
+C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\build.gradle:46: Warning: A newer version of androidx.appcompat:appcompat than 1.7.1 is available: 1.8.0 [GradleDependency]
     implementation "androidx.appcompat:appcompat:$androidxAppCompatVersion"
                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -35,12 +57,12 @@ C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\build.gradle
    However, you may simply not be aware that a more recent version is
    available, and that is what this lint check helps find.
 
-C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\build.gradle:39: Warning: A newer version of com.microsoft.onnxruntime:onnxruntime-android than 1.23.2 is available: 1.31.0 [NewerVersionAvailable]
+C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\build.gradle:41: Warning: A newer version of com.microsoft.onnxruntime:onnxruntime-android than 1.23.2 is available: 1.31.0 [NewerVersionAvailable]
     implementation 'com.microsoft.onnxruntime:onnxruntime-android:1.23.2'
                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\build.gradle:40: Warning: A newer version of org.opencv:opencv than 4.12.0 is available: 5.0.0.1 [NewerVersionAvailable]
-    implementation 'org.opencv:opencv:4.12.0'
-                   ~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\build.gradle:51: Warning: A newer version of org.robolectric:robolectric than 4.16.1 is available: 4.17 [NewerVersionAvailable]
+    testImplementation 'org.robolectric:robolectric:4.16.1'
+                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
    Explanation for issues of type "NewerVersionAvailable":
    This detector checks with a central repository to see if there are newer
@@ -63,6 +85,24 @@ C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\build.gradle
    dependencies.
 
    https://developer.android.com/ndk/guides/abis
+
+C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\src\main\java\com\burhan\site\CameraAids.java:17: Warning: Avoid object allocations during draw/layout operations (preallocate and reuse instead) [DrawAllocation]
+    @Override protected void onDraw(Canvas canvas){Paint paint=new Paint(Paint.ANTI_ALIAS_FLAG);paint.setColor(0x99ffffff);paint.setStrokeWidth(1.5f);if(grid){for(int i=1;i<3;i++){canvas.drawLine(getWidth()*i/3f,0,getWidth()*i/3f,getHeight(),paint);canvas.drawLine(0,getHeight()*i/3f,getWidth(),getHeight()*i/3f,paint);}}if(level){paint.setColor(Math.abs(roll)<2?0xffb8e986:0xffffd43b);paint.setStrokeWidth(3);canvas.save();canvas.rotate(-roll,getWidth()/2f,getHeight()/2f);canvas.drawLine(getWidth()/2f-44,getHeight()/2f,getWidth()/2f+44,getHeight()/2f,paint);canvas.restore();paint.setTextSize(24);canvas.drawText(String.format(java.util.Locale.ROOT,ar?"الهاتف %.0f°":"Phone %.0f°",roll),12,32,paint);}}
+                                                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\src\main\java\com\burhan\site\CaptureReview.java:56: Warning: Avoid object allocations during draw/layout operations (preallocate and reuse instead) [DrawAllocation]
+        @Override protected void onDraw(Canvas canvas){super.onDraw(canvas);if(baseline.isRecycled())return;RectF bounds=bounds();canvas.save();canvas.translate(bounds.left,bounds.top);canvas.scale(bounds.width()/baseline.getWidth(),bounds.height()/baseline.getHeight());drawContent(canvas);if(drawing)shape(canvas,kind,new float[]{startX,startY,endX,endY});canvas.restore();}
+                                                                                                                                                                                                                                                                                                                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "DrawAllocation":
+   You should avoid allocating objects during a drawing or layout operation.
+   These are called frequently, so a smooth UI can be interrupted by garbage
+   collection pauses caused by the object allocations.
+
+   The way this is generally handled is to allocate the needed objects up
+   front and to reuse them for each drawing operation.
+
+   Some methods allocate memory on your behalf (such as Bitmap.create), and
+   these should be handled in the same way.
 
 C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\src\main\res\drawable-v24: Warning: This folder configuration (v24) is unnecessary; minSdkVersion is 31. Merge all the resources in this folder into drawable. [ObsoleteSdkInt]
 C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\src\main\res\mipmap-anydpi-v26: Warning: This folder configuration (v26) is unnecessary; minSdkVersion is 31. Merge all the resources in this folder into mipmap-anydpi. [ObsoleteSdkInt]
@@ -130,7 +170,10 @@ C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\src\main\res
    </lint>
    ```
 
-C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\src\main\java\com\burhan\site\ScanActivity.java:137: Warning: Consider also using StorageManager#getAllocatableBytes and allocateBytes which will consider clearable cached data [UsableSpace]
+C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\src\main\java\com\burhan\site\BurhanNativePlugin.java:44: Warning: Consider also using StorageManager#getAllocatableBytes and allocateBytes which will consider clearable cached data [UsableSpace]
+            long length=bytes==null?original.length():bytes.length;if(length<=0||folder.getUsableSpace()<length+1024*1024)throw new IOException("Insufficient sharing storage");
+                                                                                        ~~~~~~~~~~~~~~
+C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\src\main\java\com\burhan\site\ScanActivity.java:292: Warning: Consider also using StorageManager#getAllocatableBytes and allocateBytes which will consider clearable cached data [UsableSpace]
         if(getFilesDir().getUsableSpace()<30L*1024*1024)throw new IOException(text("Storage low. Export a backup and free space.","المساحة منخفضة. صدّر نسخة احتياطية وحرّر مساحة."));
                          ~~~~~~~~~~~~~~
 
@@ -197,4 +240,60 @@ C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\src\main\res
 
    https://developer.android.com/guide/practices/screens_support.html
 
-0 errors, 26 warnings
+C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\src\main\java\com\burhan\site\CameraAids.java:9: Warning: Custom view CameraAids is missing constructor used by tools: (Context) or (Context,AttributeSet) or (Context,AttributeSet,int) [ViewConstructor]
+final class CameraAids extends View implements SensorEventListener {
+            ~~~~~~~~~~
+C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\src\main\java\com\burhan\site\CaptureReview.java:48: Warning: Custom view MarkupView is missing constructor used by tools: (Context) or (Context,AttributeSet) or (Context,AttributeSet,int) [ViewConstructor]
+    static final class MarkupView extends View {
+                       ~~~~~~~~~~
+
+   Explanation for issues of type "ViewConstructor":
+   Some layout tools (such as the Android layout editor) need to find a
+   constructor with one of the following signatures:
+   * View(Context context)
+   * View(Context context, AttributeSet attrs)
+   * View(Context context, AttributeSet attrs, int defStyle)
+
+   If your custom view needs to perform initialization which does not apply
+   when used in a layout editor, you can surround the given code with a check
+   to see if View#isInEditMode() is false, since that method will return false
+   at runtime but true within a user interface editor.
+
+C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\src\main\java\com\burhan\site\InspectionCameraUi.java:92: Warning: Custom view `Button` has setOnTouchListener called on it but does not override performClick [ClickableViewAccessibility]
+        suggestionHint.setOnTouchListener((v,e)->{if(e.getAction()==android.view.MotionEvent.ACTION_DOWN){hintDownX=e.getX();hintDownY=e.getY();return true;}if(e.getAction()==android.view.MotionEvent.ACTION_UP){float dx=Math.abs(e.getX()-hintDownX),dy=Math.abs(e.getY()-hintDownY);if(dx>dp(42)&&dx>dy){dismissHint();return true;}if(dx<dp(12)&&dy<dp(12))v.performClick();return true;}return true;});
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\src\main\java\com\burhan\site\ScanActivity.java:124: Warning: onTouch lambda should call View#performClick when a click is detected [ClickableViewAccessibility]
+        preview.setOnTouchListener((view,e)->{if(e.getActionMasked()==MotionEvent.ACTION_DOWN)gestureScaled=false;if(e.getPointerCount()>1){gestureScaled=true;MotionEvent cancelled=MotionEvent.obtain(e);cancelled.setAction(MotionEvent.ACTION_CANCEL);gestures.onTouchEvent(cancelled);cancelled.recycle();}if(pref("pinchToZoom"))scale.onTouchEvent(e);if(!gestureScaled&&e.getPointerCount()==1&&!scale.isInProgress())gestures.onTouchEvent(e);return true;});
+                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "ClickableViewAccessibility":
+   If a View that overrides onTouchEvent or uses an OnTouchListener does not
+   also implement performClick and call it when clicks are detected, the View
+   may not handle accessibility actions properly. Logic handling the click
+   actions should ideally be placed in View#performClick as some accessibility
+   services invoke performClick when a click action should occur.
+
+C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\src\main\java\com\burhan\site\InspectionCameraUi.java:118: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+    public void setSavedCount(int value){saved=value;reviewButton.setText(t("Review · ","مراجعة · ")+value);reviewButton.setContentDescription(t("Review "+value+" saved evidence captures","مراجعة "+value+" أدلة محفوظة"));}
+                                                                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\src\main\java\com\burhan\site\InspectionCameraUi.java:131: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+    private void refreshHint(){boolean visible=smart&&hintsEnabled&&hint!=null&&sheet==null&&statusImportance<WARNING;boolean entering=visible&&suggestionHint.getVisibility()!=View.VISIBLE;suggestionHint.setVisibility(visible?View.VISIBLE:View.GONE);if(visible){suggestionHint.setText(t("✦ Try: ","✦ جرّب: ")+hint.optString("title",modeTitle(hint.optString("mode")))+" ›");if(entering&&android.animation.ValueAnimator.areAnimatorsEnabled()){suggestionHint.setAlpha(0);suggestionHint.setTranslationY(dp(6));suggestionHint.animate().alpha(1).translationY(0).setDuration(160).start();}}}
+                                                                                                                                                                                                                                                                                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\IAM\Documents\hackathon\opencv\project1\burhan\android\app\src\main\java\com\burhan\site\InspectionCameraUi.java:135: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+    public void setScene(String value){scene=value==null?"unknown":value;if(sheetContent!=null&&sheetScene!=null){sheetScene.setText(t("Scene: ","المشهد: ")+sceneTitle());sheetScene.setVisibility("unknown".equals(scene)?View.GONE:View.VISIBLE);}}
+                                                                                                                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "SetTextI18n":
+   When calling TextView#setText
+   * Never call Number#toString() to format numbers; it will not handle
+   fraction separators and locale-specific digits properly. Consider using
+   String#format with proper format specifications (%d or %f) instead.
+   * Do not pass a string literal (e.g. "Hello") to display text. Hardcoded
+   text can not be properly translated to other languages. Consider using
+   Android resource strings instead.
+   * Do not build messages by concatenating text chunks. Such messages can not
+   be properly translated.
+
+   https://developer.android.com/guide/topics/resources/localization.html
+
+0 errors, 38 warnings

@@ -1,5 +1,6 @@
 import {spawnSync} from 'node:child_process';import {readdirSync,existsSync,mkdirSync,writeFileSync,copyFileSync,readFileSync} from 'node:fs';import {createHash} from 'node:crypto';import {fileURLToPath} from 'node:url';import path from 'node:path';
 const root=fileURLToPath(new URL('../',import.meta.url));process.chdir(root);
+const version=JSON.parse(readFileSync(path.join(root,'package.json'),'utf8')).version;
 const sdk=path.join(root,'.tools/sdk');
 const jdkRoot=path.join(root,'.tools/jdk');const privateJdk=existsSync(jdkRoot)?readdirSync(jdkRoot,{withFileTypes:true}).find(d=>d.isDirectory())?.name:undefined;
 const java=privateJdk?path.join(jdkRoot,privateJdk):process.env.JAVA_HOME;
@@ -11,11 +12,11 @@ run(process.execPath,['node_modules/typescript/bin/tsc','--noEmit']);run(process
 run(process.execPath,['node_modules/@capacitor/cli/bin/capacitor','sync','android']);
 writeFileSync(path.join(root,'android/local.properties'),'sdk.dir='+sdk.replaceAll('\\','/').replaceAll(':','\\:')+'\n');
 run(path.join(root,'android/gradlew.bat'),['-p','android',':app:assembleDebug',':app:testDebugUnitTest','--console=plain']);
-mkdirSync(path.join(root,'delivery'),{recursive:true});const output=path.join(root,'delivery/Burhan-v1.0.0-debug.apk');
+mkdirSync(path.join(root,'delivery'),{recursive:true});const output=path.join(root,`delivery/Burhan-v${version}-debug.apk`);
 copyFileSync(path.join(root,'android/app/build/outputs/apk/debug/app-debug.apk'),output);
 run(path.join(sdk,'build-tools/36.0.0/apksigner.bat'),['verify','--verbose',output]);
 run(path.join(sdk,'build-tools/36.0.0/zipalign.exe'),['-c','-P','16','4',output]);
 run(process.execPath,['scripts/check-native-alignment.mjs',output]);
 const hash=createHash('sha256').update(readFileSync(output)).digest('hex');writeFileSync(output+'.sha256',hash+'  '+path.basename(output)+'\n');
-writeFileSync(path.join(root,'delivery/build-metadata.json'),JSON.stringify({name:'Burhan',version:'1.0.0',package:'com.burhan.site',createdAt:new Date().toISOString(),apk:path.basename(output),sha256:hash,bytes:readFileSync(output).length,minSdk:31,targetSdk:36,abi:'arm64-v8a',physicalDeviceValidation:'pending: no connected device'},null,2));
+writeFileSync(path.join(root,'delivery/build-metadata.json'),JSON.stringify({name:'Burhan',version,versionCode:4,package:'com.burhan.site',createdAt:new Date().toISOString(),apk:path.basename(output),sha256:hash,bytes:readFileSync(output).length,minSdk:31,targetSdk:36,abi:'arm64-v8a',openCV:'5.0.0',openCVArtifact:'org.opencv:opencv:5.0.0.1',backend:'https://merhaba-api.kiyan.finance',physicalDeviceValidation:'Burhan 1.2 hardware camera, volume keys, sensor, focus, high-detail fallback and lifecycle checks require a physical phone; automated JVM/browser results are recorded separately'},null,2));
 console.log('Installable signed APK: '+output);

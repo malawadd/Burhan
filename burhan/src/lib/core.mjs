@@ -1,6 +1,13 @@
 const text=(value,name)=>{if(typeof value!=='string')throw new Error(`Invalid ${name}`);};
 const timestamp=(value,name)=>{text(value,name);if(!Number.isFinite(Date.parse(value)))throw new Error(`Invalid ${name}`);};
 const enumeration=(value,values,name)=>{if(!values.includes(value))throw new Error(`Invalid ${name}`);};
+const boundedText=(value,name,max=4000)=>{text(value,name);if(value.length>max)throw new Error(`Invalid ${name} length`);};
+function smartRow(s){
+  if(!s||typeof s!=='object'||Array.isArray(s))throw new Error('Invalid smart inspection history');
+  boundedText(s.sessionId,'smart session',256);boundedText(s.provider,'smart provider',80);boundedText(s.scene,'smart scene',2048);
+  if(!Array.isArray(s.steps)||s.steps.length>100)throw new Error('Invalid smart guidance steps');
+  for(const step of s.steps){if(!step||typeof step!=='object')throw new Error('Invalid smart step');timestamp(step.at,'smart step timestamp');boundedText(step.instruction,'smart instruction');boundedText(step.reason,'smart reason');boundedText(step.scene,'smart step scene',2048);enumeration(step.mode,['manual','ppe','crack','surface'],'smart detector');}
+}
 function projectRow(p){if(!p||typeof p.id!=='string')throw new Error('Invalid project');text(p.name,'project name');text(p.address,'project address');timestamp(p.createdAt,'project createdAt');}
 function inspectionRow(i){
   if(!i)throw new Error('Invalid inspection');
@@ -9,6 +16,7 @@ function inspectionRow(i){
   enumeration(i.status,['draft','in_progress','completed'],'inspection status');enumeration(i.mode,['manual','ppe','crack','surface'],'analysis mode');
   if(typeof i.acknowledged!=='boolean'||!i.checklist||Array.isArray(i.checklist)||typeof i.checklist!=='object')throw new Error('Invalid checklist');
   for(const v of Object.values(i.checklist))enumeration(v,['not_checked','acceptable','issue','not_applicable'],'checklist decision');
+  if(i.smart!==undefined)smartRow(i.smart);
 }
 function observationRow(o){
   if(!o||!Number.isInteger(o.classId)||o.classId<0||!Number.isFinite(o.score)||o.score<0||o.score>1||!Number.isFinite(o.inferenceMs)||o.inferenceMs<0)throw new Error('Invalid observation');
@@ -19,7 +27,17 @@ function observationRow(o){
 function evidenceRow(e){
   if(!e||typeof e.id!=='string'||typeof e.original!=='string'||typeof e.annotated!=='string'||!Number.isFinite(e.width)||!Number.isFinite(e.height)||e.width<1||e.height<1)throw new Error('Invalid evidence');
   timestamp(e.capturedAt,'evidence capturedAt');
+  if(e.captureSource!==undefined)enumeration(e.captureSource,['analysis','photo','import'],'capture source');
+  if(e.detectorBaseline!==undefined){boundedText(e.detectorBaseline,'detector baseline',32*1024*1024);if(!e.detectorBaseline)throw new Error('Invalid detector baseline');}
+  if(e.annotations!==undefined){
+    const a=e.annotations;if(!a||a.version!==1||!Array.isArray(a.shapes)||a.shapes.length>200)throw new Error('Invalid photo annotations');
+    for(const shape of a.shapes){if(!shape||!['arrow','ellipse'].includes(shape.kind)||!Array.isArray(shape.points)||shape.points.length!==4||shape.points.some(v=>!Number.isFinite(v)||v<0||v>1))throw new Error('Invalid annotation shape');
+      if(shape.points[0]===shape.points[2]&&shape.points[1]===shape.points[3])throw new Error('Empty annotation shape');
+    }
+    if(!e.detectorBaseline)throw new Error('Annotated evidence requires detector baseline');
+  }
   if(e.observations!==undefined){if(!Array.isArray(e.observations))throw new Error('Invalid evidence observations');e.observations.forEach(observationRow);}
+  if(e.smartContext!==undefined){const c=e.smartContext;if(!c||typeof c!=='object'||!Number.isSafeInteger(c.sceneVersion)||c.sceneVersion<0)throw new Error('Invalid evidence smart context');for(const k of ['sessionId','provider','guidance','activeTaskId'])boundedText(c[k],`evidence smart ${k}`);enumeration(c.mode,['manual','ppe','crack','surface'],'evidence smart mode');}
 }
 function findingRow(f){
   if(!f)throw new Error('Invalid finding');

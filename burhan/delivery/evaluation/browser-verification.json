@@ -1,0 +1,38 @@
+{
+  "status": "passed",
+  "verifiedAt": "2026-10-21T03:14:01Z",
+  "browser": "Microsoft Edge / Playwright CLI",
+  "appOrigin": "http://127.0.0.1:4173",
+  "backendOrigin": "https://merhaba-api.kiyan.finance",
+  "pairing": "Real pairing through the public HTTPS tunnel; credentials excluded from this record.",
+  "provider": "codex",
+  "checks": [
+    "Start Smart Inspection creates a project and inspection; manual flow remains available.",
+    "Real paved-surface photograph interpreted as outdoor, with uncertainty about crack versus intended joint.",
+    "User correction requested the installed crack detector; real provider action selected it.",
+    "Browser WASM crack inference saved an unreviewed 52% candidate; this is not a validated defect.",
+    "Changing a paused imported photo to surface320 reanalysed it, retained its overlay and enabled explicit evidence saving.",
+    "A real attempt to change a locked task was rejected and displayed assistant-unavailable guidance while local inspection remained usable; unlocking allowed a new valid plan.",
+    "Current guidance provenance attached to evidence; stale or absent plans did not attach fabricated provenance.",
+    "Unreviewed findings blocked report generation until explicit acknowledgement.",
+    "Bilingual report contained the smart guidance record, Codex provider, Arabic text and unreviewed-finding labels.",
+    "Workspace, reports, guidance history and pairing survived browser reload.",
+    "English Smart Guide and Arabic settings fit a 390px viewport without horizontal page overflow. Guide height capped at approximately 321px and remained scrollable."
+  ],
+  "persistedWorkspace": {
+    "projects": 1,
+    "inspections": 2,
+    "findings": 6,
+    "reports": 2,
+    "smartHistories": 2,
+    "smartEvidence": 1,
+    "modelIds": ["crack", "surface320"]
+  },
+  "mobileLayout": {"viewportWidth":390,"documentWidth":375,"guideHeight":320.71,"language":"ar"},
+  "screenshots": ["smart-guide-390.png", "smart-ar-390.png", "smart-report-bilingual.png"],
+  "limitations": [
+    "Browser camera permission was unavailable; tests used image import rather than a live camera stream.",
+    "The preview server stopped during earlier verification, causing a worker fetch error. It was restarted and inference passed after reopening the scanner with the current bundle.",
+    "These workflow checks do not measure construction accuracy or native phone performance."
+  ]
+}

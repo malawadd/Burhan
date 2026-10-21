@@ -1,0 +1,112 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Burhan Smart Inspection backend on one SSM-managed EC2 host. No inbound ports. Bedrock uses its instance role.
+Parameters:
+  ArtifactBucket:
+    Type: String
+    Description: Existing private S3 bucket holding the backend deployment ZIP
+  ArtifactKey:
+    Type: String
+    Default: burhan/backend.zip
+  LatestAmi:
+    Type: AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>
+    Default: /aws/service/canonical/ubuntu/server/24.04/stable/current/amd64/hvm/ebs-gp3/ami-id
+  SubnetId:
+    Type: AWS::EC2::Subnet::Id
+    Description: Subnet with outbound internet/Bedrock access and SSM access
+  VpcId:
+    Type: AWS::EC2::VPC::Id
+  InstanceType:
+    Type: String
+    Default: t3.small
+Resources:
+  Role:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal: { Service: ec2.amazonaws.com }
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
+      Policies:
+        - PolicyName: BurhanModelAndArtifact
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action: s3:GetObject
+                Resource: !Sub arn:aws:s3:::${ArtifactBucket}/${ArtifactKey}
+              - Effect: Allow
+                Action: bedrock:InvokeModel
+                Resource:
+                  - !Sub arn:aws:bedrock:us-east-1:${AWS::AccountId}:inference-profile/us.amazon.nova-2-lite-v1:0
+                  - arn:aws:bedrock:us-east-1::foundation-model/amazon.nova-2-lite-v1:0
+                  - arn:aws:bedrock:us-east-2::foundation-model/amazon.nova-2-lite-v1:0
+                  - arn:aws:bedrock:us-west-2::foundation-model/amazon.nova-2-lite-v1:0
+  Profile:
+    Type: AWS::IAM::InstanceProfile
+    Properties: { Roles: [!Ref Role] }
+  SecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Burhan outbound-only; connect through SSM or authenticated HTTPS tunnel
+      VpcId: !Ref VpcId
+      SecurityGroupIngress: []
+      SecurityGroupEgress:
+        - IpProtocol: '-1'
+          CidrIp: 0.0.0.0/0
+  Host:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: !Ref LatestAmi
+      InstanceType: !Ref InstanceType
+      IamInstanceProfile: !Ref Profile
+      SubnetId: !Ref SubnetId
+      SecurityGroupIds: [!Ref SecurityGroup]
+      MetadataOptions: { HttpTokens: required }
+      BlockDeviceMappings:
+        - DeviceName: /dev/sda1
+          Ebs: { VolumeSize: 16, VolumeType: gp3, Encrypted: true, DeleteOnTermination: true }
+      Tags: [{Key: Name, Value: Burhan-Smart-Inspection}]
+      UserData:
+        Fn::Base64: !Sub |
+          #!/bin/bash
+          set -euo pipefail
+          apt-get update
+          apt-get install -y python3-venv unzip
+          useradd --system --create-home --home-dir /opt/burhan burhan
+          python3 -m venv /opt/burhan/venv
+          /opt/burhan/venv/bin/pip install boto3
+          /opt/burhan/venv/bin/python -c "import boto3; boto3.client('s3',region_name='${AWS::Region}').download_file('${ArtifactBucket}','${ArtifactKey}','/tmp/backend.zip')"
+          mkdir -p /opt/burhan/app /var/lib/burhan
+          unzip /tmp/backend.zip -d /opt/burhan/app
+          /opt/burhan/venv/bin/pip install -r /opt/burhan/app/burhan/backend/requirements.txt
+          chown -R burhan:burhan /var/lib/burhan /opt/burhan/app
+          cat >/etc/systemd/system/burhan.service <<'UNIT'
+          [Unit]
+          Description=Burhan Smart Inspection
+          After=network-online.target
+          [Service]
+          User=burhan
+          WorkingDirectory=/opt/burhan/app
+          Environment=SMART_INSPECTION_PROVIDER=aws
+          Environment=AWS_REGION=us-east-1
+          Environment=HOST=127.0.0.1
+          Environment=PORT=3210
+          Environment=BURHAN_DATA_DIR=/var/lib/burhan
+          ExecStart=/opt/burhan/venv/bin/python -m burhan.backend
+          Restart=on-failure
+          PrivateTmp=true
+          NoNewPrivileges=true
+          [Install]
+          WantedBy=multi-user.target
+          UNIT
+          systemctl daemon-reload
+          systemctl enable --now burhan
+Outputs:
+  InstanceId:
+    Value: !Ref Host
+  Connect:
+    Value: !Sub aws ssm start-session --target ${Host} --document-name AWS-StartPortForwardingSession --parameters portNumber=3210,localPortNumber=3211

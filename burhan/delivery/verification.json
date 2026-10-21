@@ -1,51 +1,723 @@
 {
   "app": "Burhan",
-  "version": "1.0.0",
-  "verifiedAt": "2026-10-20T23:06:18.517Z",
+  "version": "1.2.0",
+  "verifiedAt": "2026-10-21T05:06:32.804Z",
   "apk": {
-    "file": "Burhan-v1.0.0-debug.apk",
-    "sha256": "2967196e7efe6103a1bb9d86ce1ab87c3e2f2471f35b6e72ab91d278f526b5ad",
-    "bytes": 192405192,
-    "signature": "APK v2 verified by apksigner",
-    "zipAlignment": "16KB zipalign check passed",
-    "nativeElfAlignment": "all six ARM64 libraries have >=16KB LOAD alignment"
+    "name": "Burhan",
+    "version": "1.2.0",
+    "versionCode": 4,
+    "package": "com.burhan.site",
+    "createdAt": "2026-10-21T05:05:13.790Z",
+    "apk": "Burhan-v1.2.0-debug.apk",
+    "sha256": "2ac237dbe7cf00ff93e265a6a9e08376b0cdd8f3398f909782e4231de0798ab1",
+    "bytes": 207745653,
+    "minSdk": 31,
+    "targetSdk": 36,
+    "abi": "arm64-v8a",
+    "openCV": "5.0.0",
+    "openCVArtifact": "org.opencv:opencv:5.0.0.1",
+    "backend": "https://merhaba-api.kiyan.finance",
+    "physicalDeviceValidation": "Burhan 1.2 hardware camera, volume keys, sensor, focus, high-detail fallback and lifecycle checks require a physical phone; automated JVM/browser results are recorded separately"
   },
   "automated": {
     "typescript": "passed",
-    "domainBackupDecoderTests": 13,
+    "domainBackupDecoderSmartTests": 32,
+    "backendTests": 20,
     "modelHashes": 4,
-    "catalogue": {
-      "originalTasks": 89,
-      "directVisualTasks": 3,
-      "stages": 16
-    },
-    "goldenPythonOutputDecoder": "exact boxes and masks on the procedural fixture",
-    "androidLint": {
-      "errors": 0,
-      "warnings": 26
-    },
-    "androidBuild": "assembleDebug passed",
-    "instrumentationBuild": "assembleDebugAndroidTest passed; not run on device"
+    "numericalParity": "Exact Python-output decoder parity plus real execution of all four WASM models; browser resize differences remain disclosed.",
+    "android": {
+      "build": "assembleDebug passed",
+      "unitTests": 25,
+      "nativeCameraUi": {
+        "status": "passed",
+        "version": "1.2.0",
+        "verifiedAt": "2026-10-21T05:06:32.803Z",
+        "framework": "Robolectric 4.16.1 / SDK35 native graphics / actual Android Material Views",
+        "tests": 14,
+        "cases": [
+          "manualInspectionKeepsCaptureAndSurfaceOptionsWithoutGuideControls",
+          "subtleHintSelectsWithoutCapturingAndHidesForWarningsAndDetails",
+          "arabicLandscapeAtDoubleFontScalePreservesPersistentActions",
+          "readinessCountAndIndependentGuideCameraStateDoNotTriggerCaptures",
+          "fullGuidanceAlternativesAndGuideControlsAreAvailableInSheetWithoutCapturing",
+          "landscape640x360UsesCameraBesideControls",
+          "unpairedGuideStillOffersInstalledChecksWithoutRemoteSuggestions",
+          "compactDoubleFontWarningKeepsCameraAndPersistentActionsVisible",
+          "english360x800RendersActualMaterialCameraHierarchy",
+          "hintHorizontalSwipeDismissesWithoutSelectingOrCapturing",
+          "arabic360x800LargeTextKeepsEssentialControlsReachable",
+          "englishCompact320x640KeepsCameraAndCaptureActionsVisible",
+          "clearingSceneSuggestionsRemovesOldChoicesFromAnAlreadyOpenSheet",
+          "englishCompactAtDoubleFontScalePreservesPersistentActions"
+        ],
+        "screenshots": [
+          "inspection-ar-360x800-font160.png",
+          "inspection-ar-640x360-font200.png",
+          "inspection-en-320x640-font100.png",
+          "inspection-en-320x640-font200-camera-paused.png",
+          "inspection-en-320x640-font200-warning.png",
+          "inspection-en-320x640-font200.png",
+          "inspection-en-360x800-font100.png",
+          "inspection-en-360x800-subtle-hint.png",
+          "inspection-en-640x360-font100.png"
+        ],
+        "scope": "Camera UI rendered with a blank preview fixture. No camera, model, network request or physical device was started by these layout tests.",
+        "coverage": [
+          "320x640 and 360x800 portrait; 640x360 landscape",
+          "English and Arabic; normal, 160% and 200% text",
+          "Persistent capture/import/review bounds, target sizes, label clipping and word boundaries",
+          "Storage warning, readiness, saved count and independent camera/guide state",
+          "Full guidance, manual mode, offline installed detector choices and stale alternative removal",
+          "Subtle hint tap/swipe behavior without a new card; selected state preserved on dismissal"
+        ],
+        "phoneValidation": "Pending on the user's phone; layout renders do not validate hardware camera, focus or thermal performance."
+      },
+      "lint": {
+        "errors": 0,
+        "warnings": 38
+      },
+      "instrumentation": "assembleDebugAndroidTest compiled; not executed on a phone",
+      "elf": "All six ARM64 libraries have 16KB LOAD alignment",
+      "signature": "APK v2 verified; zipalign16KB passed"
+    }
   },
-  "observedBrowserChecks": {
-    "workflow": "project -> inspection -> manual finding -> completion -> immutable report -> reload -> saved report; passed",
-    "languageLayout": "English/dark and Arabic RTL/light at390px; no horizontal overflow",
-    "backup": "ZIP export observed, portable evidence/tamper/traversal/metadata restore tests passed",
-    "actualScannerWorker": "all four models executed through the actual Chromium Scanner image-import path; saved original/annotated images and matching SHA/runtime metadata verified",
-    "modelExecutionCounts": {
-      "crack": 2,
-      "surface320": 3,
-      "surface512": 3,
-      "ppe": 0
+  "realProvider": {
+    "provider": "codex",
+    "endpoint": "https://merhaba-api.kiyan.finance",
+    "guidanceChanged": true,
+    "turns": [
+      {
+        "status": "completed",
+        "scene": {
+          "environment": "unknown",
+          "description": "Heavily fractured transparent panels in a yellow metal frame, with mesh behind and debris near the base. The installation's purpose and setting are uncertain.",
+          "confidence": 0.94
+        },
+        "guidance": "From a safe distance, use camera zoom to capture a closer, straight-on view of the lower-right panel and its frame edges; keep focus on the fracture pattern and reduce glare.",
+        "durationSeconds": 23.24
+      },
+      {
+        "status": "completed",
+        "scene": {
+          "environment": "unknown",
+          "description": "Severely blurred view; materials, installation type and possible damage cannot be identified reliably. Earlier glazing observations remain unconfirmed.",
+          "confidence": 0.98
+        },
+        "guidance": "Hold the camera still at your current distance, tap to refocus on the previously targeted lower-right area, and capture one sharp image.",
+        "durationSeconds": 30.83
+      }
+    ],
+    "quality": [
+      {
+        "opencvVersion": "5.0.0",
+        "width": 1024,
+        "height": 768,
+        "laplacianVariance": 1098.82,
+        "meanBrightness": 112.08,
+        "darkFraction": 0.0054,
+        "brightFraction": 0.0131
+      },
+      {
+        "opencvVersion": "5.0.0",
+        "width": 1024,
+        "height": 768,
+        "laplacianVariance": 1.05,
+        "meanBrightness": 111.98,
+        "darkFraction": 0,
+        "brightFraction": 0
+      }
+    ],
+    "scope": "Two real provider turns; second image deliberately loses detail. Not a scene or defect accuracy benchmark."
+  },
+  "browser": {
+    "status": "passed",
+    "verifiedAt": "2026-10-21T03:14:01Z",
+    "browser": "Microsoft Edge / Playwright CLI",
+    "appOrigin": "http://127.0.0.1:4173",
+    "backendOrigin": "https://merhaba-api.kiyan.finance",
+    "pairing": "Real pairing through the public HTTPS tunnel; credentials excluded from this record.",
+    "provider": "codex",
+    "checks": [
+      "Start Smart Inspection creates a project and inspection; manual flow remains available.",
+      "Real paved-surface photograph interpreted as outdoor, with uncertainty about crack versus intended joint.",
+      "User correction requested the installed crack detector; real provider action selected it.",
+      "Browser WASM crack inference saved an unreviewed 52% candidate; this is not a validated defect.",
+      "Changing a paused imported photo to surface320 reanalysed it, retained its overlay and enabled explicit evidence saving.",
+      "A real attempt to change a locked task was rejected and displayed assistant-unavailable guidance while local inspection remained usable; unlocking allowed a new valid plan.",
+      "Current guidance provenance attached to evidence; stale or absent plans did not attach fabricated provenance.",
+      "Unreviewed findings blocked report generation until explicit acknowledgement.",
+      "Bilingual report contained the smart guidance record, Codex provider, Arabic text and unreviewed-finding labels.",
+      "Workspace, reports, guidance history and pairing survived browser reload.",
+      "English Smart Guide and Arabic settings fit a 390px viewport without horizontal page overflow. Guide height capped at approximately 321px and remained scrollable."
+    ],
+    "persistedWorkspace": {
+      "projects": 1,
+      "inspections": 2,
+      "findings": 6,
+      "reports": 2,
+      "smartHistories": 2,
+      "smartEvidence": 1,
+      "modelIds": [
+        "crack",
+        "surface320"
+      ]
     },
-    "input": "original193x127 procedural test pattern; not a construction accuracy dataset",
-    "pdf": "English, Arabic and bilingual A4 examples; all six pages rendered with Poppler and visually reviewed"
+    "mobileLayout": {
+      "viewportWidth": 390,
+      "documentWidth": 375,
+      "guideHeight": 320.71,
+      "language": "ar"
+    },
+    "screenshots": [
+      "smart-guide-390.png",
+      "smart-ar-390.png",
+      "smart-report-bilingual.png"
+    ],
+    "limitations": [
+      "Browser camera permission was unavailable; tests used image import rather than a live camera stream.",
+      "The preview server stopped during earlier verification, causing a worker fetch error. It was restarted and inference passed after reopening the scanner with the current bundle.",
+      "These workflow checks do not measure construction accuracy or native phone performance."
+    ]
+  },
+  "switching": {
+    "testedAt": "2026-10-21T03:01:52Z",
+    "endpoint": "https://merhaba-api.kiyan.finance",
+    "scope": "Isolated restarted API instances with real provider selection/readiness; live public tunnel remains on codex.",
+    "appRebuiltForSwitch": false,
+    "switches": [
+      {
+        "provider": "codex",
+        "health": {
+          "status": "ok",
+          "provider": "codex",
+          "ready": true
+        },
+        "persistedPairingAccepted": true
+      },
+      {
+        "provider": "aws",
+        "health": {
+          "status": "ok",
+          "provider": "aws",
+          "ready": false
+        },
+        "persistedPairingAccepted": true
+      },
+      {
+        "provider": "off",
+        "health": {
+          "status": "ok",
+          "provider": "off",
+          "ready": false
+        },
+        "persistedPairingAccepted": true
+      },
+      {
+        "provider": "codex",
+        "health": {
+          "status": "ok",
+          "provider": "codex",
+          "ready": true
+        },
+        "persistedPairingAccepted": true
+      }
+    ],
+    "awsLiveInference": "Not run: no AWS credentials/model access available. SDK request contract tested separately."
+  },
+  "v12": {
+    "selection": {
+      "version": "1.2.0",
+      "recordedAt": "2026-10-21T04:43:58.950854+00:00",
+      "provider": "codex",
+      "execution": "actual signed-in Codex CLI; online inference",
+      "sourceImage": "datasets\\construction\\dacl10k\\images\\negative_calibration\\dacl10k_v2_train_5381.jpg",
+      "workflow": "Explore → proposals → simulated human selection → closer evidence with user correction → completion",
+      "phoneCameraExecuted": false,
+      "bedrockExecuted": false,
+      "first": {
+        "id": "l4zSAcQYgmWktTaJ7q-T_QZN",
+        "status": "completed",
+        "sceneVersion": 1,
+        "provider": "codex",
+        "result": {
+          "scene": {
+            "environment": "outdoor",
+            "description": "Paved surface with a white marking and a long dark linear opening or sealed joint, with vegetation at several points.",
+            "confidence": 0.97
+          },
+          "guidance": "Move closer and frame a short section of the dark line and both adjoining surfaces, keeping the camera perpendicular and your shadow clear.",
+          "guidanceTaskId": null,
+          "reason": "Focus and exposure appear adequate for an overview, but the line could be a joint or a crack. A closer view and human review are needed; its width and any level difference cannot be measured from this photograph.",
+          "suggestions": [
+            {
+              "taskId": "visual-cracks",
+              "title": "Visible cracks / joints",
+              "mode": "crack",
+              "reason": "Proposed check of the line's edges and continuity to help document a possible crack or joint. Experimental model observations require human confirmation.",
+              "automatic": true
+            },
+            {
+              "taskId": "maintenance-monitoring",
+              "title": "Periodic inspection, maintenance and defect follow-up",
+              "mode": "manual",
+              "reason": "Proposed manual review of vegetation and the line's condition; physically measure opening width and any level difference, then compare with earlier maintenance records.",
+              "automatic": false
+            }
+          ],
+          "actions": [
+            {
+              "id": "view-1",
+              "type": "request_view",
+              "mode": null,
+              "taskId": null,
+              "instruction": "Capture one closer, perpendicular view of the dark line with both adjoining surfaces visible and your shadow clear."
+            },
+            {
+              "id": "manual-1",
+              "type": "request_manual_check",
+              "mode": null,
+              "taskId": "visual-cracks",
+              "instruction": "Proposed for your confirmation: have an inspector distinguish a formed or sealed joint from a crack using close inspection and available paving details; physically measure the opening and any level difference with suitable gauges."
+            }
+          ],
+          "needsHumanReview": true
+        }
+      },
+      "second": {
+        "id": "1QkW_B-XjWoV6MroglM6NX0e",
+        "status": "completed",
+        "sceneVersion": 2,
+        "provider": "codex",
+        "result": {
+          "scene": {
+            "environment": "outdoor",
+            "description": "Close view of paving with a mostly straight dark line, irregular edges and vegetation in parts of the opening; joint versus crack remains uncertain.",
+            "confidence": 0.96
+          },
+          "guidance": "For your selected cracks / joints check, capture one perpendicular close-up of an unobstructed section with a millimetre ruler beside the line, keeping both edges in focus.",
+          "guidanceTaskId": "visual-cracks",
+          "reason": "The image and supplied quality metrics suggest adequate focus and exposure, so refocusing is not the priority. Straight alignment may indicate a construction joint, but irregular edges do not establish a crack. Human review and physical measurements are needed to distinguish these possibilities and record its condition.",
+          "suggestions": [
+            {
+              "taskId": "maintenance-monitoring",
+              "title": "Periodic inspection, maintenance and defect follow-up",
+              "mode": "manual",
+              "reason": "Optional proposal awaiting your tap: document vegetation and edge condition, then compare physical measurements and dated photographs with maintenance records to assess changes.",
+              "automatic": false
+            }
+          ],
+          "actions": [
+            {
+              "id": "view-scale-2",
+              "type": "request_view",
+              "mode": null,
+              "taskId": "visual-cracks",
+              "instruction": "Capture one perpendicular close-up of a vegetation-free section with a millimetre ruler beside the opening in the same surface plane and both edges sharply visible."
+            },
+            {
+              "id": "manual-joint-review-2",
+              "type": "request_manual_check",
+              "mode": null,
+              "taskId": "visual-cracks",
+              "instruction": "Proposed for your confirmation: have an inspector compare the line with paving joint details and inspect its edges for evidence of a formed or sealed joint versus a crack. Physically measure opening width with a suitable gauge and any level difference with a straightedge and gauge; record locations and values without estimating them from this image."
+            }
+          ],
+          "needsHumanReview": true
+        }
+      },
+      "trace": {
+        "sessionId": "N1efVJpUM5IVh5h3LwBTA_WE",
+        "events": [
+          {
+            "type": "perception",
+            "turnId": "l4zSAcQYgmWktTaJ7q-T_QZN",
+            "at": 1792557805.624019,
+            "data": {
+              "sceneVersion": 1,
+              "context": {
+                "mode": "manual",
+                "locked": false,
+                "activeTaskId": "",
+                "selectionMode": "confirm",
+                "selectionConfirmed": false,
+                "dismissedTaskIds": [],
+                "completedTaskIds": [],
+                "correction": "",
+                "evidenceCount": 0,
+                "observations": [],
+                "quality": {},
+                "backendQuality": {
+                  "opencvVersion": "5.0.0",
+                  "width": 576,
+                  "height": 768,
+                  "laplacianVariance": 636.04,
+                  "meanBrightness": 141.48,
+                  "darkFraction": 0.0001,
+                  "brightFraction": 0.0046
+                }
+              }
+            }
+          },
+          {
+            "type": "decision",
+            "turnId": "l4zSAcQYgmWktTaJ7q-T_QZN",
+            "at": 1792557820.5682757,
+            "data": {
+              "plan": {
+                "scene": {
+                  "environment": "outdoor",
+                  "description": "Paved surface with a white marking and a long dark linear opening or sealed joint, with vegetation at several points.",
+                  "confidence": 0.97
+                },
+                "guidance": "Move closer and frame a short section of the dark line and both adjoining surfaces, keeping the camera perpendicular and your shadow clear.",
+                "guidanceTaskId": null,
+                "reason": "Focus and exposure appear adequate for an overview, but the line could be a joint or a crack. A closer view and human review are needed; its width and any level difference cannot be measured from this photograph.",
+                "suggestions": [
+                  {
+                    "taskId": "visual-cracks",
+                    "title": "Visible cracks / joints",
+                    "mode": "crack",
+                    "reason": "Proposed check of the line's edges and continuity to help document a possible crack or joint. Experimental model observations require human confirmation.",
+                    "automatic": true
+                  },
+                  {
+                    "taskId": "maintenance-monitoring",
+                    "title": "Periodic inspection, maintenance and defect follow-up",
+                    "mode": "manual",
+                    "reason": "Proposed manual review of vegetation and the line's condition; physically measure opening width and any level difference, then compare with earlier maintenance records.",
+                    "automatic": false
+                  }
+                ],
+                "actions": [
+                  {
+                    "id": "view-1",
+                    "type": "request_view",
+                    "mode": null,
+                    "taskId": null,
+                    "instruction": "Capture one closer, perpendicular view of the dark line with both adjoining surfaces visible and your shadow clear."
+                  },
+                  {
+                    "id": "manual-1",
+                    "type": "request_manual_check",
+                    "mode": null,
+                    "taskId": "visual-cracks",
+                    "instruction": "Proposed for your confirmation: have an inspector distinguish a formed or sealed joint from a crack using close inspection and available paving details; physically measure the opening and any level difference with suitable gauges."
+                  }
+                ],
+                "needsHumanReview": true
+              },
+              "metrics": {
+                "engine": "codex-cli",
+                "usage": {
+                  "input_tokens": 21561,
+                  "cached_input_tokens": 0,
+                  "cache_write_input_tokens": 0,
+                  "output_tokens": 357,
+                  "reasoning_output_tokens": 0
+                },
+                "durationMs": 14930
+              }
+            }
+          },
+          {
+            "type": "check_event",
+            "turnId": "l4zSAcQYgmWktTaJ7q-T_QZN",
+            "at": 1792557820.7558434,
+            "data": {
+              "eventId": "proposed-0",
+              "type": "proposed",
+              "taskId": "visual-cracks",
+              "sceneVersion": 1,
+              "sourceTurnId": "l4zSAcQYgmWktTaJ7q-T_QZN"
+            }
+          },
+          {
+            "type": "check_event",
+            "turnId": "l4zSAcQYgmWktTaJ7q-T_QZN",
+            "at": 1792557820.7593,
+            "data": {
+              "eventId": "proposed-1",
+              "type": "proposed",
+              "taskId": "maintenance-monitoring",
+              "sceneVersion": 1,
+              "sourceTurnId": "l4zSAcQYgmWktTaJ7q-T_QZN"
+            }
+          },
+          {
+            "type": "check_event",
+            "turnId": "l4zSAcQYgmWktTaJ7q-T_QZN",
+            "at": 1792557820.7617874,
+            "data": {
+              "eventId": "human-selected-1",
+              "type": "selected",
+              "taskId": "visual-cracks",
+              "sceneVersion": 1,
+              "sourceTurnId": "l4zSAcQYgmWktTaJ7q-T_QZN"
+            }
+          },
+          {
+            "type": "perception",
+            "turnId": "1QkW_B-XjWoV6MroglM6NX0e",
+            "at": 1792557820.7778347,
+            "data": {
+              "sceneVersion": 2,
+              "context": {
+                "mode": "crack",
+                "locked": false,
+                "activeTaskId": "visual-cracks",
+                "selectionMode": "confirm",
+                "selectionConfirmed": true,
+                "dismissedTaskIds": [],
+                "completedTaskIds": [],
+                "correction": "I selected this check myself. This is the closer view of the same area. A visible straight line might be a construction joint; guide me without assuming a confirmed crack.",
+                "evidenceCount": 1,
+                "observations": [],
+                "quality": {},
+                "backendQuality": {
+                  "opencvVersion": "5.0.0",
+                  "width": 384,
+                  "height": 512,
+                  "laplacianVariance": 509.03,
+                  "meanBrightness": 146.45,
+                  "darkFraction": 0,
+                  "brightFraction": 0
+                }
+              }
+            }
+          },
+          {
+            "type": "decision",
+            "turnId": "1QkW_B-XjWoV6MroglM6NX0e",
+            "at": 1792557838.1628835,
+            "data": {
+              "plan": {
+                "scene": {
+                  "environment": "outdoor",
+                  "description": "Close view of paving with a mostly straight dark line, irregular edges and vegetation in parts of the opening; joint versus crack remains uncertain.",
+                  "confidence": 0.96
+                },
+                "guidance": "For your selected cracks / joints check, capture one perpendicular close-up of an unobstructed section with a millimetre ruler beside the line, keeping both edges in focus.",
+                "guidanceTaskId": "visual-cracks",
+                "reason": "The image and supplied quality metrics suggest adequate focus and exposure, so refocusing is not the priority. Straight alignment may indicate a construction joint, but irregular edges do not establish a crack. Human review and physical measurements are needed to distinguish these possibilities and record its condition.",
+                "suggestions": [
+                  {
+                    "taskId": "maintenance-monitoring",
+                    "title": "Periodic inspection, maintenance and defect follow-up",
+                    "mode": "manual",
+                    "reason": "Optional proposal awaiting your tap: document vegetation and edge condition, then compare physical measurements and dated photographs with maintenance records to assess changes.",
+                    "automatic": false
+                  }
+                ],
+                "actions": [
+                  {
+                    "id": "view-scale-2",
+                    "type": "request_view",
+                    "mode": null,
+                    "taskId": "visual-cracks",
+                    "instruction": "Capture one perpendicular close-up of a vegetation-free section with a millimetre ruler beside the opening in the same surface plane and both edges sharply visible."
+                  },
+                  {
+                    "id": "manual-joint-review-2",
+                    "type": "request_manual_check",
+                    "mode": null,
+                    "taskId": "visual-cracks",
+                    "instruction": "Proposed for your confirmation: have an inspector compare the line with paving joint details and inspect its edges for evidence of a formed or sealed joint versus a crack. Physically measure opening width with a suitable gauge and any level difference with a straightedge and gauge; record locations and values without estimating them from this image."
+                  }
+                ],
+                "needsHumanReview": true
+              },
+              "metrics": {
+                "engine": "codex-cli",
+                "usage": {
+                  "input_tokens": 21907,
+                  "cached_input_tokens": 0,
+                  "cache_write_input_tokens": 0,
+                  "output_tokens": 372,
+                  "reasoning_output_tokens": 0
+                },
+                "durationMs": 17382
+              }
+            }
+          },
+          {
+            "type": "check_event",
+            "turnId": "1QkW_B-XjWoV6MroglM6NX0e",
+            "at": 1792557838.9363027,
+            "data": {
+              "eventId": "human-completed-1",
+              "type": "completed",
+              "taskId": "visual-cracks",
+              "sceneVersion": 2,
+              "sourceTurnId": "1QkW_B-XjWoV6MroglM6NX0e"
+            }
+          },
+          {
+            "type": "closed",
+            "turnId": null,
+            "at": 1792557838.94317,
+            "data": {}
+          }
+        ]
+      }
+    },
+    "browser": {
+      "version": "1.2.0",
+      "at": "2026-10-21T04:54:19.830329+00:00",
+      "browser": "Microsoft Edge via isolated Playwright CLI session burhan-v12",
+      "servedUrl": "http://127.0.0.1:4173/",
+      "backendUrl": "https://merhaba-api.kiyan.finance",
+      "physicalPhoneTested": false,
+      "realChecks": {
+        "settings": {
+          "count": 16,
+          "browserSwitchesOffOn": 9,
+          "hardwareOnlySwitchesDisabled": 7,
+          "persistenceAfterReload": true
+        },
+        "publicDevicePairing": true,
+        "selectDeselectExplore": true,
+        "completeReturnsExplore": true,
+        "actualOfflineModel": {
+          "model": "crack",
+          "observation": "crack 52%",
+          "detectorOnlyAfterSelection": true,
+          "overlayClearedOnDeselect": true
+        },
+        "importAndUndo": {
+          "exactSessionCaptureRemoved": true,
+          "countAfterUndo": 0,
+          "savedAgain": true
+        },
+        "review": {
+          "originalAndAnnotated": true,
+          "arrowSaved": true,
+          "normalizedCoordinates": [
+            0.2,
+            0.2,
+            0.6,
+            0.6
+          ],
+          "originalAndDetectorBaselinePreserved": true,
+          "dimensions": [
+            768,
+            1024
+          ],
+          "captureSource": "import",
+          "retakeSuccessKeepsCount": 1,
+          "quickReviewOffReturnsToFindings": true
+        },
+        "cameraSettingsRoundTrip": {
+          "evidencePreserved": true,
+          "selectedCheckPreserved": true
+        },
+        "smartAgent": {
+          "provider": "codex",
+          "publicTunnelUsed": true,
+          "sessionId": "q0DopqaglN-jx7f1kI48myX2",
+          "actualTurns": 2,
+          "durationsMs": [
+            15689,
+            17098
+          ],
+          "proposal": "Visible cracks / joints",
+          "beforeTap": "Exploring",
+          "afterTap": "Visible cracks / joints",
+          "afterStop": "Exploring",
+          "realSwipeDismissedHint": true,
+          "swipePreservedCurrentCheck": true,
+          "authenticatedEvents": [
+            "proposed",
+            "selected",
+            "stopped",
+            "dismissed"
+          ],
+          "noDetectorExecutionClaimedBeforeSelection": true
+        }
+      },
+      "injectedChecks": {
+        "retakeStorageFailure": "IDBObjectStore.put deliberately throws QuotaExceededError; prior photo and count1 preserved; retry succeeded",
+        "browserShareFallback": "navigator.canShare deliberately false; real JPEG download observed"
+      },
+      "unitChecks": [
+        "same-scene dismissal suppression",
+        "minimum60second suppression across scene changes",
+        "completion/active/dismissed recommendation filtering",
+        "target-bound pending guidance",
+        "retake task association",
+        "capture commit rebases concurrent remote history; stale generic snapshots skipped",
+        "failed durable replacement preserves previous evidence"
+      ],
+      "pending": [
+        "Physical CameraX/volume/pinch/focus/rotation and device sensor tests; JVM/browser tests do not replace these."
+      ],
+      "screenshots": [
+        "v12-browser-hint.png",
+        "v12-browser-selected.png",
+        "v12-browser-dismissed.png",
+        "v12-browser-settings.png",
+        "v12-browser-review.png",
+        "v12-browser-compact-header.png"
+      ],
+      "completedAt": "2026-10-21T04:56:31.834267+00:00",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "finalBundleVerified": "/assets/index-DQIXMHb7.js",
+      "screenshotNotes": "All viewport-only 390×844. Hint/dismissed show real Codex plans; selected/settings/review recaptured against final web bundle. Root may apply final cosmetic header changes after these captures. Root recaptured compact header after final CSS and startup-cooldown fix; postQa identifies the final bundle.",
+      "postQa": {
+        "at": "2026-10-21T05:02:11.727867+00:00",
+        "bundle": "/assets/index-BQ0H7Xyp.js",
+        "rapidFirstImportStored": true,
+        "countAfterRapidFirstImport": 1,
+        "saveConfirmationOnlyAfterStorage": true,
+        "headerHeight": 52,
+        "headerButtonMinimumWidth": 48,
+        "headerButtonMinimumHeight": 48,
+        "viewportWidth": 390,
+        "settingsModalZ": 240,
+        "undoZ": 230,
+        "modalAboveUndo": true,
+        "sourceReviewed": [
+          "Browser image share preserves original MIME/extension"
+        ]
+      }
+    },
+    "tunnel": {
+      "version": "1.2.0",
+      "verifiedAt": "2026-10-21T04:46:25.903375+00:00",
+      "publicBaseUrl": "https://merhaba-api.kiyan.finance",
+      "health": {
+        "status": "ok",
+        "provider": "codex",
+        "ready": true
+      },
+      "authenticatedSession": true,
+      "eventAccepted": true,
+      "eventRetryDeduplicated": true,
+      "checkEventCount": 1,
+      "sessionClosed": true,
+      "physicalPhoneUsed": false,
+      "scope": "Actual HTTPS domain -> tunnel -> restarted local backend; paired test client. No camera or model inference in this connectivity check."
+    },
+    "hardwareCameraValidation": "not run; physical phone required",
+    "nativeLogicCoverage": [
+      "Scene-scoped completion and dismissal with minimum60-second cooldown",
+      "Every camera preference independently persisted on and off",
+      "Room Retake atomic replacement, rollback and inspection ownership; exact-ID removal",
+      "Normalized markup geometry and immutable detector baseline"
+    ],
+    "appLogicCoverage": [
+      "Concurrent history/capture persistence and stale autosave protection",
+      "Old/new portable backup round trips and immutable report evidence",
+      "Task-bound guidance and confirmation-aware proposal normalization"
+    ]
   },
   "limitations": [
-    "No physical Android phone connected: live native camera, native inference parity, device recovery, thermal endurance, Android print/share and battery behaviour remain pending.",
-    "Browser numerical resize differences remain explicitly documented in tests/fixtures/README.md; no exact end-to-end parity claim.",
-    "Existing experimental models have documented misses/false alerts; no field accuracy, safety or code-compliance qualification.",
-    "Native unit-test task has no placeholder arithmetic tests; meaningful native smoke tests require a device."
+    "User reported the previous app worked on their phone. The updated native build has not been run on a physical device by this agent.",
+    "Live AWS model execution/deployment needs account credentials and model access; an SDK contract test is not a live AWS result.",
+    "Scene suggestions and existing defect models remain experimental; no all-defect, structural-safety or code-compliance qualification.",
+    "The workflow photo test and synthetic numerical fixture do not establish construction-scene or damage accuracy."
   ],
   "physicalDeviceChecklist": "docs/device-checklist.md"
 }

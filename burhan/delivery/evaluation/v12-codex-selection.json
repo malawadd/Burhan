@@ -1,0 +1,335 @@
+{
+  "version": "1.2.0",
+  "recordedAt": "2026-10-21T04:43:58.950854+00:00",
+  "provider": "codex",
+  "execution": "actual signed-in Codex CLI; online inference",
+  "sourceImage": "datasets\\construction\\dacl10k\\images\\negative_calibration\\dacl10k_v2_train_5381.jpg",
+  "workflow": "Explore → proposals → simulated human selection → closer evidence with user correction → completion",
+  "phoneCameraExecuted": false,
+  "bedrockExecuted": false,
+  "first": {
+    "id": "l4zSAcQYgmWktTaJ7q-T_QZN",
+    "status": "completed",
+    "sceneVersion": 1,
+    "provider": "codex",
+    "result": {
+      "scene": {
+        "environment": "outdoor",
+        "description": "Paved surface with a white marking and a long dark linear opening or sealed joint, with vegetation at several points.",
+        "confidence": 0.97
+      },
+      "guidance": "Move closer and frame a short section of the dark line and both adjoining surfaces, keeping the camera perpendicular and your shadow clear.",
+      "guidanceTaskId": null,
+      "reason": "Focus and exposure appear adequate for an overview, but the line could be a joint or a crack. A closer view and human review are needed; its width and any level difference cannot be measured from this photograph.",
+      "suggestions": [
+        {
+          "taskId": "visual-cracks",
+          "title": "Visible cracks / joints",
+          "mode": "crack",
+          "reason": "Proposed check of the line's edges and continuity to help document a possible crack or joint. Experimental model observations require human confirmation.",
+          "automatic": true
+        },
+        {
+          "taskId": "maintenance-monitoring",
+          "title": "Periodic inspection, maintenance and defect follow-up",
+          "mode": "manual",
+          "reason": "Proposed manual review of vegetation and the line's condition; physically measure opening width and any level difference, then compare with earlier maintenance records.",
+          "automatic": false
+        }
+      ],
+      "actions": [
+        {
+          "id": "view-1",
+          "type": "request_view",
+          "mode": null,
+          "taskId": null,
+          "instruction": "Capture one closer, perpendicular view of the dark line with both adjoining surfaces visible and your shadow clear."
+        },
+        {
+          "id": "manual-1",
+          "type": "request_manual_check",
+          "mode": null,
+          "taskId": "visual-cracks",
+          "instruction": "Proposed for your confirmation: have an inspector distinguish a formed or sealed joint from a crack using close inspection and available paving details; physically measure the opening and any level difference with suitable gauges."
+        }
+      ],
+      "needsHumanReview": true
+    }
+  },
+  "second": {
+    "id": "1QkW_B-XjWoV6MroglM6NX0e",
+    "status": "completed",
+    "sceneVersion": 2,
+    "provider": "codex",
+    "result": {
+      "scene": {
+        "environment": "outdoor",
+        "description": "Close view of paving with a mostly straight dark line, irregular edges and vegetation in parts of the opening; joint versus crack remains uncertain.",
+        "confidence": 0.96
+      },
+      "guidance": "For your selected cracks / joints check, capture one perpendicular close-up of an unobstructed section with a millimetre ruler beside the line, keeping both edges in focus.",
+      "guidanceTaskId": "visual-cracks",
+      "reason": "The image and supplied quality metrics suggest adequate focus and exposure, so refocusing is not the priority. Straight alignment may indicate a construction joint, but irregular edges do not establish a crack. Human review and physical measurements are needed to distinguish these possibilities and record its condition.",
+      "suggestions": [
+        {
+          "taskId": "maintenance-monitoring",
+          "title": "Periodic inspection, maintenance and defect follow-up",
+          "mode": "manual",
+          "reason": "Optional proposal awaiting your tap: document vegetation and edge condition, then compare physical measurements and dated photographs with maintenance records to assess changes.",
+          "automatic": false
+        }
+      ],
+      "actions": [
+        {
+          "id": "view-scale-2",
+          "type": "request_view",
+          "mode": null,
+          "taskId": "visual-cracks",
+          "instruction": "Capture one perpendicular close-up of a vegetation-free section with a millimetre ruler beside the opening in the same surface plane and both edges sharply visible."
+        },
+        {
+          "id": "manual-joint-review-2",
+          "type": "request_manual_check",
+          "mode": null,
+          "taskId": "visual-cracks",
+          "instruction": "Proposed for your confirmation: have an inspector compare the line with paving joint details and inspect its edges for evidence of a formed or sealed joint versus a crack. Physically measure opening width with a suitable gauge and any level difference with a straightedge and gauge; record locations and values without estimating them from this image."
+        }
+      ],
+      "needsHumanReview": true
+    }
+  },
+  "trace": {
+    "sessionId": "N1efVJpUM5IVh5h3LwBTA_WE",
+    "events": [
+      {
+        "type": "perception",
+        "turnId": "l4zSAcQYgmWktTaJ7q-T_QZN",
+        "at": 1792557805.624019,
+        "data": {
+          "sceneVersion": 1,
+          "context": {
+            "mode": "manual",
+            "locked": false,
+            "activeTaskId": "",
+            "selectionMode": "confirm",
+            "selectionConfirmed": false,
+            "dismissedTaskIds": [],
+            "completedTaskIds": [],
+            "correction": "",
+            "evidenceCount": 0,
+            "observations": [],
+            "quality": {},
+            "backendQuality": {
+              "opencvVersion": "5.0.0",
+              "width": 576,
+              "height": 768,
+              "laplacianVariance": 636.04,
+              "meanBrightness": 141.48,
+              "darkFraction": 0.0001,
+              "brightFraction": 0.0046
+            }
+          }
+        }
+      },
+      {
+        "type": "decision",
+        "turnId": "l4zSAcQYgmWktTaJ7q-T_QZN",
+        "at": 1792557820.5682757,
+        "data": {
+          "plan": {
+            "scene": {
+              "environment": "outdoor",
+              "description": "Paved surface with a white marking and a long dark linear opening or sealed joint, with vegetation at several points.",
+              "confidence": 0.97
+            },
+            "guidance": "Move closer and frame a short section of the dark line and both adjoining surfaces, keeping the camera perpendicular and your shadow clear.",
+            "guidanceTaskId": null,
+            "reason": "Focus and exposure appear adequate for an overview, but the line could be a joint or a crack. A closer view and human review are needed; its width and any level difference cannot be measured from this photograph.",
+            "suggestions": [
+              {
+                "taskId": "visual-cracks",
+                "title": "Visible cracks / joints",
+                "mode": "crack",
+                "reason": "Proposed check of the line's edges and continuity to help document a possible crack or joint. Experimental model observations require human confirmation.",
+                "automatic": true
+              },
+              {
+                "taskId": "maintenance-monitoring",
+                "title": "Periodic inspection, maintenance and defect follow-up",
+                "mode": "manual",
+                "reason": "Proposed manual review of vegetation and the line's condition; physically measure opening width and any level difference, then compare with earlier maintenance records.",
+                "automatic": false
+              }
+            ],
+            "actions": [
+              {
+                "id": "view-1",
+                "type": "request_view",
+                "mode": null,
+                "taskId": null,
+                "instruction": "Capture one closer, perpendicular view of the dark line with both adjoining surfaces visible and your shadow clear."
+              },
+              {
+                "id": "manual-1",
+                "type": "request_manual_check",
+                "mode": null,
+                "taskId": "visual-cracks",
+                "instruction": "Proposed for your confirmation: have an inspector distinguish a formed or sealed joint from a crack using close inspection and available paving details; physically measure the opening and any level difference with suitable gauges."
+              }
+            ],
+            "needsHumanReview": true
+          },
+          "metrics": {
+            "engine": "codex-cli",
+            "usage": {
+              "input_tokens": 21561,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 357,
+              "reasoning_output_tokens": 0
+            },
+            "durationMs": 14930
+          }
+        }
+      },
+      {
+        "type": "check_event",
+        "turnId": "l4zSAcQYgmWktTaJ7q-T_QZN",
+        "at": 1792557820.7558434,
+        "data": {
+          "eventId": "proposed-0",
+          "type": "proposed",
+          "taskId": "visual-cracks",
+          "sceneVersion": 1,
+          "sourceTurnId": "l4zSAcQYgmWktTaJ7q-T_QZN"
+        }
+      },
+      {
+        "type": "check_event",
+        "turnId": "l4zSAcQYgmWktTaJ7q-T_QZN",
+        "at": 1792557820.7593,
+        "data": {
+          "eventId": "proposed-1",
+          "type": "proposed",
+          "taskId": "maintenance-monitoring",
+          "sceneVersion": 1,
+          "sourceTurnId": "l4zSAcQYgmWktTaJ7q-T_QZN"
+        }
+      },
+      {
+        "type": "check_event",
+        "turnId": "l4zSAcQYgmWktTaJ7q-T_QZN",
+        "at": 1792557820.7617874,
+        "data": {
+          "eventId": "human-selected-1",
+          "type": "selected",
+          "taskId": "visual-cracks",
+          "sceneVersion": 1,
+          "sourceTurnId": "l4zSAcQYgmWktTaJ7q-T_QZN"
+        }
+      },
+      {
+        "type": "perception",
+        "turnId": "1QkW_B-XjWoV6MroglM6NX0e",
+        "at": 1792557820.7778347,
+        "data": {
+          "sceneVersion": 2,
+          "context": {
+            "mode": "crack",
+            "locked": false,
+            "activeTaskId": "visual-cracks",
+            "selectionMode": "confirm",
+            "selectionConfirmed": true,
+            "dismissedTaskIds": [],
+            "completedTaskIds": [],
+            "correction": "I selected this check myself. This is the closer view of the same area. A visible straight line might be a construction joint; guide me without assuming a confirmed crack.",
+            "evidenceCount": 1,
+            "observations": [],
+            "quality": {},
+            "backendQuality": {
+              "opencvVersion": "5.0.0",
+              "width": 384,
+              "height": 512,
+              "laplacianVariance": 509.03,
+              "meanBrightness": 146.45,
+              "darkFraction": 0.0,
+              "brightFraction": 0.0
+            }
+          }
+        }
+      },
+      {
+        "type": "decision",
+        "turnId": "1QkW_B-XjWoV6MroglM6NX0e",
+        "at": 1792557838.1628835,
+        "data": {
+          "plan": {
+            "scene": {
+              "environment": "outdoor",
+              "description": "Close view of paving with a mostly straight dark line, irregular edges and vegetation in parts of the opening; joint versus crack remains uncertain.",
+              "confidence": 0.96
+            },
+            "guidance": "For your selected cracks / joints check, capture one perpendicular close-up of an unobstructed section with a millimetre ruler beside the line, keeping both edges in focus.",
+            "guidanceTaskId": "visual-cracks",
+            "reason": "The image and supplied quality metrics suggest adequate focus and exposure, so refocusing is not the priority. Straight alignment may indicate a construction joint, but irregular edges do not establish a crack. Human review and physical measurements are needed to distinguish these possibilities and record its condition.",
+            "suggestions": [
+              {
+                "taskId": "maintenance-monitoring",
+                "title": "Periodic inspection, maintenance and defect follow-up",
+                "mode": "manual",
+                "reason": "Optional proposal awaiting your tap: document vegetation and edge condition, then compare physical measurements and dated photographs with maintenance records to assess changes.",
+                "automatic": false
+              }
+            ],
+            "actions": [
+              {
+                "id": "view-scale-2",
+                "type": "request_view",
+                "mode": null,
+                "taskId": "visual-cracks",
+                "instruction": "Capture one perpendicular close-up of a vegetation-free section with a millimetre ruler beside the opening in the same surface plane and both edges sharply visible."
+              },
+              {
+                "id": "manual-joint-review-2",
+                "type": "request_manual_check",
+                "mode": null,
+                "taskId": "visual-cracks",
+                "instruction": "Proposed for your confirmation: have an inspector compare the line with paving joint details and inspect its edges for evidence of a formed or sealed joint versus a crack. Physically measure opening width with a suitable gauge and any level difference with a straightedge and gauge; record locations and values without estimating them from this image."
+              }
+            ],
+            "needsHumanReview": true
+          },
+          "metrics": {
+            "engine": "codex-cli",
+            "usage": {
+              "input_tokens": 21907,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 372,
+              "reasoning_output_tokens": 0
+            },
+            "durationMs": 17382
+          }
+        }
+      },
+      {
+        "type": "check_event",
+        "turnId": "1QkW_B-XjWoV6MroglM6NX0e",
+        "at": 1792557838.9363027,
+        "data": {
+          "eventId": "human-completed-1",
+          "type": "completed",
+          "taskId": "visual-cracks",
+          "sceneVersion": 2,
+          "sourceTurnId": "1QkW_B-XjWoV6MroglM6NX0e"
+        }
+      },
+      {
+        "type": "closed",
+        "turnId": null,
+        "at": 1792557838.94317,
+        "data": {}
+      }
+    ]
+  }
+}
