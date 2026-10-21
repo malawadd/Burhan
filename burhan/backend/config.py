@@ -21,6 +21,7 @@ class Settings:
     daily_limit: int = field(default_factory=lambda: int(os.getenv('DAILY_TURN_LIMIT', '300')))
     origins: list[str] = field(default_factory=lambda: os.getenv('CORS_ORIGINS', 'https://merhaba-api.kiyan.finance,https://localhost,http://localhost,http://127.0.0.1:4173,http://localhost:4173,http://127.0.0.1:5173,http://localhost:5173').split(','))
     catalogue: Path = field(default_factory=lambda: ROOT.parent / 'assets' / 'catalogue.json')
+    research_catalogue: Path = field(default_factory=lambda: ROOT.parent / 'assets' / 'research-catalogue.json')
 
     def __post_init__(self):
         if self.provider not in ('codex', 'aws', 'off'):

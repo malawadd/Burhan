@@ -19,6 +19,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 
 from .config import Settings, load_settings
+from .capabilities import available, capability_key, load_tasks, selection_key
 from .models import CheckEvent, NewSession, Pair, Plan, ToolResults, Turn
 from .providers import BedrockAgent, CodexAgent, OffAgent, ProviderFailure
 
@@ -111,8 +112,15 @@ class Service:
         self.current_task = None
         self.worker_task = None
         self.maintenance_task = None
-        self.tasks = json.loads(settings.catalogue.read_text(encoding='utf-8'))['tasks']
+        self.tasks = load_tasks(settings)
         self.registry = {t['id']: t for t in self.tasks}
+
+    def allowed_registry(self, context):
+        return {key: task for key, task in self.registry.items() if available(task, context)}
+
+    def current_context(self, session):
+        latest = self.db.execute('SELECT context FROM turns WHERE session=? ORDER BY created DESC LIMIT 1', (session['id'],)).fetchone()
+        return json.loads(latest['context'] if latest else session['metadata'])
 
     def event(self, session, turn, kind, payload):
         self.db.execute('INSERT INTO events(session,turn_id,kind,payload,created) VALUES(?,?,?,?,?)',
@@ -183,8 +191,15 @@ class Service:
         # Registry validation happens for both providers, never trusting names or modes from a model.
         plan = plan.model_copy(deep=True)
         normalizations = []
+        registry = self.allowed_registry(context)
+        for proposal in plan.suggestions:
+            if proposal.taskId not in registry:
+                raise PlanRejection('The agent suggested an unavailable inspection check.', 'suggestion_capability_mismatch', {'taskId':proposal.taskId})
+        for action in plan.actions:
+            if action.taskId is not None and action.taskId not in registry:
+                raise PlanRejection('The agent requested an unsupported inspection task.', 'unknown_action_task', {'actionId':action.id,'taskId':action.taskId})
         target = plan.guidanceTaskId
-        if target is not None and target not in self.registry:
+        if target is not None and target not in registry:
             raise PlanRejection('The agent addressed an unsupported check.','unknown_guidance_task',{'taskId':target})
         if context.get('selectionMode') == 'confirm':
             active = context.get('activeTaskId') or None
@@ -197,7 +212,7 @@ class Service:
             plan.suggestions = [s for s in plan.suggestions if s.taskId not in suppressed and s.taskId != active]
             plan.actions = [a for a in plan.actions if a.type != 'select_detector' or a.taskId not in suppressed]
         for suggestion in plan.suggestions:
-            task = self.registry.get(suggestion.taskId)
+            task = registry.get(suggestion.taskId)
             if not task or task['mode'] != suggestion.mode or bool(task['automatic']) != suggestion.automatic:
                 raise PlanRejection('The agent suggested an unsupported inspection capability.', 'suggestion_capability_mismatch',
                     {'taskId':suggestion.taskId,'mode':suggestion.mode,'automatic':suggestion.automatic,
@@ -206,7 +221,7 @@ class Service:
             raise PlanRejection('The agent returned duplicate action identifiers.','duplicate_action_ids',{})
         for action in plan.actions:
             if action.taskId is not None:
-                task = self.registry.get(action.taskId)
+                task = registry.get(action.taskId)
                 if not task:
                     raise PlanRejection('The agent requested an unsupported inspection task.','unknown_action_task',
                         {'actionId':action.id,'taskId':action.taskId})
@@ -223,10 +238,12 @@ class Service:
                 raise PlanRejection('The agent tried to change a locked inspection task.','locked_task_change',
                     {'actionId':action.id,'taskId':action.taskId,'mode':action.mode,'activeTaskId':context.get('activeTaskId')})
             if action.type == 'select_detector':
-                if action.mode not in ('crack', 'surface', 'ppe'):
+                if action.mode not in ('crack', 'surface', 'ppe', 'research'):
                     raise PlanRejection('The agent requested an unavailable detector.','unavailable_detector',{'actionId':action.id,'mode':action.mode})
                 if context.get('selectionMode') == 'confirm' and not action.taskId:
                     raise PlanRejection('A detector proposal must identify its check.','missing_detector_task',{'actionId':action.id})
+                if action.mode == 'research' and (not action.taskId or not registry[action.taskId].get('modelId')):
+                    raise PlanRejection('Expanded detector proposals must identify their registered check.','missing_detector_task',{'actionId':action.id})
         return plan,normalizations
 
     async def worker(self):
@@ -256,7 +273,8 @@ class Service:
                     "SELECT payload FROM events WHERE session=? AND kind='tool_results' ORDER BY id DESC LIMIT 8", (row['session'],)).fetchall()][::-1]
                 check_events = [json.loads(r['payload']) for r in self.db.execute(
                     "SELECT payload FROM events WHERE session=? AND kind='check_event' ORDER BY id DESC LIMIT 30", (row['session'],)).fetchall()][::-1]
-                catalogue = [{k:t.get(k) for k in ('id','title','stage','mode','automatic','requiredEvidence')} for t in self.tasks]
+                catalogue = [{k:t.get(k) for k in ('id','title','titleAr','stage','mode','automatic','requiredEvidence','family','categoryId','modelId','researchOnly','scope')}
+                             for t in self.tasks if available(t, ctx)]
                 provider_context = {'inspection': metadata, 'sceneVersion': row['scene_version'], 'context': ctx,
                     'recentPlans': history, 'toolResults': events, 'checkEvents':check_events, 'capabilityCatalogue': catalogue,
                     'qualityNote': 'Laplacian variance is a heuristic, not a universal threshold. Never infer defect absence from a poor image.'}
@@ -328,7 +346,7 @@ def create_app(settings: Settings | None = None, provider=None):
                 pass
             service.db.close()
 
-    app = FastAPI(title='Burhan Smart Inspection', version='1.2.0', lifespan=lifespan)
+    app = FastAPI(title='Burhan Smart Inspection', version='1.3.0', lifespan=lifespan)
     app.add_middleware(CORSMiddleware, allow_origins=settings.origins, allow_credentials=False,
                        allow_methods=['GET','POST','DELETE','OPTIONS'], allow_headers=['Authorization','Content-Type'])
 
@@ -389,6 +407,11 @@ def create_app(settings: Settings | None = None, provider=None):
     @app.post('/api/v1/sessions', status_code=201)
     async def new_session(body: NewSession, request: Request, device=Depends(auth)):
         s = request.app.state.service
+        registry = s.allowed_registry(body.model_dump())
+        if body.taskId and body.taskId not in registry:
+            raise HTTPException(422, 'Inspection check is unavailable for this device')
+        if body.mode == 'research' and (not body.taskId or registry[body.taskId]['mode'] != 'research'):
+            raise HTTPException(422, 'Expanded inspection mode requires a registered installed detector check')
         if s.db.execute('SELECT COUNT(*) FROM sessions WHERE device=? AND closed=0',(device,)).fetchone()[0] >= 20:
             raise HTTPException(429, 'Close an older inspection session before starting another.')
         sid = uid()
@@ -421,8 +444,15 @@ def create_app(settings: Settings | None = None, provider=None):
             raise HTTPException(429, 'The backend reached its daily planning limit')
         tid = uid()
         context = body.context.model_dump()
+        registry = s.allowed_registry(context)
+        if body.context.activeTaskId and body.context.activeTaskId not in registry:
+            raise HTTPException(422, 'Inspection check is unavailable for this device')
+        if body.context.mode == 'research' and (not body.context.activeTaskId or registry[body.context.activeTaskId]['mode'] != 'research'):
+            raise HTTPException(422, 'Expanded inspection mode requires a registered installed detector check')
+        if body.context.mode == 'research' and (body.context.selectionMode != 'confirm' or not body.context.selectionConfirmed):
+            raise HTTPException(422, 'Confirm the expanded check before starting its detector')
         if body.context.selectionMode == 'confirm':
-            task = s.registry.get(body.context.activeTaskId) if body.context.activeTaskId else None
+            task = registry.get(body.context.activeTaskId) if body.context.activeTaskId else None
             if body.context.activeTaskId and (task is None or task['mode'] != body.context.mode or not body.context.selectionConfirmed):
                 raise HTTPException(422, 'Select a supported check before starting its detector')
             if not body.context.activeTaskId and body.context.mode != 'manual':
@@ -438,7 +468,10 @@ def create_app(settings: Settings | None = None, provider=None):
         else:
             raise HTTPException(422, 'A fresh camera snapshot is required')
         for old in s.db.execute("SELECT id,status,scene_version FROM turns WHERE session=? AND status IN ('queued','running')", (sid,)).fetchall():
-            if old['status'] == 'queued' or old['scene_version'] < body.sceneVersion:
+            old_context = json.loads(s.turn(sid, old['id'])['context'])
+            if (old['status'] == 'queued' or old['scene_version'] < body.sceneVersion
+                    or capability_key(old_context) != capability_key(context)
+                    or selection_key(old_context) != selection_key(context)):
                 s.cancel(old['id'])
         s.db.execute('UPDATE sessions SET scene_version=? WHERE id=?', (body.sceneVersion,sid))
         s.db.execute('INSERT INTO turns(id,session,device,request_id,scene_version,status,provider,context,snapshot,created) VALUES(?,?,?,?,?,?,?,?,?,?)',
@@ -469,7 +502,12 @@ def create_app(settings: Settings | None = None, provider=None):
         allowed = {a['id'] for a in json.loads(row['result'])['actions']}
         if any(x.actionId not in allowed for x in body.results):
             raise HTTPException(422, 'Unknown inspection action')
-        if json.loads(row['context']).get('selectionMode') == 'confirm':
+        current = s.current_context(session)
+        turn_context = json.loads(row['context'])
+        if capability_key(current) != capability_key(turn_context) or selection_key(current) != selection_key(turn_context):
+            raise HTTPException(409, 'Tool results belong to obsolete inspection capabilities or selection')
+        if (json.loads(row['context']).get('selectionMode') == 'confirm'
+                or any(a.get('mode') == 'research' for a in json.loads(row['result'])['actions'])):
             actions = {a['id']:a for a in json.loads(row['result'])['actions']}
             decisions = [json.loads(r['payload']) for r in s.db.execute(
                 "SELECT payload FROM events WHERE session=? AND kind='check_event' ORDER BY id",(sid,))]
@@ -488,7 +526,7 @@ def create_app(settings: Settings | None = None, provider=None):
     @app.get('/api/v1/sessions/{sid}/trace')
     async def trace(sid: str, request: Request, device=Depends(auth)):
         s = request.app.state.service
-        s.session(sid,device,allow_closed=True)
+        session = s.session(sid,device,allow_closed=True)
         return {'sessionId':sid,'events':[{'type':r['kind'],'turnId':r['turn_id'],'at':r['created'],'data':json.loads(r['payload'])}
             for r in s.db.execute('SELECT * FROM events WHERE session=? ORDER BY id',(sid,)).fetchall()]}
 
@@ -497,7 +535,7 @@ def create_app(settings: Settings | None = None, provider=None):
         s = request.app.state.service
         # Human decisions are records, not commands. A late acknowledgement after a
         # scene update or session closure must not silently disappear from the trace.
-        s.session(sid,device,allow_closed=True)
+        session = s.session(sid,device,allow_closed=True)
         payload = body.model_dump()
         existing = s.db.execute('SELECT payload FROM events WHERE session=? AND client_event_id=?',(sid,body.eventId)).fetchone()
         if existing:
@@ -506,6 +544,8 @@ def create_app(settings: Settings | None = None, provider=None):
             return {'accepted':True,'duplicate':True,'eventId':body.eventId}
         if body.taskId not in s.registry:
             raise HTTPException(422, 'Unknown inspection check')
+        if not available(s.registry[body.taskId], s.current_context(session)):
+            raise HTTPException(422, 'Inspection check is unavailable for this device')
         if body.sourceTurnId:
             s.turn(sid,body.sourceTurnId)
         s.db.execute('INSERT INTO events(session,turn_id,kind,payload,created,client_event_id) VALUES(?,?,?,?,?,?)',

@@ -2,7 +2,9 @@ from typing import Annotated, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
-Mode = Literal['crack', 'surface', 'ppe', 'manual']
+Mode = Literal['crack', 'surface', 'ppe', 'manual', 'research']
+
+InstalledModelId = Annotated[str, Field(min_length=1, max_length=100, pattern=r'^[A-Za-z0-9_.-]+$')]
 
 
 class Strict(BaseModel):
@@ -54,6 +56,8 @@ class NewSession(Strict):
     stage: str = Field(default='', max_length=160)
     taskId: str = Field(default='', max_length=160)
     location: str = Field(default='', max_length=500)
+    expandedInspectionModels: bool = False
+    installedModelIds: list[InstalledModelId] = Field(default_factory=list, max_length=30)
 
 
 class Context(BaseModel):
@@ -69,6 +73,8 @@ class Context(BaseModel):
     evidenceCount: int = Field(default=0, ge=0, le=100000)
     observations: list[dict] = Field(default_factory=list, max_length=100)
     quality: dict = Field(default_factory=dict)
+    expandedInspectionModels: bool = False
+    installedModelIds: list[InstalledModelId] = Field(default_factory=list, max_length=30)
 
 
 class Turn(Strict):

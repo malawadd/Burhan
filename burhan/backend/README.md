@@ -126,6 +126,40 @@ closed and produce a bounded `rejected_plan` diagnostic containing a precise rea
 the rejected typed plan and the offending action/capability. These inspection-only diagnostics
 are visible solely to the owning paired device through the authenticated trace endpoint.
 
+### Expanded inspection capabilities (1.3)
+
+Session metadata and each turn's `context` accept these optional fields:
+
+```json
+{"expandedInspectionModels":true,"installedModelIds":["research-phele","research-fasteners","research-stain"]}
+```
+
+The fields are flat, not nested in `clientCapabilities`. Both default to disabled/empty.
+Each turn is authoritative: omitting the fields on a later turn disables expanded proposals,
+even when the session started enabled. Older clients therefore receive their existing
+catalogue. Enabled manual expanded checks do not require model IDs. An automatic expanded
+check also requires its server-registered model in `installedModelIds`. Unknown IDs cannot
+create tasks, tools, models, or paths. These IDs declare client capability, not independently
+attested installation or detector accuracy.
+
+The shared `assets/research-catalogue.json` defines 30 optional checks. Five checks bind
+three bundled experimental models; the other 25 remain manual. The catalogue records
+category/family separately from detector identity and supplies limitations and required
+evidence to Codex and Bedrock. A `research` detector proposal must name an exact enabled
+automatic task; its model binding is resolved only by the registry. Predictions are
+candidate observations requiring human confirmation, not validated safety judgments.
+
+Submitting changed capabilities or a changed selected check supersedes running work even
+within the same scene version. Tool results from previous capabilities/selection return
+409. Disabled research proposals, active checks and new decision events return 422;
+retries of previously recorded event IDs remain idempotent. Preserve old evidence locally
+when disabling the preference. The backend never starts a detector or selects a new check:
+the phone/browser executes a registered detector only after explicit human selection.
+
+`python -m pytest burhan/backend/tests -q` includes isolated capability, same-scene
+cancellation and provider-contract tests. The provider parity tests stub subprocess/Bedrock
+transport and do not establish AWS account access, live inference quality or phone speed.
+
 ## AWS deployment
 
 For local testing with real AWS inference, select `aws` on this backend and supply AWS

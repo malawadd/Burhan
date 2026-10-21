@@ -15,4 +15,5 @@ with zipfile.ZipFile(destination, 'w', zipfile.ZIP_DEFLATED) as archive:
             continue
         archive.write(path, 'burhan/backend/' + relative.as_posix())
     archive.write(backend.parent / 'assets' / 'catalogue.json','burhan/assets/catalogue.json')
+    archive.write(backend.parent / 'assets' / 'research-catalogue.json','burhan/assets/research-catalogue.json')
 print(destination)
