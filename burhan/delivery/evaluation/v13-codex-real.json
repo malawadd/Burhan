@@ -1,0 +1,325 @@
+{
+  "version": "1.3.0",
+  "at": "2026-10-21T08:42:37.500671+00:00",
+  "provider": "codex",
+  "actualOnlineInference": true,
+  "transportMocked": false,
+  "source": "dacl10k_v2_train_5381.jpg",
+  "physicalPhoneTest": false,
+  "localDetectorExecuted": false,
+  "success": true,
+  "turns": [
+    {
+      "id": "8tBVVTUjvpvmBR2oD-GvnmMS",
+      "status": "completed",
+      "sceneVersion": 1,
+      "provider": "codex",
+      "result": {
+        "scene": {
+          "environment": "outdoor",
+          "description": "Paved surface with a white marking and a long dark linear opening or seam containing vegetation; joint versus crack is uncertain.",
+          "confidence": 0.96
+        },
+        "guidance": "Take a closer overhead photo of the central seam, keeping both edges in focus and your shadow clear of the area.",
+        "guidanceTaskId": null,
+        "reason": "Focus and exposure appear adequate for an overview, but the seam needs closer evidence and human review to distinguish a joint from a crack. No physical width measurement is available.",
+        "suggestions": [
+          {
+            "taskId": "visual-cracks",
+            "title": "Visible cracks / joints",
+            "mode": "crack",
+            "reason": "Proposed for your confirmation: review the linear feature using a close-up to help distinguish a possible crack from a pavement joint. Detector observations would remain unconfirmed.",
+            "automatic": true
+          },
+          {
+            "taskId": "maintenance-monitoring",
+            "title": "Periodic inspection, maintenance and defect follow-up",
+            "mode": "manual",
+            "reason": "Proposed for your confirmation: have an inspector identify the seam, physically measure its opening and record vegetation and edge condition for comparison with maintenance records.",
+            "automatic": false
+          }
+        ],
+        "actions": [
+          {
+            "id": "view-seam-closeup",
+            "type": "request_view",
+            "mode": null,
+            "taskId": null,
+            "instruction": "Capture one closer overhead view of the seam with both edges sharp and unobscured."
+          },
+          {
+            "id": "review-seam",
+            "type": "request_manual_check",
+            "mode": null,
+            "taskId": "visual-cracks",
+            "instruction": "Proposed pending your tap: have an inspector distinguish an intended joint from a crack using the close-up and available pavement details, and measure the opening with a suitable physical gauge."
+          }
+        ],
+        "needsHumanReview": true
+      }
+    },
+    {
+      "id": "TGEaqzPw2qJFYEUq1_92XYzt",
+      "status": "completed",
+      "sceneVersion": 2,
+      "provider": "codex",
+      "result": {
+        "scene": {
+          "environment": "outdoor",
+          "description": "Paved-looking surface with a dark linear seam or opening, irregular edges and leafy vegetation. Joint versus crack remains uncertain.",
+          "confidence": 0.93
+        },
+        "guidance": "For the selected mold-like appearance check, capture one closer overhead view of the dark area beside the leaves, keeping its surface texture sharp and evenly lit.",
+        "guidanceTaskId": "research:walls_finishes:mold_appearance",
+        "reason": "Focus and exposure appear adequate. Visible leaves and seam darkness do not establish mold-like growth or identify mold. No detector observations are supplied; the selected experimental research-phele detector has poor recall and cannot provide fungal diagnosis.",
+        "suggestions": [
+          {
+            "taskId": "visual-cracks",
+            "title": "Visible cracks / joints",
+            "mode": "crack",
+            "reason": "Alternative proposal awaiting your tap: review the linear opening; an inspector must distinguish a pavement joint from a crack.",
+            "automatic": true
+          },
+          {
+            "taskId": "maintenance-monitoring",
+            "title": "Periodic inspection, maintenance and defect follow-up",
+            "mode": "manual",
+            "reason": "Alternative proposal awaiting your tap: record vegetation and edge condition, physically measure the opening and compare with maintenance records.",
+            "automatic": false
+          }
+        ],
+        "actions": [
+          {
+            "id": "view-selected-appearance",
+            "type": "request_view",
+            "mode": null,
+            "taskId": "research:walls_finishes:mold_appearance",
+            "instruction": "Capture one closer overhead photo of the dark surface beside the leaves with sharp texture and even lighting."
+          },
+          {
+            "id": "review-selected-appearance",
+            "type": "request_manual_check",
+            "mode": null,
+            "taskId": "research:walls_finishes:mold_appearance",
+            "instruction": "Have the inspector review whether any surface growth-like appearance is distinguishable from leaves, debris and seam shadow. Retain any observation as unconfirmed; appearance cannot identify mold."
+          }
+        ],
+        "needsHumanReview": true
+      }
+    }
+  ],
+  "trace": {
+    "sessionId": "OlRAQI_jELR7dHovh4A-axDz",
+    "events": [
+      {
+        "type": "perception",
+        "turnId": "8tBVVTUjvpvmBR2oD-GvnmMS",
+        "at": 1792572115.701588,
+        "data": {
+          "sceneVersion": 1,
+          "context": {
+            "mode": "manual",
+            "locked": false,
+            "activeTaskId": "",
+            "selectionMode": "confirm",
+            "selectionConfirmed": false,
+            "dismissedTaskIds": [],
+            "completedTaskIds": [],
+            "correction": "",
+            "evidenceCount": 0,
+            "observations": [],
+            "quality": {},
+            "expandedInspectionModels": true,
+            "installedModelIds": [
+              "research-phele",
+              "research-fasteners",
+              "research-stain"
+            ],
+            "backendQuality": {
+              "opencvVersion": "5.0.0",
+              "width": 576,
+              "height": 768,
+              "laplacianVariance": 636.04,
+              "meanBrightness": 141.48,
+              "darkFraction": 0.0001,
+              "brightFraction": 0.0046
+            }
+          }
+        }
+      },
+      {
+        "type": "decision",
+        "turnId": "8tBVVTUjvpvmBR2oD-GvnmMS",
+        "at": 1792572136.6130314,
+        "data": {
+          "plan": {
+            "scene": {
+              "environment": "outdoor",
+              "description": "Paved surface with a white marking and a long dark linear opening or seam containing vegetation; joint versus crack is uncertain.",
+              "confidence": 0.96
+            },
+            "guidance": "Take a closer overhead photo of the central seam, keeping both edges in focus and your shadow clear of the area.",
+            "guidanceTaskId": null,
+            "reason": "Focus and exposure appear adequate for an overview, but the seam needs closer evidence and human review to distinguish a joint from a crack. No physical width measurement is available.",
+            "suggestions": [
+              {
+                "taskId": "visual-cracks",
+                "title": "Visible cracks / joints",
+                "mode": "crack",
+                "reason": "Proposed for your confirmation: review the linear feature using a close-up to help distinguish a possible crack from a pavement joint. Detector observations would remain unconfirmed.",
+                "automatic": true
+              },
+              {
+                "taskId": "maintenance-monitoring",
+                "title": "Periodic inspection, maintenance and defect follow-up",
+                "mode": "manual",
+                "reason": "Proposed for your confirmation: have an inspector identify the seam, physically measure its opening and record vegetation and edge condition for comparison with maintenance records.",
+                "automatic": false
+              }
+            ],
+            "actions": [
+              {
+                "id": "view-seam-closeup",
+                "type": "request_view",
+                "mode": null,
+                "taskId": null,
+                "instruction": "Capture one closer overhead view of the seam with both edges sharp and unobscured."
+              },
+              {
+                "id": "review-seam",
+                "type": "request_manual_check",
+                "mode": null,
+                "taskId": "visual-cracks",
+                "instruction": "Proposed pending your tap: have an inspector distinguish an intended joint from a crack using the close-up and available pavement details, and measure the opening with a suitable physical gauge."
+              }
+            ],
+            "needsHumanReview": true
+          },
+          "metrics": {
+            "engine": "codex-cli",
+            "usage": {
+              "input_tokens": 30022,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 350,
+              "reasoning_output_tokens": 0
+            },
+            "durationMs": 20905
+          }
+        }
+      },
+      {
+        "type": "check_event",
+        "turnId": null,
+        "at": 1792572136.7918127,
+        "data": {
+          "eventId": "v13-selected-1",
+          "type": "selected",
+          "taskId": "research:walls_finishes:mold_appearance",
+          "sceneVersion": 2,
+          "sourceTurnId": null
+        }
+      },
+      {
+        "type": "perception",
+        "turnId": "TGEaqzPw2qJFYEUq1_92XYzt",
+        "at": 1792572136.8525012,
+        "data": {
+          "sceneVersion": 2,
+          "context": {
+            "mode": "research",
+            "locked": false,
+            "activeTaskId": "research:walls_finishes:mold_appearance",
+            "selectionMode": "confirm",
+            "selectionConfirmed": true,
+            "dismissedTaskIds": [],
+            "completedTaskIds": [],
+            "correction": "The inspector selected this appearance check. The closer view is new evidence; no local detector observations are supplied. Do not claim the detector ran.",
+            "evidenceCount": 0,
+            "observations": [],
+            "quality": {},
+            "expandedInspectionModels": true,
+            "installedModelIds": [
+              "research-phele",
+              "research-fasteners",
+              "research-stain"
+            ],
+            "backendQuality": {
+              "opencvVersion": "5.0.0",
+              "width": 384,
+              "height": 512,
+              "laplacianVariance": 509.03,
+              "meanBrightness": 146.45,
+              "darkFraction": 0.0,
+              "brightFraction": 0.0
+            }
+          }
+        }
+      },
+      {
+        "type": "decision",
+        "turnId": "TGEaqzPw2qJFYEUq1_92XYzt",
+        "at": 1792572157.0809095,
+        "data": {
+          "plan": {
+            "scene": {
+              "environment": "outdoor",
+              "description": "Paved-looking surface with a dark linear seam or opening, irregular edges and leafy vegetation. Joint versus crack remains uncertain.",
+              "confidence": 0.93
+            },
+            "guidance": "For the selected mold-like appearance check, capture one closer overhead view of the dark area beside the leaves, keeping its surface texture sharp and evenly lit.",
+            "guidanceTaskId": "research:walls_finishes:mold_appearance",
+            "reason": "Focus and exposure appear adequate. Visible leaves and seam darkness do not establish mold-like growth or identify mold. No detector observations are supplied; the selected experimental research-phele detector has poor recall and cannot provide fungal diagnosis.",
+            "suggestions": [
+              {
+                "taskId": "visual-cracks",
+                "title": "Visible cracks / joints",
+                "mode": "crack",
+                "reason": "Alternative proposal awaiting your tap: review the linear opening; an inspector must distinguish a pavement joint from a crack.",
+                "automatic": true
+              },
+              {
+                "taskId": "maintenance-monitoring",
+                "title": "Periodic inspection, maintenance and defect follow-up",
+                "mode": "manual",
+                "reason": "Alternative proposal awaiting your tap: record vegetation and edge condition, physically measure the opening and compare with maintenance records.",
+                "automatic": false
+              }
+            ],
+            "actions": [
+              {
+                "id": "view-selected-appearance",
+                "type": "request_view",
+                "mode": null,
+                "taskId": "research:walls_finishes:mold_appearance",
+                "instruction": "Capture one closer overhead photo of the dark surface beside the leaves with sharp texture and even lighting."
+              },
+              {
+                "id": "review-selected-appearance",
+                "type": "request_manual_check",
+                "mode": null,
+                "taskId": "research:walls_finishes:mold_appearance",
+                "instruction": "Have the inspector review whether any surface growth-like appearance is distinguishable from leaves, debris and seam shadow. Retain any observation as unconfirmed; appearance cannot identify mold."
+              }
+            ],
+            "needsHumanReview": true
+          },
+          "metrics": {
+            "engine": "codex-cli",
+            "usage": {
+              "input_tokens": 30231,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 373,
+              "reasoning_output_tokens": 0
+            },
+            "durationMs": 20224
+          }
+        }
+      }
+    ]
+  },
+  "limitations": [
+    "Backend image interpretation only; does not qualify detector accuracy, camera performance or AWS access."
+  ]
+}

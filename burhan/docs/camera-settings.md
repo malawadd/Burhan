@@ -58,3 +58,8 @@ Android supplies the full hardware camera workflow. The browser supports shared 
 تتيح المراجعة السريعة عرض الأصل أو الصورة المعلّق عليها، ومتابعة الكاميرا، وإعادة أحدث صورة للبند الحالي، والانتقال إلى جميع الملاحظات. لا تُحذف الصورة السابقة عند فشل إعادة الالتقاط. يخص التراجع الصورة الجديدة وحدها خلال خمس ثوانٍ. تحفظ الأسهم والدوائر نسخة جديدة مع بقاء الأصل وخط أساس الكاشف، ولا تتغير التقارير المحفوظة سابقاً. مشاركة الصور تتطلب اختياراً صريحاً.
 
 الصور الأعلى تفصيلاً والتعليق والمشاركة وقفل التركيز والشبكة والميزان مغلقة افتراضياً. بقية أدوات الالتقاط المساعدة مفعلة افتراضياً، ويمكن تغيير كل أداة بشكل مستقل. يصف ميزان الكاميرا اتجاه الهاتف فقط. تظهر قيود ميزات العتاد بوضوح في المتصفح. راجع قائمة فحص الهاتف قبل الاستخدام الميداني.
+
+
+## Expanded inspection models (v1.3)
+
+Default: **off**, independent of other capture settings. Enables three families/30 checks, including five model-backed experimental appearance checks. Switching it off cancels expanded guidance and returns the selected expanded check to Explore; evidence and saved reports remain. See [expanded-inspections.md](expanded-inspections.md).

@@ -1,0 +1,77 @@
+{
+  "scope": "JVM/Robolectric; no phone JNI or hardware claims",
+  "tests": [
+    {
+      "name": "com.burhan.site.CameraPreferencesTest",
+      "tests": "3",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "25.393"
+    },
+    {
+      "name": "com.burhan.site.CaptureJournalTest",
+      "tests": "3",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "2.229"
+    },
+    {
+      "name": "com.burhan.site.CheckSelectionTest",
+      "tests": "3",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "0.005"
+    },
+    {
+      "name": "com.burhan.site.InspectionCameraUiTest",
+      "tests": "15",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "60.794"
+    },
+    {
+      "name": "com.burhan.site.PhotoMarkupTest",
+      "tests": "1",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "0.203"
+    },
+    {
+      "name": "com.burhan.site.ResearchCatalogueTest",
+      "tests": "2",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "0.875"
+    },
+    {
+      "name": "com.burhan.site.ResearchOutputDecoderTest",
+      "tests": "6",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "0.115"
+    },
+    {
+      "name": "com.burhan.site.ResearchRealImageParityTest",
+      "tests": "1",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "0.382"
+    },
+    {
+      "name": "com.burhan.site.SmartTurnGateTest",
+      "tests": "1",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "0.001"
+    }
+  ]
+}

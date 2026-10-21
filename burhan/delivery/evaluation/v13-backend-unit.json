@@ -1,0 +1,7 @@
+{
+  "command": ".venv/Scripts/python -m pytest burhan/backend/tests -q --tb=short",
+  "result": "38 passed",
+  "executedBy": "backend implementation agent",
+  "scope": "FastAPI session/capability validation; Codex/AWS transport stubs; see separate real Codex trace",
+  "liveAWS": false
+}

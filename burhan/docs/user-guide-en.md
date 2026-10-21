@@ -96,3 +96,10 @@ If data cannot be read, Burhan displays a persistent error and does not overwrit
 Start in Explore, then tap a check or the small AI hint to inspect it. Tap the active check again or choose Stop check to return to Explore. Complete and Skip also return there. The assistant proposes checks and never starts another detector without your choice. Swipe a suggestion away to dismiss; use Details → Suggest again to bring suggestions back.
 
 Open Settings → Camera & Capture or camera options for independent tools. Quick Review lets you continue the camera, retake the latest current-check photo, or open all findings. Undo lasts five seconds for the newly saved photo. Higher-detail photos, arrows/circles and photo sharing are optional and initially off. [Full settings and review guide](camera-settings.md).
+
+
+## Optional expanded inspections (1.3)
+
+Settings → Camera & Capture → Assistance → Expanded inspection models is OFF by default. Enable it to show Walls & finishes, Brackets & railings and Tile installation. Five checks have experimental local detectors; the remaining 25 are guided manual checks. Choose a check in camera Details; a hint never starts detection until you tap it. Turn the switch off to return an active expanded check to Explore while keeping evidence.
+
+Tile width/tolerance fields record your physical readings, not camera measurements. Enter them when creating a tile inspection, or open a saved tile photo in All findings → Review → Record physical measurements. Reports retain experimental model identity and entered values. Review all candidates; no detection is not a pass.

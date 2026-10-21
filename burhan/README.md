@@ -4,7 +4,7 @@ Construction inspection with offline Android detection, an adaptive camera guide
 
 ## Start here
 
-- **Install:** copy `delivery/Burhan-v1.2.0-debug.apk` to an ARM64 Android 12+ phone. Keep the previous installation to preserve data; this update uses the same package/signing identity. Export a backup first.
+- **Install:** copy `delivery/Burhan-v1.3.0-debug.apk` to an ARM64 Android 12+ phone. Keep the previous installation to preserve data; this update uses the same package/signing identity. Export a backup first.
 - **Smart Inspection:** start `backend/start.ps1 -Install`, obtain the pairing code from its terminal, then pair in Burhan Settings using `https://merhaba-api.kiyan.finance`. Tap **Start Smart Inspection**, start the assistant and point the camera. See [the Smart Inspection guide](docs/smart-inspection.md).
 - **Manual/offline use:** create a project → new inspection → select stage/task and analysis mode → collect evidence → review findings → complete checks → generate report. This remains available without a backend.
 - **Reports:** saved inside Burhan as immutable versions. **Export PDF** opens Android's print dialog: choose **Save as PDF**, A4, and save to your chosen folder.
@@ -71,3 +71,8 @@ This is a personal field prototype using existing experimental models. It is not
 The Python-output numerical decoder checks and all four Web WASM model executions pass. Browser resizing introduces explicitly measured pixel differences; see `tests/fixtures/README.md`. No Android phone was connected during initial development: hardware camera, native inference, thermal endurance, Android PDF/share and native data recovery require the physical-device checklist. Consult `delivery/verification.json` for the exact delivered checks.
 
 Source, assets, Android project, backend, build scripts and guides are all inside this folder. Offline detection requires neither Python nor internet. Scene-aware Smart Inspection requires the paired backend and online provider; snapshots are transmitted only while the assistant is enabled. Build dependency downloads require internet on a fresh development machine.
+
+
+## Optional expansion in 1.3
+
+The original models remain the default. Enable **Settings → Camera & Capture → Expanded inspection models** for five new experimental model checks and 25 manual checks in three families. The three extra ONNX files are bundled for offline use. [Field workflow and limitations](docs/expanded-inspections.md) · [Release notes](docs/release-notes-1.3.0.md) · [Standalone design guide](design/Burhan-Design-Language.html).

@@ -1,0 +1,94 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "name": "off preference persisted after camera opt-out",
+      "passed": true
+    },
+    {
+      "name": "Settings has no horizontal overflow at 320",
+      "passed": true
+    },
+    {
+      "name": "Settings has no horizontal overflow at 390",
+      "passed": true
+    },
+    {
+      "name": "Settings has no horizontal overflow at 768",
+      "passed": true
+    },
+    {
+      "name": "Settings has no horizontal overflow at 1440",
+      "passed": true
+    },
+    {
+      "name": "on preference persisted",
+      "passed": true
+    },
+    {
+      "name": "family heading Walls and finishes",
+      "passed": true
+    },
+    {
+      "name": "family heading Brackets and railings",
+      "passed": true
+    },
+    {
+      "name": "family heading Tile installation",
+      "passed": true
+    },
+    {
+      "name": "enable does not select a check",
+      "passed": true
+    },
+    {
+      "name": "explicit selection activates experimental check",
+      "passed": true
+    },
+    {
+      "name": "actual worker saves retained-image evidence",
+      "passed": true
+    },
+    {
+      "name": "same-mode category switching updates selected check",
+      "passed": true
+    },
+    {
+      "name": "opt-out clears active check",
+      "passed": true
+    },
+    {
+      "name": "opt-out preserves capture",
+      "passed": true
+    },
+    {
+      "name": "opt-out removes labels",
+      "passed": true
+    },
+    {
+      "name": "opt-out removes expanded proposals and task choices",
+      "passed": true
+    },
+    {
+      "name": "zero-result evidence keeps executed model provenance",
+      "passed": true
+    },
+    {
+      "name": "manual measurements survive storage",
+      "passed": true
+    },
+    {
+      "name": "report snapshot retains physical readings",
+      "passed": true
+    },
+    {
+      "name": "Arabic expanded setting is translated and remains off",
+      "passed": true
+    },
+    {
+      "name": "Arabic Settings no horizontal overflow",
+      "passed": true
+    }
+  ],
+  "scope": "Actual production browser UI and worker; imported retained TRAIN photos; no physical camera claim"
+}

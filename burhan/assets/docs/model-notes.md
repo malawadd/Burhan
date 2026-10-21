@@ -21,3 +21,10 @@ Browser JavaScript interpolation differs slightly from OpenCV. On the recorded o
 PPE metadata includes Ultralytics AGPL3 lineage and an author CC BY4 weight declaration. Joint-aware crack weights include AGPL3 lineage and merged source data whose redistribution clearance is unresolved. DACL photos are CC BY-NC4; the upstream author's checkpoint licence is undeclared, and a mirror label does not establish permission. Personal prototype packaging does not resolve commercial/public redistribution rights. Preserve notices and obtain appropriate rights before distributing beyond the chosen personal use.
 
 OpenCV is Apache2, ONNX Runtime MIT, CameraX/Room AndroidX Apache2, React/Capacitor/Vite MIT and the bundled Noto fonts SIL Open Font Licence. Font licence texts are bundled alongside the fonts. Runtime/package licences remain in locked dependencies and native AARs.
+
+
+## Optional expansion (1.3)
+
+Seven total pinned ONNX files are now bundled. Three additional files are opt-in and remain research-only: PHELE SSDLite320 (peeling paint/mold-like appearance), SDNET v2 YOLOv8n512 (unseated/generic fastener-absence appearance), and wall-stain SSDLite320. Their original source manifests, per-class operating points and hashes are preserved by scripts/bundle-research.py. SSDLite graph NMS is retained without an extra suppression pass. The current legacy models remain the default.
+
+Real CPU-output fixture replay matches native and browser decoder boxes/scores on nine reused TRAIN-image cases. Full WASM on the same Python inputs matches thresholded boxes; browser bilinear integer resize differs from OpenCV by up to one RGB level. One retained target-negative stain image produces 16 browser-input candidates versus 14 CPU-input candidates, with lower overlap on some regions. This numerical instability and existing weak accuracy are disclosed; no category is promoted. See delivery/evaluation/v13-wasm-real.json. Physical-phone/JNI inference and sustained camera performance are not established by JVM tests.

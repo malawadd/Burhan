@@ -1,0 +1,43 @@
+{
+  "apk": "Burhan-v1.3.0-debug.apk",
+  "models": [
+    {
+      "id": "ppe",
+      "sha256": "1d5f3cf69883e89ba6e2b3836a0b21623044e9a682f1f00dfbacac97b99baf94",
+      "verified": true
+    },
+    {
+      "id": "crack",
+      "sha256": "4d48232d7b1427ac468022d2cc11a344885629cac71ad48bd2ff4c6659302246",
+      "verified": true
+    },
+    {
+      "id": "surface320",
+      "sha256": "c89aa3002de737cf19ea3043704af36837ad92267466f1234ac2bcecee60ea56",
+      "verified": true
+    },
+    {
+      "id": "surface512",
+      "sha256": "080fb07297bbb2841fbd5f49b9d8888da53ee1c2adc1ea33bdd2addb8cc9ea7f",
+      "verified": true
+    },
+    {
+      "id": "research-phele",
+      "sha256": "043cd896209071d3f2607eaa5a061c2b2922df046262151ddf6b9ad5a2b2c40b",
+      "verified": true
+    },
+    {
+      "id": "research-fasteners",
+      "sha256": "498a2a678dc8488397fb5f7cac9804b7fb09994772b9d68fd73ce31a836ce467",
+      "verified": true
+    },
+    {
+      "id": "research-stain",
+      "sha256": "654384b6653b055583fe2b2a5e73920795ff5d2eb7844d988fd6c9b813649505",
+      "verified": true
+    }
+  ],
+  "settingsDefaultOff": true,
+  "expandedChecks": 30,
+  "updatedUserGuideBundled": true
+}

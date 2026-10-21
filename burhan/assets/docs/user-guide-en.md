@@ -78,3 +78,10 @@ If data cannot be read, Burhan displays a persistent error and does not overwrit
 - **Browser camera unavailable:** use localhost/HTTPS and grant permission. A plain LAN HTTP address is insufficient.
 - **Android PDF unavailable:** confirm a system print service exists and use Save as PDF. Cancelling printing does not delete the report record.
 - **Model checksum error:** do not use the affected mode; preserve data and reinstall a verified APK only after backup.
+
+
+## Optional expanded inspections (1.3)
+
+Settings → Camera & Capture → Assistance → Expanded inspection models is OFF by default. Enable it to show Walls & finishes, Brackets & railings and Tile installation. Five checks have experimental local detectors; the remaining 25 are guided manual checks. Choose a check in camera Details; a hint never starts detection until you tap it. Turn the switch off to return an active expanded check to Explore while keeping evidence.
+
+Tile width/tolerance fields record your physical readings, not camera measurements. Enter them when creating a tile inspection, or open a saved tile photo in All findings → Review → Record physical measurements. Reports retain experimental model identity and entered values. Review all candidates; no detection is not a pass.

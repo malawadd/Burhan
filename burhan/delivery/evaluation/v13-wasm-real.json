@@ -1,0 +1,209 @@
+{
+  "runtime": {
+    "common": "1.30.0",
+    "web": "1.30.0"
+  },
+  "scope": "Desktop browser real WASM image diagnostics, not physical camera or independent accuracy",
+  "results": [
+    {
+      "id": "research-phele-train",
+      "model": "research-phele",
+      "measurements": [
+        {
+          "source": "python-input",
+          "inferenceMs": 628.9000000953674,
+          "expectedRows": 0,
+          "actualRows": 0,
+          "minReferenceIoU": null,
+          "maxRawDelta": 0.000152587890625
+        },
+        {
+          "source": "browser-input",
+          "inferenceMs": 350.2000000476837,
+          "expectedRows": 0,
+          "actualRows": 0,
+          "minReferenceIoU": null
+        }
+      ]
+    },
+    {
+      "id": "research-phele-rotated",
+      "model": "research-phele",
+      "measurements": [
+        {
+          "source": "python-input",
+          "inferenceMs": 396.60000002384186,
+          "expectedRows": 0,
+          "actualRows": 0,
+          "minReferenceIoU": null,
+          "maxRawDelta": 0.00032806396484375
+        },
+        {
+          "source": "browser-input",
+          "inferenceMs": 503.3000000715256,
+          "expectedRows": 0,
+          "actualRows": 0,
+          "minReferenceIoU": null
+        }
+      ]
+    },
+    {
+      "id": "research-phele-target-negative",
+      "model": "research-phele",
+      "measurements": [
+        {
+          "source": "python-input",
+          "inferenceMs": 303.2999999523163,
+          "expectedRows": 1,
+          "actualRows": 1,
+          "minReferenceIoU": 1,
+          "maxRawDelta": 0.000244140625
+        },
+        {
+          "source": "browser-input",
+          "inferenceMs": 258.10000002384186,
+          "expectedRows": 1,
+          "actualRows": 1,
+          "minReferenceIoU": 1
+        }
+      ]
+    },
+    {
+      "id": "research-fasteners-train",
+      "model": "research-fasteners",
+      "measurements": [
+        {
+          "source": "python-input",
+          "inferenceMs": 1142,
+          "expectedRows": 4,
+          "actualRows": 4,
+          "minReferenceIoU": 1,
+          "maxRawDelta": 0.001220703125
+        },
+        {
+          "source": "browser-input",
+          "inferenceMs": 1098.1000000238419,
+          "expectedRows": 4,
+          "actualRows": 4,
+          "minReferenceIoU": 0.9878048780487805
+        }
+      ]
+    },
+    {
+      "id": "research-fasteners-rotated",
+      "model": "research-fasteners",
+      "measurements": [
+        {
+          "source": "python-input",
+          "inferenceMs": 1093.3999999761581,
+          "expectedRows": 4,
+          "actualRows": 4,
+          "minReferenceIoU": 1,
+          "maxRawDelta": 0.00054931640625
+        },
+        {
+          "source": "browser-input",
+          "inferenceMs": 1424.7000000476837,
+          "expectedRows": 4,
+          "actualRows": 4,
+          "minReferenceIoU": 1
+        }
+      ]
+    },
+    {
+      "id": "research-fasteners-target-negative",
+      "model": "research-fasteners",
+      "measurements": [
+        {
+          "source": "python-input",
+          "inferenceMs": 1419.1000000238419,
+          "expectedRows": 0,
+          "actualRows": 0,
+          "minReferenceIoU": null,
+          "maxRawDelta": 0.0003814697265625
+        },
+        {
+          "source": "browser-input",
+          "inferenceMs": 1371.0999999046326,
+          "expectedRows": 0,
+          "actualRows": 0,
+          "minReferenceIoU": null
+        }
+      ]
+    },
+    {
+      "id": "research-stain-train",
+      "model": "research-stain",
+      "measurements": [
+        {
+          "source": "python-input",
+          "inferenceMs": 406.5,
+          "expectedRows": 16,
+          "actualRows": 16,
+          "minReferenceIoU": 1,
+          "maxRawDelta": 0.000335693359375
+        },
+        {
+          "source": "browser-input",
+          "inferenceMs": 377.7999999523163,
+          "expectedRows": 16,
+          "actualRows": 16,
+          "minReferenceIoU": 0.9663888888888889
+        }
+      ]
+    },
+    {
+      "id": "research-stain-rotated",
+      "model": "research-stain",
+      "measurements": [
+        {
+          "source": "python-input",
+          "inferenceMs": 299.10000002384186,
+          "expectedRows": 24,
+          "actualRows": 24,
+          "minReferenceIoU": 1,
+          "maxRawDelta": 0.00018310546875
+        },
+        {
+          "source": "browser-input",
+          "inferenceMs": 343.7000000476837,
+          "expectedRows": 24,
+          "actualRows": 24,
+          "minReferenceIoU": 0.9642857142857143
+        }
+      ]
+    },
+    {
+      "id": "research-stain-target-negative",
+      "model": "research-stain",
+      "measurements": [
+        {
+          "source": "python-input",
+          "inferenceMs": 343.7000000476837,
+          "expectedRows": 14,
+          "actualRows": 14,
+          "minReferenceIoU": 1,
+          "maxRawDelta": 151.34454345703125
+        },
+        {
+          "source": "browser-input",
+          "inferenceMs": 368.10000002384186,
+          "expectedRows": 14,
+          "actualRows": 16,
+          "minReferenceIoU": 0.6705239472838316
+        }
+      ]
+    }
+  ],
+  "mainThreadAnimationFrames": 186,
+  "maxAnimationFrameGapMs": 2404.600000023842,
+  "memory": {
+    "usedJSHeapSize": 54600173,
+    "totalJSHeapSize": 61472601
+  },
+  "notes": [
+    "SSD raw tensors are detection lists; near-tie ordering can change and max elementwise delta is not an aligned row error. Thresholded Python-input decoded boxes match all nine references.",
+    "Browser integer resize differs from cv2 by at most one RGB level; stain target-negative yields16 instead of14 candidates and minimum best-reference IoU0.6705 on this reusedTRAINphoto. No accuracy promotion.",
+    "Animation timing here is the in-page diagnostic harness, not the production inference worker or camera performance."
+  ]
+}

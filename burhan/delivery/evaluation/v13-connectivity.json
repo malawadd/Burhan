@@ -1,0 +1,14 @@
+{
+  "origin": "https://merhaba-api.kiyan.finance",
+  "health": {
+    "status": "ok",
+    "provider": "codex",
+    "ready": true
+  },
+  "pairStatus": 200,
+  "authenticatedSessionStatus": 201,
+  "closeStatus": 200,
+  "modelTurnsSubmitted": 0,
+  "physicalPhoneTest": false,
+  "initialProbeNote": "A Python urllib probe was rejected403 by the edge; subsequent PowerShell and actual browser requests returned200. Authenticated browser pairing/session lifecycle passed."
+}

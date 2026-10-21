@@ -1,0 +1,67 @@
+{
+  "product": "Burhan",
+  "referenceVersion": "1.3.0",
+  "standaloneHtml": "Burhan-Design-Language.html",
+  "screens": {
+    "Burhan-expanded_off-reference.png": {
+      "source": "../output/playwright/v13-settings-off.png",
+      "sha256": "1e1fff616b2f303ca8a1adea4d3c1bd4a7d5e3c2de92729d5488647754f70ceb"
+    },
+    "Burhan-expanded_on-reference.png": {
+      "source": "../output/playwright/v13-settings-on.png",
+      "sha256": "d0226ee1274c96b2660be5fa9a4983f10af2b1cf3c0593b7df9f8429840a5acc"
+    },
+    "Burhan-expanded_camera-reference.png": {
+      "source": "../output/playwright/v13-expanded-camera.png",
+      "sha256": "d645e3fb6881e4f094dbc957042ce5346d6dda18506b005292617713a289a0ae"
+    },
+    "Burhan-expanded_review-reference.png": {
+      "source": "../output/playwright/v13-tile-measurements.png",
+      "sha256": "5c05c953fe2b4d64f41c0055158181710787519f0d0d74bd6e9be111d8b89a8d"
+    },
+    "Burhan-expanded_native-reference.png": {
+      "source": "../output/native-ui/inspection-en-360x800-expanded-research.png",
+      "sha256": "86f5eb3c755f91445f1eaff4bcabd5b583576508c41735e0360fdc4bbd00a1c6"
+    },
+    "Burhan-workspace-reference.png": {
+      "source": "../output/playwright/burhan-design-workspace.png",
+      "sha256": "2eceb6c7eeeb755a8aea4b8721e177573b75b0ecf22095034c60575f78c0a480"
+    },
+    "Burhan-reports-reference.png": {
+      "source": "../output/playwright/burhan-design-reports.png",
+      "sha256": "5d1af1e1ceed33dd339fea8ade3e1bdff5ee6f732a8d44b60ab07c63be4a8992"
+    },
+    "Burhan-hint-reference.png": {
+      "source": "delivery/evaluation/v12-browser-hint.png",
+      "sha256": "7eb1b0dd945c66f114f11d903b74b382b7881cd1182d5898b2d2c8b002ce46a1"
+    },
+    "Burhan-selected-reference.png": {
+      "source": "delivery/evaluation/v12-browser-selected.png",
+      "sha256": "4dffc2dc5c407cbc024971cc459370a9bf39789daad1fc1ab7accc035bcfb469"
+    },
+    "Burhan-review-reference.png": {
+      "source": "delivery/evaluation/v12-browser-review.png",
+      "sha256": "f39d1e99fdb365569f5d9422de8cfb01f9b9cb9d9007433d9a9e9672b3e21d61"
+    },
+    "Burhan-native-reference.png": {
+      "source": "delivery/evaluation/native-ui/inspection-en-360x800-subtle-hint.png",
+      "sha256": "cc0181319197e4bf5b7f211513bab308fd667c339e0f5460b8899220e4cf7e69"
+    },
+    "Burhan-arabic-reference.png": {
+      "source": "delivery/evaluation/native-ui/inspection-ar-360x800-font160.png",
+      "sha256": "133fd9c9d91f6428e0f85ab5bd7a902abd17756334fe0ff930e65fd34ef8472b"
+    },
+    "Burhan-settings-reference.png": {
+      "source": "delivery/evaluation/v12-browser-settings.png",
+      "sha256": "8137555206efd972f32a7b5cd97e9fbdc8bc846366f72c83e5247a996e4f927e"
+    }
+  },
+  "sourceReferences": [
+    "src/styles.css",
+    "src/engine/Scanner.css",
+    "src/i18n.ts",
+    "android/app/src/main/java/com/burhan/site/InspectionCameraUi.java"
+  ],
+  "nativeFixtures": "Rendered Android Material Views with blank camera preview. Not physical-phone footage.",
+  "contentCanvases": "Original vector content directions, not product screenshots."
+}

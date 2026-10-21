@@ -1,0 +1,43 @@
+BURHAN / برهان
+CREATOR COPY STARTER — product reference 1.3.0
+
+EXISTING BRAND LINE
+Built on evidence.
+
+EXISTING PRODUCT HEADLINE
+See clearly. Build confidently.
+رؤية أوضح. بناء بثقة.
+
+SUGGESTED ARABIC CONTENT LINE
+كل فحص يبدأ بدليل.
+
+PRODUCT DESCRIPTION
+Burhan helps inspectors choose relevant checks, collect visual evidence, review observations and keep a clear inspection record. Supported detection runs on device; optional smart guidance uses a paired online backend.
+
+وصف مقترح
+يساعد برهان الفاحص على اختيار بنود الفحص المناسبة وجمع الأدلة البصرية ومراجعة الملاحظات وتوثيقها في سجل واضح. يعمل الكشف المدعوم على الجهاز، بينما يستخدم المساعد الذكي الاختياري خادماً متصلاً بالإنترنت.
+
+USEFUL MICROCOPY
+Explore / استكشاف
+Capture evidence / التقاط دليل
+Review findings / مراجعة الملاحظات
+Generate report / إنشاء تقرير
+Human review required / المراجعة البشرية مطلوبة
+
+EXPANDED INSPECTIONS — OPTIONAL IN 1.3
+Expanded inspection models / نماذج الفحص الموسعة
+Off by default / مغلق افتراضياً
+Walls & finishes / الجدران والتشطيبات
+Brackets & railings / الحوامل والدرابزين
+Tile installation / تركيب البلاط
+Experimental candidates / ملاحظات مرشحة تجريبية
+5 model-backed checks + 25 guided manual checks. Three bundled models work locally when enabled. The 30 check names do not mean 30 automatic detectors.
+٥ فحوصات بنماذج تجريبية و٢٥ فحصاً يدوياً موجهاً. تعمل النماذج الثلاثة المضمنة محلياً عند التفعيل. لا تعني أسماء الفحوصات الثلاثين وجود ثلاثين كاشفاً آلياً.
+Stain appearance is not a moisture measurement. Mold-like appearance is not identification. Fastener-absence appearance is not proof that required hardware is missing. Tile measurements are entered physical readings.
+
+ACCURACY OF THE MESSAGE
+AI proposes. The inspector chooses.
+A model observation is not a confirmed finding.
+Empty detection is not an automatic pass.
+A saved inspection report is not an engineering certification.
+Avoid promising every-defect detection, invented accuracy percentages or a fully offline online assistant.

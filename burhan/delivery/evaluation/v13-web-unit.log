@@ -1,0 +1,79 @@
+
+> burhan@1.3.0 verify
+> tsc --noEmit && node --test tests/*.test.mjs src/engine/*.test.mjs && node scripts/verify-assets.mjs
+
+✔ Python ties-to-even and letterbox geometry (9.5731ms)
+✔ RGB float YOLO, BGR uint8 DACL, and 114 padding (7.6441ms)
+✔ YOLO per-class NMS, source coordinates and prototype masks (615.6046ms)
+✔ DACL overlapping sigmoid classes, eight connectivity and min component area (11.4474ms)
+✔ RLE begins with background, covers every pixel and IoU is correct (3.1833ms)
+✔ SSDLite uses named outputs, one-based int64 labels, per-class thresholds and retained fractional extents (6.9867ms)
+✔ SSDLite preserves overlapping graph results without a second NMS and rejects ambiguous output contracts (2.6541ms)
+✔ 512px YOLO accepts 5376 anchors, thresholds each class and uses explicit kind instead of model ID (25.4924ms)
+✔ Remote contracts retain research guidance and history while dropping unknown analysis modes (25.2201ms)
+{"fixture":"research-phele-train","maxRgbDelta":0.003921598196029663,"meanRgbDelta":0.00019481464496493573,"differingSamples":15261}
+{"fixture":"research-phele-rotated","maxRgbDelta":0.003921598196029663,"meanRgbDelta":0.00019746987485026087,"differingSamples":15469}
+{"fixture":"research-phele-target-negative","maxRgbDelta":0.003921598196029663,"meanRgbDelta":0.0003668428285042561,"differingSamples":28737}
+{"fixture":"research-fasteners-train","maxRgbDelta":0.003921598196029663,"meanRgbDelta":0.0004934622349329251,"differingSamples":98959}
+{"fixture":"research-fasteners-rotated","maxRgbDelta":0.003921598196029663,"meanRgbDelta":0.0004945094059110033,"differingSamples":99169}
+{"fixture":"research-fasteners-target-negative","maxRgbDelta":0.003921598196029663,"meanRgbDelta":0.00042283800834219676,"differingSamples":84796}
+{"fixture":"research-stain-train","maxRgbDelta":0.003921598196029663,"meanRgbDelta":0.00027389706652381087,"differingSamples":21456}
+{"fixture":"research-stain-rotated","maxRgbDelta":0.003921598196029663,"meanRgbDelta":0.0002795521932603151,"differingSamples":21899}
+{"fixture":"research-stain-target-negative","maxRgbDelta":0.003921598196029663,"meanRgbDelta":0.00023820467780145312,"differingSamples":18660}
+✔ Real reused TRAIN photograph decoder parity: research-phele-train (110.4236ms)
+✔ Real reused TRAIN photograph preprocessing diagnostic: research-phele-train (194.0681ms)
+✔ Real reused TRAIN photograph decoder parity: research-phele-rotated (15.9759ms)
+✔ Real reused TRAIN photograph preprocessing diagnostic: research-phele-rotated (134.2509ms)
+✔ Real reused TRAIN photograph decoder parity: research-phele-target-negative (17.4952ms)
+✔ Real reused TRAIN photograph preprocessing diagnostic: research-phele-target-negative (59.8395ms)
+✔ Real reused TRAIN photograph decoder parity: research-fasteners-train (217.0491ms)
+✔ Real reused TRAIN photograph preprocessing diagnostic: research-fasteners-train (281.4708ms)
+✔ Real reused TRAIN photograph decoder parity: research-fasteners-rotated (17.8979ms)
+✔ Real reused TRAIN photograph preprocessing diagnostic: research-fasteners-rotated (163.4542ms)
+✔ Real reused TRAIN photograph decoder parity: research-fasteners-target-negative (32.3712ms)
+✔ Real reused TRAIN photograph preprocessing diagnostic: research-fasteners-target-negative (255.9132ms)
+✔ Real reused TRAIN photograph decoder parity: research-stain-train (9.897ms)
+✔ Real reused TRAIN photograph preprocessing diagnostic: research-stain-train (112.9192ms)
+✔ Real reused TRAIN photograph decoder parity: research-stain-rotated (26.2012ms)
+✔ Real reused TRAIN photograph preprocessing diagnostic: research-stain-rotated (63.9073ms)
+✔ Real reused TRAIN photograph decoder parity: research-stain-target-negative (8.1617ms)
+✔ Real reused TRAIN photograph preprocessing diagnostic: research-stain-target-negative (59.9756ms)
+✔ untrusted agent output cannot introduce shell actions or unknown detectors (6.7547ms)
+✔ backend origins require secure remote URLs and reject embedded credentials (2.9506ms)
+✔ malformed guidance fails closed and scene metric detects changed frames (1.3332ms)
+✔ native guidance provenance is bounded and malformed steps cannot corrupt saved state (8.2944ms)
+✔ expanded evidence and entered measurements survive portable backup with a frozen report (442.1465ms)
+✔ portable ZIP retains Arabic records and deduplicated evidence; altered content rejected (223.1153ms)
+✔ restore rejects nested malformed metadata and traversal archive names (4.5395ms)
+✔ new capture source, baseline and normalized markup survive ZIP round trip with immutable report media (15.6238ms)
+✔ dismissal persists in same scene and for one minute after a scene change (2.7648ms)
+✔ hint filtering preserves selection and scene outcomes (3.7447ms)
+✔ pending guidance cannot overwrite a different selected check (0.635ms)
+✔ retake targets only latest evidence for the current check (0.488ms)
+✔ retake can replace current-check evidence even when another check has a newer photo (0.8669ms)
+✔ capture rebases concurrent guidance history before publishing durable evidence (5.1391ms)
+✔ failed replacement preserves current evidence and does not publish a success (1.8503ms)
+✔ corrupt data cannot silently replace saved inspections (11.2675ms)
+✔ reports require review acknowledgement and retain immutable evidence history (3.0208ms)
+✔ report content escapes stored text and rejects executable image URLs (6.6468ms)
+✔ duplicate record IDs rejected (0.9098ms)
+✔ malformed restore cannot remove timestamps or poison nested report snapshots (4.8401ms)
+✔ invalid checklist decisions and missing save settings are rejected (1.8678ms)
+✔ camera preference catalogue has all independent bilingual switches and intended defaults (49.3263ms)
+✔ new evidence metadata validates and reports preserve immutable original, detector baseline and markup (6.3345ms)
+✔ malformed annotations, unsupported capture sources and missing baselines fail before restore (2.8671ms)
+✔ zero detections preserve selected model provenance in frozen report and escape external text (9.5587ms)
+✔ invalid provenance, thresholds and physical inputs cannot enter restored workspace or report snapshots (7.1156ms)
+✔ guidance target survives provider normalization and older plans remain readable (3.2802ms)
+✔ old states load and bounded smart guidance survives immutable report snapshot (26.2837ms)
+✔ malformed smart provenance in state or report backup is rejected (14.4629ms)
+✔ smart report advice escapes model text and supports English Arabic and bilingual labels (18.0464ms)
+ℹ tests 57
+ℹ suites 0
+ℹ pass 57
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4351.6922
+Verified 7 SHA-256 pinned models, 92 existing +30 optional checks, default-off expansion, fonts and offline runtime.

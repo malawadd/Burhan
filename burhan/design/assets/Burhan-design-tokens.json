@@ -1,0 +1,55 @@
+{
+  "product": "Burhan",
+  "referenceVersion": "1.3.0",
+  "workspaceColors": {
+    "bg": "#111315",
+    "surface": "#191c1f",
+    "surface2": "#202429",
+    "line": "#34383d",
+    "text": "#f4f2ea",
+    "muted": "#a9adb2",
+    "yellow": "#ffd43b",
+    "black": "#111315",
+    "green": "#83d8af",
+    "red": "#ff9a96",
+    "shadow": "#050607"
+  },
+  "nativeCameraColors": {
+    "background": "#111315",
+    "panel": "#1d2024",
+    "text": "#f4f2ea",
+    "secondary": "#b9bfc6",
+    "primary": "#ffd43b"
+  },
+  "geometry": {
+    "workspaceRadiusPx": 3,
+    "nativeButtonRadiusDp": 5,
+    "browserSheetRadiusPx": 18,
+    "webPrimaryShadow": "3px 3px 0 #615224",
+    "cameraTouchTargetDp": 48
+  },
+  "motion": {
+    "nativeHintMs": 160,
+    "nativeHintSlideDp": 6,
+    "browserHintMs": 180,
+    "hintAutoTimeout": false,
+    "respectReducedMotion": true
+  },
+  "contentSuggestions": {
+    "workingSpacingGridPx": 4,
+    "contentMarginPercent": 8,
+    "portrait": [
+      1080,
+      1920
+    ],
+    "square": [
+      1080,
+      1080
+    ],
+    "wide": [
+      1920,
+      1080
+    ]
+  },
+  "note": "Product values are source references. Content margins and canvas layouts are creator suggestions, not platform safe-area requirements."
+}

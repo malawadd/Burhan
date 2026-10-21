@@ -1,0 +1,5 @@
+{
+  "reportIncludesProvenance": true,
+  "reportIncludesPhysicalReadings": true,
+  "dismissedFalseCandidate": true
+}
