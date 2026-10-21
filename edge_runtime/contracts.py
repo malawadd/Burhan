@@ -29,6 +29,10 @@ class Finding:
     score: float | None = None  # method specific, never universal confidence
     method: str = "opencv"
     severity: str = "info"
+    task_id: str | None = None
+    evidence_timestamp_ms: float | None = None
+    measurements: dict[str, Any] = field(default_factory=dict)
+    assessment_status: str | None = None
 
 
 @dataclass

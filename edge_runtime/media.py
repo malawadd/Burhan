@@ -31,7 +31,14 @@ class MediaWorker:
             if now < self._next_preview:
                 self._counts['preview_throttled'] += 1
                 return False
-            self._next_preview = now + 1/self.preview_fps
+            # Carry the sampling cadence across ordinary capture jitter. Resetting
+            # to now+period each time can halve a nominal 30fps stream when the
+            # next source frame arrives a fraction early. Long idle gaps reset.
+            period = 1/self.preview_fps
+            if not self._next_preview or now-self._next_preview > 2*period:
+                self._next_preview = now+period
+            else:
+                self._next_preview += period
             if self._preview is not None:
                 self._bytes -= self._preview[0].nbytes
                 self._preview = None

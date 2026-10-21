@@ -1,6 +1,6 @@
 [
   {
-    "label": "Factory · spatial model: recovered kos02 defect (review only, reused comparison)",
+    "label": "Factory \u00b7 spatial model: recovered kos02 defect (review only, reused comparison)",
     "profile": "factory",
     "path": "datasets/factory/KolektorSDD/kos02/Part6.jpg",
     "input_fps": 16,
@@ -13,7 +13,7 @@
     }
   },
   {
-    "label": "Factory · spatial model: recovered kos38 defect (review only, reused comparison)",
+    "label": "Factory \u00b7 spatial model: recovered kos38 defect (review only, reused comparison)",
     "profile": "factory",
     "path": "datasets/factory/KolektorSDD/kos38/Part1.jpg",
     "input_fps": 16,
@@ -26,7 +26,7 @@
     }
   },
   {
-    "label": "Factory · spatial model: normal reference view (review only, reused comparison)",
+    "label": "Factory \u00b7 spatial model: normal reference view (review only, reused comparison)",
     "profile": "factory",
     "path": "datasets/factory/KolektorSDD/kos04/Part0.jpg",
     "input_fps": 16,
@@ -39,7 +39,7 @@
     }
   },
   {
-    "label": "Factory · spatial model: remaining missed defect (review only, reused comparison)",
+    "label": "Factory \u00b7 spatial model: remaining missed defect (review only, reused comparison)",
     "profile": "factory",
     "path": "datasets/factory/KolektorSDD/kos12/Part5.jpg",
     "input_fps": 16,
@@ -52,7 +52,7 @@
     }
   },
   {
-    "label": "Factory baseline RF · real Kolektor defective surface (reused comparison)",
+    "label": "Factory baseline RF \u00b7 real Kolektor defective surface (reused comparison)",
     "profile": "factory",
     "path": "datasets/factory/KolektorSDD/kos04/Part3.jpg",
     "input_fps": 15,
@@ -64,7 +64,7 @@
     }
   },
   {
-    "label": "Factory baseline RF · real Kolektor normal surface (reused comparison)",
+    "label": "Factory baseline RF \u00b7 real Kolektor normal surface (reused comparison)",
     "profile": "factory",
     "path": "datasets/factory/KolektorSDD/kos04/Part0.jpg",
     "input_fps": 15,
@@ -76,7 +76,7 @@
     }
   },
   {
-    "label": "Factory baseline RF · baseline missed annotated defect (real public image)",
+    "label": "Factory baseline RF \u00b7 baseline missed annotated defect (real public image)",
     "profile": "factory",
     "path": "datasets/factory/KolektorSDD/kos02/Part6.jpg",
     "input_fps": 15,
@@ -88,7 +88,7 @@
     }
   },
   {
-    "label": "Factory · review-policy experiment (no verified defect-recall gain)",
+    "label": "Factory \u00b7 review-policy experiment (no verified defect-recall gain)",
     "profile": "factory",
     "path": "datasets/factory/KolektorSDD/kos04/Part3.jpg",
     "input_fps": 15,
@@ -100,7 +100,7 @@
     }
   },
   {
-    "label": "Factory · review-policy false localization on a defective image",
+    "label": "Factory \u00b7 review-policy false localization on a defective image",
     "profile": "factory",
     "path": "datasets/factory/KolektorSDD/kos02/Part6.jpg",
     "input_fps": 15,
@@ -112,7 +112,7 @@
     }
   },
   {
-    "label": "Freight · public invoice fixture (externally authored)",
+    "label": "Freight \u00b7 public invoice fixture (externally authored)",
     "profile": "freight",
     "path": "datasets/freight/invoice-pack/01-simple-english/invoice.png",
     "input_fps": 2,
@@ -125,7 +125,7 @@
     }
   },
   {
-    "label": "Freight · real CORD receipt photo (unknown type for review)",
+    "label": "Freight \u00b7 real CORD receipt photo (unknown type for review)",
     "profile": "freight",
     "path": "datasets/freight/cord/test-000.jpg",
     "input_fps": 2,
@@ -178,7 +178,7 @@
     }
   },
   {
-    "label": "Construction · actual NIOSH video / PPE candidates (safety misses documented)",
+    "label": "Construction \u00b7 actual NIOSH video / PPE candidates (safety misses documented)",
     "profile": "construction",
     "path": "datasets/construction/framer-fall-protection-public-domain.webm",
     "source_kind": "file",
@@ -197,7 +197,7 @@
     "purpose": "failure_diagnostic"
   },
   {
-    "label": "Construction · actual raw 4K bridge / sparse crack review (known false candidates)",
+    "label": "Construction \u00b7 actual raw 4K bridge / sparse crack review (known false candidates)",
     "profile": "construction",
     "path": "datasets/construction/bridge_raw/bd_vid_0031.mp4",
     "source_kind": "file",
@@ -216,7 +216,7 @@
     "purpose": "failure_diagnostic"
   },
   {
-    "label": "Construction · actual bridge720p proxy / crack candidates (detail reduced)",
+    "label": "Construction \u00b7 actual bridge720p proxy / crack candidates (detail reduced)",
     "profile": "construction",
     "path": "datasets/construction/proxies/bd_vid_0031-720p.mp4",
     "source_kind": "file",
@@ -235,7 +235,7 @@
     "purpose": "failure_diagnostic"
   },
   {
-    "label": "Construction · real branching crack / known localized hits and misses",
+    "label": "Construction \u00b7 real branching crack / known localized hits and misses",
     "profile": "construction",
     "path": "datasets/construction/evcivil/crack_10/crack_10-lossless-frames.nut",
     "source_kind": "file",
@@ -256,7 +256,7 @@
     }
   },
   {
-    "label": "Construction · real thin crack / known failure challenge",
+    "label": "Construction \u00b7 real thin crack / known failure challenge",
     "profile": "construction",
     "path": "datasets/construction/evcivil/crack_89/crack_89-lossless-frames.nut",
     "source_kind": "file",
@@ -277,7 +277,7 @@
     }
   },
   {
-    "label": "Construction PHOTO · Visible surface crack · first labelled case (mask IoU 0.00)",
+    "label": "Construction PHOTO \u00b7 Visible surface crack \u00b7 first labelled case (mask IoU 0.00)",
     "profile": "construction",
     "path": "datasets/construction/dacl10k/images/damage_diagnostic/dacl10k_v2_validation_0055.jpg",
     "source_kind": "image",
@@ -302,7 +302,7 @@
     }
   },
   {
-    "label": "Construction PHOTO · Alligator cracking pattern · first labelled case (mask IoU 0.44)",
+    "label": "Construction PHOTO \u00b7 Alligator cracking pattern \u00b7 first labelled case (mask IoU 0.44)",
     "profile": "construction",
     "path": "datasets/construction/dacl10k/images/damage_diagnostic/dacl10k_v2_validation_0231.jpg",
     "source_kind": "image",
@@ -327,7 +327,7 @@
     }
   },
   {
-    "label": "Construction PHOTO · Visible wet spot · first labelled case (mask IoU 0.27)",
+    "label": "Construction PHOTO \u00b7 Visible wet spot \u00b7 first labelled case (mask IoU 0.27)",
     "profile": "construction",
     "path": "datasets/construction/dacl10k/images/damage_diagnostic/dacl10k_v2_validation_0046.jpg",
     "source_kind": "image",
@@ -352,7 +352,7 @@
     }
   },
   {
-    "label": "Construction PHOTO · Efflorescence · first labelled case (mask IoU 0.18)",
+    "label": "Construction PHOTO \u00b7 Efflorescence \u00b7 first labelled case (mask IoU 0.18)",
     "profile": "construction",
     "path": "datasets/construction/dacl10k/images/damage_diagnostic/dacl10k_v2_validation_0046.jpg",
     "source_kind": "image",
@@ -377,7 +377,7 @@
     }
   },
   {
-    "label": "Construction PHOTO · Rust / corrosion staining · first labelled case (mask IoU 0.55)",
+    "label": "Construction PHOTO \u00b7 Rust / corrosion staining \u00b7 first labelled case (mask IoU 0.55)",
     "profile": "construction",
     "path": "datasets/construction/dacl10k/images/damage_diagnostic/dacl10k_v2_validation_0047.jpg",
     "source_kind": "image",
@@ -402,7 +402,7 @@
     }
   },
   {
-    "label": "Construction PHOTO · Rockpocket / honeycomb appearance · first labelled case (mask IoU 0.21)",
+    "label": "Construction PHOTO \u00b7 Rockpocket / honeycomb appearance \u00b7 first labelled case (mask IoU 0.21)",
     "profile": "construction",
     "path": "datasets/construction/dacl10k/images/damage_diagnostic/dacl10k_v2_validation_0035.jpg",
     "source_kind": "image",
@@ -427,7 +427,7 @@
     }
   },
   {
-    "label": "Construction PHOTO · Inspector-marked hollow-area boundary (chalk) · first labelled case (mask IoU 0.44)",
+    "label": "Construction PHOTO \u00b7 Inspector-marked hollow-area boundary (chalk) \u00b7 first labelled case (mask IoU 0.44)",
     "profile": "construction",
     "path": "datasets/construction/dacl10k/images/damage_diagnostic/dacl10k_v2_validation_0047.jpg",
     "source_kind": "image",
@@ -452,7 +452,7 @@
     }
   },
   {
-    "label": "Construction PHOTO · Visible cavity · first labelled case (mask IoU 0.03)",
+    "label": "Construction PHOTO \u00b7 Visible cavity \u00b7 first labelled case (mask IoU 0.03)",
     "profile": "construction",
     "path": "datasets/construction/dacl10k/images/damage_diagnostic/dacl10k_v2_validation_0035.jpg",
     "source_kind": "image",
@@ -477,7 +477,7 @@
     }
   },
   {
-    "label": "Construction PHOTO · Spalling / surface material loss · first labelled case (mask IoU 0.18)",
+    "label": "Construction PHOTO \u00b7 Spalling / surface material loss \u00b7 first labelled case (mask IoU 0.18)",
     "profile": "construction",
     "path": "datasets/construction/dacl10k/images/damage_diagnostic/dacl10k_v2_validation_0035.jpg",
     "source_kind": "image",
@@ -502,7 +502,7 @@
     }
   },
   {
-    "label": "Construction PHOTO · Graffiti / surface markings · first labelled case (mask IoU 0.33)",
+    "label": "Construction PHOTO \u00b7 Graffiti / surface markings \u00b7 first labelled case (mask IoU 0.33)",
     "profile": "construction",
     "path": "datasets/construction/dacl10k/images/damage_diagnostic/dacl10k_v2_validation_0121.jpg",
     "source_kind": "image",
@@ -527,7 +527,7 @@
     }
   },
   {
-    "label": "Construction PHOTO · Surface weathering · first labelled case (mask IoU 0.02)",
+    "label": "Construction PHOTO \u00b7 Surface weathering \u00b7 first labelled case (mask IoU 0.02)",
     "profile": "construction",
     "path": "datasets/construction/dacl10k/images/damage_diagnostic/dacl10k_v2_validation_0035.jpg",
     "source_kind": "image",
@@ -552,7 +552,7 @@
     }
   },
   {
-    "label": "Construction PHOTO · Residual formwork · first labelled case (mask IoU 0.36)",
+    "label": "Construction PHOTO \u00b7 Residual formwork \u00b7 first labelled case (mask IoU 0.36)",
     "profile": "construction",
     "path": "datasets/construction/dacl10k/images/damage_diagnostic/dacl10k_v2_validation_0098.jpg",
     "source_kind": "image",
@@ -577,7 +577,7 @@
     }
   },
   {
-    "label": "Construction PHOTO · Exposed reinforcement · first labelled case (mask IoU 0.61)",
+    "label": "Construction PHOTO \u00b7 Exposed reinforcement \u00b7 first labelled case (mask IoU 0.61)",
     "profile": "construction",
     "path": "datasets/construction/dacl10k/images/damage_diagnostic/dacl10k_v2_validation_0060.jpg",
     "source_kind": "image",
@@ -602,7 +602,7 @@
     }
   },
   {
-    "label": "Construction PHOTO · Concrete surface loss / erosion appearance · first labelled case (mask IoU 0.26)",
+    "label": "Construction PHOTO \u00b7 Concrete surface loss / erosion appearance \u00b7 first labelled case (mask IoU 0.26)",
     "profile": "construction",
     "path": "datasets/construction/dacl10k/images/damage_diagnostic/dacl10k_v2_validation_0055.jpg",
     "source_kind": "image",
@@ -627,7 +627,7 @@
     }
   },
   {
-    "label": "Construction diagnostic · historical / SEEN TRAINING / spalling_54",
+    "label": "Construction diagnostic \u00b7 historical / SEEN TRAINING / spalling_54",
     "profile": "construction",
     "path": "datasets/construction/evcivil-round3/replay/spalling_54/spalling_54-lossless-frames.nut",
     "input_fps": 15,
@@ -653,7 +653,7 @@
     "source_kind": "file"
   },
   {
-    "label": "Construction diagnostic · historical / CAL FAILURE / spalling_75",
+    "label": "Construction diagnostic \u00b7 historical / CAL FAILURE / spalling_75",
     "profile": "construction",
     "path": "datasets/construction/evcivil-round3/replay/spalling_75/spalling_75-lossless-frames.nut",
     "input_fps": 15,
@@ -679,7 +679,7 @@
     "source_kind": "file"
   },
   {
-    "label": "Construction diagnostic · historical / CAL THIN FAILURE / crack_129",
+    "label": "Construction diagnostic \u00b7 historical / CAL THIN FAILURE / crack_129",
     "profile": "construction",
     "path": "datasets/construction/evcivil-round3/replay/crack_129/crack_129-lossless-frames.nut",
     "input_fps": 15,
@@ -705,7 +705,7 @@
     "source_kind": "file"
   },
   {
-    "label": "Construction diagnostic · adapted / SEEN TRAINING / spalling_54",
+    "label": "Construction diagnostic \u00b7 adapted / SEEN TRAINING / spalling_54",
     "profile": "construction",
     "path": "datasets/construction/evcivil-round3/replay/spalling_54/spalling_54-lossless-frames.nut",
     "input_fps": 15,
@@ -731,7 +731,7 @@
     "source_kind": "file"
   },
   {
-    "label": "Construction diagnostic · adapted / CAL FAILURE / spalling_75",
+    "label": "Construction diagnostic \u00b7 adapted / CAL FAILURE / spalling_75",
     "profile": "construction",
     "path": "datasets/construction/evcivil-round3/replay/spalling_75/spalling_75-lossless-frames.nut",
     "input_fps": 15,
@@ -757,7 +757,7 @@
     "source_kind": "file"
   },
   {
-    "label": "Construction diagnostic · adapted / CAL THIN FAILURE / crack_129",
+    "label": "Construction diagnostic \u00b7 adapted / CAL THIN FAILURE / crack_129",
     "profile": "construction",
     "path": "datasets/construction/evcivil-round3/replay/crack_129/crack_129-lossless-frames.nut",
     "input_fps": 15,
@@ -783,7 +783,7 @@
     "source_kind": "file"
   },
   {
-    "label": "Construction development · Before / crack_89 / FAILED",
+    "label": "Construction development \u00b7 Before / crack_89 / FAILED",
     "profile": "construction",
     "path": "datasets/construction/evcivil/crack_89/crack_89-lossless-frames.nut",
     "input_fps": 15,
@@ -810,7 +810,7 @@
     "source_kind": "file"
   },
   {
-    "label": "Construction development · Before / crack_129 / FAILED",
+    "label": "Construction development \u00b7 Before / crack_129 / FAILED",
     "profile": "construction",
     "path": "datasets/construction/evcivil-round3/replay/crack_129/crack_129-lossless-frames.nut",
     "input_fps": 15,
@@ -837,7 +837,7 @@
     "source_kind": "file"
   },
   {
-    "label": "Construction development · Before / spalling_75 / FAILED",
+    "label": "Construction development \u00b7 Before / spalling_75 / FAILED",
     "profile": "construction",
     "path": "datasets/construction/evcivil-round3/replay/spalling_75/spalling_75-lossless-frames.nut",
     "input_fps": 15,
@@ -864,7 +864,7 @@
     "source_kind": "file"
   },
   {
-    "label": "Construction development · Before / ros_crack_21 / FAILED",
+    "label": "Construction development \u00b7 Before / ros_crack_21 / FAILED",
     "profile": "construction",
     "path": "datasets/construction/evcivil-round3/replay/ros_crack_21/ros_crack_21-lossless-frames.nut",
     "input_fps": 15,
@@ -891,7 +891,7 @@
     "source_kind": "file"
   },
   {
-    "label": "Construction development · After / crack_89 / FAILED",
+    "label": "Construction development \u00b7 After / crack_89 / FAILED",
     "profile": "construction",
     "path": "datasets/construction/evcivil/crack_89/crack_89-lossless-frames.nut",
     "input_fps": 15,
@@ -918,7 +918,7 @@
     "source_kind": "file"
   },
   {
-    "label": "Construction development · After / crack_129 / FAILED",
+    "label": "Construction development \u00b7 After / crack_129 / FAILED",
     "profile": "construction",
     "path": "datasets/construction/evcivil-round3/replay/crack_129/crack_129-lossless-frames.nut",
     "input_fps": 15,
@@ -945,7 +945,7 @@
     "source_kind": "file"
   },
   {
-    "label": "Construction development · After / spalling_75 / FAILED",
+    "label": "Construction development \u00b7 After / spalling_75 / FAILED",
     "profile": "construction",
     "path": "datasets/construction/evcivil-round3/replay/spalling_75/spalling_75-lossless-frames.nut",
     "input_fps": 15,
@@ -972,7 +972,7 @@
     "source_kind": "file"
   },
   {
-    "label": "Construction development · After / ros_crack_21 / FAILED",
+    "label": "Construction development \u00b7 After / ros_crack_21 / FAILED",
     "profile": "construction",
     "path": "datasets/construction/evcivil-round3/replay/ros_crack_21/ros_crack_21-lossless-frames.nut",
     "input_fps": 15,
@@ -999,7 +999,7 @@
     "source_kind": "file"
   },
   {
-    "label": "Tile PHOTO research · crack · first fixed source case",
+    "label": "Tile PHOTO research \u00b7 crack \u00b7 first fixed source case",
     "profile": "construction",
     "path": "datasets/construction/finishes-expansion/mvtec-tile/original/test/crack/000.png",
     "input_fps": 2,
@@ -1028,7 +1028,7 @@
     "note": "Real manufacturing PHOTO research; generic surface anomaly, not a semantic defect subtype or installed ceramic inspection. All117 photo test results retained: crack region IoU.50 0/17; good3/33 flags. Raw-threshold pixel metrics are separate from serving area filtering. No video or15FPS claim."
   },
   {
-    "label": "Tile PHOTO research · glue_strip · first fixed source case",
+    "label": "Tile PHOTO research \u00b7 glue_strip \u00b7 first fixed source case",
     "profile": "construction",
     "path": "datasets/construction/finishes-expansion/mvtec-tile/original/test/glue_strip/000.png",
     "input_fps": 2,
@@ -1057,7 +1057,7 @@
     "note": "Real manufacturing PHOTO research; generic surface anomaly, not a semantic defect subtype or installed ceramic inspection. All117 photo test results retained: crack region IoU.50 0/17; good3/33 flags. Raw-threshold pixel metrics are separate from serving area filtering. No video or15FPS claim."
   },
   {
-    "label": "Tile PHOTO research · good · first fixed source case",
+    "label": "Tile PHOTO research \u00b7 good \u00b7 first fixed source case",
     "profile": "construction",
     "path": "datasets/construction/finishes-expansion/mvtec-tile/original/test/good/000.png",
     "input_fps": 2,
@@ -1086,7 +1086,7 @@
     "note": "Real manufacturing PHOTO research; generic surface anomaly, not a semantic defect subtype or installed ceramic inspection. All117 photo test results retained: crack region IoU.50 0/17; good3/33 flags. Raw-threshold pixel metrics are separate from serving area filtering. No video or15FPS claim."
   },
   {
-    "label": "Tile PHOTO research · gray_stroke · first fixed source case",
+    "label": "Tile PHOTO research \u00b7 gray_stroke \u00b7 first fixed source case",
     "profile": "construction",
     "path": "datasets/construction/finishes-expansion/mvtec-tile/original/test/gray_stroke/000.png",
     "input_fps": 2,
@@ -1115,7 +1115,7 @@
     "note": "Real manufacturing PHOTO research; generic surface anomaly, not a semantic defect subtype or installed ceramic inspection. All117 photo test results retained: crack region IoU.50 0/17; good3/33 flags. Raw-threshold pixel metrics are separate from serving area filtering. No video or15FPS claim."
   },
   {
-    "label": "Tile PHOTO research · oil · first fixed source case",
+    "label": "Tile PHOTO research \u00b7 oil \u00b7 first fixed source case",
     "profile": "construction",
     "path": "datasets/construction/finishes-expansion/mvtec-tile/original/test/oil/000.png",
     "input_fps": 2,
@@ -1144,7 +1144,7 @@
     "note": "Real manufacturing PHOTO research; generic surface anomaly, not a semantic defect subtype or installed ceramic inspection. All117 photo test results retained: crack region IoU.50 0/17; good3/33 flags. Raw-threshold pixel metrics are separate from serving area filtering. No video or15FPS claim."
   },
   {
-    "label": "Tile PHOTO research · rough · first fixed source case",
+    "label": "Tile PHOTO research \u00b7 rough \u00b7 first fixed source case",
     "profile": "construction",
     "path": "datasets/construction/finishes-expansion/mvtec-tile/original/test/rough/000.png",
     "input_fps": 2,
@@ -1173,7 +1173,7 @@
     "note": "Real manufacturing PHOTO research; generic surface anomaly, not a semantic defect subtype or installed ceramic inspection. All117 photo test results retained: crack region IoU.50 0/17; good3/33 flags. Raw-threshold pixel metrics are separate from serving area filtering. No video or15FPS claim."
   },
   {
-    "label": "Crack mask diagnostic · Before / crack_89 / fixed .50",
+    "label": "Crack mask diagnostic \u00b7 Before / crack_89 / fixed .50",
     "profile": "construction",
     "path": "datasets\\construction\\evcivil\\crack_89\\crack_89-lossless-frames.nut",
     "input_fps": 15,
@@ -1201,7 +1201,7 @@
     "source_kind": "file"
   },
   {
-    "label": "Crack mask diagnostic · Before / crack_129 / fixed .50",
+    "label": "Crack mask diagnostic \u00b7 Before / crack_129 / fixed .50",
     "profile": "construction",
     "path": "datasets\\construction\\evcivil-round3\\replay\\crack_129\\crack_129-lossless-frames.nut",
     "input_fps": 15,
@@ -1229,7 +1229,7 @@
     "source_kind": "file"
   },
   {
-    "label": "Crack mask diagnostic · Before / ros_crack_21 / fixed .50",
+    "label": "Crack mask diagnostic \u00b7 Before / ros_crack_21 / fixed .50",
     "profile": "construction",
     "path": "datasets\\construction\\evcivil-round3\\replay\\ros_crack_21\\ros_crack_21-lossless-frames.nut",
     "input_fps": 15,
@@ -1257,7 +1257,7 @@
     "source_kind": "file"
   },
   {
-    "label": "Crack mask diagnostic · After / crack_89 / fixed .50",
+    "label": "Crack mask diagnostic \u00b7 After / crack_89 / fixed .50",
     "profile": "construction",
     "path": "datasets\\construction\\evcivil\\crack_89\\crack_89-lossless-frames.nut",
     "input_fps": 15,
@@ -1285,7 +1285,7 @@
     "source_kind": "file"
   },
   {
-    "label": "Crack mask diagnostic · After / crack_129 / fixed .50",
+    "label": "Crack mask diagnostic \u00b7 After / crack_129 / fixed .50",
     "profile": "construction",
     "path": "datasets\\construction\\evcivil-round3\\replay\\crack_129\\crack_129-lossless-frames.nut",
     "input_fps": 15,
@@ -1313,7 +1313,7 @@
     "source_kind": "file"
   },
   {
-    "label": "Crack mask diagnostic · After / ros_crack_21 / fixed .50",
+    "label": "Crack mask diagnostic \u00b7 After / ros_crack_21 / fixed .50",
     "profile": "construction",
     "path": "datasets\\construction\\evcivil-round3\\replay\\ros_crack_21\\ros_crack_21-lossless-frames.nut",
     "input_fps": 15,
@@ -1341,7 +1341,7 @@
     "source_kind": "file"
   },
   {
-    "label": "POST-HOC known-hit surface crack · best epoch1 · original lossless recording",
+    "label": "POST-HOC known-hit surface crack \u00b7 best epoch1 \u00b7 original lossless recording",
     "profile": "construction",
     "path": "datasets\\construction\\evcivil-round3\\replay\\crack_129\\crack_129-lossless-frames.nut",
     "input_fps": 15,
@@ -1365,7 +1365,7 @@
     "source_kind": "file"
   },
   {
-    "label": "POST-HOC known-hit surface material loss · best epoch1 · original lossless recording",
+    "label": "POST-HOC known-hit surface material loss \u00b7 best epoch1 \u00b7 original lossless recording",
     "profile": "construction",
     "path": "datasets\\construction\\evcivil-round3\\replay\\spalling_76\\spalling_76-lossless-frames.nut",
     "input_fps": 15,
@@ -1389,7 +1389,7 @@
     "source_kind": "file"
   },
   {
-    "label": "POST-HOC known-hit surface crack · final epoch4 · original lossless recording",
+    "label": "POST-HOC known-hit surface crack \u00b7 final epoch4 \u00b7 original lossless recording",
     "profile": "construction",
     "path": "datasets\\construction\\evcivil-round3\\replay\\crack_129\\crack_129-lossless-frames.nut",
     "input_fps": 15,
@@ -1413,7 +1413,7 @@
     "source_kind": "file"
   },
   {
-    "label": "POST-HOC known-hit surface material loss · final epoch4 · original lossless recording",
+    "label": "POST-HOC known-hit surface material loss \u00b7 final epoch4 \u00b7 original lossless recording",
     "profile": "construction",
     "path": "datasets\\construction\\evcivil-round3\\replay\\spalling_76\\spalling_76-lossless-frames.nut",
     "input_fps": 15,
@@ -1577,7 +1577,7 @@
     "note": "Real still PHOTO, first acquired class-positive source, all18 measured photos retained. All five accuracy guards fail. No humidity measurement, paint-only, installed-tile or video qualification."
   },
   {
-    "label": "CUBIT author masks · thin crack · FAILED research / original lossless video",
+    "label": "CUBIT author masks \u00b7 thin crack \u00b7 FAILED research / original lossless video",
     "profile": "construction",
     "path": "datasets\\construction\\evcivil\\crack_89\\crack_89-lossless-frames.nut",
     "source_kind": "file",
@@ -1607,7 +1607,7 @@
     "note": "FAILED author-mask research: 0 box matches, 8 misses, 7 unmatched boxes. All original exposures and actual masks retained; no pixel GT or independent accuracy credit. Requested15FPS source replay is not measured capacity; model input is lossless original video."
   },
   {
-    "label": "CUBIT author masks · surface crack · FAILED research / original lossless video",
+    "label": "CUBIT author masks \u00b7 surface crack \u00b7 FAILED research / original lossless video",
     "profile": "construction",
     "path": "datasets\\construction\\evcivil-round3\\replay\\crack_129\\crack_129-lossless-frames.nut",
     "source_kind": "file",
@@ -1637,7 +1637,7 @@
     "note": "FAILED author-mask research: 38 box matches, 33 misses, 3 unmatched boxes. All original exposures and actual masks retained; no pixel GT or independent accuracy credit. Requested15FPS source replay is not measured capacity; model input is lossless original video."
   },
   {
-    "label": "CUBIT author masks · surface material loss · FAILED research / original lossless video",
+    "label": "CUBIT author masks \u00b7 surface material loss \u00b7 FAILED research / original lossless video",
     "profile": "construction",
     "path": "datasets\\construction\\evcivil-round3\\replay\\spalling_75\\spalling_75-lossless-frames.nut",
     "source_kind": "file",
@@ -1667,7 +1667,7 @@
     "note": "FAILED author-mask research: 0 box matches, 77 misses, 29 unmatched boxes. All original exposures and actual masks retained; no pixel GT or independent accuracy credit. Requested15FPS source replay is not measured capacity; model input is lossless original video."
   },
   {
-    "label": "CUBIT author masks · night crack · FAILED research / original lossless video",
+    "label": "CUBIT author masks \u00b7 night crack \u00b7 FAILED research / original lossless video",
     "profile": "construction",
     "path": "datasets\\construction\\evcivil-round3\\replay\\ros_crack_21\\ros_crack_21-lossless-frames.nut",
     "source_kind": "file",
@@ -1697,7 +1697,7 @@
     "note": "FAILED author-mask research: 0 box matches, 442 misses, 177 unmatched boxes. All original exposures and actual masks retained; no pixel GT or independent accuracy credit. Requested15FPS source replay is not measured capacity; model input is lossless original video."
   },
   {
-    "label": "CUBIT author masks · surface material loss · FAILED research · POST-HOC / original lossless video",
+    "label": "CUBIT author masks \u00b7 surface material loss \u00b7 FAILED research \u00b7 POST-HOC / original lossless video",
     "profile": "construction",
     "path": "datasets\\construction\\evcivil-round3\\replay\\spalling_76\\spalling_76-lossless-frames.nut",
     "source_kind": "file",
@@ -1727,7 +1727,7 @@
     "note": "POST-HOC known-hit source chosen previously from old-model results. FAILED author-mask research: 0 box matches, 207 misses, 1 unmatched boxes. All original exposures and actual masks retained; no pixel GT or independent accuracy credit. Requested15FPS source replay is not measured capacity; model input is lossless original video."
   },
   {
-    "label": "Owner local video · VID-20261020-WA0000 / author_masks · unscored research",
+    "label": "Owner local video \u00b7 VID-20261020-WA0000 / author_masks \u00b7 unscored research",
     "profile": "construction",
     "path": "C:\\Users\\IAM\\Documents\\hackathon\\opencv\\videos\\VID-20261020-WA0000.mp4",
     "source_kind": "file",
@@ -1751,7 +1751,7 @@
     "note": "Original owner video; local only, diagnostic only, never training. 15FPS is a requested replay rate, not measured model capacity. No verified frame annotations, moisture measurement or fastener inspection."
   },
   {
-    "label": "Owner local video · VID-20261020-WA0000 / wall_appearance · unscored research",
+    "label": "Owner local video \u00b7 VID-20261020-WA0000 / wall_appearance \u00b7 unscored research",
     "profile": "construction",
     "path": "C:\\Users\\IAM\\Documents\\hackathon\\opencv\\videos\\VID-20261020-WA0000.mp4",
     "source_kind": "file",
@@ -1775,7 +1775,7 @@
     "note": "Original owner video; local only, diagnostic only, never training. 15FPS is a requested replay rate, not measured model capacity. No verified frame annotations, moisture measurement or fastener inspection."
   },
   {
-    "label": "Owner local video · VID-20261020-WA0000 / broad_masks · unscored research",
+    "label": "Owner local video \u00b7 VID-20261020-WA0000 / broad_masks \u00b7 unscored research",
     "profile": "construction",
     "path": "C:\\Users\\IAM\\Documents\\hackathon\\opencv\\videos\\VID-20261020-WA0000.mp4",
     "source_kind": "file",
@@ -1811,7 +1811,7 @@
     "note": "Original owner video; local only, diagnostic only, never training. 15FPS is a requested replay rate, not measured model capacity. No verified frame annotations, moisture measurement or fastener inspection."
   },
   {
-    "label": "Owner local video · VID-20261020-WA0001 / author_masks · unscored research",
+    "label": "Owner local video \u00b7 VID-20261020-WA0001 / author_masks \u00b7 unscored research",
     "profile": "construction",
     "path": "C:\\Users\\IAM\\Documents\\hackathon\\opencv\\videos\\VID-20261020-WA0001.mp4",
     "source_kind": "file",
@@ -1835,7 +1835,7 @@
     "note": "Original owner video; local only, diagnostic only, never training. 15FPS is a requested replay rate, not measured model capacity. No verified frame annotations, moisture measurement or fastener inspection."
   },
   {
-    "label": "Owner local video · VID-20261020-WA0001 / wall_appearance · unscored research",
+    "label": "Owner local video \u00b7 VID-20261020-WA0001 / wall_appearance \u00b7 unscored research",
     "profile": "construction",
     "path": "C:\\Users\\IAM\\Documents\\hackathon\\opencv\\videos\\VID-20261020-WA0001.mp4",
     "source_kind": "file",
@@ -1859,7 +1859,7 @@
     "note": "Original owner video; local only, diagnostic only, never training. 15FPS is a requested replay rate, not measured model capacity. No verified frame annotations, moisture measurement or fastener inspection."
   },
   {
-    "label": "Owner local video · VID-20261020-WA0001 / broad_masks · unscored research",
+    "label": "Owner local video \u00b7 VID-20261020-WA0001 / broad_masks \u00b7 unscored research",
     "profile": "construction",
     "path": "C:\\Users\\IAM\\Documents\\hackathon\\opencv\\videos\\VID-20261020-WA0001.mp4",
     "source_kind": "file",
@@ -1895,7 +1895,7 @@
     "note": "Original owner video; local only, diagnostic only, never training. 15FPS is a requested replay rate, not measured model capacity. No verified frame annotations, moisture measurement or fastener inspection."
   },
   {
-    "label": "Owner local video · VID-20261020-WA0002 / author_masks · unscored research",
+    "label": "Owner local video \u00b7 VID-20261020-WA0002 / author_masks \u00b7 unscored research",
     "profile": "construction",
     "path": "C:\\Users\\IAM\\Documents\\hackathon\\opencv\\videos\\VID-20261020-WA0002.mp4",
     "source_kind": "file",
@@ -1919,7 +1919,7 @@
     "note": "Original owner video; local only, diagnostic only, never training. 15FPS is a requested replay rate, not measured model capacity. No verified frame annotations, moisture measurement or fastener inspection."
   },
   {
-    "label": "Owner local video · VID-20261020-WA0002 / wall_appearance · unscored research",
+    "label": "Owner local video \u00b7 VID-20261020-WA0002 / wall_appearance \u00b7 unscored research",
     "profile": "construction",
     "path": "C:\\Users\\IAM\\Documents\\hackathon\\opencv\\videos\\VID-20261020-WA0002.mp4",
     "source_kind": "file",
@@ -1943,7 +1943,7 @@
     "note": "Original owner video; local only, diagnostic only, never training. 15FPS is a requested replay rate, not measured model capacity. No verified frame annotations, moisture measurement or fastener inspection."
   },
   {
-    "label": "Owner local video · VID-20261020-WA0002 / broad_masks · unscored research",
+    "label": "Owner local video \u00b7 VID-20261020-WA0002 / broad_masks \u00b7 unscored research",
     "profile": "construction",
     "path": "C:\\Users\\IAM\\Documents\\hackathon\\opencv\\videos\\VID-20261020-WA0002.mp4",
     "source_kind": "file",
@@ -1979,7 +1979,7 @@
     "note": "Original owner video; local only, diagnostic only, never training. 15FPS is a requested replay rate, not measured model capacity. No verified frame annotations, moisture measurement or fastener inspection."
   },
   {
-    "label": "Owner local video · VID_20261020_075653953 / author_masks · unscored research",
+    "label": "Owner local video \u00b7 VID_20261020_075653953 / author_masks \u00b7 unscored research",
     "profile": "construction",
     "path": "C:\\Users\\IAM\\Documents\\hackathon\\opencv\\videos\\VID_20261020_075653953.mp4",
     "source_kind": "file",
@@ -2003,7 +2003,7 @@
     "note": "Original owner video; local only, diagnostic only, never training. 15FPS is a requested replay rate, not measured model capacity. No verified frame annotations, moisture measurement or fastener inspection."
   },
   {
-    "label": "Owner local video · VID_20261020_075653953 / wall_appearance · unscored research",
+    "label": "Owner local video \u00b7 VID_20261020_075653953 / wall_appearance \u00b7 unscored research",
     "profile": "construction",
     "path": "C:\\Users\\IAM\\Documents\\hackathon\\opencv\\videos\\VID_20261020_075653953.mp4",
     "source_kind": "file",
@@ -2027,7 +2027,7 @@
     "note": "Original owner video; local only, diagnostic only, never training. 15FPS is a requested replay rate, not measured model capacity. No verified frame annotations, moisture measurement or fastener inspection."
   },
   {
-    "label": "Owner local video · VID_20261020_075653953 / broad_masks · unscored research",
+    "label": "Owner local video \u00b7 VID_20261020_075653953 / broad_masks \u00b7 unscored research",
     "profile": "construction",
     "path": "C:\\Users\\IAM\\Documents\\hackathon\\opencv\\videos\\VID_20261020_075653953.mp4",
     "source_kind": "file",
@@ -2063,7 +2063,7 @@
     "note": "Original owner video; local only, diagnostic only, never training. 15FPS is a requested replay rate, not measured model capacity. No verified frame annotations, moisture measurement or fastener inspection."
   },
   {
-    "label": "Construction CPU FAILED900 · crack_89 / original camera input",
+    "label": "Construction CPU FAILED900 \u00b7 crack_89 / original camera input",
     "profile": "construction",
     "path": "datasets/construction/evcivil/crack_89/crack_89-lossless-frames.nut",
     "source_kind": "file",
@@ -2094,7 +2094,7 @@
     "note": "FAILED experimental model; masks are actual model candidates, not verified damage or code acceptance. Historical cached GPU BEFORE versus trained CPU AFTER changes both backend and weights. Measured humidity, fastener adequacy and structural severity remain unsupported. No promotion/default change. Original raw camera input only. Requested2FPS replay is not measured capacity; every_frame may replay slowly."
   },
   {
-    "label": "Construction CPU FAILED900 · crack_129 / original camera input",
+    "label": "Construction CPU FAILED900 \u00b7 crack_129 / original camera input",
     "profile": "construction",
     "path": "datasets/construction/evcivil-round3/replay/crack_129/crack_129-lossless-frames.nut",
     "source_kind": "file",
@@ -2125,7 +2125,7 @@
     "note": "FAILED experimental model; masks are actual model candidates, not verified damage or code acceptance. Historical cached GPU BEFORE versus trained CPU AFTER changes both backend and weights. Measured humidity, fastener adequacy and structural severity remain unsupported. No promotion/default change. Original raw camera input only. Requested2FPS replay is not measured capacity; every_frame may replay slowly."
   },
   {
-    "label": "Construction CPU FAILED900 · spalling_75 / original camera input",
+    "label": "Construction CPU FAILED900 \u00b7 spalling_75 / original camera input",
     "profile": "construction",
     "path": "datasets/construction/evcivil-round3/replay/spalling_75/spalling_75-lossless-frames.nut",
     "source_kind": "file",
@@ -2156,7 +2156,7 @@
     "note": "FAILED experimental model; masks are actual model candidates, not verified damage or code acceptance. Historical cached GPU BEFORE versus trained CPU AFTER changes both backend and weights. Measured humidity, fastener adequacy and structural severity remain unsupported. No promotion/default change. Original raw camera input only. Requested2FPS replay is not measured capacity; every_frame may replay slowly."
   },
   {
-    "label": "Construction CPU FAILED900 · ros_crack_21 / original camera input",
+    "label": "Construction CPU FAILED900 \u00b7 ros_crack_21 / original camera input",
     "profile": "construction",
     "path": "datasets/construction/evcivil-round3/replay/ros_crack_21/ros_crack_21-lossless-frames.nut",
     "source_kind": "file",
@@ -2187,7 +2187,7 @@
     "note": "FAILED experimental model; masks are actual model candidates, not verified damage or code acceptance. Historical cached GPU BEFORE versus trained CPU AFTER changes both backend and weights. Measured humidity, fastener adequacy and structural severity remain unsupported. No promotion/default change. Original raw camera input only. Requested2FPS replay is not measured capacity; every_frame may replay slowly."
   },
   {
-    "label": "Construction CPU FAILED900 · spalling_76 / original camera input",
+    "label": "Construction CPU FAILED900 \u00b7 spalling_76 / original camera input",
     "profile": "construction",
     "path": "datasets/construction/evcivil-round3/replay/spalling_76/spalling_76-lossless-frames.nut",
     "source_kind": "file",
@@ -2218,7 +2218,7 @@
     "note": "FAILED experimental model; masks are actual model candidates, not verified damage or code acceptance. Historical cached GPU BEFORE versus trained CPU AFTER changes both backend and weights. Measured humidity, fastener adequacy and structural severity remain unsupported. No promotion/default change. Original raw camera input only. Requested2FPS replay is not measured capacity; every_frame may replay slowly."
   },
   {
-    "label": "Owner CPU FAILED900 · VID-20261020-WA0000 / original private input",
+    "label": "Owner CPU FAILED900 \u00b7 VID-20261020-WA0000 / original private input",
     "profile": "construction",
     "path": "C:\\Users\\IAM\\Documents\\hackathon\\opencv\\videos\\VID-20261020-WA0000.mp4",
     "source_kind": "file",
@@ -2249,7 +2249,7 @@
     "note": "FAILED experimental model; masks are actual model candidates, not verified damage or code acceptance. Historical cached GPU BEFORE versus trained CPU AFTER changes both backend and weights. Measured humidity, fastener adequacy and structural severity remain unsupported. No promotion/default change. Original raw camera input only. Requested2FPS replay is not measured capacity; every_frame may replay slowly."
   },
   {
-    "label": "Owner CPU FAILED900 · VID-20261020-WA0001 / original private input",
+    "label": "Owner CPU FAILED900 \u00b7 VID-20261020-WA0001 / original private input",
     "profile": "construction",
     "path": "C:\\Users\\IAM\\Documents\\hackathon\\opencv\\videos\\VID-20261020-WA0001.mp4",
     "source_kind": "file",
@@ -2280,7 +2280,7 @@
     "note": "FAILED experimental model; masks are actual model candidates, not verified damage or code acceptance. Historical cached GPU BEFORE versus trained CPU AFTER changes both backend and weights. Measured humidity, fastener adequacy and structural severity remain unsupported. No promotion/default change. Original raw camera input only. Requested2FPS replay is not measured capacity; every_frame may replay slowly."
   },
   {
-    "label": "Owner CPU FAILED900 · VID-20261020-WA0002 / original private input",
+    "label": "Owner CPU FAILED900 \u00b7 VID-20261020-WA0002 / original private input",
     "profile": "construction",
     "path": "C:\\Users\\IAM\\Documents\\hackathon\\opencv\\videos\\VID-20261020-WA0002.mp4",
     "source_kind": "file",
@@ -2311,7 +2311,7 @@
     "note": "FAILED experimental model; masks are actual model candidates, not verified damage or code acceptance. Historical cached GPU BEFORE versus trained CPU AFTER changes both backend and weights. Measured humidity, fastener adequacy and structural severity remain unsupported. No promotion/default change. Original raw camera input only. Requested2FPS replay is not measured capacity; every_frame may replay slowly."
   },
   {
-    "label": "Owner CPU FAILED900 · VID_20261020_075653953 / original private input",
+    "label": "Owner CPU FAILED900 \u00b7 VID_20261020_075653953 / original private input",
     "profile": "construction",
     "path": "C:\\Users\\IAM\\Documents\\hackathon\\opencv\\videos\\VID_20261020_075653953.mp4",
     "source_kind": "file",
@@ -2340,5 +2340,62 @@
       "stage": "all"
     },
     "note": "FAILED experimental model; masks are actual model candidates, not verified damage or code acceptance. Historical cached GPU BEFORE versus trained CPU AFTER changes both backend and weights. Measured humidity, fastener adequacy and structural severity remain unsupported. No promotion/default change. Original raw camera input only. Requested2FPS replay is not measured capacity; every_frame may replay slowly."
+  },
+  {
+    "label": "Owner fastening / SDNET SSD v1 - FAILED research / original source",
+    "profile": "construction",
+    "path": "C:\\Users\\IAM\\Documents\\hackathon\\opencv\\videos\\VID-20261020-WA0001.mp4",
+    "source_kind": "file",
+    "input_fps": 30,
+    "preview_fps": 30,
+    "deadline_ms": 1000,
+    "video_mode": "realtime",
+    "purpose": "failure_diagnostic",
+    "private_local_input": true,
+    "independent_accuracy_credit": false,
+    "profile_options": {
+      "inspection_task": "brackets_railings",
+      "stage": "all",
+      "research_model_manifest": "C:\\Users\\IAM\\Documents\\hackathon\\opencv\\project1\\models\\construction\\expansion-sdnet-v1\\ssdlite320\\manifest.json"
+    },
+    "note": "No independent frame-level ground truth. Every candidate is unscored; no localized-match, recall, false-alarm or code-acceptance claim."
+  },
+  {
+    "label": "Owner damp wall / stain SSDLite - FAILED research / original source",
+    "profile": "construction",
+    "path": "C:\\Users\\IAM\\Documents\\hackathon\\opencv\\videos\\VID-20261020-WA0002.mp4",
+    "source_kind": "file",
+    "input_fps": 30,
+    "preview_fps": 30,
+    "deadline_ms": 1000,
+    "video_mode": "realtime",
+    "purpose": "failure_diagnostic",
+    "private_local_input": true,
+    "independent_accuracy_credit": false,
+    "profile_options": {
+      "inspection_task": "walls_finishes",
+      "stage": "all",
+      "research_model_manifest": "C:\\Users\\IAM\\Documents\\hackathon\\opencv\\project1\\models\\construction\\expansion-wall-stain-v1\\ssdlite320\\manifest.json"
+    },
+    "note": "No independent frame-level ground truth. Every candidate is unscored; no localized-match, recall, false-alarm or code-acceptance claim."
+  },
+  {
+    "label": "Owner fastening before-after / SSD v1 vs YOLO v2 - FAILED research / original source",
+    "profile": "construction",
+    "path": "C:\\Users\\IAM\\Documents\\hackathon\\opencv\\videos\\VID-20261020-WA0001.mp4",
+    "source_kind": "file",
+    "input_fps": 30,
+    "preview_fps": 30,
+    "deadline_ms": 1000,
+    "video_mode": "realtime",
+    "purpose": "failure_diagnostic",
+    "private_local_input": true,
+    "independent_accuracy_credit": false,
+    "profile_options": {
+      "inspection_task": "brackets_railings",
+      "stage": "all",
+      "research_model_manifest": "C:\\Users\\IAM\\Documents\\hackathon\\opencv\\project1\\models\\construction\\expansion-sdnet-v2-performance\\yolov8n\\manifest.json"
+    },
+    "note": "No independent frame-level ground truth. Every candidate is unscored; no localized-match, recall, false-alarm or code-acceptance claim."
   }
 ]

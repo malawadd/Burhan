@@ -78,6 +78,14 @@ class EdgeRuntime:
         self.config = RuntimeConfig()
         self.profile = None
         self.media = None
+        self.inspection_media = None
+        self._guided_preview = False
+        self._inspection_jpeg = None
+        self._inspection_result = None
+        self._inspection_payloads = {}
+        self._inspection_cache = {}
+        self._inspection_cache_bytes = 0
+        self._preview_times = deque(maxlen=2000)
         self.video = {}
         self.buffer = FrameBuffer()
         self.state = "stopped"
@@ -96,11 +104,14 @@ class EdgeRuntime:
         self._triggers: queue.Queue = queue.Queue(maxsize=32)
         self._latencies = deque(maxlen=2000)
         self._inference_times = deque(maxlen=2000)
+        self._inspected_latencies = deque(maxlen=2000)
+        self._model_inference_times = deque(maxlen=2000)
         self._seen_events = set()
         self._missed_units = set()
         self._completed_units = set()
         self._trigger_times = {}
         self._counts = {"captured": 0, "processed": 0, "dropped": 0, "late": 0, "source_skipped": 0,
+                        "inspected_frames": 0, "guidance_frames": 0, "model_inference_frames": 0,
                         "inspection_errors": 0, "missed_units": 0, "coverage_gaps": 0, "async_completions": 0}
 
     def start(self, config: RuntimeConfig):
@@ -122,8 +133,8 @@ class EdgeRuntime:
             raise ValueError("Deadline must be between 20 and 5000 ms")
         if not math.isfinite(config.source_hold_seconds) or not 1 <= config.source_hold_seconds <= 300:
             raise ValueError("Source hold time must be between 1 and 300 seconds")
-        if not math.isfinite(config.preview_fps) or not 0 <= config.preview_fps <= 15:
-            raise ValueError("Preview FPS must be between 0 and 15")
+        if not math.isfinite(config.preview_fps) or not 0 <= config.preview_fps <= 30:
+            raise ValueError("Preview FPS must be between 0 and 30")
         with self._control:
             self._stop_current()
             profile_config = dict(config.profile_options)
@@ -142,6 +153,12 @@ class EdgeRuntime:
                 self.session_id = str(uuid.uuid4())
                 self.state, self.error = "starting", None
                 self.last_result, self._jpeg, self._raw_frame = None, None, None
+                self._guided_preview = config.profile == "construction" and bool(config.profile_options.get("inspection_task"))
+                self._inspection_jpeg, self._inspection_result = None, None
+                self._inspection_payloads.clear()
+                self._inspection_cache.clear()
+                self._inspection_cache_bytes = 0
+                self._preview_times.clear()
                 self.video = {}
                 self._last_context = None
                 self._preview_sequence = None
@@ -151,6 +168,8 @@ class EdgeRuntime:
                 self._last_seen = 0
                 self._latencies.clear()
                 self._inference_times.clear()
+                self._inspected_latencies.clear()
+                self._model_inference_times.clear()
                 self._seen_events.clear()
                 self._missed_units.clear()
                 self._completed_units.clear()
@@ -165,6 +184,9 @@ class EdgeRuntime:
                 session = self.session_id
                 self.media = MediaWorker(lambda jpeg, sequence: self._set_preview(session, jpeg, sequence),
                                          self._encoded_evidence, config.preview_fps)
+                self.inspection_media = (MediaWorker(lambda jpeg, sequence: self._set_inspection(session, jpeg, sequence),
+                                                     self._encoded_evidence, 30)
+                                         if self._guided_preview else None)
             inference_thread=threading.Thread(target=self._infer,name="edge-inference",daemon=True)
             self._threads=[inference_thread]
             inference_thread.start()
@@ -174,6 +196,8 @@ class EdgeRuntime:
                 self._stop.set();self._capture_done.set()
                 self.buffer.close()
                 self.media.close(timeout=3)
+                if self.inspection_media is not None:
+                    self.inspection_media.close(timeout=3)
                 inference_thread.join(timeout=.05)
                 with self._lock:
                     self.error=message;self.state='startup_error';self._ended=time.perf_counter()
@@ -214,6 +238,10 @@ class EdgeRuntime:
             with self._lock:
                 self.error = "Media worker is still closing; wait before restarting the station"
             raise RuntimeError(self.error)
+        if self.inspection_media is not None and not self.inspection_media.close(timeout=3):
+            with self._lock:
+                self.error = "Media worker is still closing; wait before restarting the station"
+            raise RuntimeError(self.error)
         self._threads = []
         with self._lock:
             self.state = "stopped"
@@ -245,6 +273,22 @@ class EdgeRuntime:
                 self._jpeg = jpeg
                 self._preview_sequence = sequence
                 self._preview_generated = time.perf_counter()
+                self._preview_times.append(self._preview_generated)
+
+    def _set_inspection(self, session, jpeg, sequence):
+        """Publish an immutable image/result pair, never boxes on another frame."""
+        with self._lock:
+            payload = self._inspection_payloads.get(sequence)
+            if session == self.session_id and payload is not None:
+                self._inspection_jpeg = jpeg
+                self._inspection_result = payload
+                self._inspection_cache[sequence] = (jpeg, payload)
+                self._inspection_cache_bytes += len(jpeg)
+                while len(self._inspection_cache) > 32 or (self._inspection_cache_bytes > 8*1024*1024 and len(self._inspection_cache) > 1):
+                    first = next(iter(self._inspection_cache))
+                    old, _ = self._inspection_cache.pop(first)
+                    self._inspection_cache_bytes -= len(old)
+                self._inspection_payloads = {key: value for key, value in self._inspection_payloads.items() if key > sequence}
 
     def _encoded_evidence(self, profile, session, payload, jpeg):
         kind = "document_completed" if payload.get("async_source_completion") else "finding"
@@ -337,6 +381,7 @@ class EdgeRuntime:
             "findings": [asdict(f) for f in result.findings],
             "metrics": result.metrics, "domain_state": result.domain_state,
             "sequence": context.sequence, "unit_id": context.unit_id,
+            "session_id": context.session_id,
             "source_id": context.source_id, "captured_monotonic": context.captured_monotonic,
             "provenance": "synthetic_demo" if self.config.source == "demo" else "local_camera" if self.config.source.startswith("camera:") else "local_document" if self.config.source.startswith(("image:", "images:", "pdf:")) else "file_replay",
             "source_time_ms": context.source_time_ms,
@@ -364,6 +409,13 @@ class EdgeRuntime:
             payload["model"]["ppe_preprocess"] = metadata["preprocessing"]
         if "sha256" in metadata:
             payload["model"]["model_sha256"] = metadata["sha256"]
+        if metadata.get("mode") == "guided_construction":
+            payload["model"]["inspection_task"] = metadata.get("inspection_task")
+            payload["model"]["inspection_kind"] = metadata.get("inspection_kind")
+            if isinstance(metadata.get("model_provenance"), dict):
+                # Keep the actual weight hash/thresholds with persisted findings,
+                # not only in the station's transient description.
+                payload["model"]["guided_model_provenance"] = deepcopy(metadata["model_provenance"])
         return payload
 
     def _capture(self):
@@ -423,6 +475,8 @@ class EdgeRuntime:
                     self._counts["captured"] += 1
                     self._raw_frame = frame
                     self._last_seen = captured
+                if self.config.profile == "construction" and getattr(self, "_guided_preview", False):
+                    self.media.preview(frame, sequence)
                 unit = None
                 deadline = None
                 if self.config.profile == "factory" and self.config.triggered:
@@ -531,9 +585,25 @@ class EdgeRuntime:
                             self._completed_units.add(packet.context.unit_id)
                             self._trigger_times.pop(packet.context.unit_id, None)
                 annotated = result.annotated_frame if result.annotated_frame is not None else packet.frame
-                self.media.preview(annotated, packet.context.sequence)
+                if self._guided_preview:
+                    with self._lock:
+                        self._inspection_payloads[packet.context.sequence] = deepcopy(payload)
+                        # Encoding can lag inference. Bound metadata along with the image queue.
+                        if len(self._inspection_payloads) > 8:
+                            del self._inspection_payloads[min(self._inspection_payloads)]
+                    self.inspection_media.preview(annotated, packet.context.sequence)
+                else:
+                    self.media.preview(annotated, packet.context.sequence)
                 with self._lock:
                     self._counts["processed"] += 1
+                    performed = bool(result.metrics.get("inspection_performed", True))
+                    self._counts["inspected_frames"] += int(performed)
+                    self._counts["guidance_frames"] += int(not performed)
+                    self._counts["model_inference_frames"] += int(bool(result.metrics.get("model_inference_ran", False)))
+                    if performed:
+                        self._inspected_latencies.append(latency_ms)
+                    if result.metrics.get("model_inference_ran", False):
+                        self._model_inference_times.append(infer_ms)
                     self._latencies.append(latency_ms)
                     self._inference_times.append(infer_ms)
                     self.last_result = payload
@@ -611,11 +681,32 @@ class EdgeRuntime:
         with self._lock:
             return self._jpeg
 
+    def preview_frame(self):
+        """Read the JPEG and its identity atomically for browser deduplication."""
+        with self._lock:
+            return self._jpeg, self._preview_sequence, self.session_id
+
+    def inspection_preview(self, sequence=None, session_id=None):
+        with self._lock:
+            if self._inspection_jpeg is None or self._inspection_result is None:
+                return None
+            if session_id is not None and session_id != self.session_id:
+                raise ValueError("Inspection session changed; refresh the paired inspection result")
+            if sequence is not None:
+                cached = self._inspection_cache.get(sequence)
+                if cached is None:
+                    raise ValueError("Inspected frame changed; refresh the paired inspection result")
+                return cached[0]
+            return self._inspection_jpeg
+
     def snapshot(self):
         with self._lock:
             now = time.perf_counter()
             elapsed = max(.001, (self._ended or now)-self._started) if self._started else 0
             times = np.asarray(self._latencies, dtype=np.float64)
+            inference_times = np.asarray(self._inference_times, dtype=np.float64)
+            inspected_times = np.asarray(self._inspected_latencies, dtype=np.float64)
+            model_times = np.asarray(self._model_inference_times, dtype=np.float64)
             metrics = dict(self._counts)
             metrics.update({"uptime_s": round(elapsed, 1), "queue_depth": len(self.buffer),
                             "capture_fps": round(self._counts["captured"]/elapsed, 1) if elapsed else 0,
@@ -623,15 +714,30 @@ class EdgeRuntime:
                             "frame_age_ms": round((now-self._last_seen)*1000, 1) if self._last_seen else None,
                             "inference_ms": round(float(np.median(self._inference_times)), 1) if self._inference_times else 0,
                             "max_ms": round(float(times.max()), 1) if times.size else 0})
+            metrics["inspected_fps"] = round(self._counts.get("inspected_frames", self._counts["processed"])/elapsed, 2) if elapsed else 0
+            metrics["guidance_fps"] = round(self._counts.get("guidance_frames", 0)/elapsed, 2) if elapsed else 0
+            metrics["model_inference_fps"] = round(self._counts.get("model_inference_frames", 0)/elapsed, 2) if elapsed else 0
+            metrics["preview_fps"] = (round((len(self._preview_times)-1) / (self._preview_times[-1]-self._preview_times[0]), 2)
+                                      if len(self._preview_times) > 1 and self._preview_times[-1] > self._preview_times[0] else 0)
+            metrics["evidence_age_ms"] = (round(max(0, now-self._inspection_result["captured_monotonic"])*1000, 1)
+                                          if self._inspection_result else None)
             for percentile in (50, 95, 99):
                 metrics[f"p{percentile}_ms"] = round(float(np.percentile(times, percentile)), 1) if times.size else 0
+                metrics[f"inference_p{percentile}_ms"] = round(float(np.percentile(inference_times, percentile)), 1) if inference_times.size else 0
+                metrics[f"inspection_latency_p{percentile}_ms"] = round(float(np.percentile(inspected_times, percentile)), 1) if inspected_times.size else None
+                metrics[f"model_inference_p{percentile}_ms"] = round(float(np.percentile(model_times, percentile)), 1) if model_times.size else None
             return json_safe({"running": self.state in {"starting", "running", "draining"} and not self._stop.is_set(),
                               "profile": self.config.profile, "source": self.config.source,
                               "state": self.state, "error": self.error, "session_id": self.session_id,
                               "config": asdict(self.config), "description": self.description,
                               "metrics": metrics, "last_result": self.last_result,
+                              "inspection_result": self._inspection_result,
+                              "inspection_cache": {"frames": len(self._inspection_cache), "jpeg_bytes": self._inspection_cache_bytes,
+                                                   "frame_limit": 32, "jpeg_byte_limit": 8*1024*1024},
+                              "preview_kind": "live_unannotated" if self._guided_preview else "inspected_frame",
                               "storage": self.store.status(),
                               "media": self.media.status() if self.media else {},
+                              "inspection_media": self.inspection_media.status() if self.inspection_media else {},
                               "video": self.video,
                               "preview_sequence": self._preview_sequence,
                               "preview_age_ms": round((now-self._preview_generated)*1000,1) if self._preview_generated else None,

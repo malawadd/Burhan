@@ -18,6 +18,9 @@ def demo_module(profile: str):
 
 
 def create_profile(name: str, config: dict | None = None):
+    if name == "construction" and "inspection_task" in (config or {}) and config["inspection_task"] is not None:
+        from .profiles.construction_tasks import GuidedConstructionProfile
+        return GuidedConstructionProfile(config)
     names = {"factory": "FactoryProfile", "freight": "FreightProfile", "roads": "RoadsProfile", "construction": "ConstructionProfile"}
     return getattr(demo_module(name), names[name])(config or {})
 

@@ -83,3 +83,37 @@ def test_preview_can_be_disabled_independently_of_event_images():
         assert not worker.preview(np.zeros((20,20,3),np.uint8),1)
         assert worker.status()['pending_bytes']==0
     finally:assert worker.close()
+
+
+def test_preview_cadence_carries_capture_jitter_without_exceeding_sampling_rate(monkeypatch):
+    now = [100.]
+    monkeypatch.setattr('edge_runtime.media.time.perf_counter', lambda: now[0])
+    worker = MediaWorker(lambda *args: None, lambda *args: None, preview_fps=30)
+    image = np.zeros((20, 20, 3), np.uint8)
+    try:
+        admitted = 0
+        for index in range(300):
+            now[0] = 100+index/30+(.001 if index % 2 else 0)
+            admitted += worker.preview(image, index)
+        assert 295 <= admitted <= 300
+    finally:
+        worker.close()
+
+
+def test_preview_rate_bound_and_idle_reset(monkeypatch):
+    now = [100.]
+    monkeypatch.setattr('edge_runtime.media.time.perf_counter', lambda: now[0])
+    worker = MediaWorker(lambda *args: None, lambda *args: None, preview_fps=30)
+    image = np.zeros((20, 20, 3), np.uint8)
+    try:
+        admitted = 0
+        for index in range(600):
+            now[0] = 100+index/100
+            admitted += worker.preview(image, index)
+        assert 175 <= admitted <= 182
+        now[0] = 200.
+        assert worker.preview(image, 601)
+        now[0] = 200.001
+        assert not worker.preview(image, 602)
+    finally:
+        worker.close()

@@ -28,7 +28,7 @@ class StartRequest(BaseModel):
     triggered: bool = False
     profile_options: dict = Field(default_factory=dict)
     source_hold_seconds: float = Field(default=30, ge=1, le=300)
-    preview_fps: float = Field(default=6, ge=0, le=15)
+    preview_fps: float = Field(default=6, ge=0, le=30)
     video_mode: Literal["realtime", "every_frame"] = "realtime"
 
 
@@ -85,6 +85,20 @@ def create_app(data_dir=None):
     def construction_capabilities():
         from .construction_capabilities import load_capabilities
         return load_capabilities()
+
+    @app.get("/api/construction/tasks")
+    def construction_tasks():
+        from .profiles.construction_tasks import task_catalog
+        from .profiles.construction_task_detector import discover_models
+        catalog = task_catalog()
+        catalog["research_models"] = discover_models()
+        for task in catalog["tasks"]:
+            supported = {label for model in catalog["research_models"] if model["inspection_task"] == task["id"] for label in model["classes"]}
+            for category in task["categories"]:
+                if category["id"] in supported:
+                    category["status"] = "research_only"
+                    category["reason"] = "A local trained research model is installed; independent real-video release gates have not passed. " + category["reason"]
+        return catalog
 
     def construction_videos():
         root = Path(__file__).resolve().parent.parent
@@ -287,6 +301,24 @@ def create_app(data_dir=None):
                     options[key] = str(local if local.is_absolute() else root / local)
                     item["available"] = item["available"] and Path(options[key]).is_file()
             if item.get("profile") == "construction":
+                if options.get("inspection_task") is not None:
+                    from .profiles.construction_tasks import TASK_CATALOG
+                    from .profiles.construction_task_detector import read_manifest
+                    task = options.get("inspection_task")
+                    supported = isinstance(task, str) and task in TASK_CATALOG
+                    model_available = False
+                    if options.get("research_model_manifest") is not None:
+                        try:
+                            _, _, spec, _ = read_manifest(options["research_model_manifest"])
+                            model_available = spec.get("inspection_task") == task
+                        except (ValueError, OSError, TypeError):
+                            pass
+                        supported = supported and model_available
+                    item["model_available"] = model_available
+                    item["available"] = item["available"] and supported
+                    item["profile_options"] = options
+                    result.append(item)
+                    continue
                 if construction_specs is None:
                     from .construction_capabilities import registered_models
                     construction_specs = registered_models()
@@ -345,9 +377,20 @@ def create_app(data_dir=None):
 
     @app.get("/api/preview.jpg")
     def preview():
-        jpeg = app.state.runtime.preview()
+        jpeg, sequence, session = app.state.runtime.preview_frame()
         if jpeg is None:
             raise HTTPException(503, "Waiting for a local frame")
+        return Response(jpeg, media_type="image/jpeg", headers={
+            "X-Frame-Sequence": str(sequence), "X-Session-Id": str(session)})
+
+    @app.get("/api/inspection.jpg")
+    def inspection_preview(sequence: int | None = None, session_id: str | None = None):
+        try:
+            jpeg = app.state.runtime.inspection_preview(sequence, session_id)
+        except ValueError as exc:
+            raise HTTPException(409, str(exc))
+        if jpeg is None:
+            raise HTTPException(503, "Waiting for an inspected frame")
         return Response(jpeg, media_type="image/jpeg")
 
     @app.get("/api/events")

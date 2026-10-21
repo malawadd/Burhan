@@ -10,10 +10,14 @@
   };
   let selected = "factory";
   let latest = null;
+  let latestStateReceivedAt = null;
   let busy = false;
   let polling = false;
+  let lastStatePollStartedAt = 0;
   let previewBusy = false;
   let previewUrl = null;
+  let lastPreviewAttempt = 0;
+  let previewFrameKey = null;
   let toastTimer = null;
   let lastSession = null;
   let configurationTouched = false;
@@ -29,6 +33,29 @@
   let requestedConstructionStage = "all";
   let requestedDamageVariant = null;
   let requestedDamageCheck = "";
+  let taskCatalog = {tasks: [
+    {id:"walls_finishes",title:"Walls and finishes",guidance:"Hold a close, evenly lit view of the wall. Include correct paint and dry surfaces for comparison. Damp-looking appearance does not measure moisture.",categories:[{id:"damp_appearance",title:"Damp/stained appearance",status:"unavailable",reason:"Waiting for verified model evidence."},{id:"paint_finish",title:"Peeling, blisters and efflorescence",status:"unavailable",reason:"Each condition needs independent validation."}]},
+    {id:"brackets_railings",title:"Brackets and railings",guidance:"Show the whole bracket, then each fixing close up. Supply the approved expected positions when checking for missing components.",categories:[{id:"fastener_visible_fault",title:"Missing or visibly unseated fastenings",status:"unavailable",reason:"Visible state only; torque and concealed anchors remain unassessed."}]},
+    {id:"tile_installation",title:"Tile installation",guidance:"Show a steady, near-overhead view with a measured reference on the tile plane. Enter the specified joint width and allowed deviation.",categories:[{id:"joint_geometry",title:"Joint spacing and alignment",status:"research",reason:"Measurement validation is required before fault decisions."},{id:"tile_condition",title:"Grout and tile condition",status:"unavailable",reason:"Installed-tile evidence is required."}]},
+  ]};
+  let inspectionUrl = null;
+  let inspectionBusy = false;
+  let inspectedKey = null;
+  let displayedEvidence = null;
+  let requestedResearchModel = "";
+  let researchCatalogLoaded = false;
+  // Frozen evaluation summaries apply only to these exact weight hashes.
+  // A replacement checkpoint must supply its own evidence, never inherit scores.
+  const researchEvaluations = {
+    "043cd896209071d3f2607eaa5a061c2b2922df046262151ddf6b9ad5a2b2c40b": ["Peeling paint and publisher Mold appearance; not a dampness model.", "19 TEST photographs: peeling 4/22 boxes matched, 9 unmatched predictions (30.8% precision, 18.2% recall). Mold 1/3 matched; one prediction cannot establish reliability.", "Photo-only evidence, unknown physical sites. The owner damp-wall replay is unassessed."],
+    "cb6e8fe431df9dfc93cee642f79db3770f8999782e611e6158d7c790c86f9127": ["Peeling paint and publisher Mold appearance; not a dampness model.", "19 TEST photographs: peeling 6/22 boxes matched, 40 unmatched predictions (13.0% precision, 27.3% recall). Mold 0/3 matched.", "Photo-only evidence, unknown physical sites. Both categories fail the quality target."],
+    "b036d57e57708e12b251ce2fc1170b8c638883ed65fac0c2cb6849d3034a8c52": ["Publisher loose bolt/nut and missing-component appearance; arbitrary plate gaps are not trained.", "98 TEST photos: unseated 19/65 matched, 160 annotation-unmatched boxes; absence 6/71 matched, 67 unmatched. Publisher Fixed photos flagged: 21/30 and 8/30.", "Incomplete cross-class annotations and unknown sites. The owner mounting-plate gap remains unresolved."],
+    "3b115f02158bc48254792f6fe4bf6c32801a14912123ecac1a91464818dc6e12": ["Publisher loose bolt/nut and missing-component appearance; arbitrary plate gaps are not trained.", "98 TEST photos: unseated 0/65 matched; absence 4/71 matched. No annotation-unmatched boxes at the frozen point, but almost every annotated instance is missed.", "No independent installation/video qualification. Silence does not prove a secure connection."],
+    "498a2a678dc8488397fb5f7cac9804b7fb09994772b9d68fd73ce31a836ce467": ["Extended publisher bolt/nut fit; not a qualified plate-gap detector.", "98 reused development photos: unseated 24/65 matched, 79 annotation-unmatched boxes (23.3% precision, 36.9% recall); absence 4/71 matched. Fixed photos: 9/30 flagged unseated.", "Owner fastening video: zero candidates on all 207 frames despite the visible plate gap. This requested case is still missed."],
+    "6091f973b636bb13858e7912967b602e32a281a45f7a3e6183179b12ba6ba83d": ["Actual polygon masks for publisher loose/missing bolt-or-nut appearance.", "98 TEST photos: 14/65 unseated and 10/71 absence masks matched at mask IoU ≥0.5. Fixed photos flagged: 6/30 and 13/30.", "Poor localization, inadequate sample counts and unknown physical sites. No real-video release."],
+    "c5d0a46ce93de6f78d3c17b94e2e9362d01f0727e39a7d99c280e3fdf7fad293": ["Actual polygon masks for publisher loose/missing bolt-or-nut appearance.", "98 TEST photos: 17/65 unseated masks matched at mask IoU ≥0.5; all 71 absence instances missed. Fixed photos flagged unseated: 10/30.", "Poor localization, inadequate sample counts and unknown physical sites. No real-video release."],
+    "654384b6653b055583fe2b2a5e73920795ff5d2eb7844d988fd6c9b813649505": ["Visible leakage/stain appearance from publisher boxes; no humidity percentage or cause measurement.", "98 TEST photos, actual CPU adapter: 54/125 boxes matched, 1,917 unmatched predictions (2.74% precision, 43.2% recall). All 51 other-defect negative photos flagged.", "Owner damp video: candidates on all 330 frames, including broad cluttered regions. This has not localized the reported wall fault reliably."],
+  };
   const text = (id, value) => { $(id).textContent = value; };
   const number = (value, digits = 0) => Number.isFinite(Number(value)) && value !== null && value !== undefined ? Number(value).toLocaleString(undefined, {minimumFractionDigits: digits, maximumFractionDigits: digits}) : "—";
   const toggle = (id, visible) => $(id).classList.toggle("hidden", !visible);
@@ -72,6 +99,10 @@
     text("page-description", info.description);
     toggle("trigger-setting", profile === "factory");
     toggle("construction-settings", profile === "construction");
+    toggle("construction-guided-settings", profile === "construction");
+    if (profile === "construction" && guidedTask() && !configurationTouched) {
+      $("input-fps").value=30; $("preview-fps").value=30; $("deadline").value=1000;
+    }
     const realOnly = profile === "construction";
     if (!realOnly) $("construction-recording-player").pause();
     $("source").querySelector('option[value="demo"]').disabled = realOnly;
@@ -81,6 +112,115 @@
     }
     renderConstructionPlan();
     renderState(latest);
+  }
+
+  function guidedTask(options = null) {
+    const task = options ? options.inspection_task : $("construction-task").value;
+    return ["walls_finishes", "brackets_railings", "tile_installation"].includes(task) ? task : "";
+  }
+
+  function syncGuidedOptions(options) {
+    $("construction-task").value = guidedTask(options);
+    requestedResearchModel = guidedTask(options) ? options.research_model_manifest || "" : "";
+    const roi = options.roi || [0,0,1,1];
+    ["left","top","right","bottom"].forEach((side,index)=>$("material-roi-"+side).value=roi[index] ?? [0,0,1,1][index]);
+    $("tile-nominal-joint").value = options.nominal_joint_mm ?? "";
+    $("tile-joint-tolerance").value = options.tolerance_mm ?? "";
+    $("construction-calibration-reference").value = options.calibration_reference ? JSON.stringify(options.calibration_reference,null,2) : "";
+    $("construction-expected-fasteners").value = options.expected_fasteners ? JSON.stringify(options.expected_fasteners,null,2) : "";
+    renderGuidedTask();
+  }
+
+  function renderResearchModels() {
+    const task=guidedTask();
+    const select=$("construction-research-model");
+    const models=(taskCatalog.research_models || []).filter(model=>model.inspection_task===task);
+    const wanted=requestedResearchModel || select.value;
+    const signature=JSON.stringify([task,models.map(model=>[model.manifest,model.title])]);
+    if(select.dataset.catalogSignature!==signature) {
+      select.replaceChildren(new Option(task==="tile_installation" ? "No defect detector · geometry observations only" : "No detector · capture guidance only",""));
+      models.forEach(model=>select.append(new Option(`${model.title || "Local model"} · NOT QUALIFIED`,model.manifest)));
+      select.dataset.catalogSignature=signature;
+    }
+    const available=models.find(model=>model.manifest===wanted);
+    select.value=available ? wanted : "";
+    if(researchCatalogLoaded) requestedResearchModel=available ? wanted : "";
+    const chosen=models.find(model=>model.manifest===select.value);
+    const classes=chosen?.classes?.length ? ` Classes: ${chosen.classes.join(", ")}.` : "";
+    text("construction-research-model-note",chosen ? `Experimental candidates only.${classes} No output is not a defect-free result.` : task==="tile_installation" ? "Geometry can report visible edge observations. No qualified tile-fault detector is selected." : "No detector is selected. Capture guidance cannot detect or rule out a fault.");
+    const evaluation=chosen && researchEvaluations[chosen.model_sha256];
+    text("construction-model-evaluation-title",chosen ? "FAILED / NOT QUALIFIED FOR INSPECTION" : "NO DETECTOR · CONDITIONS NOT ASSESSED");
+    text("construction-model-evaluation-scope",evaluation?.[0] || (chosen ? chosen.reason || "No accepted performance evidence for this exact checkpoint." : task==="tile_installation" ? "Image-space edge measurements do not establish missing grout, tile damage or installation correctness." : "The preview and capture guidance do not assess installation correctness."));
+    text("construction-model-evaluation-results",evaluation?.[1] || (chosen ? "Independent category validation has not passed. Installed weights do not establish working detection." : models.length ? "Available checkpoints are failed or unqualified experiments, not working inspection categories." : "No compatible trained detector is installed for this task."));
+    text("construction-model-evaluation-limit",evaluation?.[2] || "No finding cannot establish that a wall, connection or tile installation is correct.");
+  }
+
+  function renderGuidedTask() {
+    const task = guidedTask();
+    toggle("construction-task-details", Boolean(task));
+    toggle("construction-tile-options", task === "tile_installation");
+    toggle("construction-settings", selected === "construction" && !task);
+    renderResearchModels();
+    const catalog = taskCatalog.tasks.find(item=>item.id===task);
+    text("construction-task-guide", catalog?.guidance || "Select a task to see capture guidance and measured capability status.");
+    const holder = $("construction-task-categories"); holder.replaceChildren();
+    (catalog?.categories || []).forEach(category=>{
+      const row=document.createElement("div"); row.className="task-category";
+      const heading=document.createElement("strong"); heading.textContent=category.title || category.id;
+      const state=document.createElement("span"); state.className="badge";
+      const status=category.status || "unavailable";
+      state.textContent=({validated:"VALIDATED",research:"NOT QUALIFIED",research_only:"NOT QUALIFIED",unavailable:"UNAVAILABLE"})[status] || status.replaceAll("_"," ").toUpperCase();
+      const reason=document.createElement("p"); reason.textContent=category.reason || "No independent release evidence is recorded.";
+      row.append(heading,state,reason); holder.append(row);
+    });
+  }
+
+  async function loadConstructionTasks() {
+    try { const catalog=await request("/api/construction/tasks"); if(Array.isArray(catalog.tasks)) { taskCatalog=catalog; researchCatalogLoaded=true; } }
+    catch (_) { /* Fallback categories remain explicitly unverified. */ }
+    renderGuidedTask();
+  }
+
+  function renderEvidenceAge(state) {
+    const paired=state?.inspection_result;
+    const age=state?.metrics?.evidence_age_ms;
+    const sameSession=displayedEvidence && displayedEvidence.session_id===state?.session_id;
+    const canEstimate=sameSession && Number.isFinite(age) && Number.isFinite(paired?.captured_monotonic) && Number.isFinite(displayedEvidence.captured_monotonic);
+    const browserElapsed=Number.isFinite(latestStateReceivedAt) ? Math.max(0,performance.now()-latestStateReceivedAt) : 0;
+    const shownAge=canEstimate ? age+Math.max(0,(paired.captured_monotonic-displayedEvidence.captured_monotonic)*1000)+browserElapsed : null;
+    text("guided-evidence-age", `Shown evidence age ${shownAge===null ? "—" : "≈ "+number(shownAge,0)+" ms"}`);
+    $("guided-evidence-age").title="Estimated age of the displayed inspected frame from host receipt, plus browser time since the latest status. Network transfer and camera exposure are not measured.";
+  }
+
+  function applyGuidedOptions(options) {
+    const task=guidedTask();
+    if(!task) { delete options.inspection_task; delete options.research_model_manifest; return; }
+    options.inspection_task=task;
+    // Guided controls own model selection; empty means no hidden advanced detector.
+    delete options.research_model;
+    const researchManifest=$("construction-research-model").value;
+    if(researchManifest) {
+      const model=(taskCatalog.research_models || []).find(model=>model.manifest===researchManifest && model.inspection_task===task);
+      if(!model) throw new Error("Choose a compatible verified local research model, or leave the model selector empty.");
+      options.research_model_manifest=researchManifest;
+    } else delete options.research_model_manifest;
+    const roi=["left","top","right","bottom"].map(side=>Number($("material-roi-"+side).value));
+    if(roi.some(value=>!Number.isFinite(value) || value<0 || value>1) || roi[0]>=roi[2] || roi[1]>=roi[3]) throw new Error("Material area must have left < right and top < bottom, within 0–1.");
+    options.roi=roi;
+    [["construction-calibration-reference","calibration_reference",false],["construction-expected-fasteners","expected_fasteners",true]].forEach(([id,key,array])=>{
+      const raw=$(id).value.trim();
+      if(!raw) { delete options[key]; return; }
+      let value; try { value=JSON.parse(raw); } catch(_) { throw new Error(`${array ? "Expected fastening positions" : "Scale reference"} must contain valid JSON.`); }
+      if(!value || (array ? !Array.isArray(value) : Array.isArray(value) || typeof value!=="object")) throw new Error(`${array ? "Expected fastening positions must be an array" : "Scale reference must be an object"}.`);
+      options[key]=value;
+    });
+    [["tile-nominal-joint","nominal_joint_mm",false],["tile-joint-tolerance","tolerance_mm",true]].forEach(([id,key,zero])=>{
+      const raw=$(id).value.trim();
+      if(task!=="tile_installation" || !raw) { delete options[key]; return; }
+      const value=Number(raw);
+      if(!Number.isFinite(value) || (zero ? value<0 : value<=0)) throw new Error("Joint width must be positive and allowed deviation must be zero or positive.");
+      options[key]=value;
+    });
   }
 
   function renderConstructionPlan() {
@@ -286,6 +426,13 @@
     shownEvidenceFrame = null;
     toggle("construction-case-evidence", Boolean(evidence));
     if (!evidence) return;
+    const ownerDiagnostics={
+      "guided-fastening-ssd-v1-owner":"FAILED OWNER CASE: the visible separation is between the mounting plate and wall. The old model places candidates on 25 of 207 frames; its first box at 0.63 s covers the horizontal rail beside the connection, not the plate-to-wall gap. These boxes do not establish a missing fastener or secure anchors. Expected layout and fastening torque are unassessed.",
+      "guided-fastening-before-after-v2-owner":"FAILED OWNER CASE: original / old model / new model show the same real plate-to-wall separation. The new model gives zero candidates on all 207 frames. This misses the requested plate-gap issue; an empty overlay is not a correct fastening result.",
+      "guided-damp-stain-ssd-v1-owner":"FAILED OWNER CASE: the owner reports humidity damage. The yellow boxes are stain-appearance proposals, not measured moisture or confirmed damage boundaries. At the midpoint they overlap broad wall, baseboard and floor regions; all 330 frames have candidates. This clutter does not provide a useful localized wall-fault assessment.",
+    };
+    const diagnostic=ownerDiagnostics[record.id] || (record.purpose==="failure_diagnostic" ? "FAILURE DIAGNOSTIC: this playback exposes an unresolved model case. Boxes are experimental proposals; an empty overlay does not establish that the visible installation is correct." : "");
+    text("construction-diagnostic-explanation",diagnostic); toggle("construction-diagnostic-explanation",Boolean(diagnostic));
     text("construction-case-title", evidence.title || record.label);
     text("construction-case-issue", evidence.issue_summary || record.issue_summary || "See the original annotation and model output.");
     text("construction-case-why", evidence.why_it_matters ? `Why inspect: ${evidence.why_it_matters}` : "");
@@ -365,6 +512,7 @@
         $("file-path").value = preset.source.slice(separator+1);
         $("profile-options").value = JSON.stringify(preset.profile_options || {}, null, 2);
         if (preset.profile === "construction") {
+          syncGuidedOptions(preset.profile_options || {});
           $("construction-mode").value = preset.profile_options?.mode || "ppe";
           requestedDamageVariant=preset.profile_options?.damage_variant || null;
           if(requestedDamageVariant) $("construction-damage-variant").value=requestedDamageVariant;
@@ -401,12 +549,12 @@
     });
   }
 
-  function renderFindings(findings, processed, explanations=[]) {
+  function renderFindings(findings, processed, explanations=[], constructionContext=null) {
     const holder = $("findings"); holder.replaceChildren();
     text("finding-count", findings.length);
     if (!findings.length) {
       const paragraph = document.createElement("p"); paragraph.className = "empty-copy";
-      paragraph.textContent = processed ? "No findings reported for the latest frame." : "Findings appear here when a frame is processed.";
+      paragraph.textContent = constructionContext ? constructionContext.noDetector ? "No detector ran for this task. Faults have not been assessed." : processed ? "No experimental candidate in this frame. Faults may be missed; this is not an inspection pass." : "No construction assessment yet. Selected experiments do not establish reliable inspection." : processed ? "No findings reported for the latest frame." : "Findings appear here when a frame is processed.";
       holder.append(paragraph); return;
     }
     findings.forEach((finding,index) => {
@@ -425,6 +573,13 @@
       const parts = [finding.method || "opencv"];
       if (finding.score !== null && finding.score !== undefined) parts.push(`method score ${number(finding.score, 3)}`);
       if (finding.bbox) parts.push(`region ${finding.bbox.join(", ")}`);
+      if (finding.task_id) parts.push(`task ${String(finding.task_id).replaceAll("_"," ")}`);
+      if (finding.evidence_timestamp_ms !== null && finding.evidence_timestamp_ms !== undefined) parts.push(`video ${videoTime(finding.evidence_timestamp_ms)}`);
+      if (finding.assessment_status) parts.push(String(finding.assessment_status).replaceAll("_"," "));
+      if (finding.measurements) {
+        const p=document.createElement("p"); p.className="finding-explanation";
+        p.textContent=`Measurement: ${JSON.stringify(finding.measurements)}`; body.append(p);
+      }
       meta.textContent = parts.join(" · "); body.append(meta); row.append(dot, body); holder.append(row);
     });
   }
@@ -438,11 +593,14 @@
     const measurements = state && state.metrics || {};
     const storage = state && state.storage || {};
     const source = showingExisting ? state.source : $("source").value;
+    const activeTask=activeProfile==="construction" ? guidedTask(showingExisting ? state.config?.profile_options || {} : {inspection_task:guidedTask()}) : "";
+    renderGuidedTask();
+    toggle("inspection-evidence-panel", Boolean(activeTask));
     toggle("construction-coverage", selected === "construction" || activeProfile === "construction");
     toggle("construction-recordings", selected === "construction" || activeProfile === "construction");
     toggle("construction-capabilities", selected === "construction" || activeProfile === "construction");
-    toggle("construction-damage-settings", selected === "construction" && $("construction-mode").value === "damage");
-    toggle("construction-damage-check-settings", selected === "construction" && $("construction-mode").value === "damage");
+    toggle("construction-damage-settings", selected === "construction" && !guidedTask() && $("construction-mode").value === "damage");
+    toggle("construction-damage-check-settings", selected === "construction" && !guidedTask() && $("construction-mode").value === "damage");
     toggle("video-mode-setting", $("source").value === "file");
     const video = state?.video || {};
     toggle("video-timeline", Boolean(video.source_fps || video.frame_count));
@@ -458,13 +616,14 @@
     $("stream-dot").classList.toggle("active", running);
     text("preview-state", running ? `${info.label.toUpperCase()} · ${state.state || "RUNNING"}` : $("preview").classList.contains("hidden") ? "NO ACTIVE STREAM" : `STOPPED · ${info.label.toUpperCase()} · LAST PREVIEW`);
     const constructionPhoto=activeProfile==="construction" && /^(image|images)(:|$)/.test(String(source));
-    text("preview-scope", constructionPhoto ? "Real photo · selected condition candidates" : state?.description?.mode === "local_trained_surface_model" ? "LOCAL SURFACE MODEL · NARROW DOMAIN" : info.scope);
+    text("preview-scope", activeTask ? "RAW PREVIEW · inspected evidence below" : constructionPhoto ? "Real photo · selected condition candidates" : state?.description?.mode === "local_trained_surface_model" ? "LOCAL SURFACE MODEL · NARROW DOMAIN" : info.scope);
+    $("preview").alt = activeTask ? "Unannotated live source preview; inspected evidence is shown separately below" : "Annotated inspection frame from the local edge runtime";
     const limits = state?.description?.limitations;
     text("profile-limitation", showingExisting && limits ? (Array.isArray(limits) ? limits.join(" ") : String(limits)) : info.limitation);
     if (activeProfile === "factory" && state?.description?.manual_review_only) {
       text("profile-limitation", "Manual review only. Candidates are unverified; no candidate does not approve a unit. Completed units count delivered observations, not physical acceptance or rejection.");
     }
-    text("tools-hint", constructionPhoto ? "Review the original photo and selected condition. Other checks remain unassessed." : info.hint);
+    text("tools-hint", activeTask ? taskCatalog.tasks.find(task=>task.id===activeTask)?.guidance || "Follow the selected task capture guidance." : constructionPhoto ? "Review the original photo and selected condition. Other checks remain unassessed." : info.hint);
     const mismatch = running && state.profile !== selected;
     const previousProfile = showingExisting && !running && state.profile !== selected;
     toggle("setup-notice", mismatch || previousProfile || (running && configurationTouched));
@@ -494,10 +653,21 @@
     text("result-action", result?.action ? result.action.replaceAll("_", " ") : "Choose a source");
     renderChecklist(result?.domain_state);
     const doc = result?.domain_state;
+    const captureGuidance=doc?.capture_guidance;
+    text("inspection-capture-guidance", Array.isArray(captureGuidance) ? captureGuidance.join(" ") : captureGuidance || "Keep the selected material clear and steady. Await an inspected frame.");
+    text("guided-preview-fps", `Preview ${number(measurements.preview_fps,1)} fps`);
+    const inspectionKind=state?.description?.inspection_kind;
+    text("guided-inspection-fps", inspectionKind==="guidance" ? `Guidance ${number(measurements.guidance_fps,1)} fps · no detector` : `${inspectionKind==="geometry" ? "Geometry" : "Inspected"} ${number(measurements.inspected_fps ?? measurements.processed_fps,1)} fps`);
+    renderEvidenceAge(state);
     const documentContent = doc && (doc.ocr || doc.extracted_fields || doc.ocr_text || doc.text);
     toggle("document-detail", Boolean(documentContent));
     text("document-text", documentContent ? JSON.stringify(documentContent, null, 2) : "");
-    renderFindings(result?.findings || [], Boolean(result), result?.domain_state?.review_findings || []);
+    const noConstructionDetector=Boolean(activeTask && (inspectionKind==="guidance" || !showingExisting && activeTask!=="tile_installation" && !$("construction-research-model").value));
+    if(activeTask) {
+      if(!/error/.test(status)) tag("result-status",noConstructionDetector ? "NOT ASSESSED · NO DETECTOR" : "NOT QUALIFIED", "warning");
+      if(!result?.findings?.length) text("result-action",noConstructionDetector ? "Capture guidance only" : "Review source · faults may be missed");
+    }
+    renderFindings(result?.findings || [], Boolean(result), result?.domain_state?.review_findings || [], activeProfile==="construction" ? {noDetector:noConstructionDetector} : null);
     metric("metric-p95", measurements.p95_ms, "ms", 1);
     metric("metric-fps", measurements.processed_fps, "fps", 1);
     metric("metric-processed", measurements.processed, "");
@@ -527,12 +697,14 @@
   async function pollState() {
     if (polling) return;
     polling = true;
+    lastStatePollStartedAt = performance.now();
     try {
       const state = await request("/api/state");
       if (firstState) {
         firstState = false;
-        if (state.running && profiles[state.profile]) { selected = state.profile; chooseProfile(selected); }
-        if (state.config && state.running) {
+        const restoreGuided=state.profile==="construction" && Boolean(guidedTask(state.config?.profile_options || {}));
+        if ((state.running || restoreGuided) && profiles[state.profile]) { selected = state.profile; chooseProfile(selected); }
+        if (state.config && (state.running || restoreGuided)) {
           $("input-fps").value = state.config.input_fps || 12;
           $("deadline").value = state.config.deadline_ms || 350;
           $("save-evidence").checked = Boolean(state.config.save_evidence);
@@ -545,6 +717,7 @@
           $("preview-fps").value = state.config.preview_fps ?? 6;
           $("video-mode").value = state.config.video_mode || "realtime";
           if (state.profile === "construction") {
+            syncGuidedOptions(state.config.profile_options || {});
             $("construction-mode").value = state.config.profile_options?.mode || "ppe";
             requestedDamageVariant=state.config.profile_options?.damage_variant || null;
             if(requestedDamageVariant) $("construction-damage-variant").value=requestedDamageVariant;
@@ -558,9 +731,11 @@
       if (lastSession !== null && state.session_id !== lastSession) clearPreview();
       lastSession = state.session_id;
       latest = state;
+      latestStateReceivedAt = performance.now();
       text("connection-label", "Edge runtime connected");
       $("connection-dot").className = "tiny-dot";
       renderState(state);
+      if(state.running && state.profile==="construction" && guidedTask(state.config?.profile_options || {}) && !document.hidden) void pollInspectionEvidence();
     } catch (error) {
       text("connection-label", "Runtime connection lost");
       $("connection-dot").className = "tiny-dot error";
@@ -572,23 +747,70 @@
   function clearPreview() {
     if (previewUrl) URL.revokeObjectURL(previewUrl);
     previewUrl = null; $("preview").removeAttribute("src");
+    previewFrameKey=null;
     toggle("preview", false); toggle("preview-placeholder", true);
+    if(inspectionUrl) URL.revokeObjectURL(inspectionUrl);
+    inspectionUrl=null; inspectedKey=null; displayedEvidence=null; $("inspection-evidence").removeAttribute("src");
+    delete $("inspection-evidence").dataset.sequence;
+    delete $("inspection-evidence").dataset.capturedMonotonic;
+    toggle("inspection-evidence",false); text("inspection-evidence-time","Awaiting inspection");
+  }
+
+  async function pollInspectionEvidence() {
+    const snapshot=latest;
+    const result=snapshot?.inspection_result;
+    if(inspectionBusy || document.hidden || snapshot?.profile!=="construction" || !guidedTask(snapshot.config?.profile_options || {}) || result?.sequence===undefined) return;
+    const session=result.session_id || snapshot.session_id;
+    const key=`${session}:${result.sequence}`;
+    if(key===inspectedKey) return;
+    inspectionBusy=true;
+    try {
+      const response=await fetch(`/api/inspection.jpg?sequence=${encodeURIComponent(result.sequence)}&session_id=${encodeURIComponent(session)}&t=${Date.now()}`,{cache:"no-store"});
+      if(!response.ok) return;
+      const blob=await response.blob();
+      if(latest?.session_id!==snapshot.session_id || !guidedTask(latest.config?.profile_options || {})) return;
+      const url=URL.createObjectURL(blob);
+      try {
+        const decoded=new Image(); decoded.src=url; await decoded.decode();
+      } catch(error) { URL.revokeObjectURL(url); throw error; }
+      if(latest?.session_id!==snapshot.session_id || !guidedTask(latest.config?.profile_options || {})) { URL.revokeObjectURL(url); return; }
+      if(displayedEvidence?.session_id===session && Number.isFinite(displayedEvidence.sequence) && Number(result.sequence)<=displayedEvidence.sequence) { URL.revokeObjectURL(url); return; }
+      $("inspection-evidence").src=url;
+      if(inspectionUrl) URL.revokeObjectURL(inspectionUrl);
+      inspectionUrl=url; inspectedKey=key; toggle("inspection-evidence",true);
+      displayedEvidence={session_id:session,captured_monotonic:result.captured_monotonic,sequence:Number(result.sequence)};
+      $("inspection-evidence").dataset.sequence=String(result.sequence);
+      $("inspection-evidence").dataset.capturedMonotonic=String(result.captured_monotonic);
+      const sourceTime=result.source_time_ms ?? result.domain_state?.evidence_timestamp_ms;
+      text("inspection-evidence-time",`Frame ${result.sequence}${sourceTime!==undefined && sourceTime!==null ? " · video "+videoTime(sourceTime) : " · source time unavailable"}`);
+      text("inspection-evidence-caption",`Exact inspected frame · ${String(result.domain_state?.assessment_status || result.status || "observation").replaceAll("_"," ")}. The raw preview is shown separately above.`);
+      renderEvidenceAge(latest);
+    } catch(_) { /* State polling reports connection failures; a mismatched frame is never substituted. */ }
+    finally { inspectionBusy=false; }
   }
 
   async function pollPreview() {
     const restoreStoppedPreview=latest?.last_result && !latest?.running && !previewUrl;
     if (previewBusy || (!latest?.running && !restoreStoppedPreview) || latest?.config?.preview_fps === 0 || document.hidden) return;
+    const highRateGuided=latest?.profile==="construction" && guidedTask(latest.config?.profile_options || {});
+    if(!highRateGuided && performance.now()-lastPreviewAttempt<165) return;
+    lastPreviewAttempt=performance.now();
     previewBusy = true;
     const session = latest.session_id;
     try {
       const response = await fetch(`/api/preview.jpg?t=${Date.now()}`, {cache: "no-store"});
       if (!response.ok) return;
+      const frameSequence=response.headers.get("X-Frame-Sequence");
+      const frameSession=response.headers.get("X-Session-Id");
+      const frameKey=frameSequence!==null && frameSession!==null ? `${frameSession}:${frameSequence}` : null;
+      if(frameKey!==null && frameKey===previewFrameKey) return;
       const blob = await response.blob();
       if (latest?.session_id !== session) return;
       const next = URL.createObjectURL(blob);
       $("preview").src = next;
       if (previewUrl) URL.revokeObjectURL(previewUrl);
       previewUrl = next; toggle("preview", true); toggle("preview-placeholder", false);
+      previewFrameKey=frameKey;
     } catch (_) { /* state polling communicates network errors */ }
     finally { previewBusy = false; }
   }
@@ -631,14 +853,20 @@
   }
 
   document.querySelectorAll(".profile-button").forEach((button) => button.addEventListener("click", () => chooseProfile(button.dataset.profile)));
-  ["source", "file-path", "input-fps", "deadline", "save-evidence", "triggered", "profile-options", "source-hold", "preview-fps", "video-mode", "construction-stage", "construction-mode", "construction-damage-variant", "construction-damage-check"].forEach((id) => $(id).addEventListener("change", () => {
+  ["source", "file-path", "input-fps", "deadline", "save-evidence", "triggered", "profile-options", "source-hold", "preview-fps", "video-mode", "construction-stage", "construction-mode", "construction-damage-variant", "construction-damage-check", "construction-task", "construction-research-model", "material-roi-left", "material-roi-top", "material-roi-right", "material-roi-bottom", "tile-nominal-joint", "tile-joint-tolerance", "construction-calibration-reference", "construction-expected-fasteners"].forEach((id) => $(id).addEventListener("change", () => {
     configurationTouched = true;
+    if(id==="construction-task") { requestedResearchModel=""; $("construction-research-model").value=""; }
+    if(id==="construction-research-model") requestedResearchModel=$("construction-research-model").value;
     toggle("preset-evidence-note",false);
     toggle("file-field", ["file", "image", "images", "pdf"].includes($("source").value));
     renderState(latest);
     if (id === "construction-stage") { requestedConstructionStage = $("construction-stage").value; renderConstructionPlan(); }
     if (id === "construction-damage-variant") { requestedDamageVariant=$("construction-damage-variant").value; requestedDamageCheck=""; updateDamageChecks(); }
     if (id === "construction-damage-check") requestedDamageCheck=$("construction-damage-check").value;
+    if(id === "construction-task" && guidedTask()) {
+      $("preview-fps").value=30; $("input-fps").value=30; $("deadline").value=1000;
+      renderGuidedTask();
+    }
   }));
   $("start-button").addEventListener("click", async () => {
     let source = $("source").value;
@@ -654,7 +882,12 @@
     let profileOptions;
     try { profileOptions = JSON.parse($("profile-options").value || "{}"); if (!profileOptions || Array.isArray(profileOptions) || typeof profileOptions !== "object") throw new Error(); }
     catch (_) { notify("Profile options must be a JSON object.", true); return; }
-    if (selected === "construction") {
+    if (selected === "construction" && guidedTask()) {
+      try { applyGuidedOptions(profileOptions); }
+      catch(error) { notify(error.message,true); return; }
+      profileOptions.stage=$("construction-stage").value;
+    } else if (selected === "construction") {
+      applyGuidedOptions(profileOptions);
       profileOptions.mode = $("construction-mode").value;
       profileOptions.stage = $("construction-stage").value;
       if(profileOptions.mode!=="crack") delete profileOptions.crack_variant;
@@ -671,7 +904,7 @@
     const sourceHold = Number($("source-hold").value);
     if (!Number.isFinite(sourceHold) || sourceHold < 1 || sourceHold > 300) { notify("Use a page hold time between 1 and 300 seconds.", true); return; }
     const previewFps = Number($("preview-fps").value);
-    if (!Number.isFinite(previewFps) || previewFps < 0 || previewFps > 15) { notify("Use a preview rate between 0 and 15 FPS.", true); return; }
+    if (!Number.isFinite(previewFps) || previewFps < 0 || previewFps > 30) { notify("Use a preview rate between 0 and 30 FPS.", true); return; }
     await command("/api/start", {profile: selected, source, input_fps: fps, width: 960, height: 540, deadline_ms: deadline, save_evidence: $("save-evidence").checked, triggered: selected === "factory" && $("triggered").checked, profile_options: profileOptions, source_hold_seconds: sourceHold, preview_fps: previewFps, video_mode: $("video-mode").value}, "Inspection started");
     configurationTouched = false;
   });
@@ -740,15 +973,21 @@
       setTimeout(() => URL.revokeObjectURL(url), 1000);
     } catch (error) { notify(error.message, true); }
   });
-  window.addEventListener("pagehide", () => { if (previewUrl) URL.revokeObjectURL(previewUrl); });
+  window.addEventListener("pagehide", () => { if (previewUrl) URL.revokeObjectURL(previewUrl); if(inspectionUrl) URL.revokeObjectURL(inspectionUrl); });
   chooseProfile(selected);
   loadPresets();
   loadConstructionCatalog();
   loadConstructionCapabilities();
+  loadConstructionTasks();
   loadRecordedVideos();
   pollState(); pollEvents();
-  setInterval(pollState, 500);
-  setInterval(pollPreview, 170);
+  setInterval(()=>{
+    const guidedRunning=latest?.running && latest.profile==="construction" && guidedTask(latest.config?.profile_options || {}) && !document.hidden;
+    if(performance.now()-lastStatePollStartedAt >= (guidedRunning ? 200 : 500)-5) void pollState();
+  },100);
+  setInterval(pollPreview, 33);
+  setInterval(pollInspectionEvidence, 250);
+  setInterval(()=>{if(displayedEvidence && !document.hidden)renderEvidenceAge(latest);},100);
   setInterval(pollEvents, 2000);
 })();
 
